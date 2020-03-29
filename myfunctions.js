@@ -11,11 +11,26 @@ function loadLatest() {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
         let dailyIncrease = parseInt(countrydata[0].confirmed) - parseInt(countrydata[1].confirmed)
+        let dailyRecovered = parseInt(countrydata[0].recovered) - parseInt(countrydata[1].recovered)
+        let dailyDeaths = parseInt(countrydata[0].deaths) - parseInt(countrydata[1].deaths)
         console.log(countrydata)
 
         $("#ctoday").append(`${dailyIncrease}`)
-        $("#rtoday").append(`${countrydata[0].recovered}`)
-        $("#dtoday").append(`${countrydata[0].deaths}`)
+        if (dailyIncrease > 0) {
+            $("#ctoday").append(`<i class="fas fa-angle-double-up red"></i>`)
+        }
+
+        $("#rtoday").append(`${dailyRecovered}`)
+        if (dailyRecovered > 0) {
+            $("#rtoday").append(`<i class="fas fa-angle-double-up green"></i>`)
+        }
+
+        $("#dtoday").append(`${dailyDeaths}`)
+
+        
+        
+
+
 
         //converting dates to ISO format
         for (let i of countrydata) {

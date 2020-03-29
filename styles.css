@@ -2,20 +2,42 @@ body {
     overflow: hidden;
     padding: 0;
     margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+    overflow-x: hidden;
+    background-color: #F3F3F3;
+    color: #303841;
 }
 
 .ibor {
-    border: 3px solid indigo;
+    border: 3px solid gold;
 }
 
 #linegraphx svg {
     overflow: visible;
 }
 
-/* #linegraphx .y {
-   transform: translate(60px, 10px);
+header {
+    position: fixed;
+    top:0%;
 }
 
-#linegraphx .x {
-    transform: translate(60px, 258px);
- } */
+main {
+    margin-top: 30px;
+}
+
+.red {
+    color:red;
+    margin: 0 0 0 5px;
+}
+
+.green {
+    color:lime;
+    margin: 0 0 0 5px;
+}
+
+.nmcard {
+    width: 300px;
+    background-color: black;
+    color:white;
+    padding: 10px;
+}

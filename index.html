@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet"> 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,6 +24,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
 
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <title>COVID-19 Tracker</title>
 </head>
 
@@ -32,9 +36,21 @@
             <!-- overview m-->
             <div class="container-fluid ibor">
                 <div class="row">
-                    <div class="col-12 col-md-4 ibor">Confirmed Cases Today: <span id="ctoday"></span></div>
-                    <div class="col-12 col-md-4 ibor">Recoveries Total: <span id="rtoday"></span></div>
-                    <div class="col-12 col-md-4 ibor">Deaths Total: <span id="dtoday"></span></div>
+                    <div class="col-4 ibor d-flex justify-content-center">
+                        <div class="nmcard">
+                            Confirmed Cases Today: <span id="ctoday"></span>
+                        </div>
+                    </div>
+                    <div class="col-4 ibor d-flex justify-content-center">
+                        <div class="nmcard">
+                            Recoveries Today: <span id="rtoday"></span>
+                        </div>
+                    </div>
+                    <div class="col-4 ibor d-flex justify-content-center">
+                        <div class="nmcard">
+                            Deaths Today: <span id="dtoday"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- line chart m-->
