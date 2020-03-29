@@ -7,3 +7,15 @@ body {
 .ibor {
     border: 3px solid indigo;
 }
+
+#linegraphx svg {
+    overflow: visible;
+}
+
+/* #linegraphx .y {
+   transform: translate(60px, 10px);
+}
+
+#linegraphx .x {
+    transform: translate(60px, 258px);
+ } */

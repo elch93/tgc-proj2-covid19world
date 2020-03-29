@@ -29,8 +29,16 @@
     <header class="container-fluid ibor d-sm-none">header empty for now</header>
     <main>
         <section>
+            <!-- overview m-->
+            <div class="container-fluid ibor d-sm-none">
+                <div class="row">
+                    <div class="col-4 ibor" id="ctoday">Confirmed Cases Today: </div>
+                    <div class="col-4 ibor" id="rtoday">Recoveries Today: </div>
+                    <div class="col-4 ibor" id="dtoday">Deaths Today: </div>
+                </div>
+            </div>
             <!-- line chart m-->
-            <div class="container-fluid ibor d-sm-none">Here's a report for the past 7 days: 
+            <div class="container-fluid ibor d-sm-none" id="lgdisplay">Here's a report for the past 7 days: 
                 <div id="linegraphx"></div>
             </div>
 
@@ -46,6 +54,11 @@
             <!-- details m-->
             <div class="container-fluid ibor d-sm-none">details here
                 <div id="detailsx"></div>
+            </div>
+
+            <!-- map info -->
+            <div class="container-fluid ibor d-sm-none">map Here
+                <div id="displaymap"></div>
             </div>
         </section>
     </main>
