@@ -17,6 +17,20 @@ function loadLatest() {
         $("#rtoday").append(`${countrydata[0].recovered}`)
         $("#dtoday").append(`${countrydata[0].deaths}`)
 
+        //converting dates to ISO format
+        for (let i of countrydata) {
+            //console.log(i.date[6])
+            if (i.date[6] === "-") {
+                i.date = i.date.substr(0,5) + "0" + i.date.substr(5);
+                
+            }
+            if (i.date.length < 10) {
+                i.date = i.date.substr(0,8) + "0" + i.date.substr(8);
+            }
+            console.log(i.date)
+            i.date = moment(i.date).format("DD/MM/YY")
+        }
+
         //get the data for past 7 days
         let weeklydata = countrydata.slice(0,7)
         console.log(weeklydata)
@@ -47,63 +61,7 @@ function loadLatest() {
 
 
 
-
-
-
-
-
-
-
-
     })//axios end 
 }//function loadlatest end
 
 
-
-
-// making main line chart (default:sg past 7 days)
-// function loadLC() {
-//     axios.get("https://api.covid19api.com/total/dayone/country/"
-//     + countryname + "/status/" + casetype).then(function (response) {
-//         response.data.reverse();
-//         console.log(response.data);
-//         let xCases = response.data;
-//         //convert dates
-//         for (let i in xCases) {
-//             xCases[i].Date = moment(xCases[i].Date).format("DD/MM/YY");
-//         };
-
-//         let xPast7Days = xCases.slice(0, 7);
-//         console.log(xPast7Days);
-//         let maxweekly = xCases[0].Cases
-//         let minweekly = xCases[6].Cases
-//         console.log(maxweekly)
-//         console.log(minweekly)
-
-
-//         //make line chart
-//         let cfPast7Days = crossfilter(xPast7Days);
-//         let xPast7DaysX = cfPast7Days.dimension(f => f.Date);
-//         let xPast7DaysY = xPast7DaysX.group().reduceSum(f => f.Cases);
-
-//         dc.lineChart("#linegraphx")
-//             .width(500) //make mobile responsive later!
-//             .height(300)
-//             .dimension(xPast7DaysX)
-//             .group(xPast7DaysY)
-//             .x(d3.scaleBand())
-//             .xUnits(dc.units.ordinal)
-//             .xAxisLabel("Date")
-//             .y(d3.scaleLinear().domain([minweekly, maxweekly+200]))
-//             .yAxisLabel("Cases")
-//             .yAxis().ticks(4)
-
-//         dc.renderAll()
-
-//     })//axios end get country's cases since day1
-// }
-
-// //load details function
-// function loadDetails() {
-    
-// }
