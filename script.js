@@ -7,7 +7,7 @@ $(function () {
             countrylist.push(i)
         }
         countrylist.sort()
-        console.log(countrylist)
+        //console.log(countrylist)
         for (let i of countrylist){
             $("#countryselect").append(`<option value="${i}">${i}</option>`)
         }

@@ -6,11 +6,12 @@ let countryname = "Singapore" //SG by default
 
 //load latest info
 function loadLatest() {
+        $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty();
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
         let dailyIncrease = parseInt(countrydata[0].confirmed) - parseInt(countrydata[1].confirmed)
-        //console.log(countrydata)
+        console.log(countrydata)
 
         $("#ctoday").append(`${dailyIncrease}`)
         $("#rtoday").append(`${countrydata[0].recovered}`)
@@ -66,6 +67,7 @@ function loadLatest() {
 //loadonclick
 function getData(){
     let countryselected = $("#countryselect").val()
+    console.log(countryselected)
     countryname = countryselected
     loadLatest()
 }
