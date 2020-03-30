@@ -16,7 +16,7 @@ $(function () {
 
     })//axios for country list
 
-    
+    getTop5()
 
 
 
