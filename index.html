@@ -39,11 +39,14 @@
     </header>
     <main>
         <section>
-            <div class="row p-5" id="overview">
-                <div class="col-md-6 col-12">
+            <div class="row justify-content-between" id="overview">
+                <div class="col-md-1 d-none d-md-block gbor"></div>
+                <div class="col-md-5 col-12 gbor">
                     <div class="row p-3 justify-content-center">
                         <div class="col-12" id="datedisplay"></div>
                         <div class="col-12" id="countrydisplay"></div>
+
+                        <!-- daily summary -->
                         <div class="col-4">
                             <i class="fas fa-head-side-cough"></i>
                             <div id="ctoday"></div>
@@ -62,32 +65,21 @@
                             <p>Deaths</p>
                             Total Deaths: <div id="totaldeaths"></div>
                         </div>
+
+                        <div class="col-6">
+                            <canvas id="rrdonut" width="800" height="450"></canvas>
+                        </div>
+                        <div class="col-6">
+                            <canvas id="drdonut" width="800" height="450"></canvas>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12 ibor">
+
+                <!-- linechart -->
+                <div class="col-md-5 col-12 gbor">
                     <div class="container-fluid">Infection History:
                         <div id="linegraphx"></div>
                     </div>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- overview -->
-            <!-- <div class="row" id="overview">
-                <div class="container-fluid">
-                    
                     <div class="container-fluid">
                         Select Country:
                         <select id="countryselect" size="1">
@@ -100,30 +92,25 @@
                         </select>
                         <button id="getLC" onclick="getData()">Get Data</button>
                     </div>
+                </div>
+            </div>
 
-                    <div id="datedisplay"></div>
-                </div>
 
-                
-                <div class="col-4 p-4 mycard">
-                    <i class="fas fa-head-side-cough"></i>
-                    <div id="ctoday"></div>
-                    <p>Confirmed</p>
-                    Total Cases: <div id="totalconfirmed"></div>
+
+         
+
+            <div class="row p-5" id="world">
+                <div class="col-md-4 col-12 gbor">
+                    Top 5 Cases in the World
+                    <div id="top5chart"></div>
                 </div>
-                <div class="col-4 p-4 mycard">
-                    <i class="far fa-smile"></i>
-                    <div id="rtoday"></div>
-                    <p>Recovered</p>
-                    Total Recovered: <div id="totalrecovered"></div>
+                <div class="col-md-8 col-12 gbor">
+                    Map
                 </div>
-                <div class="col-4 p-4 mycard">
-                    <i class="fas fa-skull-crossbones"></i>
-                    <div id="dtoday"></div>
-                    <p>Deaths</p>
-                    Total Deaths: <div id="totaldeaths"></div>
-                </div>
-            </div> -->
+            </div>
+
+
+
 
 
             <!-- line chart -->

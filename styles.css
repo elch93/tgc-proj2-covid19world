@@ -32,6 +32,9 @@ body{
     height: 2000px;
 }
 
+.gbor {
+    border: 3px solid gold;
+}
 
 .ibor {
     border: 3px solid #303841;
@@ -73,7 +76,7 @@ header h3 {
 }
 
 #ctoday, #rtoday, #dtoday {
-    font-size: 50px;
+    font-size: 30px;
 }
 
 

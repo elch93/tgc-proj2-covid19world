@@ -6,7 +6,7 @@ let countryname = "Singapore" //SG by default
 let todaydate = new Date()
 console.log(todaydate.getHours())
 let loaddate = moment(todaydate).subtract(1, "day")
-if (todaydate.getHours() <= 9){
+if (todaydate.getHours() <= 9) {
     loaddate = moment(todaydate).subtract(2, "day")
 }
 
@@ -18,8 +18,7 @@ console.log(loaddate)
 function loadLatest() {
     $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(),
         $("#datedisplay").empty(), $("#countrydisplay").empty(), $("#totalconfirmed").empty(),
-        $("#totalrecovered").empty(), $("#totaldeaths").empty(), 
-        $("#dateselect").empty();
+        $("#totalrecovered").empty(), $("#totaldeaths").empty();
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
@@ -37,12 +36,6 @@ function loadLatest() {
             i.date = moment(i.date).format("DD/MM/YY")
         }
 
-
-
-        //adding dates to options
-        for (let i = 0; i < 30; i++) {
-            $("#dateselect").append(`<option>${countrydata[i].date}</option>`)
-        }
 
 
 
@@ -200,11 +193,11 @@ function getTop5() {
                 })
             j++
         }
-        countriesdata.sort(function(a,b){
+        countriesdata.sort(function (a, b) {
             return b["Latest Total"] - a["Latest Total"]
         })
-        
-        let top5 = countriesdata.slice(0,5)
+
+        let top5 = countriesdata.slice(0, 5)
         console.log(top5)
         let maxcases = top5[0]["Latest Total"]
         let mincases = top5[4]["Latest Total"]
@@ -224,18 +217,18 @@ function getTop5() {
         let top5y = top5x.group().reduceSum(f => f["Latest Total"])
 
         dc.barChart("#top5chart")
-        .width(350)
-        .height(300)
-        .dimension(top5x)
-        .group(top5y)
-        .x(d3.scaleBand().domain(top5.map((s) => s.Country)))
-        .xUnits(dc.units.ordinal)
-        .xAxisLabel("Countries")
-        .y(d3.scaleLinear().domain([mincases*0.8, maxcases*1.05]))
-        .yAxis().ticks(5)
-        
-        
-      dc.renderAll()
+            .width(350)
+            .height(300)
+            .dimension(top5x)
+            .group(top5y)
+            .x(d3.scaleBand().domain(top5.map((s) => s.Country)))
+            .xUnits(dc.units.ordinal)
+            .xAxisLabel("Countries")
+            .y(d3.scaleLinear().domain([mincases * 0.8, maxcases * 1.05]))
+            .yAxis().ticks(5)
+
+
+        dc.renderAll()
 
 
 
