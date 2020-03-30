@@ -13,7 +13,8 @@ console.log(loaddate)
 //load latest info
 function loadLatest() {
     $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(),
-        $("#datedisplay").empty(), $("#totalconfirmed").empty(), $("#totalrecovered").empty(), $("#totaldeaths").empty();
+        $("#datedisplay").empty(), $("#totalconfirmed").empty(),
+         $("#totalrecovered").empty(), $("#totaldeaths").empty(), $("#dateselect").empty();
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
