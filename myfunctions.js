@@ -51,7 +51,12 @@ function loadLatest() {
 
         //get the data for past 7 days
         let weeklydata = countrydata.slice(0, 7)
+        //reduce date length on x axis by removing YY
+        for (let i of weeklydata){
+            i.date = moment(i.date, "DD/MM/YY").format("DD/MM")
+        } 
         //console.log(weeklydata)
+
         let maxweekly = weeklydata[0].confirmed
         let minweekly = weeklydata[6].confirmed
         //console.log(minweekly)
@@ -69,7 +74,7 @@ function loadLatest() {
             .xUnits(dc.units.ordinal)
             .xAxisLabel("Date")
             .y(d3.scaleLinear().domain([minweekly*0.95, maxweekly*1.05]))
-            .yAxisLabel("Cases")
+            // .yAxisLabel("Cases")
             .yAxis().ticks(4)
 
         dc.renderAll()
