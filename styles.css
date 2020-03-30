@@ -64,7 +64,7 @@ header img {
 #datedisplay {
     font-weight: 800;
     font-size: 20px;
-    margin-left: 40%;
+    text-align: center;
 }
 
 .mycard {
@@ -84,5 +84,6 @@ header img {
 #linegraphx svg {
     font-family: 'Fira Sans', sans-serif;
     font-size: 16px;
+    margin-left: 12px;
 }
 

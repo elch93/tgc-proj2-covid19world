@@ -38,7 +38,7 @@
             <!-- overview -->
             <div class="row" id="overview">
                 <div class="container-fluid">
-                    <span id="datedisplay"></span>
+                    <div id="datedisplay"></div>
                 </div>
                 <div class="col-4 p-4 mycard">
                     <i class="fas fa-head-side-cough"></i>
@@ -59,7 +59,7 @@
         
             <!-- line chart -->
             <div class="row">
-                <div class="container-fluid" id="lgdisplay">Here's a report for the past 7 days: 
+                <div class="container-fluid" id="lgdisplay">Infection History: 
                     <div id="linegraphx"></div>
                 </div>
                 <div class="container-fluid">
@@ -71,8 +71,15 @@
                 </div>
             </div>
 
-
-
+            <!-- world ranking -->
+            <div class="row">
+                <div class="col-12">
+                    <canvas id="rrdonut" width="800" height="450"></canvas>
+                </div>
+                <div class="col-12">
+                    <canvas id="drdonut" width="800" height="450"></canvas>
+                </div>
+            </div>
 
 
 

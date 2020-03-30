@@ -6,14 +6,14 @@ let countryname = "Singapore" //SG by default
 
 //load latest info
 function loadLatest() {
-        $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(), $("#datedisplay").empty();
+    $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(), $("#datedisplay").empty();
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
         let dailyIncrease = parseInt(countrydata[0].confirmed) - parseInt(countrydata[1].confirmed)
         let dailyRecovered = parseInt(countrydata[0].recovered) - parseInt(countrydata[1].recovered)
         let dailyDeaths = parseInt(countrydata[0].deaths) - parseInt(countrydata[1].deaths)
-        console.log(countrydata)
+        //console.log(countrydata)
 
         $("#ctoday").append(`${dailyIncrease}`)
         if (dailyIncrease > 0) {
@@ -29,8 +29,8 @@ function loadLatest() {
         if (dailyDeaths > 0) {
             $("#dtoday").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
-        
-        
+
+
 
 
 
@@ -46,16 +46,16 @@ function loadLatest() {
             //console.log(i.date)
             i.date = moment(i.date).format("DD/MM/YY")
         }
-        
+
         $("#datedisplay").append(`${countrydata[0].date}`)
 
         //get the data for past 7 days
         let weeklydata = countrydata.slice(0, 7)
         //reduce date length on x axis by removing YY
-        for (let i of weeklydata){
+        for (let i of weeklydata) {
             i.date = moment(i.date, "DD/MM/YY").format("DD/MM")
-        } 
-        //console.log(weeklydata)
+        }
+        console.log(weeklydata)
 
         let maxweekly = weeklydata[0].confirmed
         let minweekly = weeklydata[6].confirmed
@@ -73,13 +73,63 @@ function loadLatest() {
             .x(d3.scaleBand())
             .xUnits(dc.units.ordinal)
             .xAxisLabel("Date")
-            .y(d3.scaleLinear().domain([minweekly*0.95, maxweekly*1.05]))
+            .y(d3.scaleLinear().domain([minweekly * 0.95, maxweekly * 1.05]))
             // .yAxisLabel("Cases")
             .yAxis().ticks(4)
 
         dc.renderAll()
 
-        
+
+        let recoveryrate = ((countrydata[0].recovered / countrydata[0].confirmed) * 100).toFixed(2)
+        let remainderr = 100 - recoveryrate
+        //recovery rates chart
+        new Chart(document.getElementById("rrdonut"), {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        backgroundColor: ["green", "grey"],
+                        data: [recoveryrate, remainderr]
+                    }
+                ]
+            },
+            options: {
+                events: [],
+                title: {
+                    display: true,
+                    text: 'Recovery Rate' + " " + recoveryrate + "%"
+                }
+            }
+        });
+
+
+        let deathrate = ((countrydata[0].deaths / countrydata[0].confirmed) * 100).toFixed(2)
+        let remainderd = 100 - recoveryrate
+        //death rates chart
+        new Chart(document.getElementById("drdonut"), {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        backgroundColor: ["red", "grey"],
+                        data: [deathrate, remainderd]
+                    }
+                ]
+            },
+            options: {
+                events: [],
+                title: {
+                    display: true,
+                    text: 'Death Rate' + " " + deathrate + "%"
+                }
+            }
+        });
+
+
+
+
 
 
 
@@ -88,10 +138,11 @@ function loadLatest() {
 
 
 //loadonclick
-function getData(){
+function getData() {
     let countryselected = $("#countryselect").val()
     console.log(countryselected)
     countryname = countryselected
     loadLatest()
 }
+
 

@@ -1,12 +1,6 @@
 $(function () {
 
-
-
-
-
     loadLatest()
-
-    
 
     //adding countries to options
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
@@ -22,7 +16,6 @@ $(function () {
 
     })//axios for country list
 
-    
 
 
 
