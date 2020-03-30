@@ -6,7 +6,8 @@ let countryname = "Singapore" //SG by default
 
 //load latest info
 function loadLatest() {
-    $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(), $("#datedisplay").empty();
+    $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(), 
+    $("#datedisplay").empty(), $("#totalconfirmed").empty(), $("#totalrecovered").empty(), $("#totaldeaths").empty();
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
@@ -30,8 +31,9 @@ function loadLatest() {
             $("#dtoday").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
 
-
-
+        $("#totalconfirmed").append(`${countrydata[0].confirmed}`)
+        $("#totalrecovered").append(`${countrydata[0].recovered}`)
+        $("#totaldeaths").append(`${countrydata[0].deaths}`)
 
 
         //converting dates to ISO format
