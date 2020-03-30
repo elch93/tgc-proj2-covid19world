@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -39,6 +40,20 @@
             <div class="row" id="overview">
                 <div class="container-fluid">
                     <div id="datedisplay"></div>
+                    <div class="container-fluid">
+                        Select Country:
+                        <select id="countryselect" size="1">
+                            <option>Singapore</option>
+                        </select>
+                        
+                    </div>
+                    <div class="container-fluid">
+                        Select Date:
+                        <select id="dateselect" size="1">
+                            
+                        </select>
+                        <button id="getLC" onclick="getData()">Get Data</button>
+                    </div>
                 </div>
                 <div class="col-4 p-4 mycard">
                     <i class="fas fa-head-side-cough"></i>
@@ -63,15 +78,8 @@
 
             <!-- line chart -->
             <div class="row">
-                <div class="container-fluid" id="lgdisplay">Infection History: 
+                <div class="container-fluid" id="lgdisplay">Infection History:
                     <div id="linegraphx"></div>
-                </div>
-                <div class="container-fluid">
-                Select Country: 
-                <select id="countryselect" size="1">
-                    <option>Singapore</option>
-                </select>
-                <button id="getLC" onclick="getData()">Get Data</button>
                 </div>
             </div>
 
@@ -88,8 +96,8 @@
 
 
 
-         
-          
+
+
         </section>
     </main>
     <footer></footer>
@@ -119,7 +127,7 @@
 
 
 
-    
+
     <!-- Optional JavaScript -->
 
     <!-- axios-->
@@ -158,7 +166,7 @@
     <!-- my scripts -->
     <script src="myfunctions.js"></script>
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>
