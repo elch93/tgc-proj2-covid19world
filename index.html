@@ -40,22 +40,23 @@
     <main>
         <section>
             <div class="row p-5" id="overview">
-                <div class="col-6 ibor">
+                <div class="col-md-6 col-12">
                     <div class="row p-3 justify-content-center">
                         <div class="col-12" id="datedisplay"></div>
-                        <div class="col-4 ibor">
+                        <div class="col-12" id="countrydisplay"></div>
+                        <div class="col-4">
                             <i class="fas fa-head-side-cough"></i>
                             <div id="ctoday"></div>
                             <p>Confirmed</p>
                             Total Cases: <div id="totalconfirmed"></div>
                         </div>
-                        <div class="col-4 ibor">
+                        <div class="col-4">
                             <i class="far fa-smile"></i>
                             <div id="rtoday"></div>
                             <p>Recovered</p>
                             Total Recovered: <div id="totalrecovered"></div>
                         </div>
-                        <div class="col-4 ibor">
+                        <div class="col-4">
                             <i class="fas fa-skull-crossbones"></i>
                             <div id="dtoday"></div>
                             <p>Deaths</p>
@@ -63,7 +64,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 ibor"></div>
+                <div class="col-md-6 col-12 ibor">
+                    <div class="container-fluid">Infection History:
+                        <div id="linegraphx"></div>
+                    </div>
+                </div>
             </div>
 
 

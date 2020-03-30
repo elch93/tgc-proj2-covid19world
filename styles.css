@@ -22,13 +22,13 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
-    color: #303841;
+    color: #F3F3F3;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
 body{
-    background-image: linear-gradient(180deg, rgba(233,154,47,1) 0%, rgba(235,148,30,1) 50%, rgba(227,131,0,1) 100%);
+    background-color:#303841;
     height: 2000px;
 }
 
@@ -48,10 +48,10 @@ header h3 {
     padding: 0 0 0 20px;
     font-family: 'Yantramanav', sans-serif;
     font-size: 25px;
-    color: white;
+    color: #EC971F;
 }
 
-#datedisplay {
+#datedisplay, #countrydisplay {
     font-family:'Oswald', sans-serif;
     font-weight: 800;
     font-size: 30px;
@@ -63,12 +63,18 @@ header h3 {
     text-align: center;
 }
 
-#overview .col-4 i{
-
+.fa-head-side-cough, .fa-smile, .fa-skull-crossbones{
+    font-size: 50px;
+    margin: 0 0 10px 0;
 }
 
+#overview p, #overview .col-4 {
+    font-size: 16px;
+}
 
-
+#ctoday, #rtoday, #dtoday {
+    font-size: 50px;
+}
 
 
 
@@ -94,25 +100,7 @@ header h3 {
 }
 
 
-#datedisplay {
-    font-weight: 800;
-    font-size: 20px;
-    text-align: center;
-}
 
-.mycard {
-    text-align: center;
-}
-
-.mycard #ctoday, .mycard #rtoday, .mycard #dtoday {
-    font-size: 22px;
-    color: #303841;
-    font-weight: 800;
-}
-
-.fa-head-side-cough, .fa-smile, .fa-skull-crossbones {
-    font-size: 30px;
-}
 
 #linegraphx svg, #top5chart svg {
     font-family: 'Fira Sans', sans-serif;
