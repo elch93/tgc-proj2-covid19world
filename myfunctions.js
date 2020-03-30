@@ -6,7 +6,7 @@ let countryname = "Singapore" //SG by default
 
 //load latest info
 function loadLatest() {
-        $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty();
+        $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(), $("#datedisplay").empty();
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
@@ -26,7 +26,9 @@ function loadLatest() {
         }
 
         $("#dtoday").append(`${dailyDeaths}`)
-
+        if (dailyDeaths > 0) {
+            $("#dtoday").append(`<i class="fas fa-angle-double-up red"></i>`)
+        }
         
         
 
@@ -44,6 +46,8 @@ function loadLatest() {
             //console.log(i.date)
             i.date = moment(i.date).format("DD/MM/YY")
         }
+        
+        $("#datedisplay").append(`${countrydata[0].date}`)
 
         //get the data for past 7 days
         let weeklydata = countrydata.slice(0, 7)
@@ -57,8 +61,8 @@ function loadLatest() {
         let weeklyy = weeklyx.group().reduceSum(f => f.confirmed)
 
         dc.lineChart("#linegraphx")
-            .width(500) //make mobile responsive later!
-            .height(300)
+            .width(380) //make mobile responsive later!
+            .height(250)
             .dimension(weeklyx)
             .group(weeklyy)
             .x(d3.scaleBand())
@@ -70,8 +74,7 @@ function loadLatest() {
 
         dc.renderAll()
 
-
-
+        
 
 
 

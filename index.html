@@ -30,54 +30,55 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <!-- <header class="container-fluid">
         <img src="images/banner.png">
-    </header>
+    </header> -->
     <main>
         <section>
-            <!-- overview m-->
-            <div class="container-fluid ibor">
-                <div class="row">
-                    <div class="col-4 ibor d-flex justify-content-center">
-                        <div class="nmcard">
-                            Confirmed Cases Today: <span id="ctoday"></span>
-                        </div>
-                    </div>
-                    <div class="col-4 ibor d-flex justify-content-center">
-                        <div class="nmcard">
-                            Recoveries Today: <span id="rtoday"></span>
-                        </div>
-                    </div>
-                    <div class="col-4 ibor d-flex justify-content-center">
-                        <div class="nmcard">
-                            Deaths Today: <span id="dtoday"></span>
-                        </div>
-                    </div>
+            <!-- overview -->
+            <div class="row" id="overview">
+                <div class="container-fluid">
+                    <span id="datedisplay"></span>
+                </div>
+                <div class="col-4 p-4">
+                    <i class="fas fa-head-side-cough"></i>
+                    <span id="ctoday"></span>
+                    <p>Confirmed Cases</p>
+                </div>
+                <div class="col-4 p-4">
+                    <i class="far fa-smile"></i>
+                    <span id="rtoday"></span>
+                    <p>Recovered</p>
+                </div>
+                <div class="col-4 p-4">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <span id="dtoday"></span>
+                    <p>Deaths</p>
                 </div>
             </div>
-            <!-- line chart m-->
-            <div class="container-fluid ibor" id="lgdisplay">Here's a report for the past 7 days: 
-                <div id="linegraphx"></div>
-            </div>
-
-            <!-- country select m-->
-            <div class="container-fluid ibor">
+        
+            <!-- line chart -->
+            <div class="row">
+                <div class="container-fluid p-5" id="lgdisplay">Here's a report for the past 7 days: 
+                    <div id="linegraphx"></div>
+                </div>
+                <div class="container-fluid">
                 Select Country: 
                 <select id="countryselect" size="1">
                     <option>Singapore</option>
                 </select>
                 <button id="getLC" onclick="getData()">Get Data</button>
+                </div>
             </div>
 
-            <!-- details m-->
-            <div class="container-fluid ibor">details here
-                <div id="detailsx"></div>
-            </div>
 
-            <!-- map info -->
-            <div class="container-fluid ibor">map Here
-                <div id="displaymap"></div>
-            </div>
+
+
+
+
+
+         
+          
         </section>
     </main>
     <footer></footer>

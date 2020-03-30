@@ -1,3 +1,14 @@
+/* colors:
+orange: #EC971F
+white: #F3F3F3
+black: #303841
+vintage: #E8E4B8
+vintageblk: #34495B
+vintageshadow: #EA7361
+
+
+*/
+
 body {
     padding: 0;
     margin: 0;
@@ -5,10 +16,11 @@ body {
     background-color: #F3F3F3;
     color: #303841;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .ibor {
-    border: 3px solid gold;
+    border: 3px solid #303841;
 }
 
 #linegraphx svg {
@@ -31,9 +43,9 @@ header img {
     left: -140px;
 }
 
-main {
+/* main {
     margin-top: 100px;
-}
+} */
 
 .red {
     color:red;
@@ -45,9 +57,39 @@ main {
     margin: 0 0 0 5px;
 }
 
-.nmcard {
-    width: 100%;
-    padding: 10px;
-    /* box-shadow: 3px 3px 5px 0 #474E61 ; */
+#overview {
+    background-color: white;
+}
+
+#datedisplay {
+    font-weight: 800;
+    font-size: 20px;
+    margin-left: 40%;
+}
+
+#ctoday, #rtoday, #dtoday {
+    font-size: 20px;
+    margin: 0px 0px 0px 10px;
+    color: #303841;
+    font-weight: 800;
+}
+
+#overview p {
+    margin: 0 0 0 40px;
+}
+
+.fa-head-side-cough, .fa-smile, .fa-skull-crossbones {
+    font-size: 25px;
+    position: relative;
+    top:30px;
+}
+
+.fa-head-side-cough {
+    font-size: 23px;
+}
+
+#linegraphx svg {
+    margin-left: -30px;
+    font-size: 16px;
 }
 
