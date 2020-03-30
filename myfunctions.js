@@ -33,9 +33,13 @@ function loadLatest() {
         }
 
 
+
+        //adding dates to options
         for (let i = 0; i < 30; i++) {
             $("#dateselect").append(`<option>${countrydata[i].date}</option>`)
         }
+
+
 
         for (let i = 0; i < 30; i++) {
             if (countrydata[i].date == loaddate) {
@@ -67,8 +71,6 @@ function loadLatest() {
                 $("#totalconfirmed").append(`${countrydata[i].confirmed}`)
                 $("#totalrecovered").append(`${countrydata[i].recovered}`)
                 $("#totaldeaths").append(`${countrydata[i].deaths}`)
-
-
 
 
 
@@ -148,7 +150,7 @@ function loadLatest() {
                     }
                 });
             }
-        }
+        }//for loop end
 
 
 
