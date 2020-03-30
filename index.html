@@ -43,20 +43,24 @@
                 <div class="col-4 p-4 mycard">
                     <i class="fas fa-head-side-cough"></i>
                     <div id="ctoday"></div>
-                    <p>Confirmed Cases</p>
+                    <p>Confirmed</p>
+                    Total Cases: <div id="totalconfirmed"></div>
                 </div>
                 <div class="col-4 p-4 mycard">
                     <i class="far fa-smile"></i>
                     <div id="rtoday"></div>
                     <p>Recovered</p>
+                    Total Recovered: <div id="totalrecovered"></div>
                 </div>
                 <div class="col-4 p-4 mycard">
                     <i class="fas fa-skull-crossbones"></i>
                     <div id="dtoday"></div>
                     <p>Deaths</p>
+                    Total Deaths: <div id="totaldeaths"></div>
                 </div>
             </div>
-        
+
+
             <!-- line chart -->
             <div class="row">
                 <div class="container-fluid" id="lgdisplay">Infection History: 
@@ -73,11 +77,6 @@
 
             <!-- details -->
             <div class="row">
-                <div class="col-12">
-                    Total Cases: <div id="totalconfirmed"></div>
-                    Total Recovered: <div id="totalrecovered"></div>
-                    Total Deaths: <div id="totaldeaths"></div>
-                </div>
                 <div class="col-12">
                     <canvas id="rrdonut" width="800" height="450"></canvas>
                 </div>
