@@ -32,7 +32,7 @@ function loadLatest() {
             i.date = moment(i.date).format("DD/MM/YY")
         }
 
-        $("#datedisplay").append(`${countrydata[0].date}`)
+        
         for (let i = 0; i < 30; i++) {
             $("#dateselect").append(`<option>${countrydata[i].date}</option>`)
         }
@@ -42,6 +42,8 @@ function loadLatest() {
                 console.log(countrydata[i])
                 console.log(i)
 
+                $("#datedisplay").append(`${countrydata[i].date}`)
+                
                 let dailyIncrease = parseInt(countrydata[i].confirmed) - parseInt(countrydata[i+1].confirmed)
                 let dailyRecovered = parseInt(countrydata[i].recovered) - parseInt(countrydata[i+1].recovered)
                 let dailyDeaths = parseInt(countrydata[i].deaths) - parseInt(countrydata[i+1].deaths)
