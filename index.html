@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
         integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:800|Heebo:900|Oswald|Yantramanav:900&display=swap"
+        rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,17 +29,58 @@
 
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <title>COVID-19 Tracker</title>
+    <title>COVID-19TALK</title>
 </head>
 
 <body>
-    <!-- <header class="container-fluid">
-        <img src="images/banner.png">
-    </header> -->
+    <header class="container-fluid">
+        <h1>COVID-19TALK<i class="fas fa-virus"></i></h1>
+        <h3>COVID-19 STATS TRACKER</h3>
+    </header>
     <main>
         <section>
+            <div class="row p-5" id="overview">
+                <div class="col-6 ibor">
+                    <div class="row p-3 justify-content-center">
+                        <div class="col-12" id="datedisplay"></div>
+                        <div class="col-4 ibor">
+                            <i class="fas fa-head-side-cough"></i>
+                            <div id="ctoday"></div>
+                            <p>Confirmed</p>
+                            Total Cases: <div id="totalconfirmed"></div>
+                        </div>
+                        <div class="col-4 ibor">
+                            <i class="far fa-smile"></i>
+                            <div id="rtoday"></div>
+                            <p>Recovered</p>
+                            Total Recovered: <div id="totalrecovered"></div>
+                        </div>
+                        <div class="col-4 ibor">
+                            <i class="fas fa-skull-crossbones"></i>
+                            <div id="dtoday"></div>
+                            <p>Deaths</p>
+                            Total Deaths: <div id="totaldeaths"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 ibor"></div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- overview -->
-            <div class="row" id="overview">
+            <!-- <div class="row" id="overview">
                 <div class="container-fluid">
                     
                     <div class="container-fluid">
@@ -75,34 +118,34 @@
                     <p>Deaths</p>
                     Total Deaths: <div id="totaldeaths"></div>
                 </div>
-            </div>
+            </div> -->
 
 
             <!-- line chart -->
-            <div class="row p-5">
+            <!-- <div class="row p-5">
                 <div class="container-fluid">Infection History:
                     <div id="linegraphx"></div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- details -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12">
                     <canvas id="rrdonut" width="800" height="450"></canvas>
                 </div>
                 <div class="col-12">
                     <canvas id="drdonut" width="800" height="450"></canvas>
                 </div>
-            </div>
+            </div> -->
 
             <!-- ranking -->
-            <div class="row p-5">
-                <!-- <div id="worldranking" class="container-fluid p-5">
+            <!-- <div class="row p-5"> -->
+            <!-- <div id="worldranking" class="container-fluid p-5">
                     Top 5 Cases in the World
                 </div> -->
-                Top 5 Cases in the World
+            <!-- Top 5 Cases in the World
                 <div id="top5chart"></div>
-            </div>
+            </div> -->
 
 
 

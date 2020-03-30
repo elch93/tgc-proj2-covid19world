@@ -5,6 +5,15 @@ black: #303841
 vintage: #E8E4B8
 vintageblk: #34495B
 vintageshadow: #EA7361
+ background: rgb(233,154,47);
+background: linear-gradient(90deg, rgba(233,154,47,1) 0%, rgba(235,148,30,1) 50%, rgba(227,131,0,1) 100%); 
+
+
+font-family: 'Yantramanav', sans-serif;
+font-family: 'Catamaran', sans-serif;
+font-family: 'Heebo', sans-serif;
+font-family: 'Oswald', sans-serif;
+
 
 
 */
@@ -13,39 +22,66 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
-    background-color: #F3F3F3;
     color: #303841;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
+body{
+    background-image: linear-gradient(180deg, rgba(233,154,47,1) 0%, rgba(235,148,30,1) 50%, rgba(227,131,0,1) 100%);
+    height: 2000px;
+}
+
+
 .ibor {
     border: 3px solid #303841;
 }
 
+header h1{
+    padding: 20px 0 0 20px;
+    font-family:'Heebo', sans-serif;
+    font-weight: 800;
+}
+
+header h3 {
+    margin: -10px 0 0 0;
+    padding: 0 0 0 20px;
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 25px;
+    color: white;
+}
+
+#datedisplay {
+    font-family:'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+#overview .col-4{
+    height: 300px;
+    padding: 30px;
+    text-align: center;
+}
+
+#overview .col-4 i{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 #linegraphx svg, #top5chart svg {
     overflow: visible;
 }
-
-header {
-    position: fixed;
-    top:0%;
-    height: 100px;
-    background-color:#F3F3F3;
-    z-index: 2;
-    overflow-y: hidden;
-}
-
-header img {
-    height: 200px;
-    position: absolute;
-    top: -45px;
-    left: -140px;
-}
-
-/* main {
-    margin-top: 100px;
-} */
 
 .red {
     color:red;
@@ -57,9 +93,6 @@ header img {
     margin: 0 0 0 5px;
 }
 
-#overview {
-    background-color: white;
-}
 
 #datedisplay {
     font-weight: 800;

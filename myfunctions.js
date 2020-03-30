@@ -4,8 +4,12 @@
 
 let countryname = "Singapore" //SG by default
 let todaydate = new Date()
-console.log(todaydate)
+console.log(todaydate.getHours())
 let loaddate = moment(todaydate).subtract(1, "day")
+if (todaydate.getHours() <= 9){
+    loaddate = moment(todaydate).subtract(2, "day")
+}
+
 loaddate = moment(loaddate).format("DD/MM/YY")
 
 console.log(loaddate)
