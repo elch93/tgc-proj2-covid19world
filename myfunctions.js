@@ -76,16 +76,14 @@ function loadLatest() {
                 let weeklydata = countrydata.slice(i,i+7)
                 //reduce date length on x axis by removing YY
                 for (let i of weeklydata) {
-                    i.date = moment(i.date, "DD/MM/YY").format("DD/MM")
+                    i.date = moment(i.date, "DD/MM/YY").format("MM/DD")
                 }
                 console.log(weeklydata)
 
                 let maxweekly = weeklydata[0].confirmed
                 let minweekly = weeklydata[6].confirmed
-                //console.log(minweekly)
                 let cf = crossfilter(weeklydata)
                 let weeklyx = cf.dimension(f => f.date)
-                //console.table(weeklyx.top(5))
                 let weeklyy = weeklyx.group().reduceSum(f => f.confirmed)
 
                 dc.lineChart("#linegraphx")
