@@ -52,11 +52,12 @@ $(function () {
             for (let i of r.data) {
                 if (countrydisplayed == i.name) {
                     $("#flagdisplay").append(`<img src="${i.flag}">`)
+                    break
                 }
             }
 
 
-            // For Debugging (11 out of 178 countries have no flag)
+            //For Debugging (11 out of 178 countries have no flag)
             // for (let i in countrylist) {
             //     for (let j of r.data) {
             //         if (countrylist[i] == j.name || j.name.includes(countrylist[i]) || countrylist[i] == j.alpha2Code ) {

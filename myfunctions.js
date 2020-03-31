@@ -235,6 +235,7 @@ function getCountryFlag1() {
         for (let i of r.data) {
             if (countrydisplayed == i.name || i.name.includes(countrydisplayed) || countrydisplayed == i.alpha2Code) {
                 $("#flagdisplay").append(`<img src="${i.flag}">`)
+                break
             }
 
             else if (countrydisplayed == "Taiwan*") {
@@ -288,6 +289,36 @@ function getMap() {
                 if(i == restcountries[j].name || i == restcountries[j].alpha2Code || restcountries[j].name.includes(i)){
                     clist.push([restcountries[j].name,restcountries[j].latlng])
                 }
+
+                else if (i == "Taiwan*") {
+                    clist.push([restcountries[221].name,restcountries[221].latlng])
+                    break
+                }
+
+                else if (i == "Vietnam") {
+                    clist.push([restcountries[244].name,restcountries[244].latlng])
+                    break
+                }
+
+                else if (i == "Korea, South") {
+                    clist.push([restcountries[210].name,restcountries[210].latlng])
+                    break
+                }
+
+                else if (i == "Czechia") {
+                    clist.push([restcountries[61].name,restcountries[61].latlng])
+                    break
+                }
+
+                else if (i == "North Macedonia") {
+                    clist.push([restcountries[132].name,restcountries[132].latlng])
+                    break
+                }
+
+                else if (i == "Laos") {
+                    clist.push([restcountries[122].name,restcountries[122].latlng])
+                    break
+                }
             }
             
         }
@@ -310,7 +341,7 @@ function getMap() {
         }).addTo(map);
 
         let countrycluster = L.markerClusterGroup()
-        for (let i = 0; i < 30; i++){
+        for (let i = 0; i < clist.length; i++){
             let m = L.marker([ clist[i][1][0], clist[i][1][1] ])
             countrycluster.addLayer(m)
         }
