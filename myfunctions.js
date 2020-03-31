@@ -83,21 +83,61 @@ function loadLatest() {
                 }
                 //console.log(weeklydata)
 
-                let maxweekly = weeklydata[0].confirmed
-                let minweekly = weeklydata[6].confirmed
-                let cf = crossfilter(weeklydata)
-                let weeklyx = cf.dimension(f => f.date)
-                let weeklyy = weeklyx.group().reduceSum(f => f.confirmed)
+                let maxcweekly = weeklydata[0].confirmed
+                let mincweekly = weeklydata[6].confirmed
+                let cfconfirmed = crossfilter(weeklydata)
+                let weeklycx = cfconfirmed.dimension(f => f.date)
+                let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
 
-                dc.lineChart("#linegraphx")
+                dc.lineChart("#linegraphc")
                     .width(380) //make mobile responsive later!
                     .height(250)
-                    .dimension(weeklyx)
-                    .group(weeklyy)
+                    .dimension(weeklycx)
+                    .group(weeklycy)
                     .x(d3.scaleBand())
                     .xUnits(dc.units.ordinal)
                     .xAxisLabel("Date")
-                    .y(d3.scaleLinear().domain([minweekly * 0.95, maxweekly * 1.05]))
+                    .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
+                    // .yAxisLabel("Cases")
+                    .yAxis().ticks(4)
+
+                dc.renderAll()
+
+                let maxrweekly = weeklydata[0].recovered
+                let minrweekly = weeklydata[6].recovered
+                let cfrecovered = crossfilter(weeklydata)
+                let weeklyrx = cfrecovered.dimension(f => f.date)
+                let weeklyry = weeklyrx.group().reduceSum(f => f.recovered)
+
+                dc.lineChart("#linegraphr")
+                    .width(380) //make mobile responsive later!
+                    .height(250)
+                    .dimension(weeklyrx)
+                    .group(weeklyry)
+                    .x(d3.scaleBand())
+                    .xUnits(dc.units.ordinal)
+                    .xAxisLabel("Date")
+                    .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
+                    // .yAxisLabel("Cases")
+                    .yAxis().ticks(4)
+
+                dc.renderAll()
+
+                let maxdweekly = weeklydata[0].deaths
+                let mindweekly = weeklydata[6].deaths
+                let cfdeaths = crossfilter(weeklydata)
+                let weeklydx = cfdeaths.dimension(f => f.date)
+                let weeklydy = weeklydx.group().reduceSum(f => f.deaths)
+
+                dc.lineChart("#linegraphd")
+                    .width(380) //make mobile responsive later!
+                    .height(250)
+                    .dimension(weeklydx)
+                    .group(weeklydy)
+                    .x(d3.scaleBand())
+                    .xUnits(dc.units.ordinal)
+                    .xAxisLabel("Date")
+                    .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
                     // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
 
@@ -272,51 +312,59 @@ function getCountryFlag1() {
 
     })//axios end
 
-}//get country end
+}//get country flag end
 
 
 //get map
 function getMap() {
     axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
-        console.log(r[0].data)
-        console.log(r[1].data)
+        //console.log(r[0].data)
+        //console.log(r[1].data)
 
         let restcountries = r[0].data
         let pomberdata = r[1].data
         let clist = []
+
+        for (let i in pomberdata){
+            pomberdata[i].reverse()
+        }
+
+        //console.log(pomberdata)
+
+
         for (let i in pomberdata){
             for (let j in restcountries){
                 if(i == restcountries[j].name || i == restcountries[j].alpha2Code || restcountries[j].name.includes(i)){
-                    clist.push([restcountries[j].name,restcountries[j].latlng])
+                    clist.push([restcountries[j].name,restcountries[j].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                 }
 
                 else if (i == "Taiwan*") {
-                    clist.push([restcountries[221].name,restcountries[221].latlng])
+                    clist.push([restcountries[221].name,restcountries[221].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                     break
                 }
 
                 else if (i == "Vietnam") {
-                    clist.push([restcountries[244].name,restcountries[244].latlng])
+                    clist.push([restcountries[244].name,restcountries[244].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                     break
                 }
 
                 else if (i == "Korea, South") {
-                    clist.push([restcountries[210].name,restcountries[210].latlng])
+                    clist.push([restcountries[210].name,restcountries[210].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                     break
                 }
 
                 else if (i == "Czechia") {
-                    clist.push([restcountries[61].name,restcountries[61].latlng])
+                    clist.push([restcountries[61].name,restcountries[61].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                     break
                 }
 
                 else if (i == "North Macedonia") {
-                    clist.push([restcountries[132].name,restcountries[132].latlng])
+                    clist.push([restcountries[132].name,restcountries[132].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                     break
                 }
 
                 else if (i == "Laos") {
-                    clist.push([restcountries[122].name,restcountries[122].latlng])
+                    clist.push([restcountries[122].name,restcountries[122].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
                     break
                 }
     
@@ -345,7 +393,11 @@ function getMap() {
         let countrycluster = L.markerClusterGroup()
         for (let i = 0; i < clist.length; i++){
             let m = L.marker([ clist[i][1][0], clist[i][1][1] ])
-            m.bindPopup(`<p>${clist[i][0]}</p><p>confirmed cases: </p>`)
+            m.bindPopup(`<p>${clist[i][0]}</p>
+                        <p>total: ${clist[i][2]}</p>
+                        <p>recovered: ${clist[i][3]}</p>
+                        <p>deaths: ${clist[i][4]}</p>
+                        `)
             countrycluster.addLayer(m)
         }
 
@@ -357,3 +409,4 @@ function getMap() {
 
     })
 }//map end
+
