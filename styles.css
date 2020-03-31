@@ -113,9 +113,6 @@ header, #ctoday, #rtoday, #dtoday,
 
 }
 
-
-
-
 #linegraphx svg, #top5chart svg {
     overflow: visible;
 }
@@ -129,9 +126,6 @@ header, #ctoday, #rtoday, #dtoday,
     color:lime;
     margin: 0 0 0 5px;
 }
-
-
-
 
 #linegraphx svg, #top5chart svg {
     font-family: 'Fira Sans', sans-serif;

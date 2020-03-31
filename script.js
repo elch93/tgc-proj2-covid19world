@@ -47,10 +47,10 @@ $(function () {
     function getCountryFlag() {
         axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
             $("#flagdisplay").empty()
-            console.log(r.data)
-            countrydisplayed = document.getElementById("countrydisplay").innerText
+            //console.log(r.data)
+            countrydisplayed = "Singapore"
             for (let i of r.data) {
-                if (countrydisplayed == i.name || i.name.includes(countrydisplayed) || countrydisplayed == i.alpha2Code) {
+                if (countrydisplayed == i.name) {
                     $("#flagdisplay").append(`<img src="${i.flag}">`)
                 }
             }
@@ -74,13 +74,16 @@ $(function () {
 
             // console.log(unlist)
 
+
+
+
         })//axios end
 
     }//get country end
 
     getCountryFlag()
 
-    //getMap()
+    
 
 
 

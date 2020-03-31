@@ -4,7 +4,7 @@
 
 let countryname = "Singapore" //SG by default
 let todaydate = new Date()
-console.log(todaydate.getHours())
+//console.log(todaydate.getHours())
 let loaddate = moment(todaydate).subtract(1, "day")
 if (todaydate.getHours() <= 7) {
     loaddate = moment(todaydate).subtract(2, "day")
@@ -153,15 +153,6 @@ function loadLatest() {
             }
         }//for loop end
 
-
-
-
-
-
-
-
-
-
     })//axios end 
 }//function loadlatest end
 
@@ -214,7 +205,6 @@ function getTop5() {
         }
 
         let cf = crossfilter(top5)
-        //console.table(top5)
         let top5x = cf.dimension(f => f.Country)
         let top5y = top5x.group().reduceSum(f => f["Latest Total"])
 
@@ -229,21 +219,18 @@ function getTop5() {
             .y(d3.scaleLinear().domain([mincases * 0.8, maxcases * 1.05]))
             .yAxis().ticks(5)
 
-
         dc.renderAll()
-
-
 
 
     })//axios end
 }//top 5 function end
 
 
-//get flag
+//get flag picture
 function getCountryFlag1() {
     axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
         $("#flagdisplay").empty()
-        console.log(r.data)
+        //console.log(r.data)
         countrydisplayed = document.getElementById("countrydisplay").innerText
         for (let i of r.data) {
             if (countrydisplayed == i.name || i.name.includes(countrydisplayed) || countrydisplayed == i.alpha2Code) {
@@ -273,40 +260,3 @@ function getCountryFlag1() {
 
 
 
-
-//loadMap
-
-function getMap() {
-    let singapore = [1.35, 103.85]
-    let map = L.map("map1").setView(singapore, 12)
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
-    }).addTo(map);
-
-
-    axios.get("https://api.data.gov.sg/v1/transport/taxi-availability").then(function(response){
-    //console.log(response.data.features[0].geometry.coordinates)
-    let taxicluster = L.markerClusterGroup()
-    let taximarkers = response.data.features[0].geometry.coordinates
-    for (let i of taximarkers){
-      let m = L.marker([i[1], i[0]])
-      taxicluster.addLayer(m)
-    }
-    
-    map.addLayer(taxicluster)
-
-
-
-
-
-
-
-  })//axios end
-
-}// end map
