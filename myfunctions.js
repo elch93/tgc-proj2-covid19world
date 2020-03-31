@@ -174,7 +174,7 @@ function getData() {
     countryname = countryselected
     loaddate = dateselected
     loadLatest()
-    getCountryFlag()
+    getCountryFlag1()
 }
 
 
@@ -200,7 +200,7 @@ function getTop5() {
         })
 
         let top5 = countriesdata.slice(0, 5)
-        console.log(top5)
+        //console.log(top5)
         let maxcases = top5[0]["Latest Total"]
         let mincases = top5[4]["Latest Total"]
 
@@ -214,7 +214,7 @@ function getTop5() {
         }
 
         let cf = crossfilter(top5)
-        console.table(top5)
+        //console.table(top5)
         let top5x = cf.dimension(f => f.Country)
         let top5y = top5x.group().reduceSum(f => f["Latest Total"])
 
@@ -238,22 +238,75 @@ function getTop5() {
     })//axios end
 }//top 5 function end
 
-//loadCountryFlag 
 
-function getCountryFlag(){
-    axios.get("https://restcountries.eu/rest/v2/all").then(function(r){
+//get flag
+function getCountryFlag1() {
+    axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
         $("#flagdisplay").empty()
-        //console.log(r.data)
+        console.log(r.data)
         countrydisplayed = document.getElementById("countrydisplay").innerText
         for (let i of r.data) {
-            if (countrydisplayed == i.name) {
+            if (countrydisplayed == i.name || i.name.includes(countrydisplayed) || countrydisplayed == i.alpha2Code) {
                 $("#flagdisplay").append(`<img src="${i.flag}">`)
             }
+
+            else if (countrydisplayed == "Taiwan*") {
+                $("#flagdisplay").append(`<img src="${r.data[221].flag}">`)
+                break
+            }
+
+            else if (countrydisplayed == "Vietnam") {
+                $("#flagdisplay").append(`<img src="${r.data[244].flag}">`)
+                break
+            }
+
+            else if (countrydisplayed == "Korea, South") {
+                $("#flagdisplay").append(`<img src="${r.data[210].flag}">`)
+                break
+            }
+
         }
-
-
-
 
     })//axios end
 
 }//get country end
+
+
+
+
+//loadMap
+
+function getMap() {
+    let singapore = [1.35, 103.85]
+    let map = L.map("map1").setView(singapore, 12)
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
+    }).addTo(map);
+
+
+    axios.get("https://api.data.gov.sg/v1/transport/taxi-availability").then(function(response){
+    //console.log(response.data.features[0].geometry.coordinates)
+    let taxicluster = L.markerClusterGroup()
+    let taximarkers = response.data.features[0].geometry.coordinates
+    for (let i of taximarkers){
+      let m = L.marker([i[1], i[0]])
+      taxicluster.addLayer(m)
+    }
+    
+    map.addLayer(taxicluster)
+
+
+
+
+
+
+
+  })//axios end
+
+}// end map
