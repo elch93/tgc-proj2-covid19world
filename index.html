@@ -40,30 +40,37 @@
     <main>
         <section>
             <div class="row justify-content-between" id="overview">
-                <div class="col-md-1 d-none d-md-block gbor"></div>
-                <div class="col-md-5 col-12 gbor">
-                    <div class="row p-3 justify-content-center">
+                <div class="col-lg-1 d-none d-lg-block gbor"></div>
+                <div class="col-lg-5 col-12 gbor">
+                    <div class="row justify-content-center">
                         <div class="col-12" id="datedisplay"></div>
-                        <div class="col-12" id="countrydisplay"></div>
+                        <div class="col-2" id="flagdisplay"></div>
+                        <div class="col-9" id="countrydisplay"></div>
 
                         <!-- daily summary -->
                         <div class="col-4">
                             <i class="fas fa-head-side-cough"></i>
                             <div id="ctoday"></div>
                             <p>Confirmed</p>
-                            Total Cases: <div id="totalconfirmed"></div>
+                            <div class="mycard">
+                                Total Cases: <div id="totalconfirmed"></div>
+                            </div>
                         </div>
                         <div class="col-4">
                             <i class="far fa-smile"></i>
                             <div id="rtoday"></div>
                             <p>Recovered</p>
-                            Total Recovered: <div id="totalrecovered"></div>
+                            <div class="mycard">
+                                Total Recovered: <div id="totalrecovered"></div>
+                            </div>
                         </div>
                         <div class="col-4">
                             <i class="fas fa-skull-crossbones"></i>
                             <div id="dtoday"></div>
                             <p>Deaths</p>
-                            Total Deaths: <div id="totaldeaths"></div>
+                            <div class="mycard">
+                                Total Deaths: <div id="totaldeaths"></div>
+                            </div>
                         </div>
 
                         <div class="col-6">
@@ -76,7 +83,7 @@
                 </div>
 
                 <!-- linechart -->
-                <div class="col-md-5 col-12 gbor">
+                <div class="col-lg-5 col-12 gbor">
                     <div class="container-fluid">Infection History:
                         <div id="linegraphx"></div>
                     </div>

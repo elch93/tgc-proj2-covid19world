@@ -6,13 +6,15 @@ let countryname = "Singapore" //SG by default
 let todaydate = new Date()
 console.log(todaydate.getHours())
 let loaddate = moment(todaydate).subtract(1, "day")
-if (todaydate.getHours() <= 9) {
+if (todaydate.getHours() <= 7) {
     loaddate = moment(todaydate).subtract(2, "day")
 }
 
 loaddate = moment(loaddate).format("DD/MM/YY")
 
 console.log(loaddate)
+
+
 
 //load latest info
 function loadLatest() {
@@ -169,10 +171,10 @@ function loadLatest() {
 function getData() {
     let countryselected = $("#countryselect").val()
     let dateselected = $("#dateselect").val()
-    //console.log(countryselected)
     countryname = countryselected
     loaddate = dateselected
     loadLatest()
+    getCountryFlag()
 }
 
 
@@ -235,3 +237,23 @@ function getTop5() {
 
     })//axios end
 }//top 5 function end
+
+//loadCountryFlag 
+
+function getCountryFlag(){
+    axios.get("https://restcountries.eu/rest/v2/all").then(function(r){
+        $("#flagdisplay").empty()
+        //console.log(r.data)
+        countrydisplayed = document.getElementById("countrydisplay").innerText
+        for (let i of r.data) {
+            if (countrydisplayed == i.name) {
+                $("#flagdisplay").append(`<img src="${i.flag}">`)
+            }
+        }
+
+
+
+
+    })//axios end
+
+}//get country end

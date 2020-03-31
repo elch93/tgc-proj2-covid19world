@@ -51,7 +51,7 @@ header h3 {
     padding: 0 0 0 20px;
     font-family: 'Yantramanav', sans-serif;
     font-size: 25px;
-    color: #EC971F;
+    color: #EA7361;
 }
 
 #datedisplay, #countrydisplay {
@@ -76,14 +76,42 @@ header h3 {
 }
 
 #ctoday, #rtoday, #dtoday {
-    font-size: 30px;
+    font-size: 20px;
+}
+
+.mycard {
+    background-color: #F3F3F3;
+    color: #303841;
+    padding: 10px;
+}
+
+header, #ctoday, #rtoday, #dtoday, 
+#datedisplay, #countrydisplay, .mycard, #overview p, 
+#overview .col-4 {
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    transition: ease-in;
+    transition-duration: 1s;
 }
 
 
 
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
 
+    100%{
+        opacity: 1;
+    }
+}
 
+#flagdisplay img {
+    height: 50px;
 
+}
 
 
 
