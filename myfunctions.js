@@ -319,6 +319,8 @@ function getMap() {
                     clist.push([restcountries[122].name,restcountries[122].latlng])
                     break
                 }
+    
+
             }
             
         }
@@ -343,6 +345,7 @@ function getMap() {
         let countrycluster = L.markerClusterGroup()
         for (let i = 0; i < clist.length; i++){
             let m = L.marker([ clist[i][1][0], clist[i][1][1] ])
+            m.bindPopup(`<p>${clist[i][0]}</p><p>confirmed cases: </p>`)
             countrycluster.addLayer(m)
         }
 
