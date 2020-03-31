@@ -252,6 +252,21 @@ function getCountryFlag1() {
                 break
             }
 
+            else if (countrydisplayed == "Czechia") {
+                $("#flagdisplay").append(`<img src="${r.data[61].flag}">`)
+                break
+            }
+
+            else if (countrydisplayed == "North Macedonia") {
+                $("#flagdisplay").append(`<img src="${r.data[132].flag}">`)
+                break
+            }
+
+            else if (countrydisplayed == "Laos") {
+                $("#flagdisplay").append(`<img src="${r.data[122].flag}">`)
+                break
+            }
+
         }
 
     })//axios end

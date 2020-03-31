@@ -47,7 +47,7 @@ $(function () {
     function getCountryFlag() {
         axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
             $("#flagdisplay").empty()
-            //console.log(r.data)
+            console.log(r.data)
             countrydisplayed = "Singapore"
             for (let i of r.data) {
                 if (countrydisplayed == i.name) {
