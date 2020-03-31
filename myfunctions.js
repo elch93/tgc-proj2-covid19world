@@ -274,4 +274,52 @@ function getCountryFlag1() {
 }//get country end
 
 
+//get map
+function getMap() {
+    axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
+        console.log(r[0].data)
+        console.log(r[1].data)
 
+        let restcountries = r[0].data
+        let pomberdata = r[1].data
+        let clist = []
+        for (let i in pomberdata){
+            for (let j in restcountries){
+                if(i == restcountries[j].name || i == restcountries[j].alpha2Code || restcountries[j].name.includes(i)){
+                    clist.push([restcountries[j].name,restcountries[j].latlng])
+                }
+            }
+            
+        }
+        console.log(clist)
+
+        
+    
+
+
+        let singapore = [1.35, 103.85]
+        let map = L.map("map1").setView(singapore, 12)
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
+        }).addTo(map);
+
+        let countrycluster = L.markerClusterGroup()
+        for (let i = 0; i < 30; i++){
+            let m = L.marker([ clist[i][1][0], clist[i][1][1] ])
+            countrycluster.addLayer(m)
+        }
+
+        map.addLayer(countrycluster)
+
+
+
+
+
+    })
+}//map end

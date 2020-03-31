@@ -132,3 +132,7 @@ header, #ctoday, #rtoday, #dtoday,
     font-size: 16px;
 }
 
+#map1 {
+    height: 800px;
+    border: 3px gold solid;
+  }
