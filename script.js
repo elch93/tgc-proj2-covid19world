@@ -1,5 +1,7 @@
 $(function () {
 
+
+
     let countrylist = []
     loadLatest()
 
@@ -86,9 +88,13 @@ $(function () {
     getMap()
 
 
-    setTimeout(function(){
-        $("#loading").fadeOut(4000,"swing")
-    }, 500);
+    // setTimeout(function () {
+    //     $("#loading").fadeOut(1000, "swing")
+    // }, 3000);
+    // setTimeout(function(){
+    //     $("header").fadeIn(1000)
+    //     $("#afterload").fadeIn(1000)
+    // }, 4000);
 
 
 
