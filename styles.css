@@ -85,7 +85,8 @@ body{
     display: none;
 } */
 
-/* main */
+
+/* header */
 header h1{
     padding: 20px 0 0 20px;
     font-family:'Heebo', sans-serif;
@@ -99,39 +100,9 @@ header h3{
     font-size: 25px;
 }
 
-.mycard {
-    height: 420px;
-    margin: 20px;
-    padding:20px;
-    background: #F3F3F3;
-}
-
-#dailyc, #dailyr, #dailyd, #country {
-    color: white;
-    font-size: 20px;
-    height: 100px;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 20px;
-    background:linear-gradient(90deg, rgba(48,56,65,1) 0%, rgba(48,56,65,1) 50%, rgba(52,73,91,1) 100%) ;
-}
-
-#dailyc .fa-head-side-cough, .fa-smile, .fa-skull-crossbones{
-    color: white;
-    font-size: 50px;
-    margin: 10px;
-}
 
 
-#mainpg {
-    font-family: 'Heebo', sans-serif;
-}
-
-#mainpg p{
-    text-align: justify;
-    font-family: "Lato",sans-serif;
-}
-
+/* main */
 .red {
     color:red;
     margin: 0 0 0 5px;
@@ -147,19 +118,58 @@ header h3{
 
 }
 
-#country {
-    font-size: 18px;
-}
-
-#country select {
+/* left bar */
+#leftbar {
+    position: absolute;
+    padding: 20px 35px 0 10px;
+    color: #F3F3F3;
     font-size: 16px;
-    
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    top:130px;
+    left:-305px;
+    height: 200px;
+    width: 350px;
+    background-color:#303841 ;
+    border-radius:0 20px 20px 0 ;
+    transition: 0.7s ease-in;
 }
 
-#country .col-7 {
-    margin: -20px 0 0 0;
-    font-family: "Lato", sans-serif;
+#leftbar button {
+    border: none;
+    background-color: gold;
+    border-radius: 10px;
+    padding:8px 5px;
+    margin: 5px;
 }
+
+#leftbar select {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#leftbar:hover {
+    transform: translateX(305px);
+    transition: 0.7s ease-in;
+}
+
+#leftbar:hover #options{
+    opacity: 0;
+    transition: 0.7s ease-in;
+}
+
+#options {
+    font-family: 'Yantramanav', sans-serif;
+    color:white;
+    transform: rotate(90deg);
+    position: absolute;
+    top:50px;
+    right: 0px;
+    transition: 0.7s ease-in;
+}
+
 
 
 

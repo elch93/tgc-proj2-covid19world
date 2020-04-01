@@ -149,19 +149,21 @@ function loadLatest() {
                 let cArr = []
                 let rArr = []
                 let dArr = []
+                let dateArr = []
 
 
                 for (let i of weeklydata) {
                     cArr.unshift(i.confirmed)
                     rArr.unshift(i.recovered)
                     dArr.unshift(i.deaths)
+                    dateArr.unshift(i.date)
                 }
 
 
                 var x = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
-                        labels: cArr,
+                        labels: dateArr,
                         datasets: [{
                             data: cArr,
                             label: "Total",

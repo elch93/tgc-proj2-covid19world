@@ -45,76 +45,18 @@
                 <h6>COVID-19 STATS TRACKER</h6>
             </div> -->
             <div id="afterload">
-                <div class="row justify-content-center gbor" id="mainpg">
-                    <div class="col-12 col-lg-5">
-                        <div class="rowcard" id="country">
-                            <div class="row justify-content-between">
-                                <div class="col-2">
-                                    <span id="flagdisplay"></span>
-                                </div>
-                                <div class="col-2">
-                                    <div id="countrydisplay"></div>
-                                    <div id="datedisplay"></div>
-                                </div>
-                                <div class="col-7">
-                                    Select Country:
-                                    <select id="countryselect" size="1">
-                                        <option>Singapore</option>
-                                    </select>
-                                    Select Date:
-                                    <select id="dateselect" size="1">
-                                    </select>
-                                    <button id="getData" onclick="getData()">Get Data</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rowcard" id="dailyc">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="fas fa-head-side-cough"></i>
-                                </div>
-                                <div class="col-9 d-flex justify-content-center align-items-center">
-                                    Total Cases: &nbsp;<span id="totalconfirmed"></span>&nbsp;(<span
-                                        id="ctoday"></span>)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rowcard" id="dailyr">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="far fa-smile"></i>
-                                </div>
-                                <div class="col-9 d-flex justify-content-center align-items-center">
-                                    Recovered: &nbsp;<span id="totalrecovered"></span>&nbsp;(<span id="rtoday"></span>)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rowcard" id="dailyd">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="fas fa-skull-crossbones"></i>
-                                </div>
-                                <div class="col-9 d-flex justify-content-center align-items-center">
-                                    Total Deaths: &nbsp;<span id="totaldeaths"></span>&nbsp;(<span id="dtoday"></span>)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-5">
-                        <div class="mycard">
-                            <h1>What is COVID-19?</h1>
-                            <p>Coronavirus disease (COVID-19) is an infectious
-                                disease caused by a newly discovered coronavirus.
-                                Older people, and those with underlying medical problems
-                                like cardiovascular disease, diabetes, chronic respiratory
-                                disease, and cancer are more likely to develop serious illness.</p>
-                            <p>Symptoms: mild to moderate respiratory illness</p>
-                            <div class="container-fluid">Combined Chart:
-                                <canvas id="combined" width="800" height="450"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                <div id="leftbar">
+                    Select Country:
+                    <select id="countryselect" size="1">
+                        <option>Singapore</option>
+                    </select>
+                    Select Date:
+                    <select id="dateselect" size="1">
+                    </select>
+                    <button id="getData" onclick="getData()">Get Data</button>
+                    <p id="options">OPTIONS</p>
                 </div>
+                
             </div>
 
 
