@@ -190,7 +190,6 @@ function loadLatest() {
 
                 $("#getData").click(function () {
                     x.destroy()
-                    alert("destroy x!")
                 })
 
 
