@@ -34,7 +34,7 @@ $(function () {
             i.date = moment(i.date).format("DD/MM/YY")
         }
 
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 60; i++) {
             $("#dateselect").append(`<option>${sgdata[i].date}</option>`)
         }
 
@@ -44,7 +44,7 @@ $(function () {
 
 
     //loadCountryFlag 
-    function getCountryFlag() {
+    function loadDefaultCountryFlag() {
         axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
             $("#flagdisplay").empty()
             //console.log(r.data)
@@ -82,10 +82,7 @@ $(function () {
 
     }//get country end
 
-    getCountryFlag()
-
-    
-
+    loadDefaultCountryFlag()
     getMap()
 
 
