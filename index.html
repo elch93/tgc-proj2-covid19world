@@ -45,13 +45,45 @@
                 <h6>COVID-19 STATS TRACKER</h6>
             </div> -->
             <div id="afterload">
-                <div class="row p-5 justify-content-center" id="mainpg">
-                    <div class="col-5 gbor">
-                        <div class="rowcard" id="dailyc"></div>
-                        <div class="rowcard" id="dailyr"></div>
-                        <div class="rowcard" id="dailyd"></div>
+                <div class="row justify-content-center gbor" id="mainpg">
+                    <div class="col-12 col-lg-5">
+                        <div class="rowcard" id="country">
+                            <span class="col-2" id="flagdisplay"></span>
+                            <span class="col-9" id="countrydisplay"></span>
+                            <span id="datedisplay"></span>
+                        </div>
+                        <div class="rowcard" id="dailyc">
+                            <div class="row">
+                                <div class="col-3">
+                                    <i class="fas fa-head-side-cough"></i>
+                                </div>
+                                <div class="col-9 d-flex justify-content-center align-items-center">
+                                    Total Cases: &nbsp;<span id="totalconfirmed"></span>&nbsp;(<span id="ctoday"></span>)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rowcard" id="dailyr">
+                            <div class="row">
+                                <div class="col-3">
+                                    <i class="far fa-smile"></i>
+                                </div>
+                                <div class="col-9 d-flex justify-content-center align-items-center">
+                                    Recovered: &nbsp;<span id="totalrecovered"></span>&nbsp;(<span id="rtoday"></span>)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rowcard" id="dailyd">
+                            <div class="row">
+                                <div class="col-3">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                </div>
+                                <div class="col-9 d-flex justify-content-center align-items-center">
+                                    Total Deaths: &nbsp;<span id="totaldeaths"></span>&nbsp;(<span id="dtoday"></span>)
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-5 gbor">
+                    <div class="col-12 col-lg-5">
                         <div class="mycard">
                             <h1>What is COVID-19?</h1>
                             <p>Coronavirus disease (COVID-19) is an infectious 
