@@ -224,13 +224,31 @@ function getTop5() {
             countriesdata.push(
                 j = {
                     "Country": i,
-                    "Latest Total": alldata[i][maxindex].confirmed
+                    "Latest Total": alldata[i][maxindex].confirmed,
+                    "Latest Recovered": alldata[i][maxindex].recovered,
+                    "Latest Deaths": alldata[i][maxindex].deaths,
                 })
             j++
         }
         countriesdata.sort(function (a, b) {
             return b["Latest Total"] - a["Latest Total"]
         })
+
+        console.log("countries data: ",countriesdata)
+
+        let totalc = 0
+        let totalr = 0
+        let totald = 0
+
+        for (let i of countriesdata) {
+            totalc += i["Latest Total"]
+            totalr += i["Latest Recovered"]
+            totald += i["Latest Deaths"]
+        }
+
+        $("#totalc").append(`${totalc}`)
+        $("#totalr").append(`${totalr}`)
+        $("#totald").append(`${totald}`)
 
         let top5 = countriesdata.slice(0, 5)
         //console.log(top5)
@@ -608,7 +626,7 @@ function getMap() {
                     function gotTo2(){
                         let x = $("#coo").text().split(",")
                 console.log("x",x)
-                map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 7)
+                map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6)
                     },1000
                 )
                 
