@@ -34,21 +34,41 @@
 
 <body>
     <header class="container-fluid">
-        <h1>COVID-19TALK<i class="fas fa-virus"></i></h1>
-        <h3>COVID-19 STATS TRACKER</h3>
+        <!-- <h1>COVID-19TALK<i class="fas fa-virus"></i></h1>
+        <h3>COVID-19 STATS TRACKER</h3> -->
     </header>
     <main>
         <section>
-            <div class="row justify-content-between" id="overview">
+            <div class="row justify-content-center align-items-center" id="loading">
+                <img src="images/loading.jpg">
+                <h1>COVIDWORLD</h1>
+                <h6>COVID-19 STATS TRACKER</h6>
+            </div>
+            <div>content</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- overview -->
+            <!-- <div class="row justify-content-between" id="overview">
                 <div class="col-lg-1 d-none d-lg-block gbor"></div>
                 <div class="col-lg-5 col-12 gbor">
                     <div class="row justify-content-center">
                         <div class="col-12" id="datedisplay"></div>
                         <div class="col-2" id="flagdisplay"></div>
-                        <div class="col-9" id="countrydisplay"></div>
+                        <div class="col-9" id="countrydisplay"></div> -->
 
-                        <!-- select country -->
-                        <div class="container-fluid">
+            <!-- select country -->
+            <!-- <div class="container-fluid">
                             Select Country:
                             <select id="countryselect" size="1">
                                 <option>Singapore</option>
@@ -59,10 +79,10 @@
                             <select id="dateselect" size="1">
                             </select>
                             <button id="getData" onclick="getData()">Get Data</button>
-                        </div>
+                        </div> -->
 
-                        <!-- daily summary -->
-                        <div class="col-4">
+            <!-- daily summary -->
+            <!-- <div class="col-4">
                             <i class="fas fa-head-side-cough"></i>
                             <div id="ctoday"></div>
                             <p>Confirmed</p>
@@ -94,10 +114,10 @@
                             <canvas id="drdonut" width="800" height="450"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- linechart -->
-                <div class="col-lg-5 col-12 gbor">
+            <!-- linechart -->
+            <!-- <div class="col-lg-5 col-12 gbor">
                     <div class="container-fluid">Infection History:
                         <div id="linegraphc"></div>
                     </div>
@@ -111,13 +131,13 @@
                         <canvas id="combined" width="800" height="450"></canvas>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 
-         
 
-            <div class="row p-5" id="world">
+            <!-- world stats -->
+            <!-- <div class="row p-5" id="world">
                 <div class="col-md-4 col-12 gbor">
                     Top 5 Cases in the World
                     <div id="top5chart"></div>
@@ -137,39 +157,7 @@
                 <div class="col-md-3 col-12 gbor">
                     <div id="totald"></div>
                 </div>
-            </div>
-
-
-
-
-
-            <!-- line chart -->
-            <!-- <div class="row p-5">
-                <div class="container-fluid">Infection History:
-                    <div id="linegraphx"></div>
-                </div>
             </div> -->
-
-            <!-- details -->
-            <!-- <div class="row">
-                <div class="col-12">
-                    <canvas id="rrdonut" width="800" height="450"></canvas>
-                </div>
-                <div class="col-12">
-                    <canvas id="drdonut" width="800" height="450"></canvas>
-                </div>
-            </div> -->
-
-            <!-- ranking -->
-            <!-- <div class="row p-5"> -->
-            <!-- <div id="worldranking" class="container-fluid p-5">
-                    Top 5 Cases in the World
-                </div> -->
-            <!-- Top 5 Cases in the World
-                <div id="top5chart"></div>
-            </div> -->
-
-
 
 
         </section>
@@ -228,9 +216,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

@@ -17,7 +17,7 @@ $(function () {
             $("#countryselect").append(`<option value="${i}">${i}</option>`)
         }
 
-  
+
 
 
         //adding dates to options
@@ -84,6 +84,13 @@ $(function () {
 
     loadDefaultCountryFlag()
     getMap()
+
+
+    setTimeout(function(){
+        $("#loading").fadeOut(4000,"swing")
+    }, 500);
+
+
 
 
 
