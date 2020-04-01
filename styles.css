@@ -108,7 +108,7 @@ header h3{
 
 #dailyc, #dailyr, #dailyd, #country {
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     height: 100px;
     border-radius: 20px;
     margin: 10px;
@@ -147,6 +147,19 @@ header h3{
 
 }
 
+#country {
+    font-size: 18px;
+}
+
+#country select {
+    font-size: 16px;
+    
+}
+
+#country .col-7 {
+    margin: -20px 0 0 0;
+    font-family: "Lato", sans-serif;
+}
 
 
 

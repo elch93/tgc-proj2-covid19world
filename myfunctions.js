@@ -89,59 +89,59 @@ function loadLatest() {
                 let weeklycx = cfconfirmed.dimension(f => f.date)
                 let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
 
-                dc.lineChart("#linegraphc")
-                    .width(380) //make mobile responsive later!
-                    .height(250)
-                    .dimension(weeklycx)
-                    .group(weeklycy)
-                    .x(d3.scaleBand())
-                    .xUnits(dc.units.ordinal)
-                    .xAxisLabel("Date")
-                    .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
-                    // .yAxisLabel("Cases")
-                    .yAxis().ticks(4)
+                // dc.lineChart("#linegraphc")
+                //     .width(380) //make mobile responsive later!
+                //     .height(250)
+                //     .dimension(weeklycx)
+                //     .group(weeklycy)
+                //     .x(d3.scaleBand())
+                //     .xUnits(dc.units.ordinal)
+                //     .xAxisLabel("Date")
+                //     .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
+                //     // .yAxisLabel("Cases")
+                //     .yAxis().ticks(4)
 
-                dc.renderAll()
+                // dc.renderAll()
 
-                let maxrweekly = weeklydata[0].recovered
-                let minrweekly = weeklydata[6].recovered
-                let cfrecovered = crossfilter(weeklydata)
-                let weeklyrx = cfrecovered.dimension(f => f.date)
-                let weeklyry = weeklyrx.group().reduceSum(f => f.recovered)
+                // let maxrweekly = weeklydata[0].recovered
+                // let minrweekly = weeklydata[6].recovered
+                // let cfrecovered = crossfilter(weeklydata)
+                // let weeklyrx = cfrecovered.dimension(f => f.date)
+                // let weeklyry = weeklyrx.group().reduceSum(f => f.recovered)
 
-                dc.lineChart("#linegraphr")
-                    .width(380) //make mobile responsive later!
-                    .height(250)
-                    .dimension(weeklyrx)
-                    .group(weeklyry)
-                    .x(d3.scaleBand())
-                    .xUnits(dc.units.ordinal)
-                    .xAxisLabel("Date")
-                    .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
-                    // .yAxisLabel("Cases")
-                    .yAxis().ticks(4)
+                // dc.lineChart("#linegraphr")
+                //     .width(380) //make mobile responsive later!
+                //     .height(250)
+                //     .dimension(weeklyrx)
+                //     .group(weeklyry)
+                //     .x(d3.scaleBand())
+                //     .xUnits(dc.units.ordinal)
+                //     .xAxisLabel("Date")
+                //     .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
+                //     // .yAxisLabel("Cases")
+                //     .yAxis().ticks(4)
 
-                dc.renderAll()
+                // dc.renderAll()
 
-                let maxdweekly = weeklydata[0].deaths
-                let mindweekly = weeklydata[6].deaths
-                let cfdeaths = crossfilter(weeklydata)
-                let weeklydx = cfdeaths.dimension(f => f.date)
-                let weeklydy = weeklydx.group().reduceSum(f => f.deaths)
+                // let maxdweekly = weeklydata[0].deaths
+                // let mindweekly = weeklydata[6].deaths
+                // let cfdeaths = crossfilter(weeklydata)
+                // let weeklydx = cfdeaths.dimension(f => f.date)
+                // let weeklydy = weeklydx.group().reduceSum(f => f.deaths)
 
-                dc.lineChart("#linegraphd")
-                    .width(380) //make mobile responsive later!
-                    .height(250)
-                    .dimension(weeklydx)
-                    .group(weeklydy)
-                    .x(d3.scaleBand())
-                    .xUnits(dc.units.ordinal)
-                    .xAxisLabel("Date")
-                    .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
-                    // .yAxisLabel("Cases")
-                    .yAxis().ticks(4)
+                // dc.lineChart("#linegraphd")
+                //     .width(380) //make mobile responsive later!
+                //     .height(250)
+                //     .dimension(weeklydx)
+                //     .group(weeklydy)
+                //     .x(d3.scaleBand())
+                //     .xUnits(dc.units.ordinal)
+                //     .xAxisLabel("Date")
+                //     .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
+                //     // .yAxisLabel("Cases")
+                //     .yAxis().ticks(4)
 
-                dc.renderAll()
+                // dc.renderAll()
 
 
 
