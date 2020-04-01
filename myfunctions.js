@@ -81,7 +81,7 @@ function loadLatest() {
                 for (let i of weeklydata) {
                     i.date = moment(i.date, "DD/MM/YY").format("MM/DD")
                 }
-                console.log("weeklydata",weeklydata)
+                console.log("weeklydata", weeklydata)
 
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
@@ -150,44 +150,49 @@ function loadLatest() {
                 let rArr = []
                 let dArr = []
 
-                
-                for (let i of weeklydata){
+
+                for (let i of weeklydata) {
                     cArr.unshift(i.confirmed)
                     rArr.unshift(i.recovered)
                     dArr.unshift(i.deaths)
                 }
 
 
-                new Chart(document.getElementById("line-chart"), {
+                var x = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
-                      labels: cArr,
-                      datasets: [{ 
-                          data: cArr,
-                          label: "Total",
-                          borderColor: "#3e95cd",
-                          fill: false
-                        }, { 
-                          data: rArr,
-                          label: "Recovered",
-                          borderColor: "#3cba9f",
-                          fill: false
-                        }, { 
-                          data: dArr,
-                          label: "Deaths",
-                          borderColor: "#8e5ea2",
-                          fill: false
+                        labels: cArr,
+                        datasets: [{
+                            data: cArr,
+                            label: "Total",
+                            borderColor: "#3e95cd",
+                            fill: false
+                        }, {
+                            data: rArr,
+                            label: "Recovered",
+                            borderColor: "#3cba9f",
+                            fill: false
+                        }, {
+                            data: dArr,
+                            label: "Deaths",
+                            borderColor: "#8e5ea2",
+                            fill: false
                         }
-                      ]
+                        ]
                     },
                     options: {
-                      title: {
-                        display: true,
-                        text: 'Weekly Trend'
-                      }
+                        title: {
+                            display: true,
+                            text: 'Weekly Trend'
+                        }
                     }
-                  });
-                  
+                });
+
+                $("#getData").click(function () {
+                    x.destroy()
+                    alert("destroy x!")
+                })
+
 
 
 
@@ -257,6 +262,7 @@ function getData() {
     getMap()
     loadLatest()
     getCountryFlag()
+
 }
 
 
@@ -671,18 +677,18 @@ function getMap() {
         map.addLayer(countrycluster)
 
         document.getElementById("getData").addEventListener("click", function goTo() {
-                setTimeout(
-                    function gotTo2(){
-                        let x = $("#coo").text().split(",")
-                console.log("x",x)
-                map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6)
-                    },1000
-                )
-                
-            }
+            setTimeout(
+                function gotTo2() {
+                    let x = $("#coo").text().split(",")
+                    console.log("x", x)
+                    map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6)
+                }, 1000
+            )
+
+        }
         )
 
-        
+
 
 
 
