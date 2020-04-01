@@ -81,7 +81,7 @@ function loadLatest() {
                 for (let i of weeklydata) {
                     i.date = moment(i.date, "DD/MM/YY").format("MM/DD")
                 }
-                //console.log(weeklydata)
+                console.log("weeklydata",weeklydata)
 
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
@@ -144,6 +144,55 @@ function loadLatest() {
                 dc.renderAll()
 
 
+
+                // linechart combined
+                let cArr = []
+                let rArr = []
+                let dArr = []
+
+                
+                for (let i of weeklydata){
+                    cArr.unshift(i.confirmed)
+                    rArr.unshift(i.recovered)
+                    dArr.unshift(i.deaths)
+                }
+
+
+                new Chart(document.getElementById("line-chart"), {
+                    type: 'line',
+                    data: {
+                      labels: cArr,
+                      datasets: [{ 
+                          data: cArr,
+                          label: "Total",
+                          borderColor: "#3e95cd",
+                          fill: false
+                        }, { 
+                          data: rArr,
+                          label: "Recovered",
+                          borderColor: "#3cba9f",
+                          fill: false
+                        }, { 
+                          data: dArr,
+                          label: "Deaths",
+                          borderColor: "#8e5ea2",
+                          fill: false
+                        }
+                      ]
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: 'Weekly Trend'
+                      }
+                    }
+                  });
+                  
+
+
+
+
+                //rr & dr chart
                 let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderr = 100 - recoveryrate
                 //recovery rates chart
@@ -234,7 +283,7 @@ function getTop5() {
             return b["Latest Total"] - a["Latest Total"]
         })
 
-        console.log("countries data: ",countriesdata)
+        //console.log("countries data: ",countriesdata)
 
         let totalc = 0
         let totalr = 0
@@ -591,7 +640,7 @@ function getMap() {
         $("#coo").append(`${coordinates}`)
 
 
-        console.log("HERE", coordinates)
+        //console.log("HERE", coordinates)
         console.log("mapped list", clist)
         console.log("bugged", buglist)
 
