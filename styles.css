@@ -133,6 +133,7 @@ header h3{
     background-color:#303841 ;
     border-radius:0 20px 20px 0 ;
     transition: 0.7s ease-in;
+    z-index: 2;
 }
 
 #leftbar button {
@@ -166,9 +167,12 @@ header h3{
     transform: rotate(90deg);
     position: absolute;
     top:50px;
-    right: 0px;
+    right: -15px;
     transition: 0.7s ease-in;
 }
+
+/* hero page */
+
 
 
 

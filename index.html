@@ -45,6 +45,7 @@
                 <h6>COVID-19 STATS TRACKER</h6>
             </div> -->
             <div id="afterload">
+                <!-- search bar -->
                 <div id="leftbar">
                     Select Country:
                     <select id="countryselect" size="1">
@@ -54,9 +55,62 @@
                     <select id="dateselect" size="1">
                     </select>
                     <button id="getData" onclick="getData()">Get Data</button>
-                    <p id="options">OPTIONS</p>
+                    <p id="options">OPTIONS &nbsp;<i class="fas fa-angle-down"></i></p>
                 </div>
-                
+
+
+                <!-- hero page -->
+                <div class="row">
+                    <div class="col-6 p-5">
+                        <div class="row ml-3 justify-content-between" id="overview">
+                            <div class="col-12 gbor">
+                                <span id="datedisplay"></span>
+                                <span id="flagdisplay"></span>
+                                <span id="countrydisplay"></span>
+                            </div>
+                            <div class="col-3 gbor">
+                                <i class="fas fa-head-side-cough"></i>
+                                <div id="ctoday"></div>
+                                <p>Confirmed</p>
+                                <div class="mycard">
+                                    Total Cases: <div id="totalconfirmed"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 gbor">
+                                <i class="far fa-smile"></i>
+                                <div id="rtoday"></div>
+                                <p>Recovered</p>
+                                <div class="mycard">
+                                    Total Recovered: <div id="totalrecovered"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 gbor">
+                                <i class="fas fa-skull-crossbones"></i>
+                                <div id="dtoday"></div>
+                                <p>Deaths</p>
+                                <div class="mycard">
+                                    Total Deaths: <div id="totaldeaths"></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid">Combined Chart:
+                                    <canvas id="combined" width="800" height="450"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-6">
+                        <h1>What is COVID-19?</h1>
+                        <p>Coronavirus disease (COVID-19) is an infectious
+                            disease caused by a newly discovered coronavirus.
+                            Older people, and those with underlying medical problems
+                            like cardiovascular disease, diabetes, chronic respiratory
+                            disease, and cancer are more likely to develop serious illness.</p>
+                        <p>Symptoms: mild to moderate respiratory illness</p>
+                    </div>
+                </div>
             </div>
 
 
