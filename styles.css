@@ -114,7 +114,7 @@ header, #ctoday, #rtoday, #dtoday,
 
 }
 
-#linegraphx svg, #top5chart svg {
+#linegraphc svg, #top5chart svg, #linegraphr svg, #linegraphd svg {
     overflow: visible;
 }
 

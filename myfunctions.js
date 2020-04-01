@@ -205,9 +205,9 @@ function getData() {
     countryname = countryselected
     loaddate = dateselected
     countrymap = countryselected
+    getMap()
     loadLatest()
     getCountryFlag()
-    getMap()
 }
 
 
@@ -558,21 +558,28 @@ function getMap() {
         // console.log("after", list180)
         // console.log("map count", count2)
         // console.log("bug count",count3)
+
+
+
         let coordinates = undefined
-        for (let i in clist){
-            if (countrymap == clist[i][0]){
-                console.log(clist[i][1]) 
-                console.log(clist[i][0]) 
+        for (let i in clist) {
+            if (countrymap == clist[i][0]) {
+                console.log(clist[i][0], clist[i][1])
                 coordinates = clist[i][1]
             }
         }
 
+        $("#coo").empty()
+        $("#coo").append(`${coordinates}`)
 
+
+        console.log("HERE", coordinates)
         console.log("mapped list", clist)
         console.log("bugged", buglist)
 
 
-        let map = L.map("map1").setView(coordinates, 12)
+        let map = L.map("map1").setView([1.35, 103.85], 12)
+        //console.log(map)
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -596,8 +603,26 @@ function getMap() {
 
         map.addLayer(countrycluster)
 
+        document.getElementById("getData").addEventListener("click", function goTo() {
+                setTimeout(
+                    function gotTo2(){
+                        let x = $("#coo").text().split(",")
+                console.log("x",x)
+                map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 7)
+                    },1000
+                )
+                
+            }
+        )
 
-        map.panTo(coordinates)
+        
+
+
+
+
+
+
+
 
 
     })
