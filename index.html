@@ -48,43 +48,65 @@
                 <h6>COVID-19 STATS TRACKER</h6>
             </div> -->
             <div id="afterload">
-                <div id="leftbar">
-                    <p id="flagdisplay"></p>
-                    <p id="countrydisplay"></p>
-                    <div>
-                        <p>Select Country:</p>
-                        <select id="countryselect" size="1">
-                            <option>Singapore</option>
-                        </select>
-                        <br><br>
-                        <span>Select Date:&nbsp;&nbsp;</span>
-                        <select id="dateselect" size="1">
-                        </select>
-                        <button id="getData" onclick="getData()">Get Data</button>
+
+                <!-- overview -->
+                <div class="row p-3 justify-content-between">
+                    <div class="col-12 col-sm-5 col-lg-3 mb-5">
+                        <!-- leftbar -->
+                        <div id="leftbar">
+                            <p id="flagdisplay"></p>
+                            <p id="countrydisplay"></p>
+                            <div>
+                                <p>Select Country:</p>
+                                <select id="countryselect" size="1">
+                                    <option>Singapore</option>
+                                </select>
+                                <br><br>
+                                <span>Select Date:&nbsp;&nbsp;</span>
+                                <select id="dateselect" size="1">
+                                </select>
+                                <button id="getData" onclick="getData()">Get Data</button>
+                            </div>
+                            <!-- <div id="map1"></div> -->
+                        </div>
+                        <!-- leftbar end -->
                     </div>
-                </div>
-                <div id="overview">
-                    <div class="row p-3 justify-content-center">
-                        <div class="col-4 d-flex flex-column align-items-center" id="totaldaily">
-                            <i class="fas fa-head-side-cough"></i>
-                            <p><span id="totalconfirmed"></span></p><p><span id="ctoday"></span></p>
-                            <p>Total Cases</p>
+                    <div class="col-12 col-sm-7 col-lg-5 mb-5">
+                        <div id="overview">
+                            <div class="row p-3 justify-content-center">
+                                <div class="col-4 d-flex flex-column align-items-center" id="totaldaily">
+                                    <i class="fas fa-head-side-cough"></i>
+                                    <p><span id="totalconfirmed"></span></p>
+                                    <p><span id="ctoday"></span></p>
+                                    <p>Total Cases</p>
+                                </div>
+                                <div class="col-4 d-flex flex-column align-items-center" id="recovereddaily">
+                                    <i class="fas fa-smile"></i>
+                                    <p><span id="totalrecovered"></span></p>
+                                    <p><span id="rtoday"></span></p>
+                                    <p>Total Recovered</p>
+                                </div>
+                                <div class="col-4 d-flex flex-column align-items-center" id="deathsdaily">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                    <p><span id="totaldeaths"></span></p>
+                                    <p><span id="dtoday"></span></p>
+                                    <p>Total Deaths</p>
+                                </div>
+                            </div>
+                            <div class="row p-3">
+                                <div class="container-fluid">
+                                    <canvas id="combined" width="400" height="200"></canvas>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4 d-flex flex-column align-items-center" id="recovereddaily">
-                            <i class="fas fa-smile"></i>
-                            <p><span id="totalrecovered"></span></p><p><span id="rtoday"></span></p>
-                            <p>Total Recovered</p>
-                        </div>
-                        <div class="col-4 d-flex flex-column align-items-center" id="deathsdaily">
-                            <i class="fas fa-skull-crossbones"></i>
-                            <p><span id="totaldeaths"></span></p><p><span id="dtoday"></span></p>
-                            <p>Total Recovered</p>
-                        </div>
+                        <!-- overview end -->
                     </div>
-                    <div class="row p-3">
-                        <div class="container-fluid">
-                            <canvas id="combined" width="500" height="250"></canvas>
+                    <div class="col-12 col-lg-4 mb-5">
+                        <!-- world -->
+                        <div id="world">
+
                         </div>
+                        <!-- world end -->
                     </div>
                 </div>
 
@@ -184,8 +206,8 @@
                         </div>
                         <canvas id="pie-chart" width="800" height="450"></canvas>
                     </div>
-                </div>
-            </div> -->
+                </div>-->
+            </div>
 
 
 
@@ -197,7 +219,7 @@
 
 
 
-                <!-- <h1>What is COVID-19?</h1>
+            <!-- <h1>What is COVID-19?</h1>
                         <p>Coronavirus disease (COVID-19) is an infectious
                             disease caused by a newly discovered coronavirus.
                             Older people, and those with underlying medical problems
@@ -205,8 +227,8 @@
                             disease, and cancer are more likely to develop serious illness.</p>
                         <p>Symptoms: mild to moderate respiratory illness</p> -->
 
-                <!-- overview -->
-                <!-- <div class="row justify-content-between" id="overview">
+            <!-- overview -->
+            <!-- <div class="row justify-content-between" id="overview">
                 <div class="col-lg-1 d-none d-lg-block gbor"></div>
                 <div class="col-lg-5 col-12 gbor">
                     <div class="row justify-content-center">
@@ -214,8 +236,8 @@
                         <div class="col-2" id="flagdisplay"></div>
                         <div class="col-9" id="countrydisplay"></div> -->
 
-                <!-- select country -->
-                <!-- <div class="container-fluid">
+            <!-- select country -->
+            <!-- <div class="container-fluid">
                             Select Country:
                             <select id="countryselect" size="1">
                                 <option>Singapore</option>
@@ -228,8 +250,8 @@
                             <button id="getData" onclick="getData()">Get Data</button>
                         </div> -->
 
-                <!-- daily summary -->
-                <!-- <div class="col-4">
+            <!-- daily summary -->
+            <!-- <div class="col-4">
                             <i class="fas fa-head-side-cough"></i>
                             <div id="ctoday"></div>
                             <p>Confirmed</p>
@@ -263,8 +285,8 @@
                     </div>
                 </div> -->
 
-                <!-- linechart -->
-                <!-- <div class="col-lg-5 col-12 gbor">
+            <!-- linechart -->
+            <!-- <div class="col-lg-5 col-12 gbor">
                     <div class="container-fluid">Infection History:
                         <div id="linegraphc"></div>
                     </div>
@@ -283,8 +305,8 @@
 
 
 
-                <!-- world stats -->
-                <!-- <div class="row p-5" id="world">
+            <!-- world stats -->
+            <!-- <div class="row p-5" id="world">
                 <div class="col-md-4 col-12 gbor">
                     Top 5 Cases in the World
                     <div id="top5chart"></div>

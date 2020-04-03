@@ -90,14 +90,10 @@ body{
 /* leftbar */
 
 #leftbar {
-    position: absolute;
-    top:50px;
-    left:15px;
     border-radius: 10px;
     height: 375px;
-    width: 300px;
-    border: #34495B;
-    background: linear-gradient(180deg, rgba(22,40,55,1) 0%, rgba(37,64,87,1) 83%, rgba(57,90,119,1) 100%);
+    background: #303841;
+    padding:10px 0 0 0;
 }
 
 #flagdisplay {
@@ -153,24 +149,25 @@ body{
     background-color: gold;
 }
 
+#map1 {
+    height: 280px;
+    width: 280px;
+    border-radius: 50%;
+    margin: 20px;
+    border: 10px solid #F3F3F3;
+} 
+
 /* overview */
 #overview {
-    position: absolute;
-    left: 350px;
-    top:50px;
-    height: 500px;
-    width: 550px;
+    padding:20px;
     border: #34495B;
     background: #e3e3e3;
     border-radius: 10px;
     background: #e3e3e3;
-    box-shadow:  10px 10px 10px #c1c1c1, 
-                -10px -10px 10px #ffffff;
+    box-shadow:  10px 10px 30px #c1c1c1, 
+                -10px -10px 30px #ffffff;
     font-size: 18px;
 }
-
-
-
 
 .fa-head-side-cough, .fa-smile, .fa-skull-crossbones {
     font-size: 50px;
@@ -186,6 +183,17 @@ body{
 
 #overview p{
     margin: 0;
+}
+
+/* world */
+#world {
+    height: 500px;
+    border: #34495B;
+    border-radius: 10px;
+    background: #303841;
+    box-shadow:  10px 10px 30px #c1c1c1, 
+                -10px -10px 30px #ffffff;
+    font-size: 18px;
 }
 
 /* header */
@@ -219,7 +227,7 @@ header h3{
     animation-name: bounce;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
-    animation-duration: 2s;
+    animation-duration: 0.7s;
 }
 
 @keyframes bounce {
@@ -247,10 +255,7 @@ header h3{
     overflow: visible;
 }
 
-#map1 {
-    height: 300px;
-    border: 3px gold solid;
-} 
+
 
 
 

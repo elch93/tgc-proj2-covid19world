@@ -721,7 +721,7 @@ function getMap() {
                 function gotTo2() {
                     let x = $("#coo").text().split(",")
                     console.log("x", x)
-                    map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6)
+                    map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6.5)
                 }, 1000
             )
 
