@@ -194,6 +194,7 @@ body{
 }
 
 #optionbar {
+    display: none;
     transition: ease-in 0.5s;
     width: 350px;
     height: 110px;
