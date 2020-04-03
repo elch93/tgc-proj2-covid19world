@@ -144,9 +144,29 @@ body{
 }
 
 /* world */
+#world {
+    height: 400px;
+    border: white solid 1px;
+    border-radius: 10px;
+    background: #303841;
+    /* box-shadow:  10px 10px 30px #c1c1c1, 
+                -10px -10px 30px #ffffff; */
+    font-size: 18px;
+    color: #F3F3F3;
+    font-family: 'Oswald', sans-serif;
+}
+
+#world p {
+    margin: -10px 0 5px 20px;
+}
+
+#world .col-4 {
+    padding: 15px 0 0 10px;
+}
+
 #map1 {
-    height: 280px;
-    width: 280px;
+    height: 320px;
+    width: 320px;
     border-radius: 50%;
     margin: 20px auto;
     border: 10px solid #F3F3F3;
@@ -157,22 +177,24 @@ body{
     font-family: 'Oswald', sans-serif;
 }
 
-#worldtxt1 {
-    position: relative;
-    bottom: 30px;
+#totalc {
+    font-size: 36px;
+    color: gold;
+    font-family: 'Heebo', sans-serif;
 }
 
-
-#world {
-    height: 500px;
-    border: white solid 1px;
-    border-radius: 10px;
-    background: #303841;
-    /* box-shadow:  10px 10px 30px #c1c1c1, 
-                -10px -10px 30px #ffffff; */
-    font-size: 18px;
-    color: #F3F3F3;
+#totalr {
+    font-size: 36px;
+    color: green;
+    font-family: 'Heebo', sans-serif;
 }
+
+#totald {
+    font-size: 36px;
+    color: red;
+    font-family: 'Heebo', sans-serif;
+}
+
 
 .fa-globe-americas {
     position: relative;
