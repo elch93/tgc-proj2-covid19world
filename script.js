@@ -86,6 +86,9 @@ $(function () {
 
     loadDefaultCountryFlag()
     getMap()
+    $("#obbtn").click(function(){
+        $("#optionbar").toggle()
+    })
 
 
     // setTimeout(function () {

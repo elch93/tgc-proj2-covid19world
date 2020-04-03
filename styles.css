@@ -155,15 +155,25 @@ body{
     border: white solid 1px;
     border-radius: 10px;
     background: #303841;
-    box-shadow:  10px 10px 30px #c1c1c1, 
-                -10px -10px 30px #ffffff;
+    /* box-shadow:  10px 10px 30px #c1c1c1, 
+                -10px -10px 30px #ffffff; */
     font-size: 18px;
 }
 
 /* option bar */
+#obbtn {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    background-color: #F3F3F3;
+    border: none;
+}
+
 #optionbar {
-    width: 500px;
-    height: 100px;
+    transition: ease-in 0.5s;
+    width: 350px;
+    height: 110px;
     background-color: #303841;
     position: fixed;
     border-radius: 10px;
@@ -175,6 +185,16 @@ body{
     font-weight: 500;
     color: #F3F3F3;
     padding: 10px;
+    z-index: 2;
+}
+
+#optionbar i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#optionbar div {
+    margin: 5px auto;
 }
 
 #optionbar button {
@@ -182,6 +202,7 @@ body{
     border-radius: 5px;
     padding: 5px 10px;
     background-color: gold;
+    margin: 5px;
 }
 
 #optionbar select {

@@ -503,51 +503,6 @@ function getMap() {
         }
         console.log("today's data", count)
 
-
-
-        // for (let i in pomberdata){
-        //     for (let j in restcountries){
-        //         if(i == restcountries[j].name || i == restcountries[j].alpha2Code){
-        //             clist.push([restcountries[j].name,restcountries[j].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-        //         else if (i == "Taiwan*") {
-        //             clist.push([restcountries[221].name,restcountries[221].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-        //         else if (i == "Vietnam") {
-        //             clist.push([restcountries[244].name,restcountries[244].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-        //         else if (i == "Korea, South") {
-        //             clist.push([restcountries[210].name,restcountries[210].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-        //         else if (i == "Czechia") {
-        //             clist.push([restcountries[61].name,restcountries[61].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-        //         else if (i == "North Macedonia") {
-        //             clist.push([restcountries[132].name,restcountries[132].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-        //         else if (i == "Laos") {
-        //             clist.push([restcountries[122].name,restcountries[122].latlng, pomberdata[i][0].confirmed,  pomberdata[i][0].recovered,  pomberdata[i][0].deaths])
-        //             break
-        //         }
-
-
-
-        //     }
-
-        // }
-
         for (let i in pomberdata) {
             for (let j in restcountries) {
                 if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
@@ -691,7 +646,7 @@ function getMap() {
         console.log("bugged", buglist)
 
 
-        let map = L.map("map1").setView([1.35, 103.85], 6)
+        let map = L.map("map1",{ zoomControl: false }).setView([1.35, 103.85], 6)
         //console.log(map)
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -706,10 +661,10 @@ function getMap() {
         let countrycluster = L.markerClusterGroup()
         for (let i = 0; i < clist.length; i++) {
             let m = L.marker([clist[i][1][0], clist[i][1][1]])
-            m.bindPopup(`<p>${clist[i][0]}</p>
-                        <p>total: ${clist[i][2]}</p>
-                        <p>recovered: ${clist[i][3]}</p>
-                        <p>deaths: ${clist[i][4]}</p>
+            m.bindPopup(`<p><b>${clist[i][0]}</b></p>
+                        <p><b>Total:</b> ${clist[i][2]}</p>
+                        <p><b>Recovered:</b> ${clist[i][3]}</p>
+                        <p><b>Deaths:</b> ${clist[i][4]}</p>
                         `)
             countrycluster.addLayer(m)
         }
