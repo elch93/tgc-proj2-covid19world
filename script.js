@@ -85,33 +85,13 @@ $(function () {
     }//get country end
 
     loadDefaultCountryFlag()
-    getMap()
+    
     $("#obbtn").click(function(){
         $("#optionbar").toggle()
     })
     $("#getData").click(function(){
         $("#optionbar").toggle()
     })
-
-
-    // setTimeout(function () {
-    //     $("#loading").fadeOut(1000, "swing")
-    // }, 3000);
-    // setTimeout(function(){
-    //     $("header").fadeIn(1000)
-    //     $("#afterload").fadeIn(1000)
-    // }, 4000);
-
-    
-
-
-
-
-
-
-
-
-
 
 
 

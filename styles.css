@@ -38,56 +38,6 @@ body{
     border: 3px solid gold;
 }
 
-/* loading page */
-#loading {
-    height: 100vh;
-    background-color: white;
-}
-
-#loading img{
-    min-width: 350px;
-    max-width: 500px;
-    animation-name: bounce;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
-}
-
-@keyframes bounce{
-    0%{
-        transform: translateY(0);
-    }
-
-    50%{
-        transform: translateY(-15px);
-    }
-
-    100%{
-        transform: translateY(0)
-    }
-}
-
-
-#loading h1 {
-    font-family:'Yantramanav', sans-serif ;
-    text-align: center;
-    color: #34495B;
-    position: absolute;
-    top:60%;
-}
-
-#loading h6 {
-    font-family:'Yantramanav', sans-serif ;
-    text-align: center;
-    color: #34495B;
-    position: absolute;
-    top:65%;
-}
-
-/* header, #afterload {
-    display: none;
-} */
-
-
 /* leftbar */
 
 #leftbar {
@@ -195,15 +145,6 @@ body{
     font-family: 'Heebo', sans-serif;
 }
 
-
-.fa-globe-americas {
-    position: relative;
-    color: #F3F3F3;
-    top: 70px;
-    left:50%;
-    transform: translateX(-50%);
-    font-size: 150px;
-}
 
 /* option bar */
 #obbtn {
