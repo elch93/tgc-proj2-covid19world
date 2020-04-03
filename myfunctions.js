@@ -355,7 +355,7 @@ function loadLatest() {
 
         // let coordinates = [1.35, 103.85] //sg default
 
-        
+
         //get map
         function getMap() {
             axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
@@ -577,12 +577,24 @@ function loadLatest() {
 
 //#2 loadonclick
 function getData() {
-    let countryselected = $("#countryselect").val()
-    let dateselected = $("#dateselect").val()
-    countryname = countryselected
-    loaddate = dateselected
-    countrymap = countryselected
-    loadLatest()
+    $("#overview").fadeToggle()
+
+    setTimeout(function () {
+        let countryselected = $("#countryselect").val()
+        let dateselected = $("#dateselect").val()
+        countryname = countryselected
+        loaddate = dateselected
+        countrymap = countryselected
+        loadLatest()
+        
+    }, 500)
+
+    setTimeout(function () {
+        $("#overview").fadeToggle()
+        
+    }, 700)
+
+    
 }
 
 //#3 load ranking

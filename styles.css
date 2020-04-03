@@ -38,6 +38,79 @@ body{
     border: 3px solid gold;
 }
 
+/* loading page */
+#loading {
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    animation-name: fadeOut;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+#loading img{
+    min-width: 350px;
+    max-width: 500px;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+
+@keyframes bounce{
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-15px);
+    }
+
+    100%{
+        transform: translateY(0)
+    }
+}
+
+
+#loading h1 {
+    font-family:'Yantramanav', sans-serif ;
+    text-align: center;
+    color: #34495B;
+    position: absolute;
+    top:60%;
+}
+
+#loading h6, #loading p {
+    font-family:'Yantramanav', sans-serif ;
+    text-align: center;
+    color: #34495B;
+    position: absolute;
+    top:65%;
+}
+
+#loading p {
+    top:68%;
+}
+
+#afterload {
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /* leftbar */
 
 #leftbar {
@@ -95,7 +168,7 @@ body{
 
 /* world */
 #world {
-    height: 400px;
+    position: relative;
     border: white solid 1px;
     border-radius: 10px;
     background: #303841;
@@ -119,7 +192,6 @@ body{
     width: 320px;
     border-radius: 50%;
     margin: 20px auto;
-    border: 10px solid #F3F3F3;
 }
 
 #worldtxt1, #worldtxt2, #worldtxt3 {

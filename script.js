@@ -1,6 +1,8 @@
 $(function () {
 
-
+    setTimeout(function () {
+        $("#loading").fadeToggle()
+    }, 1000)
 
     let countrylist = []
     loadLatest()
@@ -85,13 +87,15 @@ $(function () {
     }//get country end
 
     loadDefaultCountryFlag()
-    
-    $("#obbtn").click(function(){
+
+    $("#obbtn").click(function () {
         $("#optionbar").toggle()
     })
-    $("#getData").click(function(){
+    $("#getData").click(function () {
         $("#optionbar").toggle()
     })
+
+
 
 
 
