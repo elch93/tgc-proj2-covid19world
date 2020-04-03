@@ -29,14 +29,15 @@
 
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
     <title>COVIDWORLD</title>
 </head>
 
 <body>
-    <header class="container-fluid">
+    <!-- <header class="container-fluid">
         <h1>COVIDWORLD<i class="fas fa-virus"></i></h1>
         <h3>COVID-19 STATS TRACKER</h3>
-    </header>
+    </header> -->
     <main>
         <section>
             <!-- <div class="row justify-content-center align-items-center" id="loading">
@@ -45,24 +46,56 @@
                 <h6>COVID-19 STATS TRACKER</h6>
             </div> -->
             <div id="afterload">
-                <!-- search bar -->
                 <div id="leftbar">
-                    Select Country:
-                    <select id="countryselect" size="1">
-                        <option>Singapore</option>
-                    </select>
-                    Select Date:
-                    <select id="dateselect" size="1">
-                    </select>
-                    <button id="getData" onclick="getData()">Get Data</button>
-                    <p id="options">OPTIONS &nbsp;<i class="fas fa-angle-down"></i></p>
+                    <p id="flagdisplay"></p>
+                    <p id="countrydisplay"></p>
+                    <div>
+                        <p>Select Country:</p>
+                        <select id="countryselect" size="1">
+                            <option>Singapore</option>
+                        </select>
+                        <br><br>
+                        <p>Select Date:</p>
+                        <select id="dateselect" size="1">
+                        </select>
+                        <button id="getData" onclick="getData()">Get Data</button>
+                    </div>
                 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- search bar -->
+                <!-- <div id="leftbar">
+                    <group>
+                        Select Country:
+                        <select id="countryselect" size="1">
+                            <option>Singapore</option>
+                        </select>
+                        Select Date:
+                        <select id="dateselect" size="1">
+                        </select>
+                        <button id="getData" onclick="getData()">Get Data</button>
+                    </group>
+                    <button id="options">OPTIONS &nbsp;<i class="fas fa-angle-down"></i></button>
+                </div> -->
+
+
                 <!-- hero page -->
-                <div class="row">
-                    <div class="col-6 p-5">
-                        <div class="row ml-3 justify-content-between" id="overview">
+                <!-- <div class="row">
+                    <div class="col-6">
+                        <div class="row ml-5 justify-content-between" id="overview">
                             <div class="col-12 gbor">
                                 <span id="datedisplay"></span>
                                 <span id="flagdisplay"></span>
@@ -92,41 +125,63 @@
                                     Total Deaths: <div id="totaldeaths"></div>
                                 </div>
                             </div>
+                            <div class="col-6">
+                                <canvas id="rrdonut" width="800" height="450"></canvas>
+                            </div>
+                            <div class="col-6">
+                                <canvas id="drdonut" width="800" height="450"></canvas>
+                            </div>
                             <div class="col-12">
                                 <div class="container-fluid">Combined Chart:
                                     <canvas id="combined" width="800" height="450"></canvas>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                     <div class="col-6">
-                        <h1>What is COVID-19?</h1>
+                        <div class="col-md-3 col-12 gbor">
+                            <div id="totalc"></div>
+                        </div>
+                        <div class="col-md-3 col-12 gbor">
+                            <div id="totalr"></div>
+                        </div>
+                        <div class="col-md-3 col-12 gbor">
+                            <div id="totald"></div>
+                        </div>
+                        <div class="col-md-8 col-12 gbor">
+                            <div id="map1"></div>
+                        </div>
+
+
+                        <div class="col-md-4 col-12 gbor">
+                            Top 5 Cases in the World
+                            
+                        </div>
+                        <canvas id="pie-chart" width="800" height="450"></canvas>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <h1>What is COVID-19?</h1>
                         <p>Coronavirus disease (COVID-19) is an infectious
                             disease caused by a newly discovered coronavirus.
                             Older people, and those with underlying medical problems
                             like cardiovascular disease, diabetes, chronic respiratory
                             disease, and cancer are more likely to develop serious illness.</p>
-                        <p>Symptoms: mild to moderate respiratory illness</p>
-                    </div>
-                </div>
-            </div>
+                        <p>Symptoms: mild to moderate respiratory illness</p> -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- overview -->
-            <!-- <div class="row justify-content-between" id="overview">
+                <!-- overview -->
+                <!-- <div class="row justify-content-between" id="overview">
                 <div class="col-lg-1 d-none d-lg-block gbor"></div>
                 <div class="col-lg-5 col-12 gbor">
                     <div class="row justify-content-center">
@@ -134,8 +189,8 @@
                         <div class="col-2" id="flagdisplay"></div>
                         <div class="col-9" id="countrydisplay"></div> -->
 
-            <!-- select country -->
-            <!-- <div class="container-fluid">
+                <!-- select country -->
+                <!-- <div class="container-fluid">
                             Select Country:
                             <select id="countryselect" size="1">
                                 <option>Singapore</option>
@@ -148,8 +203,8 @@
                             <button id="getData" onclick="getData()">Get Data</button>
                         </div> -->
 
-            <!-- daily summary -->
-            <!-- <div class="col-4">
+                <!-- daily summary -->
+                <!-- <div class="col-4">
                             <i class="fas fa-head-side-cough"></i>
                             <div id="ctoday"></div>
                             <p>Confirmed</p>
@@ -183,8 +238,8 @@
                     </div>
                 </div> -->
 
-            <!-- linechart -->
-            <!-- <div class="col-lg-5 col-12 gbor">
+                <!-- linechart -->
+                <!-- <div class="col-lg-5 col-12 gbor">
                     <div class="container-fluid">Infection History:
                         <div id="linegraphc"></div>
                     </div>
@@ -203,8 +258,8 @@
 
 
 
-            <!-- world stats -->
-            <!-- <div class="row p-5" id="world">
+                <!-- world stats -->
+                <!-- <div class="row p-5" id="world">
                 <div class="col-md-4 col-12 gbor">
                     Top 5 Cases in the World
                     <div id="top5chart"></div>
@@ -229,7 +284,7 @@
 
         </section>
     </main>
-    <footer></footer>
+    <footer><span id="coo" style="display:none"></span></footer>
 
 
 

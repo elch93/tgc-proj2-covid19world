@@ -4,9 +4,9 @@
 
 let countryname = "Singapore" //SG by default
 let todaydate = new Date()
-//console.log(todaydate.getHours())
+console.log(todaydate.getDay())
 let loaddate = moment(todaydate).subtract(1, "day")
-if (todaydate.getHours() <= 7) {
+if (todaydate.getHours() <= 9) {
     loaddate = moment(todaydate).subtract(2, "day")
 }
 
@@ -160,7 +160,7 @@ function loadLatest() {
                 }
 
 
-                var x = new Chart(document.getElementById("combined"), {
+                let x = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
                         labels: dateArr,
@@ -273,10 +273,9 @@ function getTop5() {
         let alldata = r.data
         let countriesdata = []
         let maxindex = alldata["Singapore"].length - 1
-        //console.log(maxindex)
+    
         for (let i in alldata) {
             let j = 0
-            //console.log(alldata[i][maxindex])
             countriesdata.push(
                 j = {
                     "Country": i,
@@ -286,11 +285,10 @@ function getTop5() {
                 })
             j++
         }
+
         countriesdata.sort(function (a, b) {
             return b["Latest Total"] - a["Latest Total"]
         })
-
-        //console.log("countries data: ",countriesdata)
 
         let totalc = 0
         let totalr = 0
@@ -306,10 +304,16 @@ function getTop5() {
         $("#totalr").append(`${totalr}`)
         $("#totald").append(`${totald}`)
 
+        console.log("CD", countriesdata)
+
+        let worldtotal = 0
+        for (let i of countriesdata) {
+            worldtotal += i["Latest Total"]
+        }
+
         let top5 = countriesdata.slice(0, 5)
-        //console.log(top5)
-        let maxcases = top5[0]["Latest Total"]
-        let mincases = top5[4]["Latest Total"]
+        // let maxcases = top5[0]["Latest Total"]
+        // let mincases = top5[4]["Latest Total"]
 
         for (let i of top5) {
             $("#worldranking").append(
@@ -320,22 +324,57 @@ function getTop5() {
             )
         }
 
-        let cf = crossfilter(top5)
-        let top5x = cf.dimension(f => f.Country)
-        let top5y = top5x.group().reduceSum(f => f["Latest Total"])
+        // let cf = crossfilter(top5)
+        // let top5x = cf.dimension(f => f.Country)
+        // let top5y = top5x.group().reduceSum(f => f["Latest Total"])
 
-        dc.barChart("#top5chart")
-            .width(350)
-            .height(300)
-            .dimension(top5x)
-            .group(top5y)
-            .x(d3.scaleBand().domain(top5.map((s) => s.Country)))
-            .xUnits(dc.units.ordinal)
-            .xAxisLabel("Countries")
-            .y(d3.scaleLinear().domain([mincases * 0.8, maxcases * 1.05]))
-            .yAxis().ticks(5)
+        // dc.barChart("#top5chart")
+        //     .width(350)
+        //     .height(300)
+        //     .dimension(top5x)
+        //     .group(top5y)
+        //     .x(d3.scaleBand().domain(top5.map((s) => s.Country)))
+        //     .xUnits(dc.units.ordinal)
+        //     .xAxisLabel("Countries")
+        //     .y(d3.scaleLinear().domain([mincases * 0.8, maxcases * 1.05]))
+        //     .yAxis().ticks(5)
 
-        dc.renderAll()
+        // dc.renderAll()
+
+        // piechart top 5
+        let top5countries = []
+        let top5cases = []
+
+        for (let i of top5) {
+            top5countries.push(i.Country)
+            top5cases.push(i["Latest Total"])
+        }
+
+        top5countries.push("Others")
+
+        for (let i of top5cases) {
+            worldtotal -= i
+        }
+
+        top5cases.push(worldtotal)
+       
+        new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+                labels: top5countries,
+                datasets: [{
+                    label: "Top 5",
+                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                    data: top5cases
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Top 5 Ranking'
+                }
+            }
+        });
 
 
     })//axios end
@@ -652,7 +691,7 @@ function getMap() {
         console.log("bugged", buglist)
 
 
-        let map = L.map("map1").setView([1.35, 103.85], 12)
+        let map = L.map("map1").setView([1.35, 103.85], 6)
         //console.log(map)
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
