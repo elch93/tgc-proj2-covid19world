@@ -31,7 +31,7 @@ body {
 
 body{
     background-color: #F3F3F3;
-    height: 1000px;
+    height: 100%;
 }
 
 .gbor {
@@ -97,23 +97,6 @@ body{
     padding:10px 0 0 0;
 }
 
-#flagdisplay {
-    margin: 15px;
-    text-align: center;
-}
-
-#flagdisplay img {
-    height: 50px;
-}
-
-#leftbar #countrydisplay {
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 900;
-    color: #F3F3F3;
-}
-
 #map1 {
     height: 280px;
     width: 280px;
@@ -130,7 +113,24 @@ body{
     background: #e3e3e3;
     /* box-shadow:  10px 10px 20px #c1c1c1, 
                 -10px -10px 20px #ffffff; */
-    font-size: 18px;
+    font-size: 16px;
+}
+
+
+#flagdisplay {
+    margin: 15px;
+    text-align: center;
+}
+
+#flagdisplay img {
+    height: 50px;
+}
+
+#overview #countrydisplay, #datedisplay {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 900;
 }
 
 .fa-head-side-cough, .fa-smile, .fa-skull-crossbones {
@@ -140,7 +140,7 @@ body{
 }
 
 #ctoday, #totalconfirmed, #rtoday, #totalrecovered, #dtoday, #totaldeaths {
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 900;
 }
@@ -150,6 +150,17 @@ body{
 }
 
 /* world */
+#worldtxt1, #worldtxt2, #worldtxt3 {
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#worldtxt1 {
+    position: relative;
+    bottom: 30px;
+}
+
+
 #world {
     height: 500px;
     border: white solid 1px;
@@ -158,6 +169,16 @@ body{
     /* box-shadow:  10px 10px 30px #c1c1c1, 
                 -10px -10px 30px #ffffff; */
     font-size: 18px;
+    color: #F3F3F3;
+}
+
+.fa-globe-americas {
+    position: relative;
+    color: #F3F3F3;
+    top: 70px;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 150px;
 }
 
 /* option bar */
