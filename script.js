@@ -94,6 +94,10 @@ $(function () {
     $("#getData").click(function () {
         $("#optionbar").toggle()
     })
+    $("#countrydetails").click(function () {
+        $("#rightpanel").toggle()
+        $("#details").toggle()
+    })
 
 
 

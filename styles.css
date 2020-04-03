@@ -34,6 +34,10 @@ body{
     height: 100%;
 }
 
+#testrow {
+    width: 100vw;
+}
+
 .gbor {
     border: 3px solid gold;
 }
@@ -124,6 +128,7 @@ body{
 
 /* overview */
 #overview {
+    min-width: 350px;
     padding:20px;
     border: white solid 1px;
     border-radius: 10px;
@@ -166,9 +171,17 @@ body{
     margin: 0;
 }
 
+#countrydetails {
+    border-radius: 10px;
+    padding:10px 10px;
+    background-color:#303841 ;
+    color: #F3F3F3;
+    border: none;
+    font-size: 16px;
+}
+
 /* world */
 #world {
-    position: relative;
     border: white solid 1px;
     border-radius: 10px;
     background: #303841;
@@ -217,15 +230,63 @@ body{
     font-family: 'Heebo', sans-serif;
 }
 
+/* details */
+/* #rightpanel {
+    display: none;
+} */
+
+#details {
+    padding:10px;
+    display: none;
+    height: 100%;
+    border: white solid 1px;
+    border-radius: 10px;
+    background: #303841;
+    font-size: 18px;
+    color: #F3F3F3;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+
+#details text {
+    fill: #F3F3F3;
+    transform: translate(140,155) !important;
+}
+
+#linegraphc .line {
+    fill:none;
+    stroke: #F3F3F3;
+    stroke-width: 5px;
+}
+  #linegraphr .line {
+    fill:none;
+    stroke: green;
+    stroke-width: 5px;
+}
+
+#linegraphd .line {
+    fill:none;
+    stroke: red;
+    stroke-width: 5px;
+  }
 
 /* option bar */
-#obbtn {
+#mynavbar {
+    background-color:#303841 ;
+    height: 400px;
+    width:50px;
+    border-radius: 10px;
     position: fixed;
-    top:250px;
-    left: 30px;
-    transform: translateX(-50%);
-    background-color: #F3F3F3;
+    top:150px;
+    left: 20px;
+}
+
+#mynavbar button {
+    margin: 10px;
+    background-color: #34495B ;
     border: none;
+    color: #F3F3F3;
 }
 
 #optionbar {
@@ -337,109 +398,4 @@ header h3{
 #coo {
     display: none;
 }
-
-
-
-/* 
-.ibor {
-    border: 3px solid #303841;
-}
-
-header h1{
-    padding: 20px 0 0 20px;
-    font-family:'Heebo', sans-serif;
-    font-weight: 800;
-}
-
-header h3 {
-    margin: -10px 0 0 0;
-    padding: 0 0 0 20px;
-    font-family: 'Yantramanav', sans-serif;
-    font-size: 25px;
-    color: #EA7361;
-}
-
-#datedisplay, #countrydisplay {
-    font-family:'Oswald', sans-serif;
-    font-weight: 800;
-    font-size: 30px;
-}
-
-#overview .col-4{
-    height: 300px;
-    padding: 30px;
-    text-align: center;
-}
-
-
-.fa-head-side-cough, .fa-smile, .fa-skull-crossbones{
-    font-size: 50px;
-    margin: 0 0 10px 0;
-}
-
-#overview p, #overview .col-4 {
-    font-size: 16px;
-}
-
-#ctoday, #rtoday, #dtoday {
-    font-size: 20px;
-}
-
-.mycard {
-    background-color: #F3F3F3;
-    color: #303841;
-    padding: 10px;
-}
-
-header, #ctoday, #rtoday, #dtoday, 
-#datedisplay, #countrydisplay, .mycard, #overview p, 
-#overview .col-4 {
-    animation-name: fadeIn;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    animation-duration: 1s;
-    transition: ease-in;
-    transition-duration: 1s;
-}
-
-
-
-@keyframes fadeIn {
-    0%{
-        opacity: 0;
-    }
-
-    100%{
-        opacity: 1;
-    }
-}
-
-#flagdisplay img {
-    height: 50px;
-
-}
-
-#linegraphc svg, #top5chart svg, #linegraphr svg, #linegraphd svg {
-    overflow: visible;
-}
-
-.red {
-    color:red;
-    margin: 0 0 0 5px;
-}
-
-.green {
-    color:lime;
-    margin: 0 0 0 5px;
-}
-
-#linegraphx svg, #top5chart svg {
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 16px;
-}
-
-#map1 {
-    height: 800px;
-    border: 3px gold solid;
-  } */
 

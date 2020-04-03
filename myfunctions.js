@@ -179,6 +179,221 @@ function loadLatest() {
                 $("#totaldeaths").append(`${countrydata[i].deaths}`)
 
 
+                //get map
+                function getMap() {
+                    axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
+                        console.log(r[0].data)
+                        console.log(r[1].data)
+
+                        let restcountries = r[0].data
+                        let pomberdata = r[1].data
+                        let clist = []
+
+                        for (let i in pomberdata) {
+                            pomberdata[i].reverse()
+                        }
+
+                        let count = 0
+                        for (let i in pomberdata) {
+                            count += 1
+                        }
+                        console.log("today's data", count)
+
+                        for (let i in pomberdata) {
+                            for (let j in restcountries) {
+                                if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
+                                    clist.push([i, restcountries[j].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Taiwan*") {
+                                    clist.push([i, restcountries[221].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Vietnam") {
+                                    clist.push([i, restcountries[244].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Korea, South") {
+                                    clist.push([i, restcountries[210].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Czechia") {
+                                    clist.push([i, restcountries[61].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "North Macedonia") {
+                                    clist.push([i, restcountries[132].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Laos") {
+                                    clist.push([i, restcountries[122].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Bolivia") {
+                                    clist.push([i, restcountries[26].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Brunei") {
+                                    clist.push([i, restcountries[36].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Iran") {
+                                    clist.push([i, restcountries[107].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Moldova") {
+                                    clist.push([i, restcountries[146].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Russia") {
+                                    clist.push([i, restcountries[185].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Tanzania") {
+                                    clist.push([i, restcountries[223].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "United Kingdom") {
+                                    clist.push([i, restcountries[238].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Venezuela") {
+                                    clist.push([i, restcountries[243].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+                                else if (i == "Syria") {
+                                    clist.push([i, restcountries[220].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
+                                    break
+                                }
+
+
+
+                            }
+
+                        }
+
+                        let buglist = []
+                        let list180 = []
+                        let count2 = 0
+                        let count3 = 0
+
+                        for (let j in pomberdata) {
+                            list180.push(j)
+                        }
+
+                        // console.log("list180", list180)
+                        // console.log("before", clist)
+
+
+                        for (let i in list180) {
+                            for (let j of clist) {
+                                if (list180[i] == j[0]) {
+                                    count2 += 1
+                                    delete list180[i]
+                                }
+                            }
+                        }
+
+                        for (let i of list180) {
+                            if (i != undefined) {
+                                buglist.push(i)
+                                count3 += 1
+                            }
+                        }
+
+
+
+
+                        // console.log("after", list180)
+                        // console.log("map count", count2)
+                        // console.log("bug count",count3)
+
+
+
+                        let coordinates = undefined
+                        for (let i in clist) {
+                            if (countrymap == clist[i][0]) {
+                                console.log(clist[i][0], clist[i][1])
+                                coordinates = clist[i][1]
+                            }
+                        }
+
+                        $("#coo").empty()
+                        $("#coo").append(`${coordinates}`)
+
+
+                        //console.log("HERE", coordinates)
+                        console.log("mapped list", clist)
+                        console.log("bugged", buglist)
+
+
+                        let map = L.map("map1", { zoomControl: false }).setView([1.35, 103.85], 6.5)
+                        //console.log(map)
+
+                        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox/streets-v11',
+                            tileSize: 512,
+                            zoomOffset: -1,
+                            accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
+                        }).addTo(map);
+
+                        let countrycluster = L.markerClusterGroup()
+                        for (let i = 0; i < clist.length; i++) {
+                            let m = L.marker([clist[i][1][0], clist[i][1][1]])
+                            m.bindPopup(`<p><b>${clist[i][0]}</b></p>
+                        <p><b>Total:</b> ${clist[i][2]}</p>
+                        <p><b>Recovered:</b> ${clist[i][3]}</p>
+                        <p><b>Deaths:</b> ${clist[i][4]}</p>
+                        `)
+                            countrycluster.addLayer(m)
+                        }
+
+                        map.addLayer(countrycluster)
+
+                        document.getElementById("getData").addEventListener("click", function goTo() {
+                            setTimeout(
+                                function gotTo2() {
+                                    let x = $("#coo").text().split(",")
+                                    //console.log("x", x)
+                                    map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6.5)
+                                }, 1000
+                            )
+
+                        }
+                        )
+
+
+
+
+
+
+
+
+
+
+
+                    })
+                }//map end
+
+                getMap()
+
 
                 //get the data for past 7 days
                 let weeklydata = countrydata.slice(i, i + 7)
@@ -186,69 +401,7 @@ function loadLatest() {
                 for (let i of weeklydata) {
                     i.date = moment(i.date, "DD/MM/YY").format("MM/DD")
                 }
-                console.log("weeklydata", weeklydata)
-
-                let maxcweekly = weeklydata[0].confirmed
-                let mincweekly = weeklydata[6].confirmed
-                let cfconfirmed = crossfilter(weeklydata)
-                let weeklycx = cfconfirmed.dimension(f => f.date)
-                let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
-
-                // dc.lineChart("#linegraphc")
-                //     .width(380) //make mobile responsive later!
-                //     .height(250)
-                //     .dimension(weeklycx)
-                //     .group(weeklycy)
-                //     .x(d3.scaleBand())
-                //     .xUnits(dc.units.ordinal)
-                //     .xAxisLabel("Date")
-                //     .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
-                //     // .yAxisLabel("Cases")
-                //     .yAxis().ticks(4)
-
-                // dc.renderAll()
-
-                // let maxrweekly = weeklydata[0].recovered
-                // let minrweekly = weeklydata[6].recovered
-                // let cfrecovered = crossfilter(weeklydata)
-                // let weeklyrx = cfrecovered.dimension(f => f.date)
-                // let weeklyry = weeklyrx.group().reduceSum(f => f.recovered)
-
-                // dc.lineChart("#linegraphr")
-                //     .width(380) //make mobile responsive later!
-                //     .height(250)
-                //     .dimension(weeklyrx)
-                //     .group(weeklyry)
-                //     .x(d3.scaleBand())
-                //     .xUnits(dc.units.ordinal)
-                //     .xAxisLabel("Date")
-                //     .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
-                //     // .yAxisLabel("Cases")
-                //     .yAxis().ticks(4)
-
-                // dc.renderAll()
-
-                // let maxdweekly = weeklydata[0].deaths
-                // let mindweekly = weeklydata[6].deaths
-                // let cfdeaths = crossfilter(weeklydata)
-                // let weeklydx = cfdeaths.dimension(f => f.date)
-                // let weeklydy = weeklydx.group().reduceSum(f => f.deaths)
-
-                // dc.lineChart("#linegraphd")
-                //     .width(380) //make mobile responsive later!
-                //     .height(250)
-                //     .dimension(weeklydx)
-                //     .group(weeklydy)
-                //     .x(d3.scaleBand())
-                //     .xUnits(dc.units.ordinal)
-                //     .xAxisLabel("Date")
-                //     .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
-                //     // .yAxisLabel("Cases")
-                //     .yAxis().ticks(4)
-
-                // dc.renderAll()
-
-
+                console.table(weeklydata)
 
                 // linechart combined
                 let cArr = []
@@ -298,6 +451,73 @@ function loadLatest() {
                 $("#getData").click(function () {
                     x.destroy()
                 })
+
+
+
+
+                let maxcweekly = weeklydata[0].confirmed
+                let mincweekly = weeklydata[6].confirmed
+                let cfconfirmed = crossfilter(weeklydata)
+                let weeklycx = cfconfirmed.dimension(f => f.date)
+                let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
+
+                dc.lineChart("#linegraphc")
+                    .width(300) //make mobile responsive later!
+                    .height(150)
+                    .brushOn(true)
+                    .dimension(weeklycx)
+                    .group(weeklycy)
+                    .x(d3.scaleBand())
+                    .xUnits(dc.units.ordinal)
+                    .xAxisLabel("Date")
+                    .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
+                    // .yAxisLabel("Cases")
+                    .yAxis().ticks(4)
+
+                
+
+                let maxrweekly = weeklydata[0].recovered
+                let minrweekly = weeklydata[6].recovered
+                let weeklyry = weeklycx.group().reduceSum(f => f.recovered)
+
+                dc.lineChart("#linegraphr")
+                    .width(300) //make mobile responsive later!
+                    .height(150)
+                    .brushOn(true)
+                    .dimension(weeklycx)
+                    .group(weeklyry)
+                    .x(d3.scaleBand())
+                    .xUnits(dc.units.ordinal)
+                    .xAxisLabel("Date")
+                    .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
+                    // .yAxisLabel("Cases")
+                    .yAxis().ticks(4)
+
+                
+
+                let maxdweekly = weeklydata[0].deaths
+                let mindweekly = weeklydata[6].deaths
+                
+                let weeklydy = weeklycx.group().reduceSum(f => f.deaths)
+
+                dc.lineChart("#linegraphd")
+                    .width(300) //make mobile responsive later!
+                    .height(150)
+                    .brushOn(true)
+                    .dimension(weeklycx)
+                    .group(weeklydy)
+                    .x(d3.scaleBand())
+                    .xUnits(dc.units.ordinal)
+                    .xAxisLabel("Date")
+                    .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
+                    // .yAxisLabel("Cases")
+                    .yAxis().ticks(4)
+
+                dc.renderAll()
+
+
+
+
 
 
 
@@ -356,220 +576,7 @@ function loadLatest() {
         // let coordinates = [1.35, 103.85] //sg default
 
 
-        //get map
-        function getMap() {
-            axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
-                console.log(r[0].data)
-                console.log(r[1].data)
 
-                let restcountries = r[0].data
-                let pomberdata = r[1].data
-                let clist = []
-
-                for (let i in pomberdata) {
-                    pomberdata[i].reverse()
-                }
-
-                let count = 0
-                for (let i in pomberdata) {
-                    count += 1
-                }
-                console.log("today's data", count)
-
-                for (let i in pomberdata) {
-                    for (let j in restcountries) {
-                        if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
-                            clist.push([i, restcountries[j].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Taiwan*") {
-                            clist.push([i, restcountries[221].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Vietnam") {
-                            clist.push([i, restcountries[244].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Korea, South") {
-                            clist.push([i, restcountries[210].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Czechia") {
-                            clist.push([i, restcountries[61].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "North Macedonia") {
-                            clist.push([i, restcountries[132].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Laos") {
-                            clist.push([i, restcountries[122].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Bolivia") {
-                            clist.push([i, restcountries[26].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Brunei") {
-                            clist.push([i, restcountries[36].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Iran") {
-                            clist.push([i, restcountries[107].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Moldova") {
-                            clist.push([i, restcountries[146].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Russia") {
-                            clist.push([i, restcountries[185].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Tanzania") {
-                            clist.push([i, restcountries[223].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "United Kingdom") {
-                            clist.push([i, restcountries[238].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Venezuela") {
-                            clist.push([i, restcountries[243].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Syria") {
-                            clist.push([i, restcountries[220].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-
-
-                    }
-
-                }
-
-                let buglist = []
-                let list180 = []
-                let count2 = 0
-                let count3 = 0
-
-                for (let j in pomberdata) {
-                    list180.push(j)
-                }
-
-                // console.log("list180", list180)
-                // console.log("before", clist)
-
-
-                for (let i in list180) {
-                    for (let j of clist) {
-                        if (list180[i] == j[0]) {
-                            count2 += 1
-                            delete list180[i]
-                        }
-                    }
-                }
-
-                for (let i of list180) {
-                    if (i != undefined) {
-                        buglist.push(i)
-                        count3 += 1
-                    }
-                }
-
-
-
-
-                // console.log("after", list180)
-                // console.log("map count", count2)
-                // console.log("bug count",count3)
-
-
-
-                let coordinates = undefined
-                for (let i in clist) {
-                    if (countrymap == clist[i][0]) {
-                        console.log(clist[i][0], clist[i][1])
-                        coordinates = clist[i][1]
-                    }
-                }
-
-                $("#coo").empty()
-                $("#coo").append(`${coordinates}`)
-
-
-                //console.log("HERE", coordinates)
-                console.log("mapped list", clist)
-                console.log("bugged", buglist)
-
-
-                let map = L.map("map1", { zoomControl: false }).setView([1.35, 103.85], 6.5)
-                //console.log(map)
-
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
-                }).addTo(map);
-
-                let countrycluster = L.markerClusterGroup()
-                for (let i = 0; i < clist.length; i++) {
-                    let m = L.marker([clist[i][1][0], clist[i][1][1]])
-                    m.bindPopup(`<p><b>${clist[i][0]}</b></p>
-                        <p><b>Total:</b> ${clist[i][2]}</p>
-                        <p><b>Recovered:</b> ${clist[i][3]}</p>
-                        <p><b>Deaths:</b> ${clist[i][4]}</p>
-                        `)
-                    countrycluster.addLayer(m)
-                }
-
-                map.addLayer(countrycluster)
-
-                document.getElementById("getData").addEventListener("click", function goTo() {
-                    setTimeout(
-                        function gotTo2() {
-                            let x = $("#coo").text().split(",")
-                            //console.log("x", x)
-                            map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6.5)
-                        }, 1000
-                    )
-
-                }
-                )
-
-
-
-
-
-
-
-
-
-
-
-            })
-        }//map end
-
-        getMap()
     })//axios end 
 }//function loadlatest end
 
@@ -586,15 +593,14 @@ function getData() {
         loaddate = dateselected
         countrymap = countryselected
         loadLatest()
-        
+
     }, 500)
 
     setTimeout(function () {
         $("#overview").fadeToggle()
-        
     }, 700)
 
-    
+
 }
 
 //#3 load ranking

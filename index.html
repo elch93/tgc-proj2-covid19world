@@ -51,9 +51,9 @@
             </div>
             <div id="afterload">
                 <!-- mainrow -->
-                <div class="row p-3 justify-content-center">
+                <div class="row p-3 justify-content-center gbor" id="testrow">
                     <!-- overview -->
-                    <div class="col-12 col-sm-7 col-lg-5 mb-5">
+                    <div class="col-10 col-lg-5 mb-5">
                         <div id="overview">
                             <div class="row">
                                 <div class="col-6">
@@ -89,12 +89,13 @@
                                     <canvas id="combined" width="400" height="200"></canvas>
                                 </div>
                             </div>
+                            <button id="countrydetails"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
                         </div>
                     </div>
                     <!-- overview end -->
                     <!-- world -->
-                    <div class="col-12 col-lg-5 mb-5">
-                        <div class="row" id="world">
+                    <div class="col-10 col-lg-5 mb-5" id="rightpanel">
+                        <div class="row p-0 p-lg-3" id="world">
                             <div class="col-4">
                                 <p id="totalc"></p>
                                 <p id="worldtxt1">Confirmed Cases</p>
@@ -105,7 +106,7 @@
                                 <p id="totald"></p>
                                 <p id="worldtxt3">Deaths Worldwide</p>
                             </div>
-                            <div class="col-8">
+                            <div class="col-12 col-lg-8">
                                 <div id="map1"></div>
                             </div>
                         </div>
@@ -120,11 +121,38 @@
                         </div>
                     </div>
                     <!-- world end -->
+                    <div class="col-10 col-lg-5 mb-5 gbor" id="details">
+                        <div class="container-fluid">Infection History:
+                            <div id="linegraphc"></div>
+                        </div>
+                        <div class="container-fluid">Recovery History:
+                            <div id="linegraphr"></div>
+                        </div>
+                        <div class="container-fluid">Death History:
+                            <div id="linegraphd"></div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-10 col-lg-5 mb-5 gbor">test</div> -->
+
+                   
+
+
                 </div>
                 <!-- main row end -->
 
+
+
+
+
+
+
+
+
                 <!-- option bar -->
-                <button id="obbtn"><i class="fas fa-search"></i></button>
+                <div id="mynavbar">
+                    <button id="obbtn"><i class="fas fa-search"></i></button>
+                </div>
+
                 <div id="optionbar">
                     <div>
                         <i class="fas fa-globe-americas"></i>
