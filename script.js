@@ -89,6 +89,9 @@ $(function () {
     $("#obbtn").click(function(){
         $("#optionbar").toggle()
     })
+    $("#getData").click(function(){
+        $("#optionbar").toggle()
+    })
 
 
     // setTimeout(function () {

@@ -95,15 +95,9 @@ body{
     height: 475px;
     background: #303841;
     padding:10px 0 0 0;
+    display: none;
 }
 
-#map1 {
-    height: 280px;
-    width: 280px;
-    border-radius: 50%;
-    margin: 20px auto;
-    border: 10px solid #F3F3F3;
-} 
 
 /* overview */
 #overview {
@@ -150,6 +144,14 @@ body{
 }
 
 /* world */
+#map1 {
+    height: 280px;
+    width: 280px;
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 10px solid #F3F3F3;
+}
+
 #worldtxt1, #worldtxt2, #worldtxt3 {
     font-size: 24px;
     font-family: 'Oswald', sans-serif;
@@ -184,9 +186,9 @@ body{
 /* option bar */
 #obbtn {
     position: fixed;
-    left: 50%;
+    top:250px;
+    left: 30px;
     transform: translateX(-50%);
-    bottom: 10px;
     background-color: #F3F3F3;
     border: none;
 }
@@ -198,8 +200,8 @@ body{
     background-color: #303841;
     position: fixed;
     border-radius: 10px;
-    bottom: 30px;
-    left: 50%;
+    top:250px;
+    left: 230px;
     transform: translateX(-50%);
     font-size: 16px;
     font-family: 'Noto Sans SC', sans-serif;
