@@ -6,7 +6,7 @@ let countryname = "Singapore" //SG by default
 let todaydate = new Date()
 console.log(todaydate.getDay())
 let loaddate = moment(todaydate).subtract(1, "day")
-if (todaydate.getHours() <= 9) {
+if (todaydate.getHours() <= 8) {
     loaddate = moment(todaydate).subtract(2, "day")
 }
 
@@ -54,17 +54,17 @@ function loadLatest() {
                 let dailyDeaths = parseInt(countrydata[i].deaths) - parseInt(countrydata[i + 1].deaths)
                 //console.log(countrydata)
 
-                $("#ctoday").append(`${dailyIncrease}`)
+                $("#ctoday").append(`(${dailyIncrease})`)
                 if (dailyIncrease > 0) {
                     $("#ctoday").append(`<i class="fas fa-angle-double-up red"></i>`)
                 }
 
-                $("#rtoday").append(`${dailyRecovered}`)
+                $("#rtoday").append(`(${dailyRecovered})`)
                 if (dailyRecovered > 0) {
                     $("#rtoday").append(`<i class="fas fa-angle-double-up green"></i>`)
                 }
 
-                $("#dtoday").append(`${dailyDeaths}`)
+                $("#dtoday").append(`(${dailyDeaths})`)
                 if (dailyDeaths > 0) {
                     $("#dtoday").append(`<i class="fas fa-angle-double-up red"></i>`)
                 }
@@ -177,7 +177,7 @@ function loadLatest() {
                         }, {
                             data: dArr,
                             label: "Deaths",
-                            borderColor: "#8e5ea2",
+                            borderColor: "red",
                             fill: false
                         }
                         ]

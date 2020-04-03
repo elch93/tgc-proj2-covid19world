@@ -13,6 +13,7 @@ font-family: 'Yantramanav', sans-serif;
 font-family: 'Catamaran', sans-serif;
 font-family: 'Heebo', sans-serif;
 font-family: 'Oswald', sans-serif;
+font-family: 'Noto Sans SC', sans-serif;
 
 
 
@@ -93,43 +94,56 @@ body{
     top:50px;
     left:15px;
     border-radius: 10px;
-    height: 350px;
+    height: 375px;
     width: 300px;
     border: #34495B;
     background: linear-gradient(180deg, rgba(22,40,55,1) 0%, rgba(37,64,87,1) 83%, rgba(57,90,119,1) 100%);
 }
 
 #flagdisplay {
-    margin: 10px;
+    margin: 15px;
     text-align: center;
 }
 
 #leftbar #countrydisplay {
-    position: relative;
-    top: 10px;
     text-align: center;
     font-size: 25px;
-    font-family:'Yantramanav', sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 900;
     color: #F3F3F3;
 }
 
 #leftbar div {
-    font-family:'Yantramanav', sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
     color: #F3F3F3;
     display: block;
     font-size: 16px;
-    margin: 15px;
+    margin: 0 10px;
 
 }
 
-#leftbar p {
-    font-size: 18px;
+#leftbar p, #leftbar span {
+    font-size: 16px;
+}
+
+#leftbar button {
+    display: block;
+    margin: 20px 0;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
 }
 
 #leftbar select {
-    border-radius: 8px;
+    border-radius: 5px;
+    padding: 5px;
     border: none;
-    margin: 0 10px;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+#countryselect {
+    margin-left: -5px;
 }
 
 #leftbar button {
@@ -139,7 +153,40 @@ body{
     background-color: gold;
 }
 
+/* overview */
+#overview {
+    position: absolute;
+    left: 350px;
+    top:50px;
+    height: 500px;
+    width: 550px;
+    border: #34495B;
+    background: #e3e3e3;
+    border-radius: 10px;
+    background: #e3e3e3;
+    box-shadow:  10px 10px 10px #c1c1c1, 
+                -10px -10px 10px #ffffff;
+    font-size: 18px;
+}
 
+
+
+
+.fa-head-side-cough, .fa-smile, .fa-skull-crossbones {
+    font-size: 50px;
+    margin: 10px;
+    display: block;
+}
+
+#ctoday, #totalconfirmed, #rtoday, #totalrecovered, #dtoday, #totaldeaths {
+    font-size: 25px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 900;
+}
+
+#overview p{
+    margin: 0;
+}
 
 /* header */
 header h1{

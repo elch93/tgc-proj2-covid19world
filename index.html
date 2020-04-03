@@ -11,6 +11,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:800|Heebo:900|Oswald|Yantramanav:900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -55,13 +57,36 @@
                             <option>Singapore</option>
                         </select>
                         <br><br>
-                        <p>Select Date:</p>
+                        <span>Select Date:&nbsp;&nbsp;</span>
                         <select id="dateselect" size="1">
                         </select>
                         <button id="getData" onclick="getData()">Get Data</button>
                     </div>
                 </div>
-
+                <div id="overview">
+                    <div class="row p-3 justify-content-center">
+                        <div class="col-4 d-flex flex-column align-items-center" id="totaldaily">
+                            <i class="fas fa-head-side-cough"></i>
+                            <p><span id="totalconfirmed"></span></p><p><span id="ctoday"></span></p>
+                            <p>Total Cases</p>
+                        </div>
+                        <div class="col-4 d-flex flex-column align-items-center" id="recovereddaily">
+                            <i class="fas fa-smile"></i>
+                            <p><span id="totalrecovered"></span></p><p><span id="rtoday"></span></p>
+                            <p>Total Recovered</p>
+                        </div>
+                        <div class="col-4 d-flex flex-column align-items-center" id="deathsdaily">
+                            <i class="fas fa-skull-crossbones"></i>
+                            <p><span id="totaldeaths"></span></p><p><span id="dtoday"></span></p>
+                            <p>Total Recovered</p>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="container-fluid">
+                            <canvas id="combined" width="500" height="250"></canvas>
+                        </div>
+                    </div>
+                </div>
 
 
 
