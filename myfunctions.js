@@ -49,23 +49,126 @@ function loadLatest() {
                 $("#datedisplay").append(`${countrydata[i].date}`)
                 $("#countrydisplay").append(`${countryname}`)
 
+
+                //get flag picture
+                function getCountryFlag() {
+                    axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
+                        $("#flagdisplay").empty()
+                        //console.log("flag",r.data)
+
+                        countrydisplayed = $("#countrydisplay").text()
+                        for (let i of r.data) {
+                            if (countrydisplayed == i.name || countrydisplayed == i.alpha2Code) {
+
+                                $("#flagdisplay").append(`<img src="${i.flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Taiwan*") {
+                                $("#flagdisplay").append(`<img src="${r.data[221].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Vietnam") {
+                                $("#flagdisplay").append(`<img src="${r.data[244].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Korea, South") {
+                                $("#flagdisplay").append(`<img src="${r.data[210].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Czechia") {
+                                $("#flagdisplay").append(`<img src="${r.data[61].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "North Macedonia") {
+                                $("#flagdisplay").append(`<img src="${r.data[132].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Laos") {
+                                $("#flagdisplay").append(`<img src="${r.data[122].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Bolivia") {
+                                $("#flagdisplay").append(`<img src="${r.data[26].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Brunei") {
+                                $("#flagdisplay").append(`<img src="${r.data[36].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Iran") {
+                                $("#flagdisplay").append(`<img src="${r.data[107].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Moldova") {
+                                $("#flagdisplay").append(`<img src="${r.data[146].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Russia") {
+                                $("#flagdisplay").append(`<img src="${r.data[185].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Tanzania") {
+                                $("#flagdisplay").append(`<img src="${r.data[223].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "United Kingdom") {
+                                $("#flagdisplay").append(`<img src="${r.data[238].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Venezuela") {
+                                $("#flagdisplay").append(`<img src="${r.data[243].flag}">`)
+                                break
+                            }
+
+                            else if (countrydisplayed == "Syria") {
+                                $("#flagdisplay").append(`<img src="${r.data[220].flag}">`)
+                                break
+                            }
+
+
+                        }
+
+
+                    })//axios end
+
+                }//get country flag end
+
+                getCountryFlag()
+
+
+
+
                 let dailyIncrease = parseInt(countrydata[i].confirmed) - parseInt(countrydata[i + 1].confirmed)
                 let dailyRecovered = parseInt(countrydata[i].recovered) - parseInt(countrydata[i + 1].recovered)
                 let dailyDeaths = parseInt(countrydata[i].deaths) - parseInt(countrydata[i + 1].deaths)
                 //console.log(countrydata)
 
-                $("#ctoday").append(`(${dailyIncrease})`)
                 if (dailyIncrease > 0) {
+                    $("#ctoday").append(`(+${dailyIncrease})`)
                     $("#ctoday").append(`<i class="fas fa-angle-double-up red"></i>`)
                 }
 
-                $("#rtoday").append(`(${dailyRecovered})`)
                 if (dailyRecovered > 0) {
+                    $("#rtoday").append(`(+${dailyRecovered})`)
                     $("#rtoday").append(`<i class="fas fa-angle-double-up green"></i>`)
                 }
 
-                $("#dtoday").append(`(${dailyDeaths})`)
                 if (dailyDeaths > 0) {
+                    $("#dtoday").append(`(+${dailyDeaths})`)
                     $("#dtoday").append(`<i class="fas fa-angle-double-up red"></i>`)
                 }
 
@@ -199,52 +302,52 @@ function loadLatest() {
 
 
                 //rr & dr chart
-                let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
-                let remainderr = 100 - recoveryrate
+                // let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
+                // let remainderr = 100 - recoveryrate
                 //recovery rates chart
-                new Chart(document.getElementById("rrdonut"), {
-                    type: 'doughnut',
-                    data: {
-                        labels: [],
-                        datasets: [
-                            {
-                                backgroundColor: ["green", "grey"],
-                                data: [recoveryrate, remainderr]
-                            }
-                        ]
-                    },
-                    options: {
-                        events: [],
-                        title: {
-                            display: true,
-                            text: 'Recovery Rate' + " " + recoveryrate + "%"
-                        }
-                    }
-                });
+                // new Chart(document.getElementById("rrdonut"), {
+                //     type: 'doughnut',
+                //     data: {
+                //         labels: [],
+                //         datasets: [
+                //             {
+                //                 backgroundColor: ["green", "grey"],
+                //                 data: [recoveryrate, remainderr]
+                //             }
+                //         ]
+                //     },
+                //     options: {
+                //         events: [],
+                //         title: {
+                //             display: true,
+                //             text: 'Recovery Rate' + " " + recoveryrate + "%"
+                //         }
+                //     }
+                // });
 
 
-                let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
-                let remainderd = 100 - recoveryrate
+                // let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
+                // let remainderd = 100 - recoveryrate
                 //death rates chart
-                new Chart(document.getElementById("drdonut"), {
-                    type: 'doughnut',
-                    data: {
-                        labels: [],
-                        datasets: [
-                            {
-                                backgroundColor: ["red", "grey"],
-                                data: [deathrate, remainderd]
-                            }
-                        ]
-                    },
-                    options: {
-                        events: [],
-                        title: {
-                            display: true,
-                            text: 'Death Rate' + " " + deathrate + "%"
-                        }
-                    }
-                });
+                // new Chart(document.getElementById("drdonut"), {
+                //     type: 'doughnut',
+                //     data: {
+                //         labels: [],
+                //         datasets: [
+                //             {
+                //                 backgroundColor: ["red", "grey"],
+                //                 data: [deathrate, remainderd]
+                //             }
+                //         ]
+                //     },
+                //     options: {
+                //         events: [],
+                //         title: {
+                //             display: true,
+                //             text: 'Death Rate' + " " + deathrate + "%"
+                //         }
+                //     }
+                // });
             }
         }//for loop end
 
@@ -260,12 +363,9 @@ function getData() {
     countryname = countryselected
     loaddate = dateselected
     countrymap = countryselected
-    getMap()
     loadLatest()
-    getCountryFlag()
-
+    getMap()
 }
-
 
 //load ranking
 function getTop5() {
@@ -273,7 +373,7 @@ function getTop5() {
         let alldata = r.data
         let countriesdata = []
         let maxindex = alldata["Singapore"].length - 1
-    
+
         for (let i in alldata) {
             let j = 0
             countriesdata.push(
@@ -357,128 +457,28 @@ function getTop5() {
         }
 
         top5cases.push(worldtotal)
-       
-        new Chart(document.getElementById("pie-chart"), {
-            type: 'pie',
-            data: {
-                labels: top5countries,
-                datasets: [{
-                    label: "Top 5",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: top5cases
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Top 5 Ranking'
-                }
-            }
-        });
+
+        // new Chart(document.getElementById("pie-chart"), {
+        //     type: 'pie',
+        //     data: {
+        //         labels: top5countries,
+        //         datasets: [{
+        //             label: "Top 5",
+        //             backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+        //             data: top5cases
+        //         }]
+        //     },
+        //     options: {
+        //         title: {
+        //             display: true,
+        //             text: 'Top 5 Ranking'
+        //         }
+        //     }
+        // });
 
 
     })//axios end
 }//top 5 function end
-
-
-//get flag picture
-function getCountryFlag() {
-    axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
-        $("#flagdisplay").empty()
-        //console.log(r.data)
-        countrydisplayed = document.getElementById("countrydisplay").innerText
-        for (let i of r.data) {
-            if (countrydisplayed == i.name || countrydisplayed == i.alpha2Code) {
-                $("#flagdisplay").append(`<img src="${i.flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Taiwan*") {
-                $("#flagdisplay").append(`<img src="${r.data[221].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Vietnam") {
-                $("#flagdisplay").append(`<img src="${r.data[244].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Korea, South") {
-                $("#flagdisplay").append(`<img src="${r.data[210].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Czechia") {
-                $("#flagdisplay").append(`<img src="${r.data[61].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "North Macedonia") {
-                $("#flagdisplay").append(`<img src="${r.data[132].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Laos") {
-                $("#flagdisplay").append(`<img src="${r.data[122].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Bolivia") {
-                $("#flagdisplay").append(`<img src="${r.data[26].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Brunei") {
-                $("#flagdisplay").append(`<img src="${r.data[36].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Iran") {
-                $("#flagdisplay").append(`<img src="${r.data[107].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Moldova") {
-                $("#flagdisplay").append(`<img src="${r.data[146].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Russia") {
-                $("#flagdisplay").append(`<img src="${r.data[185].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Tanzania") {
-                $("#flagdisplay").append(`<img src="${r.data[223].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "United Kingdom") {
-                $("#flagdisplay").append(`<img src="${r.data[238].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Venezuela") {
-                $("#flagdisplay").append(`<img src="${r.data[243].flag}">`)
-                break
-            }
-
-            else if (countrydisplayed == "Syria") {
-                $("#flagdisplay").append(`<img src="${r.data[220].flag}">`)
-                break
-            }
-
-
-        }
-
-
-    })//axios end
-
-}//get country flag end
-
-
-
-
 
 // let coordinates = [1.35, 103.85] //sg default
 

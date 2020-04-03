@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
 
     <!-- Chart JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
 
     <title>COVIDWORLD</title>
 </head>
@@ -48,29 +48,18 @@
                 <h6>COVID-19 STATS TRACKER</h6>
             </div> -->
             <div id="afterload">
-
-                <!-- overview -->
+                <!-- mainrow -->
                 <div class="row p-3 justify-content-between">
+                    <!-- leftbar -->
                     <div class="col-12 col-sm-5 col-lg-3 mb-5">
-                        <!-- leftbar -->
                         <div id="leftbar">
-                            <p id="flagdisplay"></p>
-                            <p id="countrydisplay"></p>
-                            <div>
-                                <p>Select Country:</p>
-                                <select id="countryselect" size="1">
-                                    <option>Singapore</option>
-                                </select>
-                                <br><br>
-                                <span>Select Date:&nbsp;&nbsp;</span>
-                                <select id="dateselect" size="1">
-                                </select>
-                                <button id="getData" onclick="getData()">Get Data</button>
-                            </div>
-                            <!-- <div id="map1"></div> -->
+                            <div id="flagdisplay"></div>
+                            <div id="countrydisplay"></div>
+                            <div id="map1"></div>
                         </div>
-                        <!-- leftbar end -->
                     </div>
+                    <!-- leftbar end -->
+                    <!-- overview -->
                     <div class="col-12 col-sm-7 col-lg-5 mb-5">
                         <div id="overview">
                             <div class="row p-3 justify-content-center">
@@ -99,18 +88,27 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- overview end -->
                     </div>
+                    <!-- overview end -->
+                    <!-- world -->
                     <div class="col-12 col-lg-4 mb-5">
-                        <!-- world -->
                         <div id="world">
-
                         </div>
-                        <!-- world end -->
                     </div>
+                    <!-- world end -->
                 </div>
+                <!-- main row end -->
 
-
+                <!-- option bar -->
+                <div id="optionbar">
+                    <select id="countryselect" size="1">
+                        <option>Singapore</option>
+                    </select>
+                    <select id="dateselect" size="1">
+                    </select>
+                    <button id="getData" onclick="getData()">Get Data</button>
+                </div>
+                <!-- option end -->
 
 
 

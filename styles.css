@@ -2,6 +2,7 @@
 orange: #EC971F
 white: #F3F3F3
 black: #303841
+grey: #e3e3e3
 vintage: #E8E4B8
 vintageblk: #34495B
 vintageshadow: #EA7361
@@ -91,7 +92,7 @@ body{
 
 #leftbar {
     border-radius: 10px;
-    height: 375px;
+    height: 475px;
     background: #303841;
     padding:10px 0 0 0;
 }
@@ -99,6 +100,10 @@ body{
 #flagdisplay {
     margin: 15px;
     text-align: center;
+}
+
+#flagdisplay img {
+    height: 50px;
 }
 
 #leftbar #countrydisplay {
@@ -109,63 +114,22 @@ body{
     color: #F3F3F3;
 }
 
-#leftbar div {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 500;
-    color: #F3F3F3;
-    display: block;
-    font-size: 16px;
-    margin: 0 10px;
-
-}
-
-#leftbar p, #leftbar span {
-    font-size: 16px;
-}
-
-#leftbar button {
-    display: block;
-    margin: 20px 0;
-    position: relative;
-    left:50%;
-    transform: translateX(-50%);
-}
-
-#leftbar select {
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
-    font-family: 'Noto Sans SC', sans-serif;
-}
-
-#countryselect {
-    margin-left: -5px;
-}
-
-#leftbar button {
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: gold;
-}
-
 #map1 {
     height: 280px;
     width: 280px;
     border-radius: 50%;
-    margin: 20px;
+    margin: 20px auto;
     border: 10px solid #F3F3F3;
 } 
 
 /* overview */
 #overview {
     padding:20px;
-    border: #34495B;
-    background: #e3e3e3;
+    border: white solid 1px;
     border-radius: 10px;
     background: #e3e3e3;
-    box-shadow:  10px 10px 30px #c1c1c1, 
-                -10px -10px 30px #ffffff;
+    /* box-shadow:  10px 10px 20px #c1c1c1, 
+                -10px -10px 20px #ffffff; */
     font-size: 18px;
 }
 
@@ -188,13 +152,46 @@ body{
 /* world */
 #world {
     height: 500px;
-    border: #34495B;
+    border: white solid 1px;
     border-radius: 10px;
     background: #303841;
     box-shadow:  10px 10px 30px #c1c1c1, 
                 -10px -10px 30px #ffffff;
     font-size: 18px;
 }
+
+/* option bar */
+#optionbar {
+    width: 500px;
+    height: 100px;
+    background-color: #303841;
+    position: fixed;
+    border-radius: 10px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    color: #F3F3F3;
+    padding: 10px;
+}
+
+#optionbar button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: gold;
+}
+
+#optionbar select {
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+
 
 /* header */
 header h1{
@@ -244,10 +241,7 @@ header h3{
     }
 }
 
-#flagdisplay img {
-    height: 50px;
 
-}
 
 
 /* hero page */
