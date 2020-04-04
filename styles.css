@@ -40,9 +40,7 @@ body{
     height: 100%;
 }
 
-#testrow {
-    width: 100vw;
-}
+
 
 .gbor {
     border: 3px solid gold;
@@ -54,16 +52,19 @@ header {
 }
 
 header h1{
-    padding: 20px 0 0 20px;
+    padding: 10px 5px;
     font-family:'Heebo', sans-serif;
     font-weight: 800;
+    margin: 10px auto;
+    text-align: center;
 }
 
 header h3{
-    margin: -10px 0 0 0;
-    padding: 0 0 0 20px;
+    padding: 10px 5px;
     font-family: 'Yantramanav', sans-serif;
     font-size: 25px;
+    text-align: center;
+    margin: -30px 0 0 0;
 }
 
 /* loading page */
@@ -81,7 +82,7 @@ header h3{
 
 #loading img{
     margin: auto;
-    min-width: 350px;
+    width: 80vw;
     max-width: 500px;
     animation-name: bounce;
     animation-iteration-count: infinite;
@@ -115,23 +116,11 @@ header h3{
     color: #34495B;
 }
 
-
 #afterload {
-    animation-name: fadeIn;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
+    padding:0;
+    margin: 0;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
 
 /* leftbar */
 
@@ -144,10 +133,8 @@ header h3{
 }
 
 
-/* overview */
+/* left panel */
 #overview {
-    min-width: 350px;
-    padding:20px;
     border: white solid 1px;
     border-radius: 10px;
     background: #e3e3e3;
@@ -177,15 +164,22 @@ header h3{
     display: block;
 }
 
-#ctoday, #totalconfirmed, #rtoday, #totalrecovered, #dtoday, #totaldeaths {
+#totalconfirmed, #totalrecovered, #totaldeaths {
     font-size: 20px;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 900;
 }
 
-#overview p{
-    margin: 0;
+#ctoday, #rtoday, #dtoday {
+    font-size: 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 900;
 }
+
+#overview p{
+    font-size: 16px;
+}
+
 
 #countrydetailsbtn {
     border-radius: 10px;
@@ -194,9 +188,15 @@ header h3{
     color: #F3F3F3;
     border: none;
     font-size: 16px;
+    margin: 20px auto;
+    display: block;
 }
 
-/* world */
+#cccontainer {
+    width: 350px;
+}
+
+/* right panel */
 #world {
     border: white solid 1px;
     border-radius: 10px;
@@ -207,7 +207,7 @@ header h3{
 }
 
 #world p {
-    margin: 5px 0 5px 20px;
+    margin: 0px 0 5px 20px;
 }
 
 #world .col-4 {
@@ -245,7 +245,9 @@ header h3{
     font-family: 'Heebo', sans-serif;
 }
 
-/* details */
+
+
+/* countrypanel */
 
 #countrypanel {
     padding:10px;
@@ -271,7 +273,7 @@ header h3{
 
 #linegraphc .line {
     fill:none;
-    stroke: #F3F3F3;
+    stroke: #EC971F;
     stroke-width: 3px;
 }
 
@@ -294,6 +296,10 @@ header h3{
     stroke-opacity: 1;
 }
 
+.dc-chart .axis path, .dc-chart .axis line {
+    stroke: #F3F3F3 !important;
+}
+
 /* world details */
 #worldpanel {
     display: none;
@@ -311,11 +317,11 @@ header h3{
 #worlddetailsbtn {
     border-radius: 10px;
     padding:10px 10px;
-    background-color:#F3F3F3 ;
+    background-color:gold ;
     color: #303841;
     border: none;
     font-size: 16px;
-    margin: 5px 0 0 0;
+    margin: 15px 0 0 0;
 }
 
 /* option bar */
@@ -325,8 +331,8 @@ header h3{
     width:auto;
     border-radius: 10px;
     position: fixed;
-    top:150px;
-    left: 20px;
+    top:0px;
+    left: 0px;
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 16px;
 }
