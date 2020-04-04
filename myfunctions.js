@@ -401,7 +401,7 @@ function loadLatest() {
                 for (let i of weeklydata) {
                     i.date = moment(i.date, "DD/MM/YY").format("MM/DD")
                 }
-                console.table(weeklydata)
+                
 
                 // linechart combined
                 let cArr = []
@@ -454,22 +454,24 @@ function loadLatest() {
 
 
 
-
+                console.table(weeklydata)
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
+    
+
                 let cfconfirmed = crossfilter(weeklydata)
                 let weeklycx = cfconfirmed.dimension(f => f.date)
                 let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
 
-                dc.lineChart("#linegraphc")
-                    .width(300) //make mobile responsive later!
+                let cgraph = new dc.LineChart("#linegraphc")
+                    cgraph.width(300) //make mobile responsive later!
                     .height(150)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklycy)
                     .x(d3.scaleBand())
                     .xUnits(dc.units.ordinal)
-                    .xAxisLabel("Date")
+                    //.xAxisLabel("Date")
                     .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
                     // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
@@ -480,15 +482,15 @@ function loadLatest() {
                 let minrweekly = weeklydata[6].recovered
                 let weeklyry = weeklycx.group().reduceSum(f => f.recovered)
 
-                dc.lineChart("#linegraphr")
-                    .width(300) //make mobile responsive later!
+                let rgraph = new dc.LineChart("#linegraphr")
+                    rgraph.width(300) //make mobile responsive later!
                     .height(150)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklyry)
                     .x(d3.scaleBand())
                     .xUnits(dc.units.ordinal)
-                    .xAxisLabel("Date")
+                    //.xAxisLabel("Date")
                     .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
                     // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
@@ -500,15 +502,15 @@ function loadLatest() {
                 
                 let weeklydy = weeklycx.group().reduceSum(f => f.deaths)
 
-                dc.lineChart("#linegraphd")
-                    .width(300) //make mobile responsive later!
+                let dgraph = new dc.LineChart("#linegraphd")
+                    dgraph.width(300) //make mobile responsive later!
                     .height(150)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklydy)
                     .x(d3.scaleBand())
                     .xUnits(dc.units.ordinal)
-                    .xAxisLabel("Date")
+                    //.xAxisLabel("Date")
                     .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
                     // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
@@ -694,23 +696,34 @@ function getTop5() {
 
         top5cases.push(worldtotal)
 
-        // new Chart(document.getElementById("pie-chart"), {
-        //     type: 'pie',
-        //     data: {
-        //         labels: top5countries,
-        //         datasets: [{
-        //             label: "Top 5",
-        //             backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-        //             data: top5cases
-        //         }]
-        //     },
-        //     options: {
-        //         title: {
-        //             display: true,
-        //             text: 'Top 5 Ranking'
-        //         }
-        //     }
-        // });
+        Chart.defaults.global.defaultFontFamily = 'Noto Sans SC'
+        new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+                labels: top5countries,
+                datasets: [{
+                    label: "Top 5",
+                    backgroundColor: ["gold", "orange", "red", " #EA7361", "maroon", "#303841"],
+                    data: top5cases,
+                    borderWidth: 0,
+                    hoverBackgroundColor:"#EC971F"
+                }]
+            },
+            options: {
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'Top 5 Most Infected Countries'
+                },
+                legend: {
+                    labels: {
+                        fontSize: 16,
+                        fontColor: '#303841'
+                    }
+                }
+            }
+        });
 
 
     })//axios end

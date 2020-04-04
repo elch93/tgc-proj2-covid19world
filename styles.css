@@ -82,20 +82,17 @@ body{
     font-family:'Yantramanav', sans-serif ;
     text-align: center;
     color: #34495B;
-    position: absolute;
-    top:60%;
 }
 
 #loading h6, #loading p {
     font-family:'Yantramanav', sans-serif ;
     text-align: center;
     color: #34495B;
-    position: absolute;
-    top:65%;
 }
 
-#loading p {
-    top:68%;
+#loadingtxt {
+    position: fixed;
+    top:60%;
 }
 
 #afterload {
@@ -205,6 +202,7 @@ body{
     width: 320px;
     border-radius: 50%;
     margin: 20px auto;
+    border: 5px solid #F3F3F3;
 }
 
 #worldtxt1, #worldtxt2, #worldtxt3 {
@@ -231,9 +229,6 @@ body{
 }
 
 /* details */
-/* #rightpanel {
-    display: none;
-} */
 
 #details {
     padding:10px;
@@ -247,8 +242,6 @@ body{
     font-family: 'Oswald', sans-serif;
 }
 
-
-
 #details text {
     fill: #F3F3F3;
     transform: translate(140,155) !important;
@@ -259,7 +252,8 @@ body{
     stroke: #F3F3F3;
     stroke-width: 5px;
 }
-  #linegraphr .line {
+
+#linegraphr .line {
     fill:none;
     stroke: green;
     stroke-width: 5px;
@@ -284,7 +278,7 @@ body{
 
 #mynavbar button {
     margin: 10px;
-    background-color: #34495B ;
+    background-color: #303841 ;
     border: none;
     color: #F3F3F3;
 }

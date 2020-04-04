@@ -45,9 +45,11 @@
         <section>
             <div class="row justify-content-center align-items-center" id="loading">
                 <img src="images/loading.jpg">
-                <h1>COVIDWORLD</h1>
-                <h6>COVID-19 STATS TRACKER</h6>
-                <p>loading...</p>
+                <div id="loadingtxt">
+                    <h1>COVIDWORLD</h1>
+                    <h6>COVID-19 STATS TRACKER</h6>
+                    <p>loading...</p>
+                </div>
             </div>
             <div id="afterload">
                 <!-- mainrow -->
@@ -61,7 +63,7 @@
                                     <div id="countrydisplay"></div>
                                 </div>
                                 <div class="col-6 d-flex align-items-center">
-                                    <span id="datedisplay"></span>
+                                    Date: &nbsp;<span id="datedisplay"></span>
                                 </div>
                             </div>
                             <div class="row p-3 justify-content-center">
@@ -109,32 +111,37 @@
                             <div class="col-12 col-lg-8">
                                 <div id="map1"></div>
                             </div>
+                            
                         </div>
-                        <div class="row p-3" id="intro">
-                            <h1>What is COVID-19?</h1>
-                            <p>Coronavirus disease (COVID-19) is an infectious
-                                disease caused by a newly discovered coronavirus.
-                                Older people, and those with underlying medical problems
-                                like cardiovascular disease, diabetes, chronic respiratory
-                                disease, and cancer are more likely to develop serious illness.</p>
-                            <p>Symptoms: mild to moderate respiratory illness</p>
+                        <div class="row p-3" id="rank">
+                            <div class="col-12">
+                                <canvas id="pie-chart" width="800" height="450"></canvas>
+                            </div>
                         </div>
                     </div>
                     <!-- world end -->
                     <div class="col-10 col-lg-5 mb-5 gbor" id="details">
-                        <div class="container-fluid">Infection History:
-                            <div id="linegraphc"></div>
+                        <div class="row justify-content-center">
+                            <div class="col-7">
+                                <div class="container-fluid">Infection History:
+                                    <div id="linegraphc"></div>
+                                </div>
+                                <div class="container-fluid">Recovery History:
+                                    <div id="linegraphr"></div>
+                                </div>
+                                <div class="container-fluid">Death History:
+                                    <div id="linegraphd"></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+
+                            </div>
                         </div>
-                        <div class="container-fluid">Recovery History:
-                            <div id="linegraphr"></div>
-                        </div>
-                        <div class="container-fluid">Death History:
-                            <div id="linegraphd"></div>
-                        </div>
+                        
                     </div>
                     <!-- <div class="col-10 col-lg-5 mb-5 gbor">test</div> -->
 
-                   
+
 
 
                 </div>
