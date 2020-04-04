@@ -268,22 +268,25 @@ body{
 /* option bar */
 #mynavbar {
     background-color:#303841 ;
-    height: 400px;
-    width:50px;
+    height: auto;
+    width:auto;
     border-radius: 10px;
     position: fixed;
     top:150px;
     left: 20px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
 }
 
 #mynavbar button {
-    margin: 10px;
+    margin: 10px auto 20px auto;
     background-color: #303841 ;
     border: none;
     color: #F3F3F3;
+    display: block;
 }
 
-#optionbar {
+#searchbar {
     display: none;
     transition: ease-in 0.5s;
     width: 350px;
@@ -302,16 +305,16 @@ body{
     z-index: 2;
 }
 
-#optionbar i {
+#searchbar i {
     font-size: 20px;
     margin-right: 10px;
 }
 
-#optionbar div {
+#searchbar div {
     margin: 5px auto;
 }
 
-#optionbar button {
+#searchbar button {
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -319,7 +322,7 @@ body{
     margin: 5px;
 }
 
-#optionbar select {
+#searchbar select {
     border-radius: 5px;
     padding: 5px;
     border: none;

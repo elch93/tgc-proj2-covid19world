@@ -401,7 +401,7 @@ function loadLatest() {
                 for (let i of weeklydata) {
                     i.date = moment(i.date, "DD/MM/YY").format("MM/DD")
                 }
-                
+
 
                 // linechart combined
                 let cArr = []
@@ -457,14 +457,14 @@ function loadLatest() {
                 console.table(weeklydata)
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
-    
+
 
                 let cfconfirmed = crossfilter(weeklydata)
                 let weeklycx = cfconfirmed.dimension(f => f.date)
                 let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
 
                 let cgraph = new dc.LineChart("#linegraphc")
-                    cgraph.width(300) //make mobile responsive later!
+                cgraph.width(300) //make mobile responsive later!
                     .height(150)
                     .brushOn(true)
                     .dimension(weeklycx)
@@ -476,14 +476,14 @@ function loadLatest() {
                     // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
 
-                
+
 
                 let maxrweekly = weeklydata[0].recovered
                 let minrweekly = weeklydata[6].recovered
                 let weeklyry = weeklycx.group().reduceSum(f => f.recovered)
 
                 let rgraph = new dc.LineChart("#linegraphr")
-                    rgraph.width(300) //make mobile responsive later!
+                rgraph.width(300) //make mobile responsive later!
                     .height(150)
                     .brushOn(true)
                     .dimension(weeklycx)
@@ -495,15 +495,15 @@ function loadLatest() {
                     // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
 
-                
+
 
                 let maxdweekly = weeklydata[0].deaths
                 let mindweekly = weeklydata[6].deaths
-                
+
                 let weeklydy = weeklycx.group().reduceSum(f => f.deaths)
 
                 let dgraph = new dc.LineChart("#linegraphd")
-                    dgraph.width(300) //make mobile responsive later!
+                dgraph.width(300) //make mobile responsive later!
                     .height(150)
                     .brushOn(true)
                     .dimension(weeklycx)
@@ -526,52 +526,58 @@ function loadLatest() {
 
 
                 //rr & dr chart
-                // let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
-                // let remainderr = 100 - recoveryrate
+                let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
+                let remainderr = 100 - recoveryrate
                 //recovery rates chart
-                // new Chart(document.getElementById("rrdonut"), {
-                //     type: 'doughnut',
-                //     data: {
-                //         labels: [],
-                //         datasets: [
-                //             {
-                //                 backgroundColor: ["green", "grey"],
-                //                 data: [recoveryrate, remainderr]
-                //             }
-                //         ]
-                //     },
-                //     options: {
-                //         events: [],
-                //         title: {
-                //             display: true,
-                //             text: 'Recovery Rate' + " " + recoveryrate + "%"
-                //         }
-                //     }
-                // });
+                new Chart(document.getElementById("rrdonut"), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                backgroundColor: ["green", "#e3e3e3"],
+                                data: [recoveryrate, remainderr],
+                                borderWidth: 0,
+                            }
+                        ]
+                    },
+                    options: {
+                        events: [],
+                        title: {
+                            fontColor: '#F3F3F3',
+                            fontSize: 20,
+                            display: true,
+                            text: 'Recovery Rate:' + " " + recoveryrate + "%"
+                        }
+                    }
+                });
 
 
-                // let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
-                // let remainderd = 100 - recoveryrate
+                let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
+                let remainderd = 100 - recoveryrate
                 //death rates chart
-                // new Chart(document.getElementById("drdonut"), {
-                //     type: 'doughnut',
-                //     data: {
-                //         labels: [],
-                //         datasets: [
-                //             {
-                //                 backgroundColor: ["red", "grey"],
-                //                 data: [deathrate, remainderd]
-                //             }
-                //         ]
-                //     },
-                //     options: {
-                //         events: [],
-                //         title: {
-                //             display: true,
-                //             text: 'Death Rate' + " " + deathrate + "%"
-                //         }
-                //     }
-                // });
+                new Chart(document.getElementById("drdonut"), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                backgroundColor: ["red", "#e3e3e3"],
+                                data: [deathrate, remainderd],
+                                borderWidth: 0
+                            }
+                        ]
+                    },
+                    options: {
+                        events: [],
+                        title: {
+                            fontColor: '#F3F3F3',
+                            fontSize: 20,
+                            display: true,
+                            text: 'Death Rate:' + " " + deathrate + "%"
+                        }
+                    }
+                });
             }
         }//for loop end
 
@@ -706,7 +712,7 @@ function getTop5() {
                     backgroundColor: ["gold", "orange", "red", " #EA7361", "maroon", "#303841"],
                     data: top5cases,
                     borderWidth: 0,
-                    hoverBackgroundColor:"#EC971F"
+                    hoverBackgroundColor: "#EC971F"
                 }]
             },
             options: {

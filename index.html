@@ -53,7 +53,7 @@
             </div>
             <div id="afterload">
                 <!-- mainrow -->
-                <div class="row p-3 justify-content-center gbor" id="testrow">
+                <div class="row p-3 justify-content-center" id="testrow">
                     <!-- overview -->
                     <div class="col-10 col-lg-5 mb-5">
                         <div id="overview">
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <!-- world end -->
-                    <div class="col-10 col-lg-5 mb-5 gbor" id="details">
+                    <div class="col-10 col-lg-5 mb-5" id="details">
                         <div class="row justify-content-center">
                             <div class="col-7">
                                 <div class="container-fluid">Infection History:
@@ -134,16 +134,15 @@
                                 </div>
                             </div>
                             <div class="col-4">
-
+                                <div class="row">
+                                    <canvas id="rrdonut" width="800" height="450"></canvas>
+                                </div>
+                                <div class="row">
+                                    <canvas id="drdonut" width="800" height="450"></canvas>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
-                    <!-- <div class="col-10 col-lg-5 mb-5 gbor">test</div> -->
-
-
-
-
                 </div>
                 <!-- main row end -->
 
@@ -157,10 +156,11 @@
 
                 <!-- option bar -->
                 <div id="mynavbar">
-                    <button id="obbtn"><i class="fas fa-search"></i></button>
+                    <button id="searchbtn"><i class="fas fa-search"></i></button>
+                    <button id="tipsbtn"><i class="far fa-lightbulb"></i></button>
+                    <button id="tipsbtn"><i class="fas fa-newspaper"></i></button>
                 </div>
-
-                <div id="optionbar">
+                <div id="searchbar">
                     <div>
                         <i class="fas fa-globe-americas"></i>
                         <select id="countryselect" size="1">

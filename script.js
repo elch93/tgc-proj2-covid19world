@@ -88,11 +88,11 @@ $(function () {
 
     loadDefaultCountryFlag()
 
-    $("#obbtn").click(function () {
-        $("#optionbar").toggle()
+    $("#searchbtn").click(function () {
+        $("#searchbar").toggle()
     })
     $("#getData").click(function () {
-        $("#optionbar").toggle()
+        $("#searchbar").toggle()
     })
 
     
