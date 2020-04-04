@@ -2,6 +2,13 @@
 //https://covidapi.info/api/v1/country/SGP/latest
 
 
+function thousands_separators(num) {
+    var num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num_parts.join(".");
+}
+
+
 let countryname = "Singapore" //SG by default
 let todaydate = new Date()
 console.log(todaydate.getDay())
@@ -151,7 +158,7 @@ function loadLatest() {
 
                 getCountryFlag()
 
-
+                
 
 
                 let dailyIncrease = parseInt(countrydata[i].confirmed) - parseInt(countrydata[i + 1].confirmed)
@@ -160,23 +167,23 @@ function loadLatest() {
                 //console.log(countrydata)
 
                 if (dailyIncrease > 0) {
-                    $("#ctoday").append(`(+${dailyIncrease})`)
+                    $("#ctoday").append(`(+${thousands_separators(dailyIncrease)})`)
                     $("#ctoday").append(`<i class="fas fa-angle-double-up red"></i>`)
                 }
 
                 if (dailyRecovered > 0) {
-                    $("#rtoday").append(`(+${dailyRecovered})`)
+                    $("#rtoday").append(`(+${thousands_separators(dailyRecovered)})`)
                     $("#rtoday").append(`<i class="fas fa-angle-double-up green"></i>`)
                 }
 
                 if (dailyDeaths > 0) {
-                    $("#dtoday").append(`(+${dailyDeaths})`)
+                    $("#dtoday").append(`(+${thousands_separators(dailyDeaths)})`)
                     $("#dtoday").append(`<i class="fas fa-angle-double-up red"></i>`)
                 }
 
-                $("#totalconfirmed").append(`${countrydata[i].confirmed}`)
-                $("#totalrecovered").append(`${countrydata[i].recovered}`)
-                $("#totaldeaths").append(`${countrydata[i].deaths}`)
+                $("#totalconfirmed").append(`${thousands_separators(countrydata[i].confirmed)}`)
+                $("#totalrecovered").append(`${thousands_separators(countrydata[i].recovered)}`)
+                $("#totaldeaths").append(`${thousands_separators(countrydata[i].deaths)}`)
 
 
                 //get map
@@ -414,7 +421,7 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
-                let x = new Chart(document.getElementById("combined"), {
+                let countryline = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
                         labels: dateArr,
@@ -459,7 +466,7 @@ function loadLatest() {
                 });
 
                 $("#getData").click(function () {
-                    x.destroy()
+                    countryline.destroy()
                 })
 
 
@@ -610,6 +617,7 @@ function getData() {
         loaddate = dateselected
         countrymap = countryselected
         loadLatest()
+        getGlobalTotalByDate()
 
     }, 500)
 
@@ -626,7 +634,7 @@ function getTop5() {
         let alldata = r.data
         let countriesdata = []
         let maxindex = alldata["Singapore"].length - 1
-        console.log("AD", alldata)
+        //console.log("AD", alldata)
 
 
         for (let i in alldata) {
@@ -645,20 +653,6 @@ function getTop5() {
             return b["Latest Total"] - a["Latest Total"]
         })
 
-        let totalc = 0
-        let totalr = 0
-        let totald = 0
-
-        for (let i of countriesdata) {
-            totalc += i["Latest Total"]
-            totalr += i["Latest Recovered"]
-            totald += i["Latest Deaths"]
-        }
-
-        $("#totalc").append(`${totalc}`)
-        $("#totalr").append(`${totalr}`)
-        $("#totald").append(`${totald}`)
-
         //console.log("CD", countriesdata)
 
         let worldtotal = 0
@@ -670,16 +664,6 @@ function getTop5() {
         let top5 = countriesdata.slice(0, 5)
         // let maxcases = top5[0]["Latest Total"]
         // let mincases = top5[4]["Latest Total"]
-
-        for (let i of top5) {
-            $("#worldranking").append(
-                `<div class="col-12">
-                    <p>Country: ${i.Country}</p>
-                    <p>Total Cases: ${i["Latest Total"]}</p>
-                </div>`
-            )
-        }
-
 
         // piechart top 5
         let top5countries = []
@@ -726,91 +710,124 @@ function getTop5() {
             }
         });
 
-        // linechart world 
-        let worlddata = []
-        let wTotalArr = []
-        let wRecoveredArr = []
-        let wDeathsArr = []
+
+
+
+
+
+
+
+    })//axios end
+}//top 5 function end
+
+
+
+function getGlobalTotalByDate() {
+    axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
+        let data = r.data
+        $("#totalc").empty(), $("#totalr").empty(), $("#totald").empty(),
+            $("#worldCIncrease").empty(), $("#worldRIncrease").empty(), $("#worldDIncrease").empty()
+
+        //converting dates to ISO format
+        for (let i in data) {
+            for (let j = 0; j < data[i].length; j++) {
+                if (data[i][j].date[6] === "-") {
+                    data[i][j].date = data[i][j].date.substr(0, 5) + "0" + data[i][j].date.substr(5);
+                }
+                if (data[i][j].date.length < 10) {
+                    data[i][j].date = data[i][j].date.substr(0, 8) + "0" + data[i][j].date.substr(8);
+                }
+                //console.log(i.date)
+                data[i][j].date = moment(data[i][j].date).format("DD/MM/YY")
+            }
+        }
+
+        console.log(data)
+
+        let totalc = 0
+        let totalr = 0
+        let totald = 0
+        let past7global = []
+
+        for (let i in data) {
+            for (let j = 0; j < data[i].length; j++) {
+                if (loaddate == data[i][j].date) {
+                    totalc += data[i][j].confirmed
+                    totalr += data[i][j].recovered
+                    totald += data[i][j].deaths
+                    past7global.push(data[i].slice(j - 6, j + 1))
+                }
+            }
+        }
+
+        $("#totalc").append(`${thousands_separators(totalc)}`)
+        $("#totalr").append(`${thousands_separators(totalr)}`)
+        $("#totald").append(`${thousands_separators(totald)}`)
+
+        console.log("P7", past7global)
+
+        let past7cArr = []
+        let past7rArr = []
+        let past7dArr = []
         let dateArr = []
-        
-        for (let i in alldata) {
-            worlddata.push(alldata[i].reverse().slice(0,7))
-        }
+
+
+
 
         for (let j = 0; j < 7; j++) {
-            let total = 0
-            for (let i in worlddata) {
-                total += worlddata[i][j].confirmed
+            let totalc2 = 0
+            let totalr2 = 0
+            let totald2 = 0
 
-                if (worlddata[i][j].date[6] === "-") {
-                    worlddata[i][j].date = worlddata[i][j].date.substr(0, 5) + "0" + worlddata[i][j].date.substr(5);
-                }
-                if (worlddata[i][j].date.length < 10) {
-                    worlddata[i][j].date = worlddata[i][j].date.substr(0, 8) + "0" + worlddata[i][j].date.substr(8);
-                }
-                worlddata[i][j].date = moment(worlddata[i][j].date).format("MM/DD")
+            for (let i in past7global) {
+                totalc2 += (past7global[i][j].confirmed)
+                totalr2 += (past7global[i][j].recovered)
+                totald2 += (past7global[i][j].deaths)
             }
-            wTotalArr.unshift(total)
+
+            past7cArr.push(totalc2)
+            past7rArr.push(totalr2)
+            past7dArr.push(totald2)
+            dateArr.push(past7global[0][j].date)
         }
 
-        for (let i of worlddata[0]) {
-            dateArr.unshift(i.date)
-        }
+        console.log(dateArr, past7cArr, past7rArr, past7dArr)
 
-        for (let j = 0; j < 7; j++) {
-            let total = 0
-            for (let i in worlddata) {
-                total += worlddata[i][j].recovered
-            }
-            wRecoveredArr.unshift(total)
-        }
-
-        for (let j = 0; j < 7; j++) {
-            let total = 0
-            for (let i in worlddata) {
-                total += worlddata[i][j].deaths
-            }
-            wDeathsArr.unshift(total)
-        }
-
-        let worldCIncrease = wTotalArr[6] - wTotalArr[5] 
-        let worldRIncrease = wRecoveredArr[6] - wRecoveredArr[5] 
-        let worldDIncrease = wDeathsArr[6] - wDeathsArr[5] 
+        let worldCIncrease = past7cArr[6] - past7cArr[5]
+        let worldRIncrease = past7rArr[6] - past7rArr[5]
+        let worldDIncrease = past7dArr[6] - past7dArr[5]
 
         if (worldCIncrease > 0) {
-            $("#worldCIncrease").append(`(+${worldCIncrease})`)
+            $("#worldCIncrease").append(`(+${thousands_separators(worldCIncrease)})`)
             $("#worldCIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
 
         if (worldRIncrease > 0) {
-            $("#worldRIncrease").append(`(+${worldRIncrease})`)
+            $("#worldRIncrease").append(`(+${thousands_separators(worldRIncrease)})`)
             $("#worldRIncrease").append(`<i class="fas fa-angle-double-up green"></i>`)
         }
 
         if (worldDIncrease > 0) {
-            $("#worldDIncrease").append(`(+${worldDIncrease})`)
+            $("#worldDIncrease").append(`(+${thousands_separators(worldDIncrease)})`)
             $("#worldDIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
 
-
-
-
-        let x = new Chart(document.getElementById("worldstats"), {
+        let worldline = new Chart(document.getElementById("worldstats"), {
             type: 'line',
             data: {
                 labels: dateArr,
                 datasets: [{
-                    data: wTotalArr,
+                    data: past7cArr,
                     label: "Total",
                     borderColor: "#303841",
                     fill: false
                 }, {
-                    data: wRecoveredArr,
+                    data: past7rArr,
                     label: "Recovered",
                     borderColor: "#01D1B3",
                     fill: false
                 }, {
-                    data: wDeathsArr,
+                    data: past7dArr,
                     label: "Deaths",
                     borderColor: "#EC4E6D",
                     fill: false
@@ -839,18 +856,17 @@ function getTop5() {
             }
         });
 
+        let worldRR = ((past7rArr[6] / past7cArr[6]) * 100).toFixed(2)
+        let worldDR = ((past7dArr[6] / past7cArr[6]) * 100).toFixed(2)
 
-        let worldRR = ((wRecoveredArr[6]/wTotalArr[6])*100).toFixed(2)
-        let worldDR = ((wDeathsArr[6]/wTotalArr[6])*100).toFixed(2)
-
-        new Chart(document.getElementById("wrrdonut"), {
+        let worldRRDonut = new Chart(document.getElementById("wrrdonut"), {
             type: 'doughnut',
             data: {
                 labels: [],
                 datasets: [
                     {
                         backgroundColor: ["#01D1B3", "#303841"],
-                        data: [worldRR, (100-worldRR)],
+                        data: [worldRR, (100 - worldRR)],
                         borderWidth: 0,
                     }
                 ]
@@ -865,14 +881,14 @@ function getTop5() {
                 }
             }
         });
-        new Chart(document.getElementById("wdrdonut"), {
+        let worldDRDonut = new Chart(document.getElementById("wdrdonut"), {
             type: 'doughnut',
             data: {
                 labels: [],
                 datasets: [
                     {
                         backgroundColor: ["#EC4E6D", "#303841"],
-                        data: [worldDR, (100-worldDR)],
+                        data: [worldDR, (100 - worldDR)],
                         borderWidth: 0,
                     }
                 ]
@@ -888,14 +904,14 @@ function getTop5() {
             }
         });
 
-
-
+        $("#getData").click(function () {
+            worldline.destroy()
+            worldRRDonut.destroy()
+            worldDRDonut.destroy()
+        })
 
 
 
 
     })//axios end
-}//top 5 function end
-
-
-
+}//get global stats end

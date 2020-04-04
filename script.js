@@ -85,6 +85,7 @@ $(function () {
     }//get country end
 
     loadDefaultCountryFlag()
+    getGlobalTotalByDate()
 
     $("#searchbtn").click(function () {
         $("#searchbar").toggle()
@@ -106,10 +107,6 @@ $(function () {
     })
 
 
-    setTimeout(function () {
-        $("#loading").fadeToggle()
-        $("header").fadeToggle()
-    }, 1000)
 
 
 

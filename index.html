@@ -43,159 +43,148 @@
     </header>
     <main>
         <section>
-            <div class="row flex-column justify-content-start align-items-center pt-5" id="loading">
-                <div>
-                    <img src="images/loading.jpg">
-                </div>
-                <div id="loadingtxt">
-                    <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
-                    <h6>COVID-19 STATS TRACKER</h6>
-                    <p>loading...</p>
-                </div>
-            </div>
-            <div id="afterload">
-                <!-- mainrow -->
-                <div class="row p-lg-3 p-0 justify-content-center">
-                    <div class="col-10 col-lg-5 mb-5" id="worldpanel">
-                        <div id="worlddata">
-                            <div class="container-fluid">
-                                <canvas id="worldstats" width="400" height="200"></canvas>
-                            </div>
-                            <div class="row justify-content-around mb-5">
-                                <div class="col-4">
-                                    <canvas id="wrrdonut" width="300" height="250"></canvas>
-                                </div>
-                                <div class="col-4">
-                                    <canvas id="wdrdonut" width="300" height="250"></canvas>
-                                </div>
-                            </div>
+            <!-- mainrow -->
+            <div class="row p-lg-3 p-0 justify-content-center">
+                <div class="col-10 col-lg-5 mb-5" id="worldpanel">
+                    <div id="worlddata">
+                        <div class="container-fluid">
+                            <canvas id="worldstats" width="400" height="200"></canvas>
                         </div>
-                    </div>
-                    <!-- overview -->
-                    <div class="col-12 col-lg-5 mb-5 p-0" id="leftpanel">
-                        <div id="overview">
-                            <div class="row m-0 p-0">
-                                <div class="col-6 p-0 m-0">
-                                    <div id="flagdisplay"></div>
-                                    <div id="countrydisplay"></div>
-                                </div>
-                                <div class="col-6 p-0 m-0 d-flex align-items-center">
-                                    Date: &nbsp;<span id="datedisplay"></span>
-                                </div>
-                            </div>
-                            <div class="row m-0 p-0 justify-content-center">
-                                <div class="col-4 d-flex flex-column align-items-center" id="totaldaily">
-                                    <i class="fas fa-head-side-cough"></i>
-                                    <p><span id="totalconfirmed"></span></p>
-                                    <p><span id="ctoday"></span></p>
-                                    <p>Cases</p>
-                                </div>
-                                <div class="col-4 d-flex flex-column align-items-center" id="recovereddaily">
-                                    <i class="fas fa-smile"></i>
-                                    <p><span id="totalrecovered"></span></p>
-                                    <p><span id="rtoday"></span></p>
-                                    <p>Recovered</p>
-                                </div>
-                                <div class="col-4 d-flex flex-column align-items-center" id="deathsdaily">
-                                    <i class="fas fa-skull-crossbones"></i>
-                                    <p><span id="totaldeaths"></span></p>
-                                    <p><span id="dtoday"></span></p>
-                                    <p>Deaths</p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div id="cccontainer">
-                                    <canvas id="combined" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                            <button id="countrydetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
-                        </div>
-                    </div>
-                    <!-- overview end -->
-                    <!-- world -->
-                    <div class="col-10 col-lg-6 mb-5" id="rightpanel">
-                        <div class="row p-0 p-lg-3 justify-content-center" id="world">
-                            <div class="col-4">
-                                <p id="totalc"></p>
-                                <p id="worldCIncrease"></p>
-                                <p id="worldtxt1">Confirmed Cases</p>
-                                <br>
-                                <p id="totalr"></p>
-                                <p id="worldRIncrease"></p>
-                                <p id="worldtxt2">Recovered</p>
-                                <br>
-                                <p id="totald"></p>
-                                <p id="worldDIncrease"></p>
-                                <p id="worldtxt3">Deaths Worldwide</p>
-                                <button id="worlddetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <div id="map1"></div>
-                            </div>
-                        </div>
-                        <div class="row p-3" id="rank">
-                            <div class="col-12">
-                                <canvas id="pie-chart" width="800" height="450"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- world end -->
-                    <div class="col-10 col-lg-6 mb-5" id="countrypanel">
                         <div class="row justify-content-around mb-5">
                             <div class="col-4">
-                                <canvas id="rrdonut" width="300" height="250"></canvas>
+                                <canvas id="wrrdonut" width="300" height="250"></canvas>
                             </div>
                             <div class="col-4">
-                                <canvas id="drdonut" width="300" height="250"></canvas>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 d-flex flex-column align-items-center">
-                                <p><u>Infection History</u></p>
-                                <div id="linegraphc"></div>
-                            </div>
-                            <div class="col-12 d-flex flex-column align-items-center">
-                                <p><u>Recovery History</u></p>
-                                <div id="linegraphr"></div>
-                            </div>
-                            <div class="col-12 d-flex flex-column align-items-center">
-                                <p><u>Death History</u></p>
-                                <div id="linegraphd"></div>
+                                <canvas id="wdrdonut" width="300" height="250"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- main row end -->
-
-
-
-
-
-
-
-
-
-                <!-- option bar -->
-                <div id="mynavbar">
-                    <button id="searchbtn"><i class="fas fa-search"></i></button>
-                    <button id="tipsbtn"><i class="far fa-lightbulb"></i></button>
-                    <button id="tipsbtn"><i class="fas fa-newspaper"></i></button>
-                </div>
-                <div id="searchbar">
-                    <div>
-                        <i class="fas fa-globe-americas"></i>
-                        <select id="countryselect" size="1">
-                            <option>Singapore</option>
-                        </select>
+                <!-- overview -->
+                <div class="col-12 col-lg-5 mb-5 p-0" id="leftpanel">
+                    <div id="overview">
+                        <div class="row m-0 p-0">
+                            <div class="col-6 p-0 m-0">
+                                <div id="flagdisplay"></div>
+                                <div id="countrydisplay"></div>
+                            </div>
+                            <div class="col-6 p-0 m-0 d-flex align-items-center">
+                                Date: &nbsp;<span id="datedisplay"></span>
+                            </div>
+                        </div>
+                        <div class="row m-0 p-0 justify-content-center">
+                            <div class="col-4 d-flex flex-column align-items-center" id="totaldaily">
+                                <i class="fas fa-head-side-cough"></i>
+                                <p><span id="totalconfirmed"></span></p>
+                                <p><span id="ctoday"></span></p>
+                                <p>Cases</p>
+                            </div>
+                            <div class="col-4 d-flex flex-column align-items-center" id="recovereddaily">
+                                <i class="fas fa-smile"></i>
+                                <p><span id="totalrecovered"></span></p>
+                                <p><span id="rtoday"></span></p>
+                                <p>Recovered</p>
+                            </div>
+                            <div class="col-4 d-flex flex-column align-items-center" id="deathsdaily">
+                                <i class="fas fa-skull-crossbones"></i>
+                                <p><span id="totaldeaths"></span></p>
+                                <p><span id="dtoday"></span></p>
+                                <p>Deaths</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div id="cccontainer">
+                                <canvas id="combined" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                        <button id="countrydetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
                     </div>
-                    <div>
-                        <i class="far fa-calendar-alt"></i>
-                        <select id="dateselect" size="1">
-                        </select>
-                        <button id="getData" onclick="getData()"><i class="fas fa-search"></i></button>
+                </div>
+                <!-- overview end -->
+                <!-- world -->
+                <div class="col-10 col-lg-6 mb-5" id="rightpanel">
+                    <div class="row p-0 p-lg-3 justify-content-center" id="world">
+                        <div class="col-4">
+                            <p id="totalc"></p>
+                            <p id="worldCIncrease"></p>
+                            <p id="worldtxt1">Confirmed Cases</p>
+                            <br>
+                            <p id="totalr"></p>
+                            <p id="worldRIncrease"></p>
+                            <p id="worldtxt2">Recovered</p>
+                            <br>
+                            <p id="totald"></p>
+                            <p id="worldDIncrease"></p>
+                            <p id="worldtxt3">Deaths Worldwide</p>
+                            <button id="worlddetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div id="map1"></div>
+                        </div>
+                    </div>
+                    <div class="row p-3" id="rank">
+                        <div class="col-12">
+                            <canvas id="pie-chart" width="800" height="450"></canvas>
+                        </div>
                     </div>
                 </div>
-                <!-- option end -->
+                <!-- world end -->
+                <div class="col-10 col-lg-6 mb-5" id="countrypanel">
+                    <div class="row justify-content-around mb-5">
+                        <div class="col-4">
+                            <canvas id="rrdonut" width="300" height="250"></canvas>
+                        </div>
+                        <div class="col-4">
+                            <canvas id="drdonut" width="300" height="250"></canvas>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex flex-column align-items-center">
+                            <p><u>Infection History</u></p>
+                            <div id="linegraphc"></div>
+                        </div>
+                        <div class="col-12 d-flex flex-column align-items-center">
+                            <p><u>Recovery History</u></p>
+                            <div id="linegraphr"></div>
+                        </div>
+                        <div class="col-12 d-flex flex-column align-items-center">
+                            <p><u>Death History</u></p>
+                            <div id="linegraphd"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main row end -->
+
+
+
+
+
+
+
+
+
+            <!-- option bar -->
+            <div id="mynavbar">
+                <button id="searchbtn"><i class="fas fa-search"></i></button>
+                <button id="tipsbtn"><i class="far fa-lightbulb"></i></button>
+                <button id="tipsbtn"><i class="fas fa-newspaper"></i></button>
+            </div>
+            <div id="searchbar">
+                <div>
+                    <i class="fas fa-globe-americas"></i>
+                    <select id="countryselect" size="1">
+                        <option>Singapore</option>
+                    </select>
+                </div>
+                <div>
+                    <i class="far fa-calendar-alt"></i>
+                    <select id="dateselect" size="1">
+                    </select>
+                    <button id="getData" onclick="getData()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <!-- option end -->
 
 
 
@@ -208,8 +197,8 @@
 
 
 
-                <!-- search bar -->
-                <!-- <div id="leftbar">
+            <!-- search bar -->
+            <!-- <div id="leftbar">
                     <group>
                         Select Country:
                         <select id="countryselect" size="1">
@@ -224,8 +213,8 @@
                 </div> -->
 
 
-                <!-- hero page -->
-                <!-- <div class="row">
+            <!-- hero page -->
+            <!-- <div class="row">
                     <div class="col-6">
                         <div class="row ml-5 justify-content-between" id="overview">
                             <div class="col-12 gbor">
@@ -292,7 +281,6 @@
                         <canvas id="pie-chart" width="800" height="450"></canvas>
                     </div>
                 </div>-->
-            </div>
 
 
 

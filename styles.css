@@ -22,8 +22,6 @@ font-family: 'Heebo', sans-serif;
 font-family: 'Oswald', sans-serif;
 font-family: 'Noto Sans SC', sans-serif;
 
-
-
 */
 html,
 body {
@@ -39,7 +37,6 @@ body{
     background-color: #F3F3F3;
     height: 100%;
 }
-
 
 
 .gbor {
@@ -65,60 +62,6 @@ header h3{
     font-size: 25px;
     text-align: center;
     margin: -30px 0 0 0;
-}
-
-/* loading page */
-#loading {
-    position: absolute;
-    z-index: 999;
-    width: 100vw;
-    height: 1000px;
-    background-color: white;
-    animation-name: fadeOut;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-}
-
-#loading img{
-    margin: auto;
-    width: 80vw;
-    max-width: 500px;
-    animation-name: bounce;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
-}
-
-@keyframes bounce{
-    0%{
-        transform: translateY(0);
-    }
-
-    50%{
-        transform: translateY(-15px);
-    }
-
-    100%{
-        transform: translateY(0)
-    }
-}
-
-
-#loading h1 {
-    font-family:'Yantramanav', sans-serif ;
-    text-align: center;
-    color: #34495B;
-}
-
-#loading h6, #loading p {
-    font-family:'Yantramanav', sans-serif ;
-    text-align: center;
-    color: #34495B;
-}
-
-#afterload {
-    padding:0;
-    margin: 0;
 }
 
 
