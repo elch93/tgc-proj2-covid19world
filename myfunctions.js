@@ -417,7 +417,7 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
-
+                Chart.defaults.global.defaultFontFamily = 'Noto Sans SC'
                 let x = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
@@ -425,25 +425,39 @@ function loadLatest() {
                         datasets: [{
                             data: cArr,
                             label: "Total",
-                            borderColor: "#3e95cd",
+                            borderColor: "#303841",
                             fill: false
                         }, {
                             data: rArr,
                             label: "Recovered",
-                            borderColor: "#3cba9f",
+                            borderColor: "#01D1B3",
                             fill: false
                         }, {
                             data: dArr,
                             label: "Deaths",
-                            borderColor: "red",
+                            borderColor: "#EC4E6D",
                             fill: false
                         }
                         ]
                     },
                     options: {
                         title: {
+                            fontColor: '#303841',
+                            fontSize: 20,
                             display: true,
-                            text: 'Weekly Trend'
+                            text: 'Trend (Past 7 Days)'
+                        },
+                        scales: {
+                            xAxes: [{ 
+                                ticks: {
+                                  fontColor: '#303841',
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    fontColor: '#303841',
+                                  }
+                            }],
                         }
                     }
                 });
@@ -702,7 +716,6 @@ function getTop5() {
 
         top5cases.push(worldtotal)
 
-        Chart.defaults.global.defaultFontFamily = 'Noto Sans SC'
         new Chart(document.getElementById("pie-chart"), {
             type: 'pie',
             data: {

@@ -1,8 +1,6 @@
 $(function () {
 
-    setTimeout(function () {
-        $("#loading").fadeToggle()
-    }, 1000)
+
 
     let countrylist = []
     loadLatest()
@@ -95,15 +93,18 @@ $(function () {
         $("#searchbar").toggle()
     })
 
-    
+
 
     $("#countrydetails").click(function () {
-        $("#rightpanel").toggle(1000)
-        $("#details").toggle(1000)
+        $("#details").toggle()
+        $("#rightpanel").toggle()
     })
 
 
-
+    setTimeout(function () {
+        $("#loading").fadeToggle()
+        $("header").fadeToggle()
+    }, 1000)
 
 
 

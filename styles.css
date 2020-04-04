@@ -3,6 +3,8 @@ orange: #EC971F
 white: #F3F3F3
 black: #303841
 grey: #e3e3e3
+green: #01D1B3
+red: #EC4E6D
 vintage: #E8E4B8
 vintageblk: #34495B
 vintageshadow: #EA7361
@@ -42,12 +44,30 @@ body{
     border: 3px solid gold;
 }
 
+/* header */
+header {
+    display: none;
+}
+
+header h1{
+    padding: 20px 0 0 20px;
+    font-family:'Heebo', sans-serif;
+    font-weight: 800;
+}
+
+header h3{
+    margin: -10px 0 0 0;
+    padding: 0 0 0 20px;
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 25px;
+}
+
 /* loading page */
 #loading {
     position: absolute;
-    z-index: 2;
+    z-index: 999;
     width: 100vw;
-    height: 100vh;
+    height: 1000px;
     background-color: white;
     animation-name: fadeOut;
     animation-duration: 3s;
@@ -56,6 +76,7 @@ body{
 }
 
 #loading img{
+    margin: auto;
     min-width: 350px;
     max-width: 500px;
     animation-name: bounce;
@@ -90,10 +111,6 @@ body{
     color: #34495B;
 }
 
-#loadingtxt {
-    position: fixed;
-    top:60%;
-}
 
 #afterload {
     animation-name: fadeIn;
@@ -239,7 +256,12 @@ body{
     background: #303841;
     font-size: 18px;
     color: #F3F3F3;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+#details p {
+    font-size: 20px;
+    margin: 20px 0 0 0;
 }
 
 #details text {
@@ -294,7 +316,7 @@ body{
     background-color: #303841;
     position: fixed;
     border-radius: 10px;
-    top:250px;
+    top:150px;
     left: 230px;
     transform: translateX(-50%);
     font-size: 16px;
@@ -329,21 +351,6 @@ body{
     font-family: 'Noto Sans SC', sans-serif;
 }
 
-
-
-/* header */
-header h1{
-    padding: 20px 0 0 20px;
-    font-family:'Heebo', sans-serif;
-    font-weight: 800;
-}
-
-header h3{
-    margin: -10px 0 0 0;
-    padding: 0 0 0 20px;
-    font-family: 'Yantramanav', sans-serif;
-    font-size: 25px;
-}
 
 
 

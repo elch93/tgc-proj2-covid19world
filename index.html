@@ -37,14 +37,16 @@
 </head>
 
 <body>
-    <!-- <header class="container-fluid">
+    <header class="container-fluid">
         <h1>COVIDWORLD<i class="fas fa-virus"></i></h1>
         <h3>COVID-19 STATS TRACKER</h3>
-    </header> -->
+    </header>
     <main>
         <section>
-            <div class="row justify-content-center align-items-center" id="loading">
-                <img src="images/loading.jpg">
+            <div class="row flex-column justify-content-start align-items-center pt-5" id="loading">
+                <div>
+                    <img src="images/loading.jpg">
+                </div>
                 <div id="loadingtxt">
                     <h1>COVIDWORLD</h1>
                     <h6>COVID-19 STATS TRACKER</h6>
@@ -96,7 +98,7 @@
                     </div>
                     <!-- overview end -->
                     <!-- world -->
-                    <div class="col-10 col-lg-5 mb-5" id="rightpanel">
+                    <div class="col-10 col-lg-6 mb-5" id="rightpanel">
                         <div class="row p-0 p-lg-3" id="world">
                             <div class="col-4">
                                 <p id="totalc"></p>
@@ -111,7 +113,6 @@
                             <div class="col-12 col-lg-8">
                                 <div id="map1"></div>
                             </div>
-                            
                         </div>
                         <div class="row p-3" id="rank">
                             <div class="col-12">
@@ -120,26 +121,27 @@
                         </div>
                     </div>
                     <!-- world end -->
-                    <div class="col-10 col-lg-5 mb-5" id="details">
-                        <div class="row justify-content-center">
-                            <div class="col-7">
-                                <div class="container-fluid">Infection History:
-                                    <div id="linegraphc"></div>
-                                </div>
-                                <div class="container-fluid">Recovery History:
-                                    <div id="linegraphr"></div>
-                                </div>
-                                <div class="container-fluid">Death History:
-                                    <div id="linegraphd"></div>
-                                </div>
+                    <div class="col-10 col-lg-6 mb-5" id="details">
+                        <div class="row mb-5">
+                            <div class="col-6">
+                                <canvas id="rrdonut" width="800" height="450"></canvas>
                             </div>
-                            <div class="col-4">
-                                <div class="row">
-                                    <canvas id="rrdonut" width="800" height="450"></canvas>
-                                </div>
-                                <div class="row">
-                                    <canvas id="drdonut" width="800" height="450"></canvas>
-                                </div>
+                            <div class="col-6">
+                                <canvas id="drdonut" width="800" height="450"></canvas>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex flex-column align-items-center">
+                                <p>Infection History:</p>
+                                <div id="linegraphc"></div>
+                            </div>
+                            <div class="col-12 d-flex flex-column align-items-center">
+                                <p>Recovery History:</p>
+                                <div id="linegraphr"></div>
+                            </div>
+                            <div class="col-12 d-flex flex-column align-items-center">
+                                <p>Death History:</p>
+                                <div id="linegraphd"></div>
                             </div>
                         </div>
                     </div>
