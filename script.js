@@ -95,9 +95,14 @@ $(function () {
 
 
 
-    $("#countrydetails").click(function () {
-        $("#details").toggle()
+    $("#countrydetailsbtn").click(function () {
+        $("#countrypanel").toggle()
         $("#rightpanel").toggle()
+    })
+
+    $("#worlddetailsbtn").click(function () {
+        $("#leftpanel").toggle()
+        $("#worldpanel").toggle()
     })
 
 

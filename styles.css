@@ -151,8 +151,6 @@ header h3{
     border: white solid 1px;
     border-radius: 10px;
     background: #e3e3e3;
-    /* box-shadow:  10px 10px 20px #c1c1c1, 
-                -10px -10px 20px #ffffff; */
     font-size: 16px;
 }
 
@@ -189,7 +187,7 @@ header h3{
     margin: 0;
 }
 
-#countrydetails {
+#countrydetailsbtn {
     border-radius: 10px;
     padding:10px 10px;
     background-color:#303841 ;
@@ -203,8 +201,6 @@ header h3{
     border: white solid 1px;
     border-radius: 10px;
     background: #303841;
-    /* box-shadow:  10px 10px 30px #c1c1c1, 
-                -10px -10px 30px #ffffff; */
     font-size: 18px;
     color: #F3F3F3;
     font-family: 'Oswald', sans-serif;
@@ -251,7 +247,7 @@ header h3{
 
 /* details */
 
-#details {
+#countrypanel {
     padding:10px;
     display: none;
     height: 100%;
@@ -263,12 +259,12 @@ header h3{
     font-family: 'Noto Sans SC', sans-serif;
 }
 
-#details p {
+#countrypanel p {
     font-size: 20px;
     margin: 20px 0 0 0;
 }
 
-#details text {
+#countrypanel text {
     fill: #F3F3F3;
     transform: translate(140,155) !important;
 }
@@ -296,6 +292,31 @@ header h3{
     stroke:#F3F3F3;
     fill-opacity: 1;
     stroke-opacity: 1;
+}
+
+/* world details */
+#worldpanel {
+    display: none;
+}
+
+#worlddata {
+    min-width: 350px;
+    padding:20px;
+    border: white solid 1px;
+    border-radius: 10px;
+    background: #e3e3e3;
+    height: 500px;
+    font-size: 16px;
+}
+
+#worlddetailsbtn {
+    border-radius: 10px;
+    padding:10px 10px;
+    background-color:#F3F3F3 ;
+    color: #303841;
+    border: none;
+    font-size: 16px;
+    margin: 5px 0 0 0;
 }
 
 /* option bar */

@@ -56,8 +56,11 @@
             <div id="afterload">
                 <!-- mainrow -->
                 <div class="row p-3 justify-content-center" id="testrow">
+                    <div class="col-10 col-lg-5 mb-5 gbor" id="worldpanel">
+                        <div id="worlddata"></div>
+                    </div>
                     <!-- overview -->
-                    <div class="col-10 col-lg-5 mb-5">
+                    <div class="col-10 col-lg-5 mb-5" id="leftpanel">
                         <div id="overview">
                             <div class="row">
                                 <div class="col-6">
@@ -93,7 +96,7 @@
                                     <canvas id="combined" width="400" height="200"></canvas>
                                 </div>
                             </div>
-                            <button id="countrydetails"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
+                            <button id="countrydetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
                         </div>
                     </div>
                     <!-- overview end -->
@@ -109,6 +112,7 @@
                                 <br>
                                 <p id="totald"></p>
                                 <p id="worldtxt3">Deaths Worldwide</p>
+                                <button id="worlddetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div id="map1"></div>
@@ -121,7 +125,7 @@
                         </div>
                     </div>
                     <!-- world end -->
-                    <div class="col-10 col-lg-6 mb-5" id="details">
+                    <div class="col-10 col-lg-6 mb-5" id="countrypanel">
                         <div class="row justify-content-around mb-5">
                             <div class="col-4">
                                 <canvas id="rrdonut" width="300" height="250"></canvas>

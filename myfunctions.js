@@ -681,22 +681,6 @@ function getTop5() {
             )
         }
 
-        // let cf = crossfilter(top5)
-        // let top5x = cf.dimension(f => f.Country)
-        // let top5y = top5x.group().reduceSum(f => f["Latest Total"])
-
-        // dc.barChart("#top5chart")
-        //     .width(350)
-        //     .height(300)
-        //     .dimension(top5x)
-        //     .group(top5y)
-        //     .x(d3.scaleBand().domain(top5.map((s) => s.Country)))
-        //     .xUnits(dc.units.ordinal)
-        //     .xAxisLabel("Countries")
-        //     .y(d3.scaleLinear().domain([mincases * 0.8, maxcases * 1.05]))
-        //     .yAxis().ticks(5)
-
-        // dc.renderAll()
 
         // piechart top 5
         let top5countries = []
