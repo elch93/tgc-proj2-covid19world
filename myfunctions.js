@@ -182,8 +182,8 @@ function loadLatest() {
                 //get map
                 function getMap() {
                     axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
-                        console.log(r[0].data)
-                        console.log(r[1].data)
+                        //console.log(r[0].data)
+                        //console.log(r[1].data)
 
                         let restcountries = r[0].data
                         let pomberdata = r[1].data
@@ -336,14 +336,11 @@ function loadLatest() {
                         $("#coo").empty()
                         $("#coo").append(`${coordinates}`)
 
-
-                        //console.log("HERE", coordinates)
                         console.log("mapped list", clist)
                         console.log("bugged", buglist)
 
 
                         let map = L.map("map1", { zoomControl: false }).setView([1.35, 103.85], 6.5)
-                        //console.log(map)
 
                         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -444,18 +441,18 @@ function loadLatest() {
                             fontColor: '#303841',
                             fontSize: 20,
                             display: true,
-                            text: 'Trend (Past 7 Days)'
+                            text: 'Country Trend (Past 7 Days)'
                         },
                         scales: {
-                            xAxes: [{ 
+                            xAxes: [{
                                 ticks: {
-                                  fontColor: '#303841',
+                                    fontColor: '#303841',
                                 }
                             }],
                             yAxes: [{
                                 ticks: {
                                     fontColor: '#303841',
-                                  }
+                                }
                             }],
                         }
                     }
@@ -466,8 +463,7 @@ function loadLatest() {
                 })
 
 
-
-                console.table(weeklydata)
+                //console.table(weeklydata)
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
 
@@ -630,6 +626,8 @@ function getTop5() {
         let alldata = r.data
         let countriesdata = []
         let maxindex = alldata["Singapore"].length - 1
+        console.log("AD", alldata)
+
 
         for (let i in alldata) {
             let j = 0
@@ -661,12 +659,13 @@ function getTop5() {
         $("#totalr").append(`${totalr}`)
         $("#totald").append(`${totald}`)
 
-        console.log("CD", countriesdata)
+        //console.log("CD", countriesdata)
 
         let worldtotal = 0
         for (let i of countriesdata) {
             worldtotal += i["Latest Total"]
         }
+
 
         let top5 = countriesdata.slice(0, 5)
         // let maxcases = top5[0]["Latest Total"]
@@ -727,6 +726,118 @@ function getTop5() {
             }
         });
 
+        // linechart world 
+        let worlddata = []
+        let wTotalArr = []
+        let wRecoveredArr = []
+        let wDeathsArr = []
+        let dateArr = []
+        
+        for (let i in alldata) {
+            worlddata.push(alldata[i].reverse().slice(0,7))
+        }
+
+        for (let j = 0; j < 7; j++) {
+            let total = 0
+            for (let i in worlddata) {
+                total += worlddata[i][j].confirmed
+
+                if (worlddata[i][j].date[6] === "-") {
+                    worlddata[i][j].date = worlddata[i][j].date.substr(0, 5) + "0" + worlddata[i][j].date.substr(5);
+                }
+                if (worlddata[i][j].date.length < 10) {
+                    worlddata[i][j].date = worlddata[i][j].date.substr(0, 8) + "0" + worlddata[i][j].date.substr(8);
+                }
+                worlddata[i][j].date = moment(worlddata[i][j].date).format("MM/DD")
+            }
+            wTotalArr.unshift(total)
+        }
+
+        for (let i of worlddata[0]) {
+            dateArr.unshift(i.date)
+        }
+
+        for (let j = 0; j < 7; j++) {
+            let total = 0
+            for (let i in worlddata) {
+                total += worlddata[i][j].recovered
+            }
+            wRecoveredArr.unshift(total)
+        }
+
+        for (let j = 0; j < 7; j++) {
+            let total = 0
+            for (let i in worlddata) {
+                total += worlddata[i][j].deaths
+            }
+            wDeathsArr.unshift(total)
+        }
+
+        let worldCIncrease = wTotalArr[6] - wTotalArr[5] 
+        let worldRIncrease = wRecoveredArr[6] - wRecoveredArr[5] 
+        let worldDIncrease = wDeathsArr[6] - wDeathsArr[5] 
+
+        if (worldCIncrease > 0) {
+            $("#worldCIncrease").append(`(+${worldCIncrease})`)
+            $("#worldCIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
+        }
+
+        if (worldRIncrease > 0) {
+            $("#worldCIncrease").append(`(+${worldCIncrease})`)
+            $("#worldCIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
+        }
+
+        if (worldDIncrease > 0) {
+            $("#worldCIncrease").append(`(+${worldCIncrease})`)
+            $("#worldCIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
+        }
+
+
+
+
+        let x = new Chart(document.getElementById("worldstats"), {
+            type: 'line',
+            data: {
+                labels: dateArr,
+                datasets: [{
+                    data: wTotalArr,
+                    label: "Total",
+                    borderColor: "#303841",
+                    fill: false
+                }, {
+                    data: wRecoveredArr,
+                    label: "Recovered",
+                    borderColor: "#01D1B3",
+                    fill: false
+                }, {
+                    data: wDeathsArr,
+                    label: "Deaths",
+                    borderColor: "#EC4E6D",
+                    fill: false
+                }
+                ]
+            },
+            options: {
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'World Trend (Past 7 Days)'
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#303841',
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#303841',
+                        }
+                    }],
+                }
+            }
+        });
 
     })//axios end
 }//top 5 function end
