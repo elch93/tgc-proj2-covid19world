@@ -207,7 +207,7 @@ header h3{
 }
 
 #world p {
-    margin: -10px 0 5px 20px;
+    margin: 5px 0 5px 20px;
 }
 
 #world .col-4 {
@@ -305,7 +305,6 @@ header h3{
     border: white solid 1px;
     border-radius: 10px;
     background: #e3e3e3;
-    height: 500px;
     font-size: 16px;
 }
 

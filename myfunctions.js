@@ -783,13 +783,13 @@ function getTop5() {
         }
 
         if (worldRIncrease > 0) {
-            $("#worldCIncrease").append(`(+${worldCIncrease})`)
-            $("#worldCIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
+            $("#worldRIncrease").append(`(+${worldRIncrease})`)
+            $("#worldRIncrease").append(`<i class="fas fa-angle-double-up green"></i>`)
         }
 
         if (worldDIncrease > 0) {
-            $("#worldCIncrease").append(`(+${worldCIncrease})`)
-            $("#worldCIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
+            $("#worldDIncrease").append(`(+${worldDIncrease})`)
+            $("#worldDIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
 
 
@@ -838,6 +838,61 @@ function getTop5() {
                 }
             }
         });
+
+
+        let worldRR = ((wRecoveredArr[6]/wTotalArr[6])*100).toFixed(2)
+        let worldDR = ((wDeathsArr[6]/wTotalArr[6])*100).toFixed(2)
+
+        new Chart(document.getElementById("wrrdonut"), {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        backgroundColor: ["#01D1B3", "#303841"],
+                        data: [worldRR, (100-worldRR)],
+                        borderWidth: 0,
+                    }
+                ]
+            },
+            options: {
+                events: [],
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'Recovery Rate:' + " " + worldRR + "%"
+                }
+            }
+        });
+        new Chart(document.getElementById("wdrdonut"), {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        backgroundColor: ["#EC4E6D", "#303841"],
+                        data: [worldDR, (100-worldDR)],
+                        borderWidth: 0,
+                    }
+                ]
+            },
+            options: {
+                events: [],
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'Recovery Rate:' + " " + worldDR + "%"
+                }
+            }
+        });
+
+
+
+
+
+
 
     })//axios end
 }//top 5 function end
