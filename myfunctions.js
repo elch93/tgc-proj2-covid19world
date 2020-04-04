@@ -417,7 +417,6 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
-                Chart.defaults.global.defaultFontFamily = 'Noto Sans SC'
                 let x = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
@@ -549,7 +548,7 @@ function loadLatest() {
                         labels: [],
                         datasets: [
                             {
-                                backgroundColor: ["green", "#e3e3e3"],
+                                backgroundColor: ["#01D1B3", "#F3F3F3"],
                                 data: [recoveryrate, remainderr],
                                 borderWidth: 0,
                             }
@@ -576,7 +575,7 @@ function loadLatest() {
                         labels: [],
                         datasets: [
                             {
-                                backgroundColor: ["red", "#e3e3e3"],
+                                backgroundColor: ["#EC4E6D", "#F3F3F3"],
                                 data: [deathrate, remainderd],
                                 borderWidth: 0
                             }
