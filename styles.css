@@ -5,6 +5,10 @@ black: #303841
 grey: #e3e3e3
 green: #01D1B3
 red: #EC4E6D
+brown: #916953
+pink: #fcb5b5
+apricot: #ffcdbc
+lightbrown: #cf8e80
 vintage: #E8E4B8
 vintageblk: #34495B
 vintageshadow: #EA7361
@@ -287,6 +291,13 @@ header h3{
     stroke-width: 3px;
   }
 
+.dot {
+    fill:#F3F3F3;
+    stroke:#F3F3F3;
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
 /* option bar */
 #mynavbar {
     background-color:#303841 ;
@@ -356,12 +367,12 @@ header h3{
 
 /* main */
 .red {
-    color:red;
+    color:#EC4E6D;
     margin: 0 0 0 5px;
 }
 
 .green {
-    color:lime;
+    color:#01D1B3;
     margin: 0 0 0 5px;
 }
 

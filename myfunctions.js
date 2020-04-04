@@ -721,7 +721,7 @@ function getTop5() {
                 labels: top5countries,
                 datasets: [{
                     label: "Top 5",
-                    backgroundColor: ["gold", "orange", "red", " #EA7361", "maroon", "#303841"],
+                    backgroundColor: ["#916953", "#cf8e80", "#fcb5b5", "#ffcdbc", "#E8E4B8", "#303841"],
                     data: top5cases,
                     borderWidth: 0,
                     hoverBackgroundColor: "#EC971F"
