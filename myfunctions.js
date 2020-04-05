@@ -365,7 +365,7 @@ function loadLatest() {
                             countryline.destroy()
                             console.log($("#countryOnMap").text())
                             countryname = $("#countryOnMap").text()
-                            setTimeout(loadLatest(),700)
+                            setTimeout(loadLatest(),400)
                         }
 
                         let map = L.map("map1", { zoomControl: true }).setView([1.35, 103.85], 6.5)
@@ -561,55 +561,55 @@ function loadLatest() {
                 let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderr = 100 - recoveryrate
                 //recovery rates chart
-                // new Chart(document.getElementById("rrdonut"), {
-                //     type: 'doughnut',
-                //     data: {
-                //         labels: [],
-                //         datasets: [
-                //             {
-                //                 backgroundColor: ["#01D1B3", "#F3F3F3"],
-                //                 data: [recoveryrate, remainderr],
-                //                 borderWidth: 0,
-                //             }
-                //         ]
-                //     },
-                //     options: {
-                //         events: [],
-                //         title: {
-                //             fontColor: '#F3F3F3',
-                //             fontSize: 20,
-                //             display: true,
-                //             text: 'Recovery Rate:' + " " + recoveryrate + "%"
-                //         }
-                //     }
-                // });
+                new Chart(document.getElementById("rrdonut"), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                backgroundColor: ["#01D1B3", "#303841"],
+                                data: [recoveryrate, remainderr],
+                                borderWidth: 0,
+                            }
+                        ]
+                    },
+                    options: {
+                        events: [],
+                        title: {
+                            fontColor: '#303841',
+                            fontSize: 20,
+                            display: true,
+                            text: 'Recovery Rate:' + " " + recoveryrate + "%"
+                        }
+                    }
+                });
 
 
                 let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderd = 100 - recoveryrate
                 //death rates chart
-                // new Chart(document.getElementById("drdonut"), {
-                //     type: 'doughnut',
-                //     data: {
-                //         labels: [],
-                //         datasets: [
-                //             {
-                //                 backgroundColor: ["#EC4E6D", "#F3F3F3"],
-                //                 data: [deathrate, remainderd],
-                //                 borderWidth: 0
-                //             }
-                //         ]
-                //     },
-                //     options: {
-                //         events: [],
-                //         title: {
-                //             fontColor: '#F3F3F3',
-                //             fontSize: 20,
-                //             display: true,
-                //             text: 'Death Rate:' + " " + deathrate + "%"
-                //         }
-                //     }
-                // });
+                new Chart(document.getElementById("drdonut"), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                backgroundColor: ["#EC4E6D", "#303841"],
+                                data: [deathrate, remainderd],
+                                borderWidth: 0
+                            }
+                        ]
+                    },
+                    options: {
+                        events: [],
+                        title: {
+                            fontColor: '#303841',
+                            fontSize: 20,
+                            display: true,
+                            text: 'Death Rate:' + " " + deathrate + "%"
+                        }
+                    }
+                });
             }
         }//for loop end
 
