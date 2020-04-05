@@ -62,7 +62,7 @@ header h6{
 
 #nmcardl, #nmcardr, #map {
     position: relative;
-    height: 100%;
+    height: 450px;
     width: 355px;
     background-color: #F3F3F3;
     border-radius: 10px;
@@ -186,7 +186,7 @@ header h6{
 
 /* right panel */
 #nmcardr {
-    height: 290px;
+    height: 450px;
     padding: 10px;
     font-size: 18px;
     color: #303841;
@@ -197,7 +197,7 @@ header h6{
     background-color: #F3F3F3;
     border: 1px solid rgba(255,255,255,1);
     position: absolute;
-    top: 10px;
+    bottom: 10px;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.3);
     box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
@@ -259,7 +259,7 @@ header h6{
 }
 
 #map {
-    height: 350px;
+    height: 450px;
 }
 
 #map1 {
