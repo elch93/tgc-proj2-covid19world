@@ -419,49 +419,49 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
-                // let countryline = new Chart(document.getElementById("combined"), {
-                //     type: 'line',
-                //     data: {
-                //         labels: dateArr,
-                //         datasets: [{
-                //             data: cArr,
-                //             label: "Total",
-                //             borderColor: "#303841",
-                //             fill: false
-                //         }, {
-                //             data: rArr,
-                //             label: "Recovered",
-                //             borderColor: "#01D1B3",
-                //             fill: false
-                //         }, {
-                //             data: dArr,
-                //             label: "Deaths",
-                //             borderColor: "#EC4E6D",
-                //             fill: false
-                //         }
-                //         ]
-                //     },
-                //     options: {
-                //         title: {
-                //             fontColor: '#303841',
-                //             fontSize: 20,
-                //             display: true,
-                //             text: 'Country Trend (Past 7 Days)'
-                //         },
-                //         scales: {
-                //             xAxes: [{
-                //                 ticks: {
-                //                     fontColor: '#303841',
-                //                 }
-                //             }],
-                //             yAxes: [{
-                //                 ticks: {
-                //                     fontColor: '#303841',
-                //                 }
-                //             }],
-                //         }
-                //     }
-                // });
+                let countryline = new Chart(document.getElementById("combined"), {
+                    type: 'line',
+                    data: {
+                        labels: dateArr,
+                        datasets: [{
+                            data: cArr,
+                            label: "Total",
+                            borderColor: "#303841",
+                            fill: false
+                        }, {
+                            data: rArr,
+                            label: "Recovered",
+                            borderColor: "#01D1B3",
+                            fill: false
+                        }, {
+                            data: dArr,
+                            label: "Deaths",
+                            borderColor: "#EC4E6D",
+                            fill: false
+                        }
+                        ]
+                    },
+                    options: {
+                        title: {
+                            fontColor: '#303841',
+                            fontSize: 20,
+                            display: true,
+                            text: 'Country Trend (Past 7 Days)'
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: '#303841',
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    fontColor: '#303841',
+                                }
+                            }],
+                        }
+                    }
+                });
 
                 $("#getData").click(function () {
                     countryline.destroy()

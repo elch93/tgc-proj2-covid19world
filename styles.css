@@ -159,7 +159,14 @@ header h6{
     font-weight: 600;
 }
 
+/* right panel */
+#nmcardr {
+    height: 280px;
+}
 
+#cccontainer {
+    width: 320px;
+}
 
 
 /* left panel */
