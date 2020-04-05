@@ -1,5 +1,6 @@
 $(function () {
 
+    //carousell code
     let n = 0
     showSlide(n)
 
@@ -24,8 +25,6 @@ $(function () {
         showSlide(n-=1)
     })
 
-
-
     let countrylist = []
     loadLatest()
 
@@ -37,14 +36,10 @@ $(function () {
         }
         countrylist.sort()
 
-
         //console.log(countrylist)
         for (let i of countrylist) {
             $("#countryselect").append(`<option value="${i}">${i}</option>`)
         }
-
-
-
 
         //adding dates to options
         let sgdata = r.data["Singapore"].reverse()
@@ -66,7 +61,7 @@ $(function () {
 
     })//axios for country list
 
-    getTop5()
+    //getTop5()
     getGlobalTotalByDate()
 
     $("#searchbtn").click(function () {
@@ -83,21 +78,7 @@ $(function () {
     setTimeout(
         function(){
             $("#map").fadeToggle()
-        },500
+        },700
     )
-
-
-
-    $("#countrydetailsbtn").click(function () {
-        $("#countrypanel").toggle()
-        $("#rightpanel").toggle()
-    })
-
-    $("#worlddetailsbtn").click(function () {
-        $("#leftpanel").toggle()
-        $("#worldpanel").toggle()
-    })
-
-
-
+    
 })//jquery end
