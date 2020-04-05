@@ -62,89 +62,87 @@ function loadLatest() {
                 //get flag picture
                 function getCountryFlag() {
                     axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
-                        $("#flagdisplay").empty()
                         //console.log("flag",r.data)
 
                         countrydisplayed = $("#countrydisplay").text()
                         for (let i of r.data) {
                             if (countrydisplayed == i.name || countrydisplayed == i.alpha2Code) {
-
-                                $("#flagdisplay").append(`<img src="${i.flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + i.flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Taiwan*") {
-                                $("#flagdisplay").append(`<img src="${r.data[221].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[221].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Vietnam") {
-                                $("#flagdisplay").append(`<img src="${r.data[244].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[244].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Korea, South") {
-                                $("#flagdisplay").append(`<img src="${r.data[210].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[210].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Czechia") {
-                                $("#flagdisplay").append(`<img src="${r.data[61].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[61].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "North Macedonia") {
-                                $("#flagdisplay").append(`<img src="${r.data[132].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[132].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Laos") {
-                                $("#flagdisplay").append(`<img src="${r.data[122].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[122].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Bolivia") {
-                                $("#flagdisplay").append(`<img src="${r.data[26].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[26].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Brunei") {
-                                $("#flagdisplay").append(`<img src="${r.data[36].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[36].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Iran") {
-                                $("#flagdisplay").append(`<img src="${r.data[107].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[107].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Moldova") {
-                                $("#flagdisplay").append(`<img src="${r.data[146].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[146].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Russia") {
-                                $("#flagdisplay").append(`<img src="${r.data[185].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[185].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Tanzania") {
-                                $("#flagdisplay").append(`<img src="${r.data[223].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[223].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "United Kingdom") {
-                                $("#flagdisplay").append(`<img src="${r.data[238].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[238].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Venezuela") {
-                                $("#flagdisplay").append(`<img src="${r.data[243].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[243].flag + ")")
                                 break
                             }
 
                             else if (countrydisplayed == "Syria") {
-                                $("#flagdisplay").append(`<img src="${r.data[220].flag}">`)
+                                $("#flagdisplay").css("background-image", "url(" + r.data[220].flag + ")")
                                 break
                             }
 
@@ -158,7 +156,7 @@ function loadLatest() {
 
                 getCountryFlag()
 
-                
+
 
 
                 let dailyIncrease = parseInt(countrydata[i].confirmed) - parseInt(countrydata[i + 1].confirmed)
@@ -396,7 +394,7 @@ function loadLatest() {
                     })
                 }//map end
 
-                getMap()
+                //getMap()
 
 
                 //get the data for past 7 days
@@ -421,49 +419,49 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
-                let countryline = new Chart(document.getElementById("combined"), {
-                    type: 'line',
-                    data: {
-                        labels: dateArr,
-                        datasets: [{
-                            data: cArr,
-                            label: "Total",
-                            borderColor: "#303841",
-                            fill: false
-                        }, {
-                            data: rArr,
-                            label: "Recovered",
-                            borderColor: "#01D1B3",
-                            fill: false
-                        }, {
-                            data: dArr,
-                            label: "Deaths",
-                            borderColor: "#EC4E6D",
-                            fill: false
-                        }
-                        ]
-                    },
-                    options: {
-                        title: {
-                            fontColor: '#303841',
-                            fontSize: 20,
-                            display: true,
-                            text: 'Country Trend (Past 7 Days)'
-                        },
-                        scales: {
-                            xAxes: [{
-                                ticks: {
-                                    fontColor: '#303841',
-                                }
-                            }],
-                            yAxes: [{
-                                ticks: {
-                                    fontColor: '#303841',
-                                }
-                            }],
-                        }
-                    }
-                });
+                // let countryline = new Chart(document.getElementById("combined"), {
+                //     type: 'line',
+                //     data: {
+                //         labels: dateArr,
+                //         datasets: [{
+                //             data: cArr,
+                //             label: "Total",
+                //             borderColor: "#303841",
+                //             fill: false
+                //         }, {
+                //             data: rArr,
+                //             label: "Recovered",
+                //             borderColor: "#01D1B3",
+                //             fill: false
+                //         }, {
+                //             data: dArr,
+                //             label: "Deaths",
+                //             borderColor: "#EC4E6D",
+                //             fill: false
+                //         }
+                //         ]
+                //     },
+                //     options: {
+                //         title: {
+                //             fontColor: '#303841',
+                //             fontSize: 20,
+                //             display: true,
+                //             text: 'Country Trend (Past 7 Days)'
+                //         },
+                //         scales: {
+                //             xAxes: [{
+                //                 ticks: {
+                //                     fontColor: '#303841',
+                //                 }
+                //             }],
+                //             yAxes: [{
+                //                 ticks: {
+                //                     fontColor: '#303841',
+                //                 }
+                //             }],
+                //         }
+                //     }
+                // });
 
                 $("#getData").click(function () {
                     countryline.destroy()
@@ -545,55 +543,55 @@ function loadLatest() {
                 let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderr = 100 - recoveryrate
                 //recovery rates chart
-                new Chart(document.getElementById("rrdonut"), {
-                    type: 'doughnut',
-                    data: {
-                        labels: [],
-                        datasets: [
-                            {
-                                backgroundColor: ["#01D1B3", "#F3F3F3"],
-                                data: [recoveryrate, remainderr],
-                                borderWidth: 0,
-                            }
-                        ]
-                    },
-                    options: {
-                        events: [],
-                        title: {
-                            fontColor: '#F3F3F3',
-                            fontSize: 20,
-                            display: true,
-                            text: 'Recovery Rate:' + " " + recoveryrate + "%"
-                        }
-                    }
-                });
+                // new Chart(document.getElementById("rrdonut"), {
+                //     type: 'doughnut',
+                //     data: {
+                //         labels: [],
+                //         datasets: [
+                //             {
+                //                 backgroundColor: ["#01D1B3", "#F3F3F3"],
+                //                 data: [recoveryrate, remainderr],
+                //                 borderWidth: 0,
+                //             }
+                //         ]
+                //     },
+                //     options: {
+                //         events: [],
+                //         title: {
+                //             fontColor: '#F3F3F3',
+                //             fontSize: 20,
+                //             display: true,
+                //             text: 'Recovery Rate:' + " " + recoveryrate + "%"
+                //         }
+                //     }
+                // });
 
 
                 let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderd = 100 - recoveryrate
                 //death rates chart
-                new Chart(document.getElementById("drdonut"), {
-                    type: 'doughnut',
-                    data: {
-                        labels: [],
-                        datasets: [
-                            {
-                                backgroundColor: ["#EC4E6D", "#F3F3F3"],
-                                data: [deathrate, remainderd],
-                                borderWidth: 0
-                            }
-                        ]
-                    },
-                    options: {
-                        events: [],
-                        title: {
-                            fontColor: '#F3F3F3',
-                            fontSize: 20,
-                            display: true,
-                            text: 'Death Rate:' + " " + deathrate + "%"
-                        }
-                    }
-                });
+                // new Chart(document.getElementById("drdonut"), {
+                //     type: 'doughnut',
+                //     data: {
+                //         labels: [],
+                //         datasets: [
+                //             {
+                //                 backgroundColor: ["#EC4E6D", "#F3F3F3"],
+                //                 data: [deathrate, remainderd],
+                //                 borderWidth: 0
+                //             }
+                //         ]
+                //     },
+                //     options: {
+                //         events: [],
+                //         title: {
+                //             fontColor: '#F3F3F3',
+                //             fontSize: 20,
+                //             display: true,
+                //             text: 'Death Rate:' + " " + deathrate + "%"
+                //         }
+                //     }
+                // });
             }
         }//for loop end
 
@@ -682,33 +680,33 @@ function getTop5() {
 
         top5cases.push(worldtotal)
 
-        new Chart(document.getElementById("pie-chart"), {
-            type: 'pie',
-            data: {
-                labels: top5countries,
-                datasets: [{
-                    label: "Top 5",
-                    backgroundColor: ["#916953", "#cf8e80", "#fcb5b5", "#ffcdbc", "#E8E4B8", "#303841"],
-                    data: top5cases,
-                    borderWidth: 0,
-                    hoverBackgroundColor: "#EC971F"
-                }]
-            },
-            options: {
-                title: {
-                    fontColor: '#303841',
-                    fontSize: 20,
-                    display: true,
-                    text: 'Top 5 Most Infected Countries'
-                },
-                legend: {
-                    labels: {
-                        fontSize: 16,
-                        fontColor: '#303841'
-                    }
-                }
-            }
-        });
+        // new Chart(document.getElementById("pie-chart"), {
+        //     type: 'pie',
+        //     data: {
+        //         labels: top5countries,
+        //         datasets: [{
+        //             label: "Top 5",
+        //             backgroundColor: ["#916953", "#cf8e80", "#fcb5b5", "#ffcdbc", "#E8E4B8", "#303841"],
+        //             data: top5cases,
+        //             borderWidth: 0,
+        //             hoverBackgroundColor: "#EC971F"
+        //         }]
+        //     },
+        //     options: {
+        //         title: {
+        //             fontColor: '#303841',
+        //             fontSize: 20,
+        //             display: true,
+        //             text: 'Top 5 Most Infected Countries'
+        //         },
+        //         legend: {
+        //             labels: {
+        //                 fontSize: 16,
+        //                 fontColor: '#303841'
+        //             }
+        //         }
+        //     }
+        // });
 
 
 
@@ -812,97 +810,97 @@ function getGlobalTotalByDate() {
             $("#worldDIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
 
-        let worldline = new Chart(document.getElementById("worldstats"), {
-            type: 'line',
-            data: {
-                labels: dateArr,
-                datasets: [{
-                    data: past7cArr,
-                    label: "Total",
-                    borderColor: "#303841",
-                    fill: false
-                }, {
-                    data: past7rArr,
-                    label: "Recovered",
-                    borderColor: "#01D1B3",
-                    fill: false
-                }, {
-                    data: past7dArr,
-                    label: "Deaths",
-                    borderColor: "#EC4E6D",
-                    fill: false
-                }
-                ]
-            },
-            options: {
-                title: {
-                    fontColor: '#303841',
-                    fontSize: 20,
-                    display: true,
-                    text: 'World Trend (Past 7 Days)'
-                },
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            fontColor: '#303841',
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            fontColor: '#303841',
-                        }
-                    }],
-                }
-            }
-        });
+        // let worldline = new Chart(document.getElementById("worldstats"), {
+        //     type: 'line',
+        //     data: {
+        //         labels: dateArr,
+        //         datasets: [{
+        //             data: past7cArr,
+        //             label: "Total",
+        //             borderColor: "#303841",
+        //             fill: false
+        //         }, {
+        //             data: past7rArr,
+        //             label: "Recovered",
+        //             borderColor: "#01D1B3",
+        //             fill: false
+        //         }, {
+        //             data: past7dArr,
+        //             label: "Deaths",
+        //             borderColor: "#EC4E6D",
+        //             fill: false
+        //         }
+        //         ]
+        //     },
+        //     options: {
+        //         title: {
+        //             fontColor: '#303841',
+        //             fontSize: 20,
+        //             display: true,
+        //             text: 'World Trend (Past 7 Days)'
+        //         },
+        //         scales: {
+        //             xAxes: [{
+        //                 ticks: {
+        //                     fontColor: '#303841',
+        //                 }
+        //             }],
+        //             yAxes: [{
+        //                 ticks: {
+        //                     fontColor: '#303841',
+        //                 }
+        //             }],
+        //         }
+        //     }
+        // });
 
-        let worldRR = ((past7rArr[6] / past7cArr[6]) * 100).toFixed(2)
-        let worldDR = ((past7dArr[6] / past7cArr[6]) * 100).toFixed(2)
+        // let worldRR = ((past7rArr[6] / past7cArr[6]) * 100).toFixed(2)
+        // let worldDR = ((past7dArr[6] / past7cArr[6]) * 100).toFixed(2)
 
-        let worldRRDonut = new Chart(document.getElementById("wrrdonut"), {
-            type: 'doughnut',
-            data: {
-                labels: [],
-                datasets: [
-                    {
-                        backgroundColor: ["#01D1B3", "#303841"],
-                        data: [worldRR, (100 - worldRR)],
-                        borderWidth: 0,
-                    }
-                ]
-            },
-            options: {
-                events: [],
-                title: {
-                    fontColor: '#303841',
-                    fontSize: 20,
-                    display: true,
-                    text: 'Recovery Rate:' + " " + worldRR + "%"
-                }
-            }
-        });
-        let worldDRDonut = new Chart(document.getElementById("wdrdonut"), {
-            type: 'doughnut',
-            data: {
-                labels: [],
-                datasets: [
-                    {
-                        backgroundColor: ["#EC4E6D", "#303841"],
-                        data: [worldDR, (100 - worldDR)],
-                        borderWidth: 0,
-                    }
-                ]
-            },
-            options: {
-                events: [],
-                title: {
-                    fontColor: '#303841',
-                    fontSize: 20,
-                    display: true,
-                    text: 'Recovery Rate:' + " " + worldDR + "%"
-                }
-            }
-        });
+        // let worldRRDonut = new Chart(document.getElementById("wrrdonut"), {
+        //     type: 'doughnut',
+        //     data: {
+        //         labels: [],
+        //         datasets: [
+        //             {
+        //                 backgroundColor: ["#01D1B3", "#303841"],
+        //                 data: [worldRR, (100 - worldRR)],
+        //                 borderWidth: 0,
+        //             }
+        //         ]
+        //     },
+        //     options: {
+        //         events: [],
+        //         title: {
+        //             fontColor: '#303841',
+        //             fontSize: 20,
+        //             display: true,
+        //             text: 'Recovery Rate:' + " " + worldRR + "%"
+        //         }
+        //     }
+        // });
+        // let worldDRDonut = new Chart(document.getElementById("wdrdonut"), {
+        //     type: 'doughnut',
+        //     data: {
+        //         labels: [],
+        //         datasets: [
+        //             {
+        //                 backgroundColor: ["#EC4E6D", "#303841"],
+        //                 data: [worldDR, (100 - worldDR)],
+        //                 borderWidth: 0,
+        //             }
+        //         ]
+        //     },
+        //     options: {
+        //         events: [],
+        //         title: {
+        //             fontColor: '#303841',
+        //             fontSize: 20,
+        //             display: true,
+        //             text: 'Recovery Rate:' + " " + worldDR + "%"
+        //         }
+        //     }
+        // });
 
         $("#getData").click(function () {
             worldline.destroy()

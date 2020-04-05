@@ -27,8 +27,8 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Fira Sans', sans-serif;
-    color: #34495B;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: #303841;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -44,40 +44,68 @@ body{
 }
 
 /* header */
-header {
-    display: none;
-}
-
 header h1{
-    padding: 10px 5px;
     font-family:'Heebo', sans-serif;
     font-weight: 800;
     margin: 10px auto;
     text-align: center;
 }
 
-header h3{
+header h6{
     padding: 10px 5px;
     font-family: 'Yantramanav', sans-serif;
-    font-size: 25px;
     text-align: center;
     margin: -30px 0 0 0;
 }
 
-
-/* leftbar */
-
-#leftbar {
+/* country stats */
+#nmcard {
+    height: 400px;
+    width: 350px;
+    background-color: #303841;
     border-radius: 10px;
-    height: 475px;
-    background: #303841;
-    padding:10px 0 0 0;
-    display: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 10px 10px 16px 0 rgba(0,0,0,0.1),
+                -10px -10px 16px 0 rgba(255,255,255,0.9);
+}
+
+#flagdisplay {
+    position: relative;
+    left:-35px;
+    top:10px;
+    height: 100px !important;
+    width: 100px !important;
+    border-radius: 50%;
+    box-shadow: 10px 10px 16px 0 rgba(0,0,0,0.5);
+    transform: rotate(-20deg);
+    border: 5px solid  #F3F3F3;
+    background-color: #F3F3F3;
+    background-size: 70%, 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#countrydisplay {
+    color: #F3F3F3;
+    font-family: 'Catamaran', sans-serif;
+    text-transform: uppercase;
+    margin: -90px auto 20px auto;
+    font-size: 25px;
+}
+
+#datedisplay {
+    color: #F3F3F3;
+    font-family: 'Yantramanav', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: -30px auto;
+    font-size: 25px;
 }
 
 
+
 /* left panel */
-#overview {
+/* #overview {
     border: white solid 1px;
     border-radius: 10px;
     background: #e3e3e3;
@@ -137,10 +165,10 @@ header h3{
 
 #cccontainer {
     width: 350px;
-}
+} */
 
 /* right panel */
-#world {
+/* #world {
     border: white solid 1px;
     border-radius: 10px;
     background: #303841;
@@ -186,12 +214,12 @@ header h3{
     font-size: 36px;
     color: #EC4E6D;
     font-family: 'Heebo', sans-serif;
-}
+} */
 
 
 
 /* countrypanel */
-
+/* 
 #countrypanel {
     padding:10px;
     display: none;
@@ -241,10 +269,10 @@ header h3{
 
 .dc-chart .axis path, .dc-chart .axis line {
     stroke: #F3F3F3 !important;
-}
+} */
 
 /* world details */
-#worldpanel {
+/* #worldpanel {
     display: none;
 }
 
@@ -265,27 +293,32 @@ header h3{
     border: none;
     font-size: 16px;
     margin: 15px 0 0 0;
-}
+} */
 
 /* option bar */
 #mynavbar {
-    background-color:#303841 ;
+    background-color:#F3F3F3 ;
+    padding:10px;
     height: auto;
     width:auto;
     border-radius: 10px;
     position: fixed;
-    top:0px;
-    left: 0px;
+    top:10px;
+    left: 10px;
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2),
+                -3px -3px 3px 0 rgba(255,255,255,0.9);
 }
 
 #mynavbar button {
-    margin: 10px auto 20px auto;
-    background-color: #303841 ;
+    margin: auto;
+    background-color: #F3F3F3 ;
     border: none;
-    color: #F3F3F3;
+    color: #303841;
     display: block;
+    border-radius: 10px;
 }
 
 #searchbar {
@@ -296,9 +329,8 @@ header h3{
     background-color: #303841;
     position: fixed;
     border-radius: 10px;
-    top:150px;
-    left: 230px;
-    transform: translateX(-50%);
+    top:10px;
+    left: 65px;
     font-size: 16px;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 500;
@@ -351,6 +383,7 @@ header h3{
     animation-iteration-count: infinite;
     animation-duration: 0.7s;
 }
+
 
 @keyframes bounce {
     0% {

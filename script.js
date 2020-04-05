@@ -43,48 +43,6 @@ $(function () {
     })//axios for country list
 
     getTop5()
-
-
-    //loadCountryFlag 
-    function loadDefaultCountryFlag() {
-        axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
-            $("#flagdisplay").empty()
-            //console.log(r.data)
-            countrydisplayed = "Singapore"
-            for (let i of r.data) {
-                if (countrydisplayed == i.name) {
-                    $("#flagdisplay").append(`<img src="${i.flag}">`)
-                    break
-                }
-            }
-
-
-            //For Debugging (11 out of 178 countries have no flag)
-            // for (let i in countrylist) {
-            //     for (let j of r.data) {
-            //         if (countrylist[i] == j.name || j.name.includes(countrylist[i]) || countrylist[i] == j.alpha2Code ) {
-            //             delete countrylist[i]
-            //         }
-            //     }
-            // }
-
-            // let unlist = []
-            // for (let i of countrylist) {
-            //     if (i != undefined) {
-            //         unlist.push(i)
-            //     }
-            // }
-
-            // console.log(unlist)
-
-
-
-
-        })//axios end
-
-    }//get country end
-
-    loadDefaultCountryFlag()
     getGlobalTotalByDate()
 
     $("#searchbtn").click(function () {

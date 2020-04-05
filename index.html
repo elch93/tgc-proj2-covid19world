@@ -39,12 +39,37 @@
 <body>
     <header>
         <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
-        <h3>COVID-19 STATS TRACKER</h3>
+        <h6>COVID-19 STATS TRACKER</h6>
     </header>
     <main>
-        <section>
+        <section>   
+            <div class="row p-0 m-0">
+                <div class="col-12 p-5">
+                    <div id="nmcard">
+                        <div class="row">
+                            <div id="flagdisplay"></div>
+                        </div>
+                        <div class="row p-0 ml-5 mr-5">
+                            <span id="countrydisplay"></span>
+                        </div>
+                        <div class="row m-0 p-0">
+                            <span id="datedisplay"></span>
+                        </div>
+                        <div class="row">
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
             <!-- mainrow -->
-            <div class="row p-lg-3 p-0 justify-content-center">
+            <!-- <div class="row p-lg-3 p-0 justify-content-center">
                 <div class="col-10 col-lg-5 mb-5" id="worldpanel">
                     <div id="worlddata">
                         <div class="container-fluid">
@@ -59,9 +84,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- overview -->
-                <div class="col-12 col-lg-5 mb-5 p-0" id="leftpanel">
+                <!-- <div class="col-12 col-lg-5 mb-5 p-0" id="leftpanel">
                     <div id="overview">
                         <div class="row m-0 p-0">
                             <div class="col-6 p-0 m-0">
@@ -99,10 +124,10 @@
                         </div>
                         <button id="countrydetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- overview end -->
                 <!-- world -->
-                <div class="col-10 col-lg-6 mb-5" id="rightpanel">
+                <!-- <div class="col-10 col-lg-6 mb-5" id="rightpanel">
                     <div class="row p-0 p-lg-3 justify-content-center" id="world">
                         <div class="col-4">
                             <p id="totalc"></p>
@@ -127,9 +152,9 @@
                             <canvas id="pie-chart" width="800" height="450"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- world end -->
-                <div class="col-10 col-lg-6 mb-5" id="countrypanel">
+                <!-- <div class="col-10 col-lg-6 mb-5" id="countrypanel">
                     <div class="row justify-content-around mb-5">
                         <div class="col-4">
                             <canvas id="rrdonut" width="300" height="250"></canvas>
@@ -153,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- main row end -->
 
 
@@ -167,8 +192,6 @@
             <!-- option bar -->
             <div id="mynavbar">
                 <button id="searchbtn"><i class="fas fa-search"></i></button>
-                <button id="tipsbtn"><i class="far fa-lightbulb"></i></button>
-                <button id="tipsbtn"><i class="fas fa-newspaper"></i></button>
             </div>
             <div id="searchbar">
                 <div>
