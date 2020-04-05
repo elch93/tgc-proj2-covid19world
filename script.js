@@ -7,23 +7,45 @@ $(function () {
     function showSlide(x) {
         for (let i = 0; i < $(".mycarousel").length; i++) {
             $(".mycarousel").eq(i).hide()
+            $(".cindicator").eq(i).css("background-color", "#e3e3e3")
+            $(".cindicator").eq(i).mouseover(function () {
+                $(this).css("background-color", "#EC4E6D")
+            })
+            $(".cindicator").eq(i).mouseout(function () {
+                $(this).css("background-color", "#e3e3e3")
+            })
         }
         $(".mycarousel").eq(x).show()
+        $(".cindicator").eq(x).css("background-color", "#34495B")
+        $(".cindicator").eq(x).mouseover(function () {
+            $(this).css("background-color", "#EC4E6D")
+        })
+        $(".cindicator").eq(x).mouseout(function () {
+            $(this).css("background-color", "#34495B")
+        })
     }
 
-    $("#next").click(function(){
+    $("#next").click(function () {
         if (n == $(".mycarousel").length - 1) {
             n = -1
         }
-        showSlide(n+=1)
+        showSlide(n += 1)
     })
 
-    $("#prev").click(function(){
+    $("#prev").click(function () {
         if (n == 0) {
             n = $(".mycarousel").length
         }
-        showSlide(n-=1)
+        showSlide(n -= 1)
     })
+
+    for (let i = 0; i < $(".mycarousel").length; i++) {
+        $(".cindicator").eq(i).click(function () {
+            showSlide(i)
+        })
+    }
+    //carousel code end
+
 
     let countrylist = []
     loadLatest()
@@ -76,9 +98,9 @@ $(function () {
     })
 
     setTimeout(
-        function(){
+        function () {
             $("#map").fadeToggle()
-        },700
+        }, 700
     )
-    
+
 })//jquery end
