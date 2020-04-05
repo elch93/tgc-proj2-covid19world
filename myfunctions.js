@@ -913,3 +913,4 @@ function getGlobalTotalByDate() {
 
     })//axios end
 }//get global stats end
+

@@ -1,5 +1,29 @@
 $(function () {
 
+    let n = 0
+    showSlide(n)
+
+    function showSlide(x) {
+        for (let i = 0; i < $(".mycarousel").length; i++) {
+            $(".mycarousel").eq(i).hide()
+        }
+        $(".mycarousel").eq(x).show()
+    }
+
+    $("#next").click(function(){
+        if (n == $(".mycarousel").length - 1) {
+            n = -1
+        }
+        showSlide(n+=1)
+    })
+
+    $("#prev").click(function(){
+        if (n == 0) {
+            n = $(".mycarousel").length
+        }
+        showSlide(n-=1)
+    })
+
 
 
     let countrylist = []
@@ -63,8 +87,6 @@ $(function () {
         $("#leftpanel").toggle()
         $("#worldpanel").toggle()
     })
-
-
 
 
 
