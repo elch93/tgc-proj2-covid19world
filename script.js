@@ -100,7 +100,7 @@ $(function () {
     setTimeout(
         function () {
             $("#map").fadeToggle()
-        }, 700
+        }, 1000
     )
 
 })//jquery end
