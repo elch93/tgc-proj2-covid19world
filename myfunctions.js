@@ -698,33 +698,33 @@ function getTop5() {
 
         top5cases.push(worldtotal)
 
-        // new Chart(document.getElementById("pie-chart"), {
-        //     type: 'pie',
-        //     data: {
-        //         labels: top5countries,
-        //         datasets: [{
-        //             label: "Top 5",
-        //             backgroundColor: ["#916953", "#cf8e80", "#fcb5b5", "#ffcdbc", "#E8E4B8", "#303841"],
-        //             data: top5cases,
-        //             borderWidth: 0,
-        //             hoverBackgroundColor: "#EC971F"
-        //         }]
-        //     },
-        //     options: {
-        //         title: {
-        //             fontColor: '#303841',
-        //             fontSize: 20,
-        //             display: true,
-        //             text: 'Top 5 Most Infected Countries'
-        //         },
-        //         legend: {
-        //             labels: {
-        //                 fontSize: 16,
-        //                 fontColor: '#303841'
-        //             }
-        //         }
-        //     }
-        // });
+        new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+                labels: top5countries,
+                datasets: [{
+                    label: "Top 5",
+                    backgroundColor: ["#916953", "#cf8e80", "#fcb5b5", "#ffcdbc", "#E8E4B8", "#303841"],
+                    data: top5cases,
+                    borderWidth: 0,
+                    hoverBackgroundColor: "#EC971F"
+                }]
+            },
+            options: {
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'Top 5 Most Infected Countries'
+                },
+                legend: {
+                    labels: {
+                        fontSize: 16,
+                        fontColor: '#303841'
+                    }
+                }
+            }
+        });
 
 
 
@@ -828,97 +828,97 @@ function getGlobalTotalByDate() {
             $("#worldDIncrease").append(`<i class="fas fa-angle-double-up red"></i>`)
         }
 
-        // let worldline = new Chart(document.getElementById("worldstats"), {
-        //     type: 'line',
-        //     data: {
-        //         labels: dateArr,
-        //         datasets: [{
-        //             data: past7cArr,
-        //             label: "Total",
-        //             borderColor: "#303841",
-        //             fill: false
-        //         }, {
-        //             data: past7rArr,
-        //             label: "Recovered",
-        //             borderColor: "#01D1B3",
-        //             fill: false
-        //         }, {
-        //             data: past7dArr,
-        //             label: "Deaths",
-        //             borderColor: "#EC4E6D",
-        //             fill: false
-        //         }
-        //         ]
-        //     },
-        //     options: {
-        //         title: {
-        //             fontColor: '#303841',
-        //             fontSize: 20,
-        //             display: true,
-        //             text: 'World Trend (Past 7 Days)'
-        //         },
-        //         scales: {
-        //             xAxes: [{
-        //                 ticks: {
-        //                     fontColor: '#303841',
-        //                 }
-        //             }],
-        //             yAxes: [{
-        //                 ticks: {
-        //                     fontColor: '#303841',
-        //                 }
-        //             }],
-        //         }
-        //     }
-        // });
+        let worldline = new Chart(document.getElementById("worldstats"), {
+            type: 'line',
+            data: {
+                labels: dateArr,
+                datasets: [{
+                    data: past7cArr,
+                    label: "Total",
+                    borderColor: "#303841",
+                    fill: false
+                }, {
+                    data: past7rArr,
+                    label: "Recovered",
+                    borderColor: "#01D1B3",
+                    fill: false
+                }, {
+                    data: past7dArr,
+                    label: "Deaths",
+                    borderColor: "#EC4E6D",
+                    fill: false
+                }
+                ]
+            },
+            options: {
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'World Trend (Past 7 Days)'
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#303841',
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#303841',
+                        }
+                    }],
+                }
+            }
+        });
 
-        // let worldRR = ((past7rArr[6] / past7cArr[6]) * 100).toFixed(2)
-        // let worldDR = ((past7dArr[6] / past7cArr[6]) * 100).toFixed(2)
+        let worldRR = ((past7rArr[6] / past7cArr[6]) * 100).toFixed(2)
+        let worldDR = ((past7dArr[6] / past7cArr[6]) * 100).toFixed(2)
 
-        // let worldRRDonut = new Chart(document.getElementById("wrrdonut"), {
-        //     type: 'doughnut',
-        //     data: {
-        //         labels: [],
-        //         datasets: [
-        //             {
-        //                 backgroundColor: ["#01D1B3", "#303841"],
-        //                 data: [worldRR, (100 - worldRR)],
-        //                 borderWidth: 0,
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         events: [],
-        //         title: {
-        //             fontColor: '#303841',
-        //             fontSize: 20,
-        //             display: true,
-        //             text: 'Recovery Rate:' + " " + worldRR + "%"
-        //         }
-        //     }
-        // });
-        // let worldDRDonut = new Chart(document.getElementById("wdrdonut"), {
-        //     type: 'doughnut',
-        //     data: {
-        //         labels: [],
-        //         datasets: [
-        //             {
-        //                 backgroundColor: ["#EC4E6D", "#303841"],
-        //                 data: [worldDR, (100 - worldDR)],
-        //                 borderWidth: 0,
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         events: [],
-        //         title: {
-        //             fontColor: '#303841',
-        //             fontSize: 20,
-        //             display: true,
-        //             text: 'Recovery Rate:' + " " + worldDR + "%"
-        //         }
-        //     }
-        // });
+        let worldRRDonut = new Chart(document.getElementById("wrrdonut"), {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        backgroundColor: ["#01D1B3", "#303841"],
+                        data: [worldRR, (100 - worldRR)],
+                        borderWidth: 0,
+                    }
+                ]
+            },
+            options: {
+                events: [],
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'Recovery Rate:' + " " + worldRR + "%"
+                }
+            }
+        });
+        let worldDRDonut = new Chart(document.getElementById("wdrdonut"), {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        backgroundColor: ["#EC4E6D", "#303841"],
+                        data: [worldDR, (100 - worldDR)],
+                        borderWidth: 0,
+                    }
+                ]
+            },
+            options: {
+                events: [],
+                title: {
+                    fontColor: '#303841',
+                    fontSize: 20,
+                    display: true,
+                    text: 'Recovery Rate:' + " " + worldDR + "%"
+                }
+            }
+        });
 
         $("#getData").click(function () {
             worldline.destroy()
