@@ -74,11 +74,16 @@ header h6{
     text-transform: uppercase;
     font-size: 16px;
     padding: 3px 5px;
+    transition: background-color ease-in 0.4s, color ease-in 0.4s;
     z-index: 9999;
     box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
                 -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
+#searchbtn:hover , #globalbtn:hover {
+    background-color: #F3F3F3;
+    color: #303841;
+}
 
 /* search bar */
 #searchbar {
@@ -139,6 +144,7 @@ header h6{
     width: 40px;
     border-radius: 50%;
     z-index: 9999;
+    transition: background-color ease-in 0.4s, color ease-in 0.4s;
     box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
                 -5px -5px 10px 0 rgba(255,255,255,1);
 }
@@ -258,6 +264,7 @@ header h6{
 
 #nmnxt, #nmprev {
     background-color: #F3F3F3;
+    transition: background-color ease-in 0.4s, color ease-in 0.4s;
     border: 1px solid rgba(255,255,255,1);
     position: absolute;
     bottom: 50%;
@@ -265,6 +272,11 @@ header h6{
     border: 1px solid rgba(255,255,255,0.3);
     box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
                 -5px -5px 10px 0 rgba(255,255,255,1);
+}
+
+#nmnxt:hover, #nmprev:hover {
+    background-color: #303841;
+    color:#F3F3F3;
 }
 
 #nmnxt {
@@ -286,7 +298,7 @@ header h6{
     margin: 0 2px;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.4s ease;
   }
   
 
@@ -309,7 +321,7 @@ header h6{
 
 #linegraphc .line {
     fill:none;
-    stroke: #EC971F;
+    stroke: #303841;
     stroke-width: 3px;
 }
 
