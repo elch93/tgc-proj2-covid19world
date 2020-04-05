@@ -47,7 +47,7 @@ body{
 header h1{
     font-family:'Heebo', sans-serif;
     font-weight: 800;
-    margin: 10px auto;
+    margin: 10px;
     text-align: center;
 }
 
@@ -55,34 +55,14 @@ header h6{
     padding: 10px 5px;
     font-family: 'Yantramanav', sans-serif;
     text-align: center;
-    margin: -30px 0 0 0;
+    margin: -25px 0 0 10px;
 }
 
-/* country stats */
-
-#nmcardl, #nmcardr, #map {
-    position: relative;
-    height: 450px;
-    width: 355px;
-    background-color: #F3F3F3;
-    border-radius: 10px;
-    border: 3px solid rgba(255,255,255,0.3);
-    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
-                -5px -5px 10px 0 rgba(255,255,255,1),
-                inset 5px 5px 10px 0 rgba(0,0,0,0.15),
-                inset -5px -5px 10px 0 rgba(255,255,255,1);
-}
-
-#flagdisplay {
-    height: 100px !important;
-    width: 100px !important;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0px auto;
-}
 
 #searchbtn {
+    position: absolute;
+    right:30%;
+    top:20px;
     background-color: #303841;
     border: none;
     color: #F3F3F3;
@@ -96,7 +76,54 @@ header h6{
                 -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
+
+/* search bar */
+#searchbar {
+    display: none;
+    transition: ease-in 0.5s;
+    width: 350px;
+    height: 150px;
+    background-color: #303841;
+    position: absolute;
+    border-radius: 10px;
+    top:20px;
+    left: 30%;
+    font-size: 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    color: #F3F3F3;
+    padding: 10px;
+    z-index: 9999;
+}
+
+#searchbar i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#searchbar div {
+    margin: 5px auto;
+}
+
+#searchbar button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: gold;
+    margin: 5px;
+}
+
+#searchbar select {
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
 #globalbtn {
+    position: absolute;
+    right:25%;
+    top:20px;
     background-color: #303841;
     border: none;
     color: #F3F3F3;
@@ -111,22 +138,50 @@ header h6{
                 -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
+
+/* country stats */
+
+#nmcardl, #nmcardr, #map {
+    position: relative;
+    height: 450px;
+    min-width: 355px;
+    width: 400px;
+    padding: 15px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    border: 3px solid rgba(255,255,255,0.3);
+    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
+                -5px -5px 10px 0 rgba(255,255,255,1),
+                inset 5px 5px 10px 0 rgba(0,0,0,0.15),
+                inset -5px -5px 10px 0 rgba(255,255,255,1);
+}
+
+#flagdisplay {
+    height: 60px;
+    width: 100px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 10px auto;
+}
+
 #countrydisplay {
     color: #303841;
     font-family: 'Catamaran', sans-serif;
     text-transform: uppercase;
     text-align: center;
     margin: 0px auto 0px auto;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #datedisplay {
     color: #303841;
     font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
     font-size: 18px;
-    margin: 0px auto 0px auto;
+    margin: 0px auto;
 }
 
 .nmbtm {
@@ -266,6 +321,12 @@ header h6{
     height: 100%;
     border: 5px solid #F3F3F3;
 }
+
+/* global stats */
+#globalstats .col-4 {
+    text-align: center;
+}
+
 
 
 /* left panel */
@@ -458,51 +519,6 @@ header h6{
     font-size: 16px;
     margin: 15px 0 0 0;
 } */
-
-/* option bar */
-
-
-#searchbar {
-    display: none;
-    transition: ease-in 0.5s;
-    width: 350px;
-    height: 110px;
-    background-color: #303841;
-    position: fixed;
-    border-radius: 10px;
-    top:120px;
-    left: 25px;
-    font-size: 16px;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 500;
-    color: #F3F3F3;
-    padding: 10px;
-    z-index: 9999;
-}
-
-#searchbar i {
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-#searchbar div {
-    margin: 5px auto;
-}
-
-#searchbar button {
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: gold;
-    margin: 5px;
-}
-
-#searchbar select {
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
-    font-family: 'Noto Sans SC', sans-serif;
-}
 
 
 

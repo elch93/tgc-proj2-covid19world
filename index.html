@@ -38,12 +38,34 @@
 
 <body>
     <header>
-        <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
-        <h6>COVID-19 STATS TRACKER</h6>
+        <div class="row">
+            <div class="col-12 d-flex flex-column align-items-start">
+                <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
+                <h6>COVID-19 STATS TRACKER</h6>
+            </div>
+            <button id="searchbtn"><i class="fas fa-search"></i></button>
+            <button id="globalbtn"><i class="fas fa-globe-asia"></i></button>
+            <!-- option bar -->
+            <div id="searchbar">
+                <div>
+                    <i class="fas fa-globe-americas"></i>
+                    <select id="countryselect" size="1">
+                        <option>Singapore</option>
+                    </select>
+                </div>
+                <div>
+                    <i class="far fa-calendar-alt"></i>
+                    <select id="dateselect" size="1">
+                    </select>
+                    <button id="getData" onclick="getData()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <!-- option end -->
+        </div>
     </header>
     <main>
         <section>
-            <div class="row p-0 m-0 mt-3">
+            <div class="row p-0 m-0">
                 <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
                     <div id="nmcardl">
                         <div class="row justify-content-center">
@@ -51,7 +73,7 @@
                                 <div id="flagdisplay"></div>
                             </div>
                             <div class="col-6">
-                                <div class="row pt-3 m-0">
+                                <div class="row p-0 m-0">
                                     <span id="countrydisplay"></span>
                                 </div>
                                 <div class="row m-0 p-0">
@@ -134,9 +156,26 @@
                     </div>
                 </div>
             </div>
-            <button id="searchbtn"><i class="fas fa-search"></i></button>
-            <button id="globalbtn"><i class="fas fa-globe-asia"></i></button>
-
+            
+            <div class="col-12" id="globalstats">
+                <div class="row justify-content-around">
+                    <div class="col-4">
+                        <p id="totalc"></p>
+                        <p id="worldCIncrease"></p>
+                        <p id="worldtxt1">Confirmed Cases</p>
+                    </div>
+                    <div class="col-4">
+                        <p id="totalr"></p>
+                        <p id="worldRIncrease"></p>
+                        <p id="worldtxt2">Recovered</p>
+                    </div>
+                    <div class="col-4">
+                        <p id="totald"></p>
+                        <p id="worldDIncrease"></p>
+                        <p id="worldtxt3">Deaths Worldwide</p>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -263,127 +302,7 @@
 
 
 
-            <!-- option bar -->
-
-            <div id="searchbar">
-                <div>
-                    <i class="fas fa-globe-americas"></i>
-                    <select id="countryselect" size="1">
-                        <option>Singapore</option>
-                    </select>
-                </div>
-                <div>
-                    <i class="far fa-calendar-alt"></i>
-                    <select id="dateselect" size="1">
-                    </select>
-                    <button id="getData" onclick="getData()"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-            <!-- option end -->
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- search bar -->
-            <!-- <div id="leftbar">
-                    <group>
-                        Select Country:
-                        <select id="countryselect" size="1">
-                            <option>Singapore</option>
-                        </select>
-                        Select Date:
-                        <select id="dateselect" size="1">
-                        </select>
-                        <button id="getData" onclick="getData()">Get Data</button>
-                    </group>
-                    <button id="options">OPTIONS &nbsp;<i class="fas fa-angle-down"></i></button>
-                </div> -->
-
-
-            <!-- hero page -->
-            <!-- <div class="row">
-                    <div class="col-6">
-                        <div class="row ml-5 justify-content-between" id="overview">
-                            <div class="col-12 gbor">
-                                <span id="datedisplay"></span>
-                                <span id="flagdisplay"></span>
-                                <span id="countrydisplay"></span>
-                            </div>
-                            <div class="col-3 gbor">
-                                <i class="fas fa-head-side-cough"></i>
-                                <div id="ctoday"></div>
-                                <p>Confirmed</p>
-                                <div class="mycard">
-                                    Total Cases: <div id="totalconfirmed"></div>
-                                </div>
-                            </div>
-                            <div class="col-3 gbor">
-                                <i class="far fa-smile"></i>
-                                <div id="rtoday"></div>
-                                <p>Recovered</p>
-                                <div class="mycard">
-                                    Total Recovered: <div id="totalrecovered"></div>
-                                </div>
-                            </div>
-                            <div class="col-3 gbor">
-                                <i class="fas fa-skull-crossbones"></i>
-                                <div id="dtoday"></div>
-                                <p>Deaths</p>
-                                <div class="mycard">
-                                    Total Deaths: <div id="totaldeaths"></div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <canvas id="rrdonut" width="800" height="450"></canvas>
-                            </div>
-                            <div class="col-6">
-                                <canvas id="drdonut" width="800" height="450"></canvas>
-                            </div>
-                            <div class="col-12">
-                                <div class="container-fluid">Combined Chart:
-                                    <canvas id="combined" width="800" height="450"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="col-md-3 col-12 gbor">
-                            <div id="totalc"></div>
-                        </div>
-                        <div class="col-md-3 col-12 gbor">
-                            <div id="totalr"></div>
-                        </div>
-                        <div class="col-md-3 col-12 gbor">
-                            <div id="totald"></div>
-                        </div>
-                        <div class="col-md-8 col-12 gbor">
-                            <div id="map1"></div>
-                        </div>
-
-
-                        <div class="col-md-4 col-12 gbor">
-                            Top 5 Cases in the World
-                            
-                        </div>
-                        <canvas id="pie-chart" width="800" height="450"></canvas>
-                    </div>
-                </div>-->
-
-
-
-
-
-
-
-
+            
 
 
 
