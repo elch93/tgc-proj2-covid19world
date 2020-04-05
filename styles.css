@@ -59,19 +59,19 @@ header h6{
 }
 
 /* country stats */
-#nmcardl, #nmcardr {
+#nmcardl, #nmcardr, #globalstats {
     height: 400px;
     width: 350px;
     background-color: #F3F3F3;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 10px 10px 16px 0 rgba(0,0,0,0.1),
-                -10px -10px 16px 0 rgba(255,255,255,0.9);
+    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
+                -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
 #flagdisplay {
     position: fixed;
-    top:10px;
+    top:80px;
     left: 10px;
     height: 100px !important;
     width: 100px !important;
@@ -161,13 +161,73 @@ header h6{
 
 /* right panel */
 #nmcardr {
-    height: 280px;
+    height: 290px;
+    padding: 10px;
+    font-size: 18px;
+    color: #303841;
+    font-family: 'Noto Sans SC', sans-serif;
 }
 
 #cccontainer {
     width: 320px;
+    margin: 0 0 10px 0;
 }
 
+.caroucontainer {
+    height: 276px;
+    padding:0 0 0 65px;
+}
+
+.caroucontainer p {
+    font-family: 'Catamaran', sans-serif;
+    text-align: left;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+
+}
+
+#linegraphc .line {
+    fill:none;
+    stroke: #EC971F;
+    stroke-width: 3px;
+}
+
+#linegraphr .line {
+    fill:none;
+    stroke: #01D1B3;
+    stroke-width: 3px;
+}
+
+#linegraphd .line {
+    fill:none;
+    stroke: #EC4E6D;
+    stroke-width: 3px;
+    }
+
+.dot {
+    fill:#303841;
+    stroke:#303841;
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.dc-chart .axis path, .dc-chart .axis line {
+    stroke: #303841 !important;
+} */
+    
+
+
+/* global stats */
+#globalstats {
+    background-color: #303841;
+    color: #F3F3F3;
+}
 
 /* left panel */
 /* #overview {

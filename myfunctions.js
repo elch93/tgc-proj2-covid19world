@@ -479,7 +479,7 @@ function loadLatest() {
 
                 let cgraph = new dc.LineChart("#linegraphc")
                 cgraph.width(300) //make mobile responsive later!
-                    .height(150)
+                    .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklycy)
@@ -498,7 +498,7 @@ function loadLatest() {
 
                 let rgraph = new dc.LineChart("#linegraphr")
                 rgraph.width(300) //make mobile responsive later!
-                    .height(150)
+                    .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklyry)
@@ -518,7 +518,7 @@ function loadLatest() {
 
                 let dgraph = new dc.LineChart("#linegraphd")
                 dgraph.width(300) //make mobile responsive later!
-                    .height(150)
+                    .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklydy)

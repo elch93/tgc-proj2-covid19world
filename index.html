@@ -43,8 +43,8 @@
     </header>
     <main>
         <section>
-            <div class="row p-0 m-0 mt-3 gbor">
-                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+            <div class="row p-0 m-0 mt-3">
+                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
                     <div id="nmcardl">
                         <div class="row p-3 m-0 nmtop">
                             <span id="countrydisplay"></span>
@@ -86,12 +86,65 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+                <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
                     <div id="nmcardr">
-                        <div id="cccontainer">
-                            <canvas id="combined" width="300" height="250"></canvas>
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div id="cccontainer">
+                                        <canvas id="combined" width="300" height="250"></canvas>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-12 d-flex flex-column align-items-center">
+                                        <div class=caroucontainer>
+                                            <p><u>Infection History</u></p>
+                                            <div id="linegraphc"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-12 d-flex flex-column align-items-center">
+                                        <div class=caroucontainer>
+                                            <p><u>Recovery History</u></p>
+                                            <div id="linegraphr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-12 d-flex flex-column align-items-center">
+                                        <div class=caroucontainer>
+                                            <p><u>Death History</u></p>
+                                            <div id="linegraphd"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
+                    <div class="container-fluid d-flex justify-content-around">
+                        <div class="col-4 gbor">a</div>
+                        <div class="col-4 gbor">b</div>
+                        <div class="col-4 gbor">c</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-0 m-0 mt-3 gbor">
+                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+                    <div id="globalstats"></div>
+                </div>
+                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+
                 </div>
             </div>
 
