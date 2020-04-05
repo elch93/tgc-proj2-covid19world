@@ -220,6 +220,8 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
+                
+
                 let countryline = new Chart(document.getElementById("combined"), {
                     type: 'line',
                     data: {
@@ -275,20 +277,20 @@ function loadLatest() {
                 }
 
                 $("#getData").click(function () {
+                    $("#cccontainer").empty()
                     countryline.destroy()
+                    $("#cccontainer").append(`<canvas id="combined" width="300" height="260"></canvas>`)
                 })
 
-                $("#erasebtn").click(function () {
-                    countryline.clear()
-                })
 
                 //allows map navigation
                 function getDataFromMap() {
-                    countryline.destroy()
+                    $("#cccontainer").empty()
                     countryline.destroy()
                     setTimeout(function () {
                         //console.log($("#countryOnMap").text())
                         countryname = $("#countryOnMap").text()
+                        $("#cccontainer").append(`<canvas id="combined" width="300" height="260"></canvas>`)
                         loadLatest()
                     }, 1000)
                 }
