@@ -59,7 +59,7 @@ header h6{
 }
 
 /* country stats */
-#nmcard {
+#nmcardl, #nmcardr {
     height: 400px;
     width: 350px;
     background-color: #F3F3F3;
@@ -69,14 +69,10 @@ header h6{
                 -10px -10px 16px 0 rgba(255,255,255,0.9);
 }
 
-#nmcard .nmtop {
-    margin: -100px 0 0 0;
-}
-
 #flagdisplay {
-    position: relative;
-    left:-35px;
-    top:45px;
+    position: fixed;
+    top:10px;
+    left: 10px;
     height: 100px !important;
     width: 100px !important;
     border-radius: 50%;
@@ -112,66 +108,56 @@ header h6{
     height: 300px;
 }
 
-#nmdailyc {
-    margin: 40px 0 0 0;
+#nmdailyc, #nmdailyr, #nmdailyd {
+    margin: 40px auto 10px auto;
     height: 80px;
     width: 80px;
     border-radius: 50%;
     background-color: #F3F3F3;
+    text-align: center;
+}
+
+#nmdailyc i, #nmdailyr i, #nmdailyd i {
+    font-size: 30px;
+    margin: 20px;
+}
+
+#nmdailyc { 
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
                 0px -5px 5px 1px rgba(255,255,255,0.6),
                 0px 0px 1px 5px #EC971F,
                 0px 5px 10px 0 rgba(0,0,0,0.2),
                 0px -5px 10px 0 rgba(255,255,255,0.3),
                 0px 0px 3px 8px #e3e3e3;
-    text-align: center;
-}
-
-#nmdailyc i {
-    font-size: 30px;
-    margin: 20px;
 }
 
 #nmdailyr {
-    margin: 40px 0 0 0;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    background-color: #F3F3F3;
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
                 0px -5px 5px 1px rgba(255,255,255,0.6),
                 0px 0px 1px 5px #01D1B3,
                 0px 5px 10px 0 rgba(0,0,0,0.2),
                 0px -5px 10px 0 rgba(255,255,255,0.3),
                 0px 0px 3px 8px #e3e3e3;
-    text-align: center;
-}
-
-#nmdailyr i {
-    font-size: 30px;
-    margin: 20px;
 }
 
 #nmdailyd {
-    margin: 40px 0 0 0;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    background-color: #F3F3F3;
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
                 0px -5px 5px 1px rgba(255,255,255,0.6),
                 0px 0px 1px 5px #EC4E6D,
                 0px 5px 10px 0 rgba(0,0,0,0.2),
                 0px -5px 10px 0 rgba(255,255,255,0.3),
                 0px 0px 3px 8px #e3e3e3;
+}
+
+#nmcardl p {
     text-align: center;
+    font-size: 16px;
 }
 
-#nmdailyd i {
-    font-size: 30px;
-    margin: 20px;
+#totalconfirmed, #totalrecovered, #totaldeaths {
+    font-size: 20px;
+    font-weight: 600;
 }
-
 
 
 
@@ -368,29 +354,9 @@ header h6{
 } */
 
 /* option bar */
-#mynavbar {
-    background-color:#F3F3F3 ;
-    padding:10px;
-    height: auto;
-    width:auto;
-    border-radius: 10px;
-    position: fixed;
-    top:10px;
-    left: 10px;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 16px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2),
-                -3px -3px 3px 0 rgba(255,255,255,0.9);
-}
-
-#mynavbar button {
-    margin: auto;
-    background-color: #F3F3F3 ;
+#searchbtn {
+    background-color: #F3F3F3;
     border: none;
-    color: #303841;
-    display: block;
-    border-radius: 10px;
 }
 
 #searchbar {
@@ -401,8 +367,8 @@ header h6{
     background-color: #303841;
     position: fixed;
     border-radius: 10px;
-    top:10px;
-    left: 65px;
+    top:120px;
+    left: 25px;
     font-size: 16px;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 500;

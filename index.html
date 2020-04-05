@@ -42,37 +42,52 @@
         <h6>COVID-19 STATS TRACKER</h6>
     </header>
     <main>
-        <section>   
-            <div class="row p-0 m-0">
-                <div class="col-12 p-5 gbor">
-                    <div id="nmcard">
-                        <div id="flagdisplay"></div>
-                        <div class="row p-3 nmtop">
+        <section>
+            <div class="row p-0 m-0 mt-3 gbor">
+                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+                    <div id="nmcardl">
+                        <div class="row p-3 m-0 nmtop">
                             <span id="countrydisplay"></span>
                         </div>
                         <div class="row m-0 p-0 nmtop">
                             <span id="datedisplay"></span>
                         </div>
                         <div class="row m-0 mt-3 nmbtm">
-                            <div class="col-4 gbor d-flex justify-content-center">
+                            <div class="col-4 p-0">
                                 <div id="nmdailyc">
                                     <i class="fas fa-head-side-cough"></i>
                                 </div>
-                            </div>
-                            <div class="col-4 gbor d-flex justify-content-center">
-                                <div id="nmdailyr">
-                                    <i class="far fa-smile"></i>
+                                <div class="container-fluid p-0">
+                                    <p><span id="totalconfirmed"></span></p>
+                                    <p><span id="ctoday"></span></p>
+                                    <p>Cases</p>
                                 </div>
                             </div>
-                            <div class="col-4 gbor d-flex justify-content-center">
+                            <div class="col-4 p-0">
+                                <div id="nmdailyr">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div class="container-fluid p-0">
+                                    <p><span id="totalrecovered"></span></p>
+                                    <p><span id="rtoday"></span></p>
+                                    <p>Recovered</p>
+                                </div>
+                            </div>
+                            <div class="col-4 p-0">
                                 <div id="nmdailyd">
                                     <i class="fas fa-skull-crossbones"></i>
                                 </div>
+                                <div class="container-fluid p-0">
+                                    <p><span id="totaldeaths"></span></p>
+                                    <p><span id="dtoday"></span></p>
+                                    <p>Deaths</p>
+                                </div>
                             </div>
                         </div>
-                        
-                        
                     </div>
+                </div>
+                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+                    <div id="nmcardr"></div>
                 </div>
             </div>
 
@@ -97,8 +112,8 @@
                         </div>
                     </div>
                 </div> -->
-                <!-- overview -->
-                <!-- <div class="col-12 col-lg-5 mb-5 p-0" id="leftpanel">
+            <!-- overview -->
+            <!-- <div class="col-12 col-lg-5 mb-5 p-0" id="leftpanel">
                     <div id="overview">
                         <div class="row m-0 p-0">
                             <div class="col-6 p-0 m-0">
@@ -137,9 +152,9 @@
                         <button id="countrydetailsbtn"><i class="fas fa-chart-line"></i>&nbsp;Details</button>
                     </div>
                 </div> -->
-                <!-- overview end -->
-                <!-- world -->
-                <!-- <div class="col-10 col-lg-6 mb-5" id="rightpanel">
+            <!-- overview end -->
+            <!-- world -->
+            <!-- <div class="col-10 col-lg-6 mb-5" id="rightpanel">
                     <div class="row p-0 p-lg-3 justify-content-center" id="world">
                         <div class="col-4">
                             <p id="totalc"></p>
@@ -165,8 +180,8 @@
                         </div>
                     </div>
                 </div> -->
-                <!-- world end -->
-                <!-- <div class="col-10 col-lg-6 mb-5" id="countrypanel">
+            <!-- world end -->
+            <!-- <div class="col-10 col-lg-6 mb-5" id="countrypanel">
                     <div class="row justify-content-around mb-5">
                         <div class="col-4">
                             <canvas id="rrdonut" width="300" height="250"></canvas>
@@ -202,9 +217,9 @@
 
 
             <!-- option bar -->
-            <div id="mynavbar">
-                <button id="searchbtn"><i class="fas fa-search"></i></button>
-            </div>
+            <button id="searchbtn">
+                <div id="flagdisplay"></div>
+            </button>
             <div id="searchbar">
                 <div>
                     <i class="fas fa-globe-americas"></i>
