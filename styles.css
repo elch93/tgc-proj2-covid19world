@@ -59,30 +59,55 @@ header h6{
 }
 
 /* country stats */
-#nmcardl, #nmcardr, #globalstats {
-    height: 400px;
-    width: 350px;
+
+#nmcardl, #nmcardr, #map {
+    position: relative;
+    height: 100%;
+    width: 355px;
     background-color: #F3F3F3;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 3px solid rgba(255,255,255,0.3);
+    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
+                -5px -5px 10px 0 rgba(255,255,255,1),
+                inset 5px 5px 10px 0 rgba(0,0,0,0.15),
+                inset -5px -5px 10px 0 rgba(255,255,255,1);
+}
+
+#flagdisplay {
+    height: 100px !important;
+    width: 100px !important;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0px auto;
+}
+
+#searchbtn {
+    background-color: #303841;
+    border: none;
+    color: #F3F3F3;
+    font-family: 'Heebo', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 3px 5px;
+    border-radius: 10px;
+    z-index: 3;
     box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
                 -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
-#flagdisplay {
-    position: fixed;
-    top:80px;
-    left: 10px;
-    height: 100px !important;
-    width: 100px !important;
-    border-radius: 50%;
-    box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
-    transform: rotate(-20deg);
-    border: 5px solid   #303841;
-    background-color:  #303841;
-    background-size: 70%, 70%;
-    background-position: center;
-    background-repeat: no-repeat;
+#globalbtn {
+    background-color: #303841;
+    border: none;
+    color: #F3F3F3;
+    font-family: 'Heebo', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 3px 5px;
+    border-radius: 10px;
+    z-index: 3;
+    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
+                -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
 #countrydisplay {
@@ -90,9 +115,8 @@ header h6{
     font-family: 'Catamaran', sans-serif;
     text-transform: uppercase;
     text-align: center;
-    margin: 0px auto 20px auto;
-    font-size: 25px;
-    padding: 0 20px;
+    margin: 0px auto 0px auto;
+    font-size: 18px;
 }
 
 #datedisplay {
@@ -100,8 +124,8 @@ header h6{
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    margin: -30px auto;
-    font-size: 25px;
+    font-size: 18px;
+    margin: 0px auto 0px auto;
 }
 
 .nmbtm {
@@ -166,33 +190,41 @@ header h6{
     font-size: 18px;
     color: #303841;
     font-family: 'Noto Sans SC', sans-serif;
-    position: relative;
 }
 
-.fa-caret-square-right {
+#nmnxt, #nmprev {
+    background-color: #F3F3F3;
+    border: 1px solid rgba(255,255,255,1);
     position: absolute;
-    right: 5px;
-    top: 50%;
+    top: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
+                -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
-.fa-caret-square-left {
-    position: absolute;
-    left: 5px;
-    top: 50%;
+#nmnxt {
+    right: 10px;
+}
+
+#nmprev {
+    left: 10px;
 }
 
 #nmcardr i {
     cursor: pointer;
     font-size: 20px;
+    margin: 5px;
 }
 
 #nmcardr p {
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 700;
     font-size: 20px;
 }
 
 #cccontainer {
-    width: 300px;
+    width: 310px;
     margin: 0 0 0px 15px;
 }
 
@@ -223,15 +255,17 @@ header h6{
 
 .dc-chart .axis path, .dc-chart .axis line {
     stroke: #303841 !important;
-} */
-    
-
-
-/* global stats */
-#globalstats {
-    background-color: #303841;
-    color: #F3F3F3;
 }
+
+#map {
+    height: 350px;
+}
+
+#map1 {
+    height: 100%;
+    border: 5px solid #F3F3F3;
+}
+
 
 /* left panel */
 /* #overview {
@@ -425,10 +459,7 @@ header h6{
 } */
 
 /* option bar */
-#searchbtn {
-    background-color: #F3F3F3;
-    border: none;
-}
+
 
 #searchbar {
     display: none;
@@ -445,7 +476,7 @@ header h6{
     font-weight: 500;
     color: #F3F3F3;
     padding: 10px;
-    z-index: 2;
+    z-index: 9999;
 }
 
 #searchbar i {

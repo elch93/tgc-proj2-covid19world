@@ -28,8 +28,9 @@ let countrymap = "Singapore"
 //#1 load latest info
 function loadLatest() {
     $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(),
-        $("#datedisplay").empty(), $("#countrydisplay").empty(), $("#totalconfirmed").empty(),
-        $("#totalrecovered").empty(), $("#totaldeaths").empty();
+    $("#datedisplay").empty(), $("#countrydisplay").empty(), $("#totalconfirmed").empty(),
+    $("#totalrecovered").empty(), $("#totaldeaths").empty();
+    
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
@@ -63,86 +64,102 @@ function loadLatest() {
                 function getCountryFlag() {
                     axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
                         //console.log("flag",r.data)
-
+                        $("#flagdisplay2").empty()
                         countrydisplayed = $("#countrydisplay").text()
                         for (let i of r.data) {
                             if (countrydisplayed == i.name || countrydisplayed == i.alpha2Code) {
                                 $("#flagdisplay").css("background-image", "url(" + i.flag + ")")
+                                $("#flagdisplay2").append(`<img src="${i.flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Taiwan*") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[221].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[221].flag }" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Vietnam") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[244].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[244].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Korea, South") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[210].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[210].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Czechia") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[61].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[61].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "North Macedonia") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[132].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[132].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Laos") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[122].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[122].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Bolivia") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[26].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[26].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Brunei") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[36].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[36].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Iran") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[107].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[107].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Moldova") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[146].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[146].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Russia") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[185].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[185].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Tanzania") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[223].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[223].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "United Kingdom") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[238].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[238].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Venezuela") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[243].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[243].flag}" style="height:50px">`)
                                 break
                             }
 
                             else if (countrydisplayed == "Syria") {
                                 $("#flagdisplay").css("background-image", "url(" + r.data[220].flag + ")")
+                                $("#flagdisplay2").append(`<img src="${r.data[220].flag}" style="height:50px">`)
                                 break
                             }
 
@@ -344,8 +361,14 @@ function loadLatest() {
                         console.log("mapped list", clist)
                         console.log("bugged", buglist)
 
+                        function getDataFromMap() {
+                            countryline.destroy()
+                            console.log($("#countryOnMap").text())
+                            countryname = $("#countryOnMap").text()
+                            setTimeout(loadLatest(),700)
+                        }
 
-                        let map = L.map("map1", { zoomControl: false }).setView([1.35, 103.85], 6.5)
+                        let map = L.map("map1", { zoomControl: true }).setView([1.35, 103.85], 6.5)
 
                         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -359,11 +382,14 @@ function loadLatest() {
                         let countrycluster = L.markerClusterGroup()
                         for (let i = 0; i < clist.length; i++) {
                             let m = L.marker([clist[i][1][0], clist[i][1][1]])
-                            m.bindPopup(`<p><b>${clist[i][0]}</b></p>
-                        <p><b>Total:</b> ${clist[i][2]}</p>
-                        <p><b>Recovered:</b> ${clist[i][3]}</p>
-                        <p><b>Deaths:</b> ${clist[i][4]}</p>
+                            m.bindPopup(`
+                            <div id="flagdisplay2"></div>
+                            <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
+                        <p><b>Total:</b> ${clist[i][2]} <i class="fas fa-head-side-cough"></i></p>
+                        <p><b>Recovered:</b> ${clist[i][3]} <i class="fas fa-smile"></i></p>
+                        <p><b>Deaths:</b> ${clist[i][4]} <i class="fas fa-skull-crossbones"></i></p>
                         `)
+                            m.on('click', getDataFromMap)
                             countrycluster.addLayer(m)
                         }
 
@@ -373,7 +399,6 @@ function loadLatest() {
                             setTimeout(
                                 function gotTo2() {
                                     let x = $("#coo").text().split(",")
-                                    //console.log("x", x)
                                     map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6.5)
                                 }, 1000
                             )
@@ -381,20 +406,10 @@ function loadLatest() {
                         }
                         )
 
-
-
-
-
-
-
-
-
-
-
                     })
                 }//map end
 
-                //getMap()
+                getMap()
 
 
                 //get the data for past 7 days
@@ -427,16 +442,19 @@ function loadLatest() {
                             data: cArr,
                             label: "Total",
                             borderColor: "#303841",
+                            pointBackgroundColor: "#303841",
                             fill: false
                         }, {
                             data: rArr,
                             label: "Recovered",
                             borderColor: "#01D1B3",
+                            pointBackgroundColor: "#01D1B3",
                             fill: false
                         }, {
                             data: dArr,
                             label: "Deaths",
                             borderColor: "#EC4E6D",
+                            pointBackgroundColor: "#EC4E6D",
                             fill: false
                         }
                         ]
@@ -446,7 +464,7 @@ function loadLatest() {
                             fontColor: '#303841',
                             fontSize: 20,
                             display: true,
-                            text: 'Country Trend (Past 7 Days)'
+                            text: 'Trend (Past 7 Days)'
                         },
                         scales: {
                             xAxes: [{

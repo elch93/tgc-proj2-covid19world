@@ -75,6 +75,16 @@ $(function () {
     $("#getData").click(function () {
         $("#searchbar").toggle()
     })
+    $("#globalbtn").click(function () {
+        $("#nmcardl").toggle()
+        $("#map").toggle()
+    })
+
+    setTimeout(
+        function(){
+            $("#map").fadeToggle()
+        },500
+    )
 
 
 

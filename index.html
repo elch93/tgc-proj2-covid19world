@@ -46,13 +46,20 @@
             <div class="row p-0 m-0 mt-3">
                 <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
                     <div id="nmcardl">
-                        <div class="row p-3 m-0 nmtop">
-                            <span id="countrydisplay"></span>
+                        <div class="row justify-content-center">
+                            <div class="col-4">
+                                <div id="flagdisplay"></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row pt-3 m-0">
+                                    <span id="countrydisplay"></span>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <span id="datedisplay"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row m-0 p-0 nmtop">
-                            <span id="datedisplay"></span>
-                        </div>
-                        <div class="row m-0 mt-3 nmbtm">
+                        <div class="row m-0 nmbtm">
                             <div class="col-4 p-0">
                                 <div id="nmdailyc">
                                     <i class="fas fa-head-side-cough"></i>
@@ -85,42 +92,41 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row p-0 m-0 mb-3">
+                        <div id="map">
+                            <div id="map1"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
                     <div id="nmcardr">
                         <div class="mycarousel" id="cccontainer">
-                            <canvas id="combined" width="300" height="250"></canvas>
+                            <canvas id="combined" width="300" height="260"></canvas>
                         </div>
-                        <div class="mycarousel pl-4">
-                            <p><u>Infection History</u></p>
+                        <div class="mycarousel pl-5">
+                            <p>Infection History</p>
                             <div id="linegraphc"></div>
                         </div>
-                        <div class="mycarousel pl-4">
-                            <p><u>Recovery History</u></p>
+                        <div class="mycarousel pl-5">
+                            <p>Recovery History</p>
                             <div id="linegraphr"></div>
                         </div>
-                        <div class="mycarousel pl-4">
-                            <p><u>Death History</u></p>
+                        <div class="mycarousel pl-5">
+                            <p>Death History</p>
                             <div id="linegraphd"></div>
                         </div>
-                        <a id="next"><i class="far fa-caret-square-right"></i></a>
-                        <a id="prev"><i class="far fa-caret-square-left"></i></a>
-                    </div>
-                    <div class="container-fluid d-flex justify-content-around">
-                        <div class="col-4 gbor">a</div>
-                        <div class="col-4 gbor">b</div>
-                        <div class="col-4 gbor">c</div>
+                        <div id="nmnxt">
+                            <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                        </div>
+                        <div id="nmprev">
+                            <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row p-0 m-0 mt-3 gbor">
-                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
-                    <div id="globalstats"></div>
-                </div>
-                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center gbor">
+            <button id="searchbtn"><i class="fas fa-search"></i></button>
+            <button id="globalbtn"><i class="fas fa-globe-asia"></i></button>
 
-                </div>
-            </div>
 
 
 
@@ -248,9 +254,7 @@
 
 
             <!-- option bar -->
-            <button id="searchbtn">
-                <div id="flagdisplay"></div>
-            </button>
+
             <div id="searchbar">
                 <div>
                     <i class="fas fa-globe-americas"></i>
