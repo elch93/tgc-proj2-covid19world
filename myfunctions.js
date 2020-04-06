@@ -164,7 +164,12 @@ function loadLatest() {
 
         convertDates(countrydata)
 
+        let numofc = 0
+        for (let i in response.data) {
+            numofc += 1
+        }
 
+        console.log(numofc)
 
         for (let i = 0; i < 60; i++) {
             if (countrydata[i].date == loaddate) {
@@ -290,7 +295,6 @@ function loadLatest() {
                     $("#cccontainer").empty()
                     countryline.destroy()
                     setTimeout(function () {
-                        //console.log($("#countryOnMap").text())
                         countryname = $("#countryOnMap").text()
                         $("#cccontainer").append(`<canvas id="combined" width="300" height="260"></canvas>`)
                         loadLatest()
@@ -447,14 +451,17 @@ function loadLatest() {
                     convertDates(pomberdata[i])
                 }
 
-                console.log("PD", pomberdata)
-
                 for (let r = 0; r < 60; r++) {
                     if (loaddate == pomberdata['Singapore'][r].date) {
                         for (let i in pomberdata) {
                             for (let j in restcountries) {
                                 if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
                                     clist.push([i, restcountries[j].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Malaysia") {
+                                    clist.push([i, [4.2105, 101.9758], pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
                                     break
                                 }
 
@@ -589,32 +596,47 @@ function loadLatest() {
                     }
                 }
 
-                $("#coo").empty()
-                $("#coo").append(`${coordinates}`)
-
                 console.log("mapped list", clist)
                 console.log("bugged", buglist)
 
+                //removes data without flag/map location
+                for (let i = 0; i < $("#countryselect option").length; i++) {
+                    if (buglist.includes($("#countryselect option").eq(i).text())) {
+                        console.log(i)
+                        $("#countryselect option").eq(i).remove()
+
+                    }
+
+                }
+
+                let setViewCoordinates = undefined
+
+                for (let i of clist) {
+                    if ($("#countryselect").val() == i[0]) {
+                        setViewCoordinates = i[1]
+                    }
+                }
 
 
-                let map = L.map("map1", { zoomControl: true }).setView([1.35, 103.85], 6.5)
+                let map = L.map("map1", { zoomControl: true }).setView(setViewCoordinates, 6.5)
 
-                $('#getData').click(function(){
-                    map.remove()
-                })
+                // $('#getData').click(function () {
+                //     //map.remove()
+                //     //loadLatest()
+                // })
 
                 var LeafIcon = L.Icon.extend({
                     options: {
                         // shadowUrl: 'leaf-shadow.png',
-                        iconSize:     [38, 35],
-                        shadowSize:   [0, 0],
-                        iconAnchor:   [22, 35],
+                        iconSize: [38, 35],
+                        shadowSize: [0, 0],
+                        iconAnchor: [22, 35],
                         shadowAnchor: [4, 62],
-                        popupAnchor:  [0, -20]
+                        popupAnchor: [0, -20]
                     }
                 });
 
-                customIcon = new LeafIcon({iconUrl: 'https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/4482957981557740362-512.png'})
+                customIcon = new LeafIcon({ iconUrl: 'https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/4482957981557740362-512.png' })
 
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -627,7 +649,7 @@ function loadLatest() {
 
                 let countrycluster = L.markerClusterGroup()
                 for (let i = 0; i < clist.length; i++) {
-                    let m = L.marker([clist[i][1][0], clist[i][1][1]], {icon: customIcon})
+                    let m = L.marker([clist[i][1][0], clist[i][1][1]], { icon: customIcon })
                     m.bindPopup(`
             <div id="flagdisplay2"></div>
             <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
@@ -636,7 +658,7 @@ function loadLatest() {
         <p><b>Deaths:</b> ${clist[i][4]} <i class="fas fa-skull-crossbones"></i></p>
         `)
 
-        
+
                     m.on("click", function () {
                         getDataFromMap()
                     })
@@ -644,17 +666,17 @@ function loadLatest() {
                 }
 
                 map.addLayer(countrycluster)
+                console.log("HELP", clist)
+                // document.getElementById("getData").addEventListener("click", function () {
+                //     for (let i of clist) {
+                //         if ($("#countryselect").val() == i[0]) {
+                //             console.log(i[0])
+                //             map.flyTo(i[1], 6.5)
+                //         }
+                //     }
 
-                document.getElementById("getData").addEventListener("click", function goTo() {
-                    setTimeout(
-                        function gotTo2() {
-                            let x = $("#coo").text().split(",")
-                            map.flyTo([parseFloat(x[0]), parseFloat(x[1])], 6.5)
-                        }, 800
-                    )
-
-                }
-                )
+                // }
+                // )
 
             })
         }//map end
@@ -673,15 +695,28 @@ function loadLatest() {
 
 //#2 loadonclick
 function getData() {
-    // $('#map').empty()
-    // $('#map').append(`<div id="map1"></div>`)
+    $('#map').empty()
+    //map.remove()
+
     let countryselected = $("#countryselect").val()
     let dateselected = $("#dateselect").val()
     countryname = countryselected
     loaddate = dateselected
     countrymap = countryselected
+    $('#map').append(`<div id="map1"></div>`)
+
+    if ($("#map").is(":visible") == false) {
+        $('#map').toggle()
+        setTimeout(
+            function () {
+                $("#map").fadeToggle()
+            }, 800
+        )
+    }
+
     loadLatest()
     getGlobalTotalByDate()
+
 }
 
 //#3 load ranking
@@ -776,7 +811,6 @@ function getGlobalTotalByDate() {
             convertDates(data[i])
         }
 
-        console.log("TEST", data)
 
         let totalc = 0
         let totalr = 0

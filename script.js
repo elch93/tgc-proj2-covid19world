@@ -75,6 +75,9 @@ $(function () {
 
         //console.log(countrylist)
         for (let i of countrylist) {
+            if (i == "Congo (Kinshasa)") {
+                continue
+            }
             $("#countryselect").append(`<option value="${i}">${i}</option>`)
         }
 
@@ -115,7 +118,7 @@ $(function () {
     setTimeout(
         function () {
             $("#map").fadeToggle()
-        }, 1000
+        }, 800
     )
 
 })//jquery end

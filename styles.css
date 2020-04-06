@@ -165,6 +165,8 @@ header h6{
                 -5px -5px 10px 0 rgba(255,255,255,1);
 }
 
+
+
 #flagdisplay {
     height: 75px;
     width: 100px;
@@ -253,6 +255,10 @@ header h6{
 #nmcardl p {
     text-align: center;
     font-size: 16px;
+}
+
+#nmcardl {
+    z-index: 9998;
 }
 
 #totalconfirmed, #totalrecovered, #totaldeaths {
