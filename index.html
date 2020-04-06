@@ -78,14 +78,16 @@
 
 <body>
     <header>
-        <div class="row">
-            <div class="col-12 d-flex flex-column align-items-start">
-                <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
-                <h6>COVID-19 STATS TRACKER</h6>
-            </div>
+        <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
+        <h6>COVID-19 STATS TRACKER</h6>
+            <!-- <button id="globalbtn"><i class="fas fa-globe-asia"></i></button> -->
+    </header>
+    <main>
+        <section>
+            <!-- menu -->
             <button id="searchbtn"><i class="fas fa-search"></i></button>
-            <button id="globalbtn"><i class="fas fa-globe-asia"></i></button>
-            <!-- option bar -->
+            <span id="selectbg"></span>
+            <!-- options bar -->
             <div id="searchbar">
                 <div>
                     <i class="fas fa-globe-americas"></i>
@@ -101,175 +103,192 @@
                 </div>
             </div>
             <!-- option end -->
-        </div>
-    </header>
-    <main>
-        <section>
-            <div class="row p-0 m-0 mb-5">
-                <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
-                    <div id="nmcardl">
-                        <div class="row justify-content-center">
-                            <div class="col-4">
-                                <div id="flagdisplay"></div>
-                            </div>
-                            <div class="col-6">
-                                <div class="row p-0 m-0">
-                                    <span id="countrydisplay"></span>
+            <!-- menu end -->
+            <div class="row gbor">
+                <div class="col-9 gbor">
+                    <div class="row gbor">country date name</div>
+                    <div class="row gbor">
+                        <div class="col-6 gbor">overview daily</div>
+                        <div class="col-6 gbor">carousel</div>
+                    </div>
+                </div>
+                <div class="col-3 gbor">
+                    <div class="row gbor">map</div>
+                    <div class="row gbor">world list</div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="container-fluid d-lg-none">
+                <div class="row p-0 m-0 mb-5">
+                    <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
+                        <div id="nmcardl">
+                            <div class="row justify-content-center">
+                                <div class="col-4">
+                                    <div id="flagdisplay"></div>
                                 </div>
-                                <div class="row m-0 p-0">
-                                    <span id="datedisplay"></span>
+                                <div class="col-6">
+                                    <div class="row p-0 m-0">
+                                        <span id="countrydisplay"></span>
+                                    </div>
+                                    <div class="row m-0 p-0">
+                                        <span id="datedisplay"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-0">
+                                <div class="col-4 p-0">
+                                    <div id="nmdailyc">
+                                        <a><i class="fas fa-head-side-cough"></i></a>
+                                    </div>
+                                    <div class="container-fluid p-0 pt-2">
+                                        <p><span id="totalconfirmed"></span></p>
+                                        <p><span id="ctoday"></span></p>
+                                        <p>Cases</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 p-0">
+                                    <div id="nmdailyr">
+                                        <a>
+                                            <i class="fas fa-smile"></i>
+                                        </a>
+                                    </div>
+                                    <div class="container-fluid p-0 pt-2">
+                                        <p><span id="totalrecovered"></span></p>
+                                        <p><span id="rtoday"></span></p>
+                                        <p>Recovered</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 p-0">
+                                    <div id="nmdailyd">
+                                        <a>
+                                            <i class="fas fa-skull-crossbones"></i>
+                                        </a>
+                                    </div>
+                                    <div class="container-fluid p-0 pt-2">
+                                        <p><span id="totaldeaths"></span></p>
+                                        <p><span id="dtoday"></span></p>
+                                        <p>Deaths</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-0">
-                            <div class="col-4 p-0">
-                                <div id="nmdailyc">
-                                    <a><i class="fas fa-head-side-cough"></i></a>
-                                </div>
-                                <div class="container-fluid p-0 pt-2">
-                                    <p><span id="totalconfirmed"></span></p>
-                                    <p><span id="ctoday"></span></p>
-                                    <p>Cases</p>
-                                </div>
-                            </div>
-                            <div class="col-4 p-0">
-                                <div id="nmdailyr">
-                                    <a>
-                                        <i class="fas fa-smile"></i>
-                                    </a>
-                                </div>
-                                <div class="container-fluid p-0 pt-2">
-                                    <p><span id="totalrecovered"></span></p>
-                                    <p><span id="rtoday"></span></p>
-                                    <p>Recovered</p>
-                                </div>
-                            </div>
-                            <div class="col-4 p-0">
-                                <div id="nmdailyd">
-                                    <a>
-                                        <i class="fas fa-skull-crossbones"></i>
-                                    </a>
-                                </div>
-                                <div class="container-fluid p-0 pt-2">
-                                    <p><span id="totaldeaths"></span></p>
-                                    <p><span id="dtoday"></span></p>
-                                    <p>Deaths</p>
-                                </div>
+
+                        <div class="row p-0 m-0 mb-3">
+                            <div id="map">
+                                <div id="map1"></div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row p-0 m-0 mb-3">
-                        <div id="map">
-                            <div id="map1"></div>
+                    <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
+                        <div id="nmcardr">
+                            <div class="mycarousel pt-5" id="cccontainer">
+                                <canvas id="combined" width="300" height="260"></canvas>
+                            </div>
+                            <div class="mycarousel pl-5 pt-5">
+                                <p>Infection History</p>
+                                <div id="linegraphc"></div>
+                            </div>
+                            <div class="mycarousel pl-5 pt-5">
+                                <p>Recovery History</p>
+                                <div id="linegraphr"></div>
+                            </div>
+                            <div class="mycarousel pl-5 pt-5">
+                                <p>Death History</p>
+                                <div id="linegraphd"></div>
+                            </div>
+                            <div class="mycarousel pt-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-7">
+                                        <canvas id="rrdonut" width="300" height="250"></canvas>
+                                    </div>
+                                    <div class="col-7">
+                                        <canvas id="drdonut" width="300" height="250"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="nmnxt">
+                                <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                            </div>
+                            <div id="nmprev">
+                                <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
+                            </div>
+                            <!-- The dots/circles -->
+                            <div id="icontainer">
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
-                    <div id="nmcardr">
-                        <div class="mycarousel pt-5" id="cccontainer">
-                            <canvas id="combined" width="300" height="260"></canvas>
+
+
+
+                <div class="col-12 mt-3" id="globalstats">
+                    <div class="container-fluid m-0 p-0" id=gcontainer>
+                        <h1>Global Statistics</h1>
+                        <div class="row justify-content-around">
+                            <div class="col-md-4 col-12">
+                                <p id="totalc"></p>
+                                <p id="worldCIncrease"></p>
+                                <p id="worldtxt1">Confirmed Cases</p>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <p id="totalr"></p>
+                                <p id="worldRIncrease"></p>
+                                <p id="worldtxt2">Recovered</p>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <p id="totald"></p>
+                                <p id="worldDIncrease"></p>
+                                <p id="worldtxt3">Deaths Worldwide</p>
+                            </div>
                         </div>
-                        <div class="mycarousel pl-5 pt-5">
-                            <p>Infection History</p>
-                            <div id="linegraphc"></div>
+                        <!-- <video autoplay muted loop id="myVideo">
+                            <source src="images/Pexels Videos 1851190.mp4" type="video/mp4">
+                        </video> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mt-3">
+                            <div id="wscontainer">
+                                <canvas id="worldstats" width="250" height="250"></canvas>
+                            </div>
                         </div>
-                        <div class="mycarousel pl-5 pt-5">
-                            <p>Recovery History</p>
-                            <div id="linegraphr"></div>
-                        </div>
-                        <div class="mycarousel pl-5 pt-5">
-                            <p>Death History</p>
-                            <div id="linegraphd"></div>
-                        </div>
-                        <div class="mycarousel pt-5">
+                        <div class="col-12 col-md-6 mb-5 mt-3">
                             <div class="row justify-content-center">
                                 <div class="col-7">
-                                    <canvas id="rrdonut" width="300" height="250"></canvas>
+                                    <canvas id="wrrdonut" width="300" height="250"></canvas>
                                 </div>
                                 <div class="col-7">
-                                    <canvas id="drdonut" width="300" height="250"></canvas>
+                                    <canvas id="wdrdonut" width="300" height="250"></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div id="nmnxt">
-                            <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6">
+                            <canvas id="pie-chart" width="450" height="450"></canvas>
                         </div>
-                        <div id="nmprev">
-                            <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
-                        </div>
-                        <!-- The dots/circles -->
-                        <div id="icontainer">
-                            <span class="cindicator"></span>
-                            <span class="cindicator"></span>
-                            <span class="cindicator"></span>
-                            <span class="cindicator"></span>
-                            <span class="cindicator"></span>
+                        <div class="col-12 col-md-6 mt-5 p-3" id="info">
+                            <h1>What is COVID-19?</h1>
+                            <p>Coronavirus disease (COVID-19) is an infectious
+                                disease caused by a newly discovered coronavirus.
+                                Older people, and those with underlying medical problems
+                                like cardiovascular disease, diabetes, chronic respiratory
+                                disease, and cancer are more likely to develop serious illness.</p>
+                            <p>Symptoms: mild to moderate respiratory illness</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-            <div class="col-12 mt-3" id="globalstats">
-                <div class="container-fluid m-0 p-0" id=gcontainer>
-                    <h1>Global Statistics</h1>
-                    <div class="row justify-content-around">
-                        <div class="col-md-4 col-12">
-                            <p id="totalc"></p>
-                            <p id="worldCIncrease"></p>
-                            <p id="worldtxt1">Confirmed Cases</p>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <p id="totalr"></p>
-                            <p id="worldRIncrease"></p>
-                            <p id="worldtxt2">Recovered</p>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <p id="totald"></p>
-                            <p id="worldDIncrease"></p>
-                            <p id="worldtxt3">Deaths Worldwide</p>
-                        </div>
-                    </div>
-                    <!-- <video autoplay muted loop id="myVideo">
-                        <source src="images/Pexels Videos 1851190.mp4" type="video/mp4">
-                    </video> -->
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 mt-3">
-                        <div id="wscontainer">
-                            <canvas id="worldstats" width="250" height="250"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 mb-5 mt-3">
-                        <div class="row justify-content-center">
-                            <div class="col-7">
-                                <canvas id="wrrdonut" width="300" height="250"></canvas>
-                            </div>
-                            <div class="col-7">
-                                <canvas id="wdrdonut" width="300" height="250"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-6">
-                        <canvas id="pie-chart" width="450" height="450"></canvas>
-                    </div>
-                    <div class="col-12 col-md-6 mt-5 p-3" id="info">
-                        <h1>What is COVID-19?</h1>
-                        <p>Coronavirus disease (COVID-19) is an infectious
-                            disease caused by a newly discovered coronavirus.
-                            Older people, and those with underlying medical problems
-                            like cardiovascular disease, diabetes, chronic respiratory
-                            disease, and cancer are more likely to develop serious illness.</p>
-                        <p>Symptoms: mild to moderate respiratory illness</p>
-                    </div>
-                </div>
-            </div>
-
-
         </section>
     </main>
     <footer></footer>

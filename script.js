@@ -1,5 +1,28 @@
 $(function () {
 
+    //menu
+    let menudisplay = "off"
+    
+    $("#searchbtn").click(function(){
+        if (menudisplay == "off") {
+            $("#selectbg").css("transform","scale(70)")
+            setTimeout(function(){$("#searchbar").fadeToggle(1000)},200)
+            menudisplay = "on"
+        }
+
+        else if (menudisplay == "on") {
+            $("#selectbg").css("transform","scale(1)")
+            $("#searchbar").fadeToggle()
+            menudisplay = "off"
+        }
+    })
+
+    $("#getData").click(function () {
+        $("#searchbar").hide()
+        $("#selectbg").css("transform","scale(1)")
+        menudisplay = "off"
+    })
+
     //carousell code
     let n = 0
     showSlide(n)
@@ -104,12 +127,7 @@ $(function () {
     getTop5()
     getGlobalTotalByDate()
 
-    $("#searchbtn").click(function () {
-        $("#searchbar").toggle()
-    })
-    $("#getData").click(function () {
-        $("#searchbar").toggle()
-    })
+   
     $("#globalbtn").click(function () {
         $("#nmcardl").toggle()
         $("#map").toggle()

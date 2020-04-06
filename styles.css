@@ -29,14 +29,14 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Noto Sans SC', sans-serif;
-    color: #303841;
+    color: #F3F3F3;
     scroll-behavior: smooth;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 body{
-    background-color: #F3F3F3;
+    background: linear-gradient(90deg, rgba(15,16,18,1) 0%, rgba(37,43,50,1) 49%, rgba(51,51,51,1) 100%);
 }
 
 
@@ -44,64 +44,63 @@ body{
     border: 3px solid gold;
 }
 
-/* header */
-header h1{
-    font-family:'Heebo', sans-serif;
-    font-weight: 800;
-    margin: 10px;
-    text-align: center;
-}
-
-header h6{
-    padding: 10px 5px;
-    font-family: 'Yantramanav', sans-serif;
-    text-align: center;
-    margin: -25px 0 0 10px;
-}
-
+/* search button */
 
 #searchbtn {
-    position: absolute;
+    position: fixed;
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    left:10px;
-    top:150px;
-    background-color: #303841;
+    left:20px;
+    top:20px;
+    background-color: #F3F3F3;
     border: none;
-    color: #F3F3F3;
+    color: #303841;
     font-family: 'Heebo', sans-serif;
     text-transform: uppercase;
     font-size: 16px;
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    z-index: 9999;
-    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
-                -5px -5px 10px 0 rgba(255,255,255,1);
+    z-index: 99999;
 }
 
-#searchbtn:hover , #globalbtn:hover {
+#searchbtn:hover {
     background-color: #F3F3F3;
     color: #303841;
 }
 
+#selectbg {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    left:20px;
+    top:20px;
+    background-color: #F3F3F3;
+    border: none;
+    transform: scale(1);
+    transition:transform ease-in 0.6s;
+    z-index: 99998;
+}
+
+
 /* search bar */
 #searchbar {
-    display: none;
-    transition: ease-in 0.5s;
+    display:none;
     width: 350px;
     height: 150px;
-    background-color: #303841;
-    position: absolute;
+    background-color: none;
+    position:fixed;
     border-radius: 10px;
-    top:200px;
-    left: 0%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     font-size: 16px;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 500;
-    color: #F3F3F3;
+    color: #303841;
     padding: 10px;
-    z-index: 9999;
+    z-index: 99999;
 }
 
 #searchbar i {
@@ -127,6 +126,37 @@ header h6{
     border: none;
     font-family: 'Noto Sans SC', sans-serif;
 }
+
+/* header */
+header h1{
+    font-family:'Heebo', sans-serif;
+    font-weight: 800;
+    margin: 10px auto;
+    text-align: center;
+    color: #F3F3F3;
+}
+
+header h6{
+    padding: 10px 5px;
+    font-family: 'Yantramanav', sans-serif;
+    text-align: center;
+    margin: -25px 0 0 10px;
+    color: #F3F3F3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #globalbtn {
     position: absolute;
