@@ -747,8 +747,11 @@ function getGlobalTotalByDate() {
                     data[i][j].date = data[i][j].date.substr(0, 8) + "0" + data[i][j].date.substr(8);
                 }
                 data[i][j].date = moment(data[i][j].date).format("DD/MM/YY")
+                
             }
         }
+
+        console.log("TEST",data)
 
         let totalc = 0
         let totalr = 0
@@ -763,6 +766,7 @@ function getGlobalTotalByDate() {
                     totald += data[i][j].deaths
                     past7global.push(data[i].slice(j - 6, j + 1))
                 }
+               
             }
         }
 
@@ -784,6 +788,7 @@ function getGlobalTotalByDate() {
                 totalc2 += (past7global[i][j].confirmed)
                 totalr2 += (past7global[i][j].recovered)
                 totald2 += (past7global[i][j].deaths)
+                past7global[i][j].date = moment(past7global[i][j].date, "DD/MM/YY").format("MM/DD")
             }
 
             past7cArr.push(totalc2)
