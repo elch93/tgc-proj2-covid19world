@@ -287,18 +287,23 @@ header h6{
 }
 
 #nmnxt {
-    right: 10px;
+    right: 20px;
 }
 
 #nmprev {
-    left: 10px;
+    left: 20px;
 }
 
 
 /* The dots/bullets/indicators */
+#icontainer{
+    position: absolute;
+    bottom:20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .cindicator {
-    position: relative;
-    top: 50px;
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -400,7 +405,7 @@ header h6{
 #wscontainer {
     min-width: 310px;
     max-width: 400px;
-    margin: 0 0 0px 15px;
+    margin: 0 auto;
 }
 
 /* left panel */
