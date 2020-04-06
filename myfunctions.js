@@ -124,7 +124,18 @@ function getCountryFlag() {
 }//get country flag end
 
 
-
+function convertDates(countrydata) {
+    //converting dates to ISO format
+    for (let i of countrydata) {
+        if (i.date[6] === "-") {
+            i.date = i.date.substr(0, 5) + "0" + i.date.substr(5);
+        }
+        if (i.date.length < 10) {
+            i.date = i.date.substr(0, 8) + "0" + i.date.substr(8);
+        }
+        i.date = moment(i.date).format("DD/MM/YY")
+    }
+}
 
 
 
@@ -151,16 +162,7 @@ function loadLatest() {
         //get the daily data
         let countrydata = response.data[`${countryname}`].reverse()
 
-        //converting dates to ISO format
-        for (let i of countrydata) {
-            if (i.date[6] === "-") {
-                i.date = i.date.substr(0, 5) + "0" + i.date.substr(5);
-            }
-            if (i.date.length < 10) {
-                i.date = i.date.substr(0, 8) + "0" + i.date.substr(8);
-            }
-            i.date = moment(i.date).format("DD/MM/YY")
-        }
+        convertDates(countrydata)
 
 
 
@@ -220,7 +222,7 @@ function loadLatest() {
                     dateArr.unshift(i.date)
                 }
 
-                
+
 
                 let countryline = new Chart(document.getElementById("combined"), {
                     type: 'line',
@@ -441,95 +443,106 @@ function loadLatest() {
                     count += 1
                 }
 
-                console.log("today's data", count)
-
                 for (let i in pomberdata) {
-                    for (let j in restcountries) {
-                        if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
-                            clist.push([i, restcountries[j].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Taiwan*") {
-                            clist.push([i, restcountries[221].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Vietnam") {
-                            clist.push([i, restcountries[244].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Korea, South") {
-                            clist.push([i, restcountries[210].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Czechia") {
-                            clist.push([i, restcountries[61].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "North Macedonia") {
-                            clist.push([i, restcountries[132].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Laos") {
-                            clist.push([i, restcountries[122].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Bolivia") {
-                            clist.push([i, restcountries[26].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Brunei") {
-                            clist.push([i, restcountries[36].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Iran") {
-                            clist.push([i, restcountries[107].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Moldova") {
-                            clist.push([i, restcountries[146].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Russia") {
-                            clist.push([i, restcountries[185].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Tanzania") {
-                            clist.push([i, restcountries[223].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "United Kingdom") {
-                            clist.push([i, restcountries[238].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Venezuela") {
-                            clist.push([i, restcountries[243].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-                        else if (i == "Syria") {
-                            clist.push([i, restcountries[220].latlng, pomberdata[i][0].confirmed, pomberdata[i][0].recovered, pomberdata[i][0].deaths])
-                            break
-                        }
-
-
-
-                    }
-
+                    convertDates(pomberdata[i])
                 }
+
+                console.log("PD", pomberdata)
+
+                for (let r = 0; r < 60; r++) {
+                    if (loaddate == pomberdata['Singapore'][r].date) {
+                        for (let i in pomberdata) {
+                            for (let j in restcountries) {
+                                if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
+                                    clist.push([i, restcountries[j].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Taiwan*") {
+                                    clist.push([i, restcountries[221].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Vietnam") {
+                                    clist.push([i, restcountries[244].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Korea, South") {
+                                    clist.push([i, restcountries[210].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Czechia") {
+                                    clist.push([i, restcountries[61].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "North Macedonia") {
+                                    clist.push([i, restcountries[132].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Laos") {
+                                    clist.push([i, restcountries[122].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Bolivia") {
+                                    clist.push([i, restcountries[26].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Brunei") {
+                                    clist.push([i, restcountries[36].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Iran") {
+                                    clist.push([i, restcountries[107].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Moldova") {
+                                    clist.push([i, restcountries[146].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Russia") {
+                                    clist.push([i, restcountries[185].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Tanzania") {
+                                    clist.push([i, restcountries[223].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "United Kingdom") {
+                                    clist.push([i, restcountries[238].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Venezuela") {
+                                    clist.push([i, restcountries[243].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+                                else if (i == "Syria") {
+                                    clist.push([i, restcountries[220].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                                    break
+                                }
+
+
+
+                            }
+
+                        }
+                    }//load date
+                }//loop end
+
+
+
 
                 let buglist = []
                 let list180 = []
@@ -586,6 +599,10 @@ function loadLatest() {
 
                 let map = L.map("map1", { zoomControl: true }).setView([1.35, 103.85], 6.5)
 
+                $('#getData').click(function(){
+                    map.remove()
+                })
+
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 18,
@@ -605,7 +622,9 @@ function loadLatest() {
         <p><b>Recovered:</b> ${clist[i][3]} <i class="fas fa-smile"></i></p>
         <p><b>Deaths:</b> ${clist[i][4]} <i class="fas fa-skull-crossbones"></i></p>
         `)
-                    m.on("click",function(){
+
+        
+                    m.on("click", function () {
                         getDataFromMap()
                     })
                     countrycluster.addLayer(m)
@@ -641,6 +660,8 @@ function loadLatest() {
 
 //#2 loadonclick
 function getData() {
+    // $('#map').empty()
+    // $('#map').append(`<div id="map1"></div>`)
     let countryselected = $("#countryselect").val()
     let dateselected = $("#dateselect").val()
     countryname = countryselected
@@ -739,19 +760,10 @@ function getGlobalTotalByDate() {
 
         //converting dates to ISO format
         for (let i in data) {
-            for (let j = 0; j < data[i].length; j++) {
-                if (data[i][j].date[6] === "-") {
-                    data[i][j].date = data[i][j].date.substr(0, 5) + "0" + data[i][j].date.substr(5);
-                }
-                if (data[i][j].date.length < 10) {
-                    data[i][j].date = data[i][j].date.substr(0, 8) + "0" + data[i][j].date.substr(8);
-                }
-                data[i][j].date = moment(data[i][j].date).format("DD/MM/YY")
-                
-            }
+            convertDates(data[i])
         }
 
-        console.log("TEST",data)
+        console.log("TEST", data)
 
         let totalc = 0
         let totalr = 0
@@ -766,7 +778,7 @@ function getGlobalTotalByDate() {
                     totald += data[i][j].deaths
                     past7global.push(data[i].slice(j - 6, j + 1))
                 }
-               
+
             }
         }
 
