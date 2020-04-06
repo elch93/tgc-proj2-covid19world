@@ -603,6 +603,19 @@ function loadLatest() {
                     map.remove()
                 })
 
+                var LeafIcon = L.Icon.extend({
+                    options: {
+                        // shadowUrl: 'leaf-shadow.png',
+                        iconSize:     [38, 35],
+                        shadowSize:   [0, 0],
+                        iconAnchor:   [22, 35],
+                        shadowAnchor: [4, 62],
+                        popupAnchor:  [0, -20]
+                    }
+                });
+
+                customIcon = new LeafIcon({iconUrl: 'https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/4482957981557740362-512.png'})
+
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 18,
@@ -614,7 +627,7 @@ function loadLatest() {
 
                 let countrycluster = L.markerClusterGroup()
                 for (let i = 0; i < clist.length; i++) {
-                    let m = L.marker([clist[i][1][0], clist[i][1][1]])
+                    let m = L.marker([clist[i][1][0], clist[i][1][1]], {icon: customIcon})
                     m.bindPopup(`
             <div id="flagdisplay2"></div>
             <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
