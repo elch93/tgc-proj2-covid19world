@@ -15,6 +15,9 @@ $(function () {
                 $(this).css("background-color", "#e3e3e3")
             })
         }
+
+        
+
         $(".mycarousel").eq(x).show()
         $(".cindicator").eq(x).css("background-color", "#34495B")
         $(".cindicator").eq(x).mouseover(function () {
@@ -44,6 +47,18 @@ $(function () {
             showSlide(i)
         })
     }
+
+    $("#nmdailyc").click(function(){
+        showSlide(1)
+    })
+
+    $("#nmdailyr").click(function(){
+        showSlide(2)
+    })
+
+    $("#nmdailyd").click(function(){
+        showSlide(3)
+    })
     //carousel code end
 
 
