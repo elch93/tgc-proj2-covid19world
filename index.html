@@ -105,7 +105,7 @@
     </header>
     <main>
         <section>
-            <div class="row p-0 m-0">
+            <div class="row p-0 m-0 mb-5">
                 <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
                     <div id="nmcardl">
                         <div class="row justify-content-center">
@@ -209,47 +209,55 @@
                 </div>
             </div>
             <div class="col-12 mt-3" id="globalstats">
-                <h1>Global Statistics</h1>
-                <div class="row justify-content-around">
-                    <div class="col-md-4 col-12">
-                        <p id="totalc"></p>
-                        <p id="worldCIncrease"></p>
-                        <p id="worldtxt1">Confirmed Cases</p>
+                <div class="container-fluid m-0 p-0" id=gcontainer>
+                    <h1>Global Statistics</h1>
+                    <div class="row justify-content-around">
+                        <div class="col-md-4 col-12">
+                            <p id="totalc"></p>
+                            <p id="worldCIncrease"></p>
+                            <p id="worldtxt1">Confirmed Cases</p>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <p id="totalr"></p>
+                            <p id="worldRIncrease"></p>
+                            <p id="worldtxt2">Recovered</p>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <p id="totald"></p>
+                            <p id="worldDIncrease"></p>
+                            <p id="worldtxt3">Deaths Worldwide</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 col-12">
-                        <p id="totalr"></p>
-                        <p id="worldRIncrease"></p>
-                        <p id="worldtxt2">Recovered</p>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <p id="totald"></p>
-                        <p id="worldDIncrease"></p>
-                        <p id="worldtxt3">Deaths Worldwide</p>
-                    </div>
+                    <!-- <video autoplay muted loop id="myVideo">
+                        <source src="images/Pexels Videos 1851190.mp4" type="video/mp4">
+                    </video> -->
                 </div>
+
                 <div class="container-fluid mt-3">
                     <div id="wscontainer">
                         <canvas id="worldstats" width="250" height="250"></canvas>
                     </div>
                 </div>
                 <div class="row justify-content-around mb-5 mt-3">
-                    <div class="col-4">
+                    <div class="col-7">
                         <canvas id="wrrdonut" width="300" height="250"></canvas>
                     </div>
-                    <div class="col-4">
+                    <div class="col-7">
                         <canvas id="wdrdonut" width="300" height="250"></canvas>
                     </div>
                 </div>
                 <div class="col-12">
-                    <canvas id="pie-chart" width="800" height="450"></canvas>
+                    <canvas id="pie-chart" width="450" height="450"></canvas>
                 </div>
-                <h1>What is COVID-19?</h1>
-                <p>Coronavirus disease (COVID-19) is an infectious
-                    disease caused by a newly discovered coronavirus.
-                    Older people, and those with underlying medical problems
-                    like cardiovascular disease, diabetes, chronic respiratory
-                    disease, and cancer are more likely to develop serious illness.</p>
-                <p>Symptoms: mild to moderate respiratory illness</p>
+                <div class="row mt-5 p-3" id="info">
+                    <h1>What is COVID-19?</h1>
+                    <p>Coronavirus disease (COVID-19) is an infectious
+                        disease caused by a newly discovered coronavirus.
+                        Older people, and those with underlying medical problems
+                        like cardiovascular disease, diabetes, chronic respiratory
+                        disease, and cancer are more likely to develop serious illness.</p>
+                    <p>Symptoms: mild to moderate respiratory illness</p>
+                </div>
             </div>
 
 

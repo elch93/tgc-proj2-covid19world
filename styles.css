@@ -408,6 +408,33 @@ header h6{
     margin: 0 auto;
 }
 
+#gcontainer {
+    position: relative;
+    color: #303841;
+}
+
+#gcontainer h1{
+    color:#303841 ;
+    z-index: 99;
+}
+
+#gcontainer video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height:100%;
+}
+
+#info {
+    text-align: justify;
+}
+
+#info h1 {
+    font-family: 'Heebo', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
 /* left panel */
 /* #overview {
     border: white solid 1px;
