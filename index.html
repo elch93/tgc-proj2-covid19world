@@ -79,8 +79,8 @@
 <body>
     <header>
         <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
-        <h6>COVID-19 STATS TRACKER</h6>
-            <!-- <button id="globalbtn"><i class="fas fa-globe-asia"></i></button> -->
+        <h6><i class="fas fa-viruses"></i>COVID-19 STATS TRACKER<i class="fas fa-viruses"></i></h6>
+        <!-- <button id="globalbtn"><i class="fas fa-globe-asia"></i></button> -->
     </header>
     <main>
         <section>
@@ -104,20 +104,52 @@
             </div>
             <!-- option end -->
             <!-- menu end -->
-            <div class="row gbor">
+            <div class="row gbor p-3">
                 <div class="col-9 gbor">
-                    <div class="row gbor">country date name</div>
                     <div class="row gbor">
-                        <div class="col-6 gbor">overview daily</div>
+                        <div class="col-3 gbor pt-3">
+                            <div id="flagdisplay"></div>
+                        </div>
+                        <div class="col-5 gbor pt-3">
+                            <div id="countrydisplay"></div>
+                            <div id="datedisplay"></div>
+                        </div>
+                        <div class="col-4 gbor">
+                            blah???
+                        </div>
+                    </div>
+                    <div class="row gbor">
+                        <div class="col-6 gbor">
+                            <div class="row" id="overview">
+                                <div class="container-fluid p-0 pt-3">
+                                    <span id="ccbar"></span>
+                                    <p><span id="totalconfirmed"></span>&nbsp;<span id="ctoday"></span></p>
+                                    <p class="pt-2">Total Cases</p>
+                                </div>
+                                <div class="container-fluid p-0 pt-3">
+                                    <span id="crbar"></span>
+                                    <p><span id="totalrecovered"></span>&nbsp;<span id="rtoday"></span></p>
+                                    <p class="pt-2">Total Cases</p>
+                                </div>
+                                <div class="container-fluid p-0 pt-3">
+                                    <span id="cdbar"></span>
+                                    <p><span id="totaldeaths"></span>&nbsp;<span id="dtoday"></span></p>
+                                    <p class="pt-2">Total Cases</p>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="col-6 gbor">carousel</div>
                     </div>
                 </div>
                 <div class="col-3 gbor">
-                    <div class="row gbor">map</div>
-                    <div class="row gbor">world list</div>
+                    <div class="row gbor">
+                        map
+                    </div>
+                    <div class="row gbor">global stats</div>
                 </div>
             </div>
-
+            <div class="row p-3 gbor">world list</div>
 
 
 
@@ -130,14 +162,13 @@
                         <div id="nmcardl">
                             <div class="row justify-content-center">
                                 <div class="col-4">
-                                    <div id="flagdisplay"></div>
                                 </div>
                                 <div class="col-6">
                                     <div class="row p-0 m-0">
-                                        <span id="countrydisplay"></span>
+
                                     </div>
                                     <div class="row m-0 p-0">
-                                        <span id="datedisplay"></span>
+
                                     </div>
                                 </div>
                             </div>

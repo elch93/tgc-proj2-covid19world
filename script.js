@@ -18,7 +18,7 @@ $(function () {
     })
 
     $("#getData").click(function () {
-        $("#searchbar").hide()
+        $("#searchbar").fadeToggle()
         $("#selectbg").css("transform","scale(1)")
         menudisplay = "off"
     })
@@ -133,10 +133,10 @@ $(function () {
         $("#map").toggle()
     })
 
-    setTimeout(
-        function () {
-            $("#map").fadeToggle()
-        }, 800
-    )
+    // setTimeout(
+    //     function () {
+    //         $("#map").fadeToggle()
+    //     }, 800
+    // )
 
 })//jquery end

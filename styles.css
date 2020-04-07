@@ -2,6 +2,7 @@
 orange: #EC971F
 white: #F3F3F3
 black: #303841
+lblack: #313546
 grey: #e3e3e3
 green: #01D1B3
 red: #EC4E6D
@@ -105,7 +106,8 @@ body{
 
 #searchbar i {
     font-size: 20px;
-    margin-right: 10px;
+    text-align: center;
+    margin: 5px;
 }
 
 #searchbar div {
@@ -115,9 +117,9 @@ body{
 #searchbar button {
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
     background-color: gold;
-    margin: 5px;
+    padding: 5px;
+    
 }
 
 #searchbar select {
@@ -144,18 +146,77 @@ header h6{
     color: #F3F3F3;
 }
 
+/* country name date */
+#flagdisplay {
+    height: 60px;
+    width: 100px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0px auto 0px 0;
+}
 
+#topcontainer {
+    height: 100px;
+    background-color: #313546;
+}
 
+#countrydisplay {
+    font-family: 'Catamaran', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+}
 
+#datedisplay {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0px auto;
+}
 
+/* overview */
+#overview .col-4 {
+    text-align: center;
+    position: relative;;
+}
 
+#ccbar, #crbar, #cdbar {
+    position: absolute;
+    top:30px;
+    left:8px;
+    height: 40px;
+    width: 5px;
+    background-color: gold;
+}
 
+#crbar {
+    top: 102px;
+    background-color: #01D1B3;
+}
 
+#cdbar {
+    top: 175px;
+    background-color: #EC4E6D;
+}
 
+#overview p {
+    margin: -10px 0 0 0;
+    padding: 0 0 0 20px;
+}
 
+#totalconfirmed, #totalrecovered, #totaldeaths {
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Yantramanav', sans-serif;
+}
 
+#ctoday, #rtoday, #dtoday {
+    font-size: 20px;
+    font-weight: 900;
+}
 
-
+/* 
 
 
 #globalbtn {
@@ -177,11 +238,11 @@ header h6{
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
     box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
                 -5px -5px 10px 0 rgba(255,255,255,1);
-}
+} */
 
 
 /* country stats */
-
+/*
 #nmcardl, #nmcardr, #map {
     position: relative;
     height: 450px;
@@ -197,45 +258,18 @@ header h6{
 
 
 
-#flagdisplay {
-    height: 75px;
-    width: 100px;
-    border-radius: 10px;
-    border: 1px solid #F3F3F3;
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
-                0px -5px 5px 3px rgba(255,255,255,0.7),
-                0px 0px 1px 5px #e3e3e3,
-                0px 5px 10px 0 rgba(0,0,0,0.2);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin: 10px auto;
-}
 
-#countrydisplay {
-    color: #303841;
-    font-family: 'Catamaran', sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0px auto 0px auto;
-    font-size: 20px;
-}
 
-#datedisplay {
-    color: #303841;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 18px;
-    margin: 0px auto;
-}
+
+
+
 
 #nmdailyc, #nmdailyr, #nmdailyd {
-    margin: 40px auto 10px auto;
-    height: 80px;
-    width: 80px;
+    margin: 20px auto 10px auto;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    background-color: #F3F3F3;
+    background-color: #303841;
     text-align: center;
     transition: box-shadow 0.2s ease-in;
     cursor: pointer;
@@ -246,13 +280,12 @@ header h6{
                 0px -5px 5px 3px rgba(255,255,255,0.7),
                 0px 0px 1px 5px  #303841,
                 0px 5px 10px 0 rgba(0,0,0,0.2),
-                0px -5px 10px 0 rgba(255,255,255,0.3),
-                0px 0px 3px 8px #e3e3e3;
+                0px -5px 10px 0 rgba(255,255,255,0.3);
 }
 
 #nmdailyc i, #nmdailyr i, #nmdailyd i {
-    font-size: 30px;
-    margin: 20px;
+    font-size: 20px;
+    margin:15px auto;
 }
 
 #nmdailyc { 
@@ -294,7 +327,7 @@ header h6{
 #totalconfirmed, #totalrecovered, #totaldeaths {
     font-size: 20px;
     font-weight: 900;
-}
+} */
 
 /* right panel */
 #nmcardr {
