@@ -30,24 +30,24 @@ $(function () {
     function showSlide(x) {
         for (let i = 0; i < $(".mycarousel").length; i++) {
             $(".mycarousel").eq(i).hide()
-            $(".cindicator").eq(i).css("background-color", "#313546")
+            $(".cindicator").eq(i).css("background-color", "#e3e3e3")
             $(".cindicator").eq(i).mouseover(function () {
                 $(this).css("background-color", "#EC4E6D")
             })
             $(".cindicator").eq(i).mouseout(function () {
-                $(this).css("background-color", "#313546")
+                $(this).css("background-color", "#e3e3e3")
             })
         }
 
         
 
         $(".mycarousel").eq(x).show()
-        $(".cindicator").eq(x).css("background-color", "#F3F3F3")
+        $(".cindicator").eq(x).css("background-color", "#EA7361")
         $(".cindicator").eq(x).mouseover(function () {
-            $(this).css("background-color", "#EC4E6D")
+            $(this).css("background-color", "#82124A")
         })
         $(".cindicator").eq(x).mouseout(function () {
-            $(this).css("background-color", "#F3F3F3")
+            $(this).css("background-color", "#EA7361")
         })
     }
 
@@ -87,7 +87,7 @@ $(function () {
 
     let countrylist = []
     loadLatest()
-
+    
     //adding countries & dates to options
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
 
@@ -102,11 +102,11 @@ $(function () {
                 continue
             }
             if (i == "US") {
-                $("#countryselect").append(`<option value="United States of America">United States of America</option>`)
+                $("#countryselect").append(`<option value="US">United States of America</option>`)
                 continue
             }
             if (i == "Taiwan*") {
-                $("#countryselect").append(`<option value="Taiwan">Taiwan</option>`)
+                $("#countryselect").append(`<option value="Taiwan*">Taiwan</option>`)
                 continue
             }
             $("#countryselect").append(`<option value="${i}">${i}</option>`)
@@ -132,14 +132,9 @@ $(function () {
 
     })//axios for country list
 
-    getTop5()
-    getGlobalTotalByDate()
+    //getTop5()
+    //getGlobalTotalByDate()
 
-   
-    $("#globalbtn").click(function () {
-        $("#nmcardl").toggle()
-        $("#map").toggle()
-    })
 
     // setTimeout(
     //     function () {

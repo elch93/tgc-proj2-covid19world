@@ -196,7 +196,7 @@ function loadLatest() {
                     $("#countrydisplay").empty()
                     $("#countrydisplay").append("Taiwan")
                 }
-                
+
 
                 let dailyIncrease = parseInt(countrydata[i].confirmed) - parseInt(countrydata[i + 1].confirmed)
                 let dailyRecovered = parseInt(countrydata[i].recovered) - parseInt(countrydata[i + 1].recovered)
@@ -258,19 +258,19 @@ function loadLatest() {
                         datasets: [{
                             data: cArr,
                             label: "Total",
-                            borderColor: "gold",
+                            borderColor: "#F2471F",
                             pointBackgroundColor: "gold",
                             fill: false
                         }, {
                             data: rArr,
                             label: "Recovered",
-                            borderColor: "#01D1B3",
+                            borderColor: "#049090",
                             pointBackgroundColor: "#01D1B3",
                             fill: false
                         }, {
                             data: dArr,
                             label: "Deaths",
-                            borderColor: "#EC4E6D",
+                            borderColor: "#82124A",
                             pointBackgroundColor: "#EC4E6D",
                             fill: false
                         }
@@ -284,37 +284,37 @@ function loadLatest() {
                             text: 'Trend (Past 7 Days)',
                             padding: 30,
                         },
-                        legend:{
+                        legend: {
                             position: 'bottom',
                             labels: {
                                 fontColor: '#F3F3F3',
                             }
                         },
                         scales: {
-                            
+
                             xAxes: [{
                                 ticks: {
                                     fontColor: '#e3e3e3',
                                 },
                                 gridLines: {
-                                    zeroLineWidth:1,
-                                    zeroLineColor:" #e3e3e3",
+                                    zeroLineWidth: 1,
+                                    zeroLineColor: " #e3e3e3",
                                     color: "rgba(255,255,255,0.2)",
                                 },
                             }],
                             yAxes: [{
                                 ticks: {
-                                    
+
                                     fontColor: '#e3e3e3',
                                 },
                                 gridLines: {
-                                    zeroLineWidth:1,
-                                    zeroLineColor:" #e3e3e3",
+                                    zeroLineWidth: 1,
+                                    zeroLineColor: " #e3e3e3",
                                     color: "rgba(255,255,255,0.2)",
                                 },
                             }],
                         }
-                        
+
                     }
                 });
 
@@ -328,17 +328,19 @@ function loadLatest() {
                 $("#getData").click(function () {
                     $("#cccontainer").empty()
                     countryline.destroy()
-                    $("#cccontainer").append(`<canvas id="combined" width="300" height="260"></canvas>`)
+                    $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
                 })
 
 
                 //allows map navigation
                 function getDataFromMap() {
                     $("#cccontainer").empty()
+                    cdr.destroy()
+                    crr.destroy()
                     countryline.destroy()
                     setTimeout(function () {
                         countryname = $("#countryOnMap").text()
-                        $("#cccontainer").append(`<canvas id="combined" width="300" height="260"></canvas>`)
+                        $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
                         loadLatest()
                     }, 1000)
                 }
@@ -419,13 +421,13 @@ function loadLatest() {
                 let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderr = 100 - recoveryrate
                 //recovery rates chart
-                new Chart(document.getElementById("rrdonut"), {
+                let crr = new Chart(document.getElementById("rrdonut"), {
                     type: 'doughnut',
                     data: {
                         labels: [],
                         datasets: [
                             {
-                                backgroundColor: ["#01D1B3", "#F3F3F3"],
+                                backgroundColor: ["#049090", "#F3F3F3"],
                                 data: [recoveryrate, remainderr],
                                 borderWidth: 0,
                             }
@@ -446,13 +448,13 @@ function loadLatest() {
                 let deathrate = ((countrydata[i].deaths / countrydata[i].confirmed) * 100).toFixed(2)
                 let remainderd = 100 - recoveryrate
                 //death rates chart
-                new Chart(document.getElementById("drdonut"), {
+                let cdr = new Chart(document.getElementById("drdonut"), {
                     type: 'doughnut',
                     data: {
                         labels: [],
                         datasets: [
                             {
-                                backgroundColor: ["#EC4E6D", "#F3F3F3"],
+                                backgroundColor: ["#82124A", "#F3F3F3"],
                                 data: [deathrate, remainderd],
                                 borderWidth: 0
                             }
@@ -479,6 +481,15 @@ function loadLatest() {
                 let restcountries = r[0].data
                 let pomberdata = r[1].data
                 let clist = []
+
+
+                if (countrymap == "Taiwan") {
+                    countrymap = "Taiwan*"
+                }
+            
+                if (countrymap == "United States of America") {
+                    countrymap = "US"
+                }
 
                 for (let i in pomberdata) {
                     pomberdata[i].reverse()
@@ -628,7 +639,7 @@ function loadLatest() {
                 // console.log("after", list180)
                 // console.log("map count", count2)
                 // console.log("bug count",count3)
-
+               
 
 
                 let coordinates = undefined
@@ -692,14 +703,44 @@ function loadLatest() {
                 let countrycluster = L.markerClusterGroup()
                 for (let i = 0; i < clist.length; i++) {
                     let m = L.marker([clist[i][1][0], clist[i][1][1]], { icon: customIcon })
-                    m.bindPopup(`
-            <div id="flagdisplay2"></div>
-            <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
-        <p><b>Total:</b> ${clist[i][2]} <i class="fas fa-head-side-cough"></i></p>
-        <p><b>Recovered:</b> ${clist[i][3]} <i class="fas fa-smile"></i></p>
-        <p><b>Deaths:</b> ${clist[i][4]} <i class="fas fa-skull-crossbones"></i></p>
-        `)
 
+                    m.bindPopup(`
+                    <div id="popup">
+                        <div id="flagdisplay2"></div>
+                        <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
+                        <div class="row" id="overview">
+                            <div class="col-12 pt-3">
+                                <p class="pt-2 pb-3">Total Cases</p>
+                                <p>
+                                    <span id="totalconfirmed"></span>
+                                </p>
+                                <p class="pt-2">
+                                    <span id="ctoday"></span>
+                                </p>
+                            </div>
+                            <div class="col-12 pt-3">
+                                <p class="pt-2 pb-3">Total Recovered</p>
+                                <p>
+                                    <span id="totalrecovered"></span>
+                                </p>
+                                <p class="pt-2">
+                                    <span id="rtoday"></span>
+                                </p>
+                            </div>
+                            <div class="col-12 pt-3">
+                                <p class="pt-2 pb-3">Total Deaths</p>
+                                <p>
+                                    <span id="totaldeaths"></span>
+                                </p>
+                                <p class="pt-2">
+                                    <span id="dtoday"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        `)
+                    
+                    
 
                     m.on("click", function () {
                         getDataFromMap()
@@ -747,17 +788,18 @@ function getData() {
     countrymap = countryselected
     $('#map').append(`<div id="map1"></div>`)
 
-    if ($("#map").is(":visible") == false) {
-        $('#map').toggle()
-        setTimeout(
-            function () {
-                $("#map").fadeToggle()
-            }, 800
-        )
-    }
+    // if ($("#map").is(":visible") == false) {
+    //     $('#map').toggle()
+    //     setTimeout(
+    //         function () {
+    //             $("#map").fadeToggle()
+    //         }, 800
+    //     )
+    // }
 
     loadLatest()
-    getGlobalTotalByDate()
+    getMap()
+    //getGlobalTotalByDate()
 
 }
 
@@ -970,7 +1012,7 @@ function getGlobalTotalByDate() {
                 labels: [],
                 datasets: [
                     {
-                        backgroundColor: ["#01D1B3", "#303841"],
+                        backgroundColor: ["#049090", "#303841"],
                         data: [worldRR, (100 - worldRR)],
                         borderWidth: 0,
                     }
@@ -993,7 +1035,7 @@ function getGlobalTotalByDate() {
                 labels: [],
                 datasets: [
                     {
-                        backgroundColor: ["#EC4E6D", "#303841"],
+                        backgroundColor: ["#82124A", "#303841"],
                         data: [worldDR, (100 - worldDR)],
                         borderWidth: 0,
                     }

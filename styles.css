@@ -1,11 +1,13 @@
 /* colors:
-orange: #EC971F
+orange: #F2471F
 white: #F3F3F3
 black: #303841
 lblack: #313546
 grey: #e3e3e3
 green: #01D1B3
+newgreen: #049090
 red: #EC4E6D
+wine: #82124A
 brown: #916953
 pink: #fcb5b5
 apricot: #ffcdbc
@@ -13,7 +15,6 @@ lightbrown: #cf8e80
 vintage: #E8E4B8
 vintageblk: #34495B
 vintageshadow: #EA7361
-background: rgb(233,154,47);
 background: linear-gradient(90deg, rgba(233,154,47,1) 0%, rgba(235,148,30,1) 50%, rgba(227,131,0,1) 100%); 
 
 
@@ -40,10 +41,47 @@ body{
     background: linear-gradient(90deg, rgba(15,16,18,1) 0%, rgba(37,43,50,1) 49%, rgba(51,51,51,1) 100%);
 }
 
-
-/* .gbor {
+/* main */
+.gbor {
     border: 3px solid gold;
-} */
+}
+
+.red {
+    color:#EC4E6D;
+    margin: 0 0 0 5px;
+}
+
+.green {
+    color:#01D1B3;
+    margin: 0 0 0 5px;
+}
+
+.green, .red {
+    animation-name: bounce;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-duration: 0.7s;
+}
+
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#linegraphc svg, #top5chart svg, #linegraphr svg, #linegraphd svg {
+    overflow: visible;
+}
+
 
 /* search button */
 
@@ -150,6 +188,49 @@ header h6{
     color: #F3F3F3;
 }
 
+.fa-virus {
+    animation-name: rotate;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+#map1 {
+    height: 100%;
+    border-radius: 10px;
+}
+
+#panel {
+    position: absolute;
+    height: 550px;
+    width: 380px;
+    border: 1px rgba(0,0,0,0.4) solid;
+    z-index: 99997;
+    top: 100px;
+    right:30px;
+    background-color: #303841;
+    box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
+}
+
 /* country name date */
 #flagdisplay {
     height: 60px;
@@ -157,80 +238,61 @@ header h6{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    margin: 0px auto 0px 0;
-}
-
-#topcontainer {
-    height: 100px;
-    background-color: #313546;
+    margin: 10px 0px 0px 10px;
 }
 
 #countrydisplay {
     font-family: 'Catamaran', sans-serif;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #datedisplay {
     font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 18px;
-    margin: 0px auto;
+    text-align: center;
+    margin: 15px 0 -20px 0;
 }
 
 /* overview */
+#popup {
+    padding: 0 0 0 -10px;
+}
+
 #overview .col-4 {
-    text-align: center;
+    text-align: left;
     position: relative;;
-}
-
-#ccbar, #crbar, #cdbar {
-    position: absolute;
-    top:30px;
-    left:8px;
-    height: 40px;
-    width: 5px;
-    background-color: gold;
-    transition: width ease-in 0.4s;
-    
-}
-
-#crbar {
-    top: 102px;
-    background-color: #01D1B3;
-}
-
-#cdbar {
-    top: 175px;
-    background-color: #EC4E6D;
 }
 
 #overview p {
     margin: -10px 0 0 0;
-    padding: 0 0 0 20px;
+    font-size: 16px;
 }
 
 #overview .container-fluid{
     padding: 0px;
-    transition: padding ease-in 0.4s;
 }
 
 #totalconfirmed, #totalrecovered, #totaldeaths {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 900;
     font-family: 'Yantramanav', sans-serif;
 }
 
 #ctoday, #rtoday, #dtoday {
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 
-/* right panel */
+/* carousel */
+#donutcontainer {
+    height: 300px;
+    width: 300px;
+}
+
 #carouselcontainer {
     height: 450px;
+    max-width: 500px;
     padding: 10px 30px;
     font-size: 18px;
     color: #303841;
@@ -306,19 +368,19 @@ header h6{
 
 #linegraphc .line {
     fill:none;
-    stroke: gold;
+    stroke: #F2471F;
     stroke-width: 3px;
 }
 
 #linegraphr .line {
     fill:none;
-    stroke: #01D1B3;
+    stroke: #049090;
     stroke-width: 3px;
 }
 
 #linegraphd .line {
     fill:none;
-    stroke: #EC4E6D;
+    stroke: #82124A;
     stroke-width: 3px;
     }
 
@@ -333,131 +395,11 @@ header h6{
     stroke: #F3F3F3 !important;
 }
 
-#map {
-    height: 450px;
-}
 
-#map1 {
-    height: 100%;
-    border: 5px solid #F3F3F3;
-}
-
-/* 
-
-
-#globalbtn {
-    position: absolute;
-    left:0px;
-    top:200px;
-    background-color: #303841;
-    border: none;
-    color: #F3F3F3;
-    font-family: 'Heebo', sans-serif;
-    text-transform: uppercase;
-    font-size: 16px;
-    padding: 3px 5px;
-    margin: 0 0 0 10px;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    z-index: 9999;
-    transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
-                -5px -5px 10px 0 rgba(255,255,255,1);
-} */
-
-
-/* country stats */
-/*
-#nmcardl, #nmcardr, #map {
-    position: relative;
-    height: 450px;
-    min-width: 355px;
-    width: 400px;
-    padding: 15px;
-    background-color: #F3F3F3;
-    border-radius: 10px;
-    border: 3px solid rgba(255,255,255,0.3);
-    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15),
-                -5px -5px 10px 0 rgba(255,255,255,1);
-}
-
-
-
-
-
-
-
-
-
-#nmdailyc, #nmdailyr, #nmdailyd {
-    margin: 20px auto 10px auto;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: #303841;
-    text-align: center;
-    transition: box-shadow 0.2s ease-in;
-    cursor: pointer;
-}
-
-#nmdailyc:hover, #nmdailyr:hover, #nmdailyd:hover {
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
-                0px -5px 5px 3px rgba(255,255,255,0.7),
-                0px 0px 1px 5px  #303841,
-                0px 5px 10px 0 rgba(0,0,0,0.2),
-                0px -5px 10px 0 rgba(255,255,255,0.3);
-}
-
-#nmdailyc i, #nmdailyr i, #nmdailyd i {
-    font-size: 20px;
-    margin:15px auto;
-}
-
-#nmdailyc { 
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
-                0px -5px 5px 3px rgba(255,255,255,0.7),
-                0px 0px 1px 5px #EC971F,
-                0px 5px 10px 0 rgba(0,0,0,0.2),
-                0px -5px 10px 0 rgba(255,255,255,0.3),
-                0px 0px 3px 8px #e3e3e3;
-}
-
-#nmdailyr {
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
-                0px -5px 5px 3px rgba(255,255,255,0.7),
-                0px 0px 1px 5px #01D1B3,
-                0px 5px 10px 0 rgba(0,0,0,0.2),
-                0px -5px 10px 0 rgba(255,255,255,0.3),
-                0px 0px 3px 8px #e3e3e3;
-}
-
-#nmdailyd {
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.2),
-                0px -5px 5px 3px rgba(255,255,255,0.7),
-                0px 0px 1px 5px #EC4E6D,
-                0px 5px 10px 0 rgba(0,0,0,0.2),
-                0px -5px 10px 0 rgba(255,255,255,0.3),
-                0px 0px 3px 8px #e3e3e3;
-}
-
-#nmcardl p {
-    text-align: center;
-    font-size: 16px;
-}
-
-#nmcardl {
-    z-index: 9998;
-}
-
-#totalconfirmed, #totalrecovered, #totaldeaths {
-    font-size: 20px;
-    font-weight: 900;
-} */
 
 
 /* global stats */
-#globalstats .col-4 {
+/* #globalstats .col-4 {
     text-align: center;
 }
 
@@ -505,12 +447,6 @@ header h6{
     z-index: 99;
 }
 
-#gcontainer video {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height:100%;
-}
 
 #info {
     text-align: justify;
@@ -520,242 +456,8 @@ header h6{
     font-family: 'Heebo', sans-serif;
     text-align: center;
     font-size: 24px;
-}
-
-/* left panel */
-/* #overview {
-    border: white solid 1px;
-    border-radius: 10px;
-    background: #e3e3e3;
-    font-size: 16px;
-}
-
-
-#flagdisplay {
-    margin: 15px;
-    text-align: center;
-}
-
-#flagdisplay img {
-    height: 50px;
-}
-
-#overview #countrydisplay, #datedisplay {
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 900;
-}
-
-.fa-head-side-cough, .fa-smile, .fa-skull-crossbones {
-    font-size: 50px;
-    margin: 10px;
-    display: block;
-}
-
-#totalconfirmed, #totalrecovered, #totaldeaths {
-    font-size: 20px;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 900;
-}
-
-#ctoday, #rtoday, #dtoday {
-    font-size: 16px;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 900;
-}
-
-#overview p{
-    font-size: 16px;
-}
-
-
-#countrydetailsbtn {
-    border-radius: 10px;
-    padding:10px 10px;
-    background-color:#303841 ;
-    color: #F3F3F3;
-    border: none;
-    font-size: 16px;
-    margin: 20px auto;
-    display: block;
-}
-
-#cccontainer {
-    width: 350px;
 } */
 
-/* right panel */
-/* #world {
-    border: white solid 1px;
-    border-radius: 10px;
-    background: #303841;
-    font-size: 18px;
-    color: #F3F3F3;
-    font-family: 'Oswald', sans-serif;
-}
-
-#world p {
-    margin: 0px 0 5px 20px;
-}
-
-#world .col-4 {
-    padding: 15px 0 0 10px;
-}
-
-#map1 {
-    height: 320px;
-    width: 320px;
-    border-radius: 50%;
-    margin: 20px auto;
-    border: 5px solid #F3F3F3;
-}
-
-#worldtxt1, #worldtxt2, #worldtxt3 {
-    font-size: 24px;
-    font-family: 'Oswald', sans-serif;
-}
-
-#totalc {
-    font-size: 36px;
-    color: #F3F3F3;
-    font-family: 'Heebo', sans-serif;
-}
-
-#totalr {
-    font-size: 36px;
-    color: #01D1B3;
-    font-family: 'Heebo', sans-serif;
-}
-
-#totald {
-    font-size: 36px;
-    color: #EC4E6D;
-    font-family: 'Heebo', sans-serif;
-} */
-
-
-
-/* countrypanel */
-/* 
-#countrypanel {
-    padding:10px;
-    display: none;
-    height: 100%;
-    border: white solid 1px;
-    border-radius: 10px;
-    background: #303841;
-    font-size: 18px;
-    color: #F3F3F3;
-    font-family: 'Noto Sans SC', sans-serif;
-}
-
-#countrypanel p {
-    font-size: 20px;
-    margin: 20px 0 0 0;
-}
-
-#countrypanel text {
-    fill: #F3F3F3;
-    transform: translate(140,155) !important;
-}
-
-#linegraphc .line {
-    fill:none;
-    stroke: #EC971F;
-    stroke-width: 3px;
-}
-
-#linegraphr .line {
-    fill:none;
-    stroke: #01D1B3;
-    stroke-width: 3px;
-}
-
-#linegraphd .line {
-    fill:none;
-    stroke: #EC4E6D;
-    stroke-width: 3px;
-  }
-
-.dot {
-    fill:#F3F3F3;
-    stroke:#F3F3F3;
-    fill-opacity: 1;
-    stroke-opacity: 1;
-}
-
-.dc-chart .axis path, .dc-chart .axis line {
-    stroke: #F3F3F3 !important;
-} */
-
-/* world details */
-/* #worldpanel {
-    display: none;
-}
-
-#worlddata {
-    min-width: 350px;
-    padding:20px;
-    border: white solid 1px;
-    border-radius: 10px;
-    background: #e3e3e3;
-    font-size: 16px;
-}
-
-#worlddetailsbtn {
-    border-radius: 10px;
-    padding:10px 10px;
-    background-color:gold ;
-    color: #303841;
-    border: none;
-    font-size: 16px;
-    margin: 15px 0 0 0;
-} */
-
-
-
-
-/* main */
-.red {
-    color:#EC4E6D;
-    margin: 0 0 0 5px;
-}
-
-.green {
-    color:#01D1B3;
-    margin: 0 0 0 5px;
-}
-
-.green, .red {
-    animation-name: bounce;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-duration: 0.7s;
-}
-
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-3px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-
-
-
-/* hero page */
-#linegraphc svg, #top5chart svg, #linegraphr svg, #linegraphd svg {
-    overflow: visible;
-}
 
 
 

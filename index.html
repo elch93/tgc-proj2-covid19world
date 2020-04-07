@@ -80,7 +80,6 @@
     <header>
         <h1>COVIDW<i class="fas fa-virus"></i>RLD</h1>
         <h6><i class="fas fa-viruses"></i>COVID-19 STATS TRACKER<i class="fas fa-viruses"></i></h6>
-        <!-- <button id="globalbtn"><i class="fas fa-globe-asia"></i></button> -->
     </header>
     <main>
         <section>
@@ -104,7 +103,88 @@
             </div>
             <!-- option end -->
             <!-- menu end -->
-            <div class="row gbor p-3">
+            <!-- map -->
+            <div class="container-fluid">
+                <div class="row justify-content-start">
+                    <div class="col-8 ml-5">
+                        <div class="row">
+                            <div id="map">
+                                <div id="map1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- panel on right -->
+            <div id="panel">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row justify-content-between">
+                            <div class="col-3">
+                                <div id="flagdisplay"></div>
+                            </div>
+                            <div class="col-8 pt-1 d-flex flex-column align-items-start justify-content-start">
+                                <div id="countrydisplay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h3 id="datedisplay"></h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-column align-items-center" id="carouselcontainer">
+                            <div class="mycarousel" id="cccontainer">
+                                <canvas id="combined" width="300" height="370"></canvas>
+                            </div>
+                            <div class="mycarousel pl-5 pt-5">
+                                <p>Infection History</p>
+                                <div id="linegraphc"></div>
+                            </div>
+                            <div class="mycarousel pl-5 pt-5">
+                                <p>Recovery History</p>
+                                <div id="linegraphr"></div>
+                            </div>
+                            <div class="mycarousel pl-5 pt-5">
+                                <p>Death History</p>
+                                <div id="linegraphd"></div>
+                            </div>
+                            <div class="mycarousel pt-3">
+                                <div class="row justify-content-center" id="donutcontainer">
+                                    <div class="col-7">
+                                        <canvas id="rrdonut" width="280" height="280"></canvas>
+                                    </div>
+                                    <div class="col-7">
+                                        <canvas id="drdonut" width="300" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="nmnxt">
+                                <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                            </div>
+                            <div id="nmprev">
+                                <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
+                            </div>
+                            <div id="icontainer">
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                                <span class="cindicator"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- <div class="row gbor p-3">
                 <div class="col-9 gbor">
                     <div class="row gbor">
                         <div class="col-3 gbor pt-3">
@@ -119,63 +199,21 @@
                         </div>
                     </div>
                     <div class="row gbor">
-                        <div class="col-5 gbor">
-                            <div class="row" id="overview">
-                                <div class="container-fluid pt-3">
-                                    <span id="ccbar"></span>
-                                    <p><span id="totalconfirmed"></span>&nbsp;<span id="ctoday"></span></p>
-                                    <p class="pt-2">Total Cases</p>
-                                </div>
-                                <div class="container-fluid pt-3">
-                                    <span id="crbar"></span>
-                                    <p><span id="totalrecovered"></span>&nbsp;<span id="rtoday"></span></p>
-                                    <p class="pt-2">Total Recovered</p>
-                                </div>
-                                <div class="container-fluid pt-3">
-                                    <span id="cdbar"></span>
-                                    <p><span id="totaldeaths"></span>&nbsp;<span id="dtoday"></span></p>
-                                    <p class="pt-2">Total Deaths</p>
-                                </div>
-                            </div>
-                            <div class="row gbor">
-                                blah
+                        <div class="col-12 gbor">
+                            <div class="row mt-3 gbor" id="overviewheader">
+                                <h3>Overview</h3>
                             </div>
                         </div>
+                        <div class="col-12 gbor">
+                            
+                        </div>
                         <div class="col-7 gbor">
-                            <div id="carouselcontainer">
-                                <div class="mycarousel" id="cccontainer">
-                                    <canvas id="combined" width="300" height="320"></canvas>
-                                </div>
-                                <div class="mycarousel pl-5 pt-5">
-                                    <p>Infection History</p>
-                                    <div id="linegraphc"></div>
-                                </div>
-                                <div class="mycarousel pl-5 pt-5">
-                                    <p>Recovery History</p>
-                                    <div id="linegraphr"></div>
-                                </div>
-                                <div class="mycarousel pl-5 pt-5">
-                                    <p>Death History</p>
-                                    <div id="linegraphd"></div>
-                                </div>
-                                <div class="mycarousel pt-3">
-                                    <div class="row justify-content-center">
-                                        <div class="col-7">
-                                            <canvas id="rrdonut" width="300" height="250"></canvas>
-                                        </div>
-                                        <div class="col-7">
-                                            <canvas id="drdonut" width="300" height="250"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="nmnxt">
-                                    <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
-                                </div>
-                                <div id="nmprev">
-                                    <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
-                                </div>
-                                <!-- The dots/circles -->
-                                <div id="icontainer">
+                            
+                        </div>
+                        <div class="col-7 gbor">
+                            -->
+            <!-- The dots/circles -->
+            <!-- <div id="icontainer">
                                     <span class="cindicator"></span>
                                     <span class="cindicator"></span>
                                     <span class="cindicator"></span>
@@ -187,13 +225,11 @@
                     </div>
                 </div>
                 <div class="col-3 gbor">
-                    <div class="row gbor">
-                        map
-                    </div>
+                    
                     <div class="row gbor">global stats</div>
                 </div>
             </div>
-            <div class="row p-3 gbor">world list</div>
+            <div class="row p-3 gbor">world list</div> -->
 
 
 
@@ -255,13 +291,11 @@
                         </div>
 
                         <div class="row p-0 m-0 mb-3">
-                            <div id="map">
-                                <div id="map1"></div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
-                        
+
                     </div>
                 </div>
 
@@ -287,43 +321,39 @@
                                 <p id="worldtxt3">Deaths Worldwide</p>
                             </div>
                         </div>
-                        <!-- <video autoplay muted loop id="myVideo">
-                            <source src="images/Pexels Videos 1851190.mp4" type="video/mp4">
-                        </video> -->
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6 mt-3">
-                            <div id="wscontainer">
-                                <canvas id="worldstats" width="250" height="250"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 mb-5 mt-3">
-                            <div class="row justify-content-center">
-                                <div class="col-7">
-                                    <canvas id="wrrdonut" width="300" height="250"></canvas>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mt-3">
+                                <div id="wscontainer">
+                                    <canvas id="worldstats" width="250" height="250"></canvas>
                                 </div>
-                                <div class="col-7">
-                                    <canvas id="wdrdonut" width="300" height="250"></canvas>
+                            </div>
+                            <div class="col-12 col-md-6 mb-5 mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-7">
+                                        <canvas id="wrrdonut" width="300" height="250"></canvas>
+                                    </div>
+                                    <div class="col-7">
+                                        <canvas id="wdrdonut" width="300" height="250"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-md-6">
-                            <canvas id="pie-chart" width="450" height="450"></canvas>
-                        </div>
-                        <div class="col-12 col-md-6 mt-5 p-3" id="info">
-                            <h1>What is COVID-19?</h1>
-                            <p>Coronavirus disease (COVID-19) is an infectious
-                                disease caused by a newly discovered coronavirus.
-                                Older people, and those with underlying medical problems
-                                like cardiovascular disease, diabetes, chronic respiratory
-                                disease, and cancer are more likely to develop serious illness.</p>
-                            <p>Symptoms: mild to moderate respiratory illness</p>
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-6">
+                                <canvas id="pie-chart" width="450" height="450"></canvas>
+                            </div>
+                            <div class="col-12 col-md-6 mt-5 p-3" id="info">
+                                <h1>What is COVID-19?</h1>
+                                <p>Coronavirus disease (COVID-19) is an infectious
+                                    disease caused by a newly discovered coronavirus.
+                                    Older people, and those with underlying medical problems
+                                    like cardiovascular disease, diabetes, chronic respiratory
+                                    disease, and cancer are more likely to develop serious illness.</p>
+                                <p>Symptoms: mild to moderate respiratory illness</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </main>
     <footer></footer>
