@@ -30,24 +30,24 @@ $(function () {
     function showSlide(x) {
         for (let i = 0; i < $(".mycarousel").length; i++) {
             $(".mycarousel").eq(i).hide()
-            $(".cindicator").eq(i).css("background-color", "#e3e3e3")
+            $(".cindicator").eq(i).css("background-color", "#313546")
             $(".cindicator").eq(i).mouseover(function () {
                 $(this).css("background-color", "#EC4E6D")
             })
             $(".cindicator").eq(i).mouseout(function () {
-                $(this).css("background-color", "#e3e3e3")
+                $(this).css("background-color", "#313546")
             })
         }
 
         
 
         $(".mycarousel").eq(x).show()
-        $(".cindicator").eq(x).css("background-color", "#34495B")
+        $(".cindicator").eq(x).css("background-color", "#F3F3F3")
         $(".cindicator").eq(x).mouseover(function () {
             $(this).css("background-color", "#EC4E6D")
         })
         $(".cindicator").eq(x).mouseout(function () {
-            $(this).css("background-color", "#34495B")
+            $(this).css("background-color", "#F3F3F3")
         })
     }
 
@@ -99,6 +99,14 @@ $(function () {
         //console.log(countrylist)
         for (let i of countrylist) {
             if (i == "Congo (Kinshasa)") {
+                continue
+            }
+            if (i == "US") {
+                $("#countryselect").append(`<option value="United States of America">United States of America</option>`)
+                continue
+            }
+            if (i == "Taiwan*") {
+                $("#countryselect").append(`<option value="Taiwan">Taiwan</option>`)
                 continue
             }
             $("#countryselect").append(`<option value="${i}">${i}</option>`)

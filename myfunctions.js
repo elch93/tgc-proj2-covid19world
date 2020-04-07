@@ -17,6 +17,9 @@ function getCountryFlag() {
     axios.get("https://restcountries.eu/rest/v2/all").then(function (r) {
         $("#flagdisplay2").empty()
         countrydisplayed = $("#countrydisplay").text()
+
+        console.log("flag", r.data)
+
         for (let i of r.data) {
             if (countrydisplayed == i.name || countrydisplayed == i.alpha2Code) {
                 $("#flagdisplay").css("background-image", "url(" + i.flag + ")")
@@ -154,6 +157,15 @@ let countrymap = "Singapore"
 
 //#1 load latest info
 function loadLatest() {
+    if (countryname == "Taiwan") {
+        countryname = "Taiwan*"
+    }
+
+    if (countryname == "United States of America") {
+        countryname = "US"
+    }
+
+
     $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(),
         $("#datedisplay").empty(), $("#countrydisplay").empty(), $("#totalconfirmed").empty(),
         $("#totalrecovered").empty(), $("#totaldeaths").empty();
@@ -175,6 +187,16 @@ function loadLatest() {
             if (countrydata[i].date == loaddate) {
                 $("#datedisplay").append(`${countrydata[i].date}`)
                 $("#countrydisplay").append(`${countryname}`)
+                if (countryname == "US") {
+                    $("#countrydisplay").empty()
+                    $("#countrydisplay").append("United States of America")
+                }
+
+                if (countryname == "Taiwan*") {
+                    $("#countrydisplay").empty()
+                    $("#countrydisplay").append("Taiwan")
+                }
+                
 
                 let dailyIncrease = parseInt(countrydata[i].confirmed) - parseInt(countrydata[i + 1].confirmed)
                 let dailyRecovered = parseInt(countrydata[i].recovered) - parseInt(countrydata[i + 1].recovered)
@@ -236,8 +258,8 @@ function loadLatest() {
                         datasets: [{
                             data: cArr,
                             label: "Total",
-                            borderColor: "#303841",
-                            pointBackgroundColor: "#303841",
+                            borderColor: "gold",
+                            pointBackgroundColor: "gold",
                             fill: false
                         }, {
                             data: rArr,
@@ -256,23 +278,43 @@ function loadLatest() {
                     },
                     options: {
                         title: {
-                            fontColor: '#303841',
+                            fontColor: '#F3F3F3',
                             fontSize: 20,
                             display: true,
-                            text: 'Trend (Past 7 Days)'
+                            text: 'Trend (Past 7 Days)',
+                            padding: 30,
+                        },
+                        legend:{
+                            position: 'bottom',
+                            labels: {
+                                fontColor: '#F3F3F3',
+                            }
                         },
                         scales: {
+                            
                             xAxes: [{
                                 ticks: {
-                                    fontColor: '#303841',
-                                }
+                                    fontColor: '#e3e3e3',
+                                },
+                                gridLines: {
+                                    zeroLineWidth:1,
+                                    zeroLineColor:" #e3e3e3",
+                                    color: "rgba(255,255,255,0.2)",
+                                },
                             }],
                             yAxes: [{
                                 ticks: {
-                                    fontColor: '#303841',
-                                }
+                                    
+                                    fontColor: '#e3e3e3',
+                                },
+                                gridLines: {
+                                    zeroLineWidth:1,
+                                    zeroLineColor:" #e3e3e3",
+                                    color: "rgba(255,255,255,0.2)",
+                                },
                             }],
                         }
+                        
                     }
                 });
 
@@ -383,7 +425,7 @@ function loadLatest() {
                         labels: [],
                         datasets: [
                             {
-                                backgroundColor: ["#01D1B3", "#303841"],
+                                backgroundColor: ["#01D1B3", "#F3F3F3"],
                                 data: [recoveryrate, remainderr],
                                 borderWidth: 0,
                             }
@@ -392,8 +434,8 @@ function loadLatest() {
                     options: {
                         events: [],
                         title: {
-                            fontColor: '#303841',
-                            fontSize: 20,
+                            fontColor: '#F3F3F3',
+                            fontSize: 18,
                             display: true,
                             text: 'Recovery Rate:' + " " + recoveryrate + "%"
                         }
@@ -410,7 +452,7 @@ function loadLatest() {
                         labels: [],
                         datasets: [
                             {
-                                backgroundColor: ["#EC4E6D", "#303841"],
+                                backgroundColor: ["#EC4E6D", "#F3F3F3"],
                                 data: [deathrate, remainderd],
                                 borderWidth: 0
                             }
@@ -419,8 +461,8 @@ function loadLatest() {
                     options: {
                         events: [],
                         title: {
-                            fontColor: '#303841',
-                            fontSize: 20,
+                            fontColor: '#F3F3F3',
+                            fontSize: 18,
                             display: true,
                             text: 'Death Rate:' + " " + deathrate + "%"
                         }
@@ -666,7 +708,7 @@ function loadLatest() {
                 }
 
                 map.addLayer(countrycluster)
-                console.log("HELP", clist)
+                //console.log("HELP", clist)
                 // document.getElementById("getData").addEventListener("click", function () {
                 //     for (let i of clist) {
                 //         if ($("#countryselect").val() == i[0]) {

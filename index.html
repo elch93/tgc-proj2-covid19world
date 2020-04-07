@@ -119,27 +119,71 @@
                         </div>
                     </div>
                     <div class="row gbor">
-                        <div class="col-6 gbor">
+                        <div class="col-5 gbor">
                             <div class="row" id="overview">
-                                <div class="container-fluid p-0 pt-3">
+                                <div class="container-fluid pt-3">
                                     <span id="ccbar"></span>
                                     <p><span id="totalconfirmed"></span>&nbsp;<span id="ctoday"></span></p>
                                     <p class="pt-2">Total Cases</p>
                                 </div>
-                                <div class="container-fluid p-0 pt-3">
+                                <div class="container-fluid pt-3">
                                     <span id="crbar"></span>
                                     <p><span id="totalrecovered"></span>&nbsp;<span id="rtoday"></span></p>
-                                    <p class="pt-2">Total Cases</p>
+                                    <p class="pt-2">Total Recovered</p>
                                 </div>
-                                <div class="container-fluid p-0 pt-3">
+                                <div class="container-fluid pt-3">
                                     <span id="cdbar"></span>
                                     <p><span id="totaldeaths"></span>&nbsp;<span id="dtoday"></span></p>
-                                    <p class="pt-2">Total Cases</p>
+                                    <p class="pt-2">Total Deaths</p>
                                 </div>
                             </div>
-
+                            <div class="row gbor">
+                                blah
+                            </div>
                         </div>
-                        <div class="col-6 gbor">carousel</div>
+                        <div class="col-7 gbor">
+                            <div id="carouselcontainer">
+                                <div class="mycarousel" id="cccontainer">
+                                    <canvas id="combined" width="300" height="320"></canvas>
+                                </div>
+                                <div class="mycarousel pl-5 pt-5">
+                                    <p>Infection History</p>
+                                    <div id="linegraphc"></div>
+                                </div>
+                                <div class="mycarousel pl-5 pt-5">
+                                    <p>Recovery History</p>
+                                    <div id="linegraphr"></div>
+                                </div>
+                                <div class="mycarousel pl-5 pt-5">
+                                    <p>Death History</p>
+                                    <div id="linegraphd"></div>
+                                </div>
+                                <div class="mycarousel pt-3">
+                                    <div class="row justify-content-center">
+                                        <div class="col-7">
+                                            <canvas id="rrdonut" width="300" height="250"></canvas>
+                                        </div>
+                                        <div class="col-7">
+                                            <canvas id="drdonut" width="300" height="250"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="nmnxt">
+                                    <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                                </div>
+                                <div id="nmprev">
+                                    <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
+                                </div>
+                                <!-- The dots/circles -->
+                                <div id="icontainer">
+                                    <span class="cindicator"></span>
+                                    <span class="cindicator"></span>
+                                    <span class="cindicator"></span>
+                                    <span class="cindicator"></span>
+                                    <span class="cindicator"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-3 gbor">
@@ -217,47 +261,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
-                        <div id="nmcardr">
-                            <div class="mycarousel pt-5" id="cccontainer">
-                                <canvas id="combined" width="300" height="260"></canvas>
-                            </div>
-                            <div class="mycarousel pl-5 pt-5">
-                                <p>Infection History</p>
-                                <div id="linegraphc"></div>
-                            </div>
-                            <div class="mycarousel pl-5 pt-5">
-                                <p>Recovery History</p>
-                                <div id="linegraphr"></div>
-                            </div>
-                            <div class="mycarousel pl-5 pt-5">
-                                <p>Death History</p>
-                                <div id="linegraphd"></div>
-                            </div>
-                            <div class="mycarousel pt-5">
-                                <div class="row justify-content-center">
-                                    <div class="col-7">
-                                        <canvas id="rrdonut" width="300" height="250"></canvas>
-                                    </div>
-                                    <div class="col-7">
-                                        <canvas id="drdonut" width="300" height="250"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="nmnxt">
-                                <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
-                            </div>
-                            <div id="nmprev">
-                                <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
-                            </div>
-                            <!-- The dots/circles -->
-                            <div id="icontainer">
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 

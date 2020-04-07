@@ -41,12 +41,16 @@ body{
 }
 
 
-.gbor {
+/* .gbor {
     border: 3px solid gold;
-}
+} */
 
 /* search button */
 
+button:focus {
+    outline:none;
+}
+  
 #searchbtn {
     position: fixed;
     height: 40px;
@@ -188,6 +192,8 @@ header h6{
     height: 40px;
     width: 5px;
     background-color: gold;
+    transition: width ease-in 0.4s;
+    
 }
 
 #crbar {
@@ -205,6 +211,11 @@ header h6{
     padding: 0 0 0 20px;
 }
 
+#overview .container-fluid{
+    padding: 0px;
+    transition: padding ease-in 0.4s;
+}
+
 #totalconfirmed, #totalrecovered, #totaldeaths {
     font-size: 30px;
     font-weight: 900;
@@ -214,6 +225,121 @@ header h6{
 #ctoday, #rtoday, #dtoday {
     font-size: 20px;
     font-weight: 900;
+}
+
+
+/* right panel */
+#carouselcontainer {
+    height: 450px;
+    padding: 10px 30px;
+    font-size: 18px;
+    color: #303841;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+#nmnxt, #nmprev {
+    color: #F3F3F3;
+    background-color: #303841;
+    transition: background-color ease-in 0.4s, color ease-in 0.4s;
+    border: 1px solid rgba(255,255,255,1);
+    position: absolute;
+    bottom: 50%;
+    border-radius: 10px;
+    /* border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.15),
+                -3px -3px 3px 0 rgba(255,255,255,1); */
+}
+
+#nmnxt:hover, #nmprev:hover {
+    background-color: #F3F3F3;
+    color:#303841;
+}
+
+#nmnxt {
+    right: 20px;
+}
+
+#nmprev {
+    left: 20px;
+}
+
+
+/* The dots/bullets/indicators */
+#carouselcontainer {
+    color: #F3F3F3;
+}
+
+#icontainer{
+    position: absolute;
+    bottom:20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cindicator {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.4s ease;
+  }
+  
+
+#carouselcontainer i {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px;
+}
+
+#carouselcontainer p {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#cccontainer {
+    width: 310px;
+    margin: 0 0 0px 15px;
+}
+
+#linegraphc .line {
+    fill:none;
+    stroke: gold;
+    stroke-width: 3px;
+}
+
+#linegraphr .line {
+    fill:none;
+    stroke: #01D1B3;
+    stroke-width: 3px;
+}
+
+#linegraphd .line {
+    fill:none;
+    stroke: #EC4E6D;
+    stroke-width: 3px;
+    }
+
+.dot {
+    fill:#F3F3F3;
+    stroke:#F3F3F3;
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.dc-chart .axis path, .dc-chart .axis line {
+    stroke: #F3F3F3 !important;
+}
+
+#map {
+    height: 450px;
+}
+
+#map1 {
+    height: 100%;
+    border: 5px solid #F3F3F3;
 }
 
 /* 
@@ -329,114 +455,6 @@ header h6{
     font-weight: 900;
 } */
 
-/* right panel */
-#nmcardr {
-    height: 450px;
-    padding: 10px 30px;
-    font-size: 18px;
-    color: #303841;
-    font-family: 'Noto Sans SC', sans-serif;
-}
-
-#nmnxt, #nmprev {
-    background-color: #F3F3F3;
-    transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    border: 1px solid rgba(255,255,255,1);
-    position: absolute;
-    bottom: 50%;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.15),
-                -3px -3px 3px 0 rgba(255,255,255,1);
-}
-
-#nmnxt:hover, #nmprev:hover {
-    background-color: #303841;
-    color:#F3F3F3;
-}
-
-#nmnxt {
-    right: 20px;
-}
-
-#nmprev {
-    left: 20px;
-}
-
-
-/* The dots/bullets/indicators */
-#icontainer{
-    position: absolute;
-    bottom:20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.cindicator {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.4s ease;
-  }
-  
-
-#nmcardr i {
-    cursor: pointer;
-    font-size: 20px;
-    margin: 5px;
-}
-
-#nmcardr p {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-#cccontainer {
-    width: 310px;
-    margin: 0 0 0px 15px;
-}
-
-#linegraphc .line {
-    fill:none;
-    stroke: #303841;
-    stroke-width: 3px;
-}
-
-#linegraphr .line {
-    fill:none;
-    stroke: #01D1B3;
-    stroke-width: 3px;
-}
-
-#linegraphd .line {
-    fill:none;
-    stroke: #EC4E6D;
-    stroke-width: 3px;
-    }
-
-.dot {
-    fill:#303841;
-    stroke:#303841;
-    fill-opacity: 1;
-    stroke-opacity: 1;
-}
-
-.dc-chart .axis path, .dc-chart .axis line {
-    stroke: #303841 !important;
-}
-
-#map {
-    height: 450px;
-}
-
-#map1 {
-    height: 100%;
-    border: 5px solid #F3F3F3;
-}
 
 /* global stats */
 #globalstats .col-4 {
