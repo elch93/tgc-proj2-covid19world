@@ -104,73 +104,72 @@
             <!-- option end -->
             <!-- menu end -->
             <!-- map -->
-            <div class="container-fluid">
-                <div class="row justify-content-start">
-                    <div class="col-8 ml-5">
+
+            <div class="row justify-content-around p-2 m-0">
+                <div class="col-7">
+                    <div class="row ml-3">
+                        <div id="map">
+                            <div id="map1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div id="panel">
                         <div class="row">
-                            <div id="map">
-                                <div id="map1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- panel on right -->
-            <div id="panel">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row justify-content-between">
-                            <div class="col-3">
-                                <div id="flagdisplay"></div>
-                            </div>
-                            <div class="col-8 d-flex flex-column align-items-start justify-content-start">
-                                <div id="countrydisplay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <p id="datedisplay"></p>
-                    </div>
-                    <div class="col-12">
-                        <div class="d-flex flex-column align-items-center" id="carouselcontainer">
-                            <div class="mycarousel" id="cccontainer">
-                                <canvas id="combined" width="300" height="370"></canvas>
-                            </div>
-                            <div class="mycarousel pl-5 pt-5">
-                                <p>Infection History</p>
-                                <div id="linegraphc"></div>
-                            </div>
-                            <div class="mycarousel pl-5 pt-5">
-                                <p>Recovery History</p>
-                                <div id="linegraphr"></div>
-                            </div>
-                            <div class="mycarousel pl-5 pt-5">
-                                <p>Death History</p>
-                                <div id="linegraphd"></div>
-                            </div>
-                            <div class="mycarousel pt-3">
-                                <div class="row justify-content-center" id="donutcontainer">
-                                    <div class="col-7">
-                                        <canvas id="rrdonut" width="280" height="280"></canvas>
+                            <div class="col-12">
+                                <div class="row justify-content-between">
+                                    <div class="col-3">
+                                        <div id="flagdisplay"></div>
                                     </div>
-                                    <div class="col-7">
-                                        <canvas id="drdonut" width="300" height="300"></canvas>
+                                    <div class="col-8 d-flex flex-column align-items-start justify-content-start">
+                                        <div id="countrydisplay"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="nmnxt">
-                                <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                            <div class="col-12">
+                                <p id="datedisplay"></p>
                             </div>
-                            <div id="nmprev">
-                                <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
-                            </div>
-                            <div id="icontainer">
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
-                                <span class="cindicator"></span>
+                            <div class="col-12">
+                                <div class="d-flex flex-column align-items-center" id="carouselcontainer">
+                                    <div class="mycarousel" id="cccontainer">
+                                        <canvas id="combined" width="300" height="370"></canvas>
+                                    </div>
+                                    <div class="mycarousel pl-5 pt-5">
+                                        <p>Infection History</p>
+                                        <div id="linegraphc"></div>
+                                    </div>
+                                    <div class="mycarousel pl-5 pt-5">
+                                        <p>Recovery History</p>
+                                        <div id="linegraphr"></div>
+                                    </div>
+                                    <div class="mycarousel pl-5 pt-5">
+                                        <p>Death History</p>
+                                        <div id="linegraphd"></div>
+                                    </div>
+                                    <div class="mycarousel pt-3">
+                                        <div class="row justify-content-center" id="donutcontainer">
+                                            <div class="col-7">
+                                                <canvas id="rrdonut" width="280" height="280"></canvas>
+                                            </div>
+                                            <div class="col-7">
+                                                <canvas id="drdonut" width="300" height="300"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="nmnxt">
+                                        <a id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                                    </div>
+                                    <div id="nmprev">
+                                        <a id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
+                                    </div>
+                                    <div id="icontainer">
+                                        <span class="cindicator"></span>
+                                        <span class="cindicator"></span>
+                                        <span class="cindicator"></span>
+                                        <span class="cindicator"></span>
+                                        <span class="cindicator"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -178,78 +177,8 @@
             </div>
 
 
-
-
-
-
-
-
-
-            <div class="container-fluid d-lg-none">
-                <div class="row p-0 m-0 mb-5">
-                    <div class="col-12 col-md-6 p-3 m-0 d-flex justify-content-center">
-                        <div id="nmcardl">
-                            <div class="row justify-content-center">
-                                <div class="col-4">
-                                </div>
-                                <div class="col-6">
-                                    <div class="row p-0 m-0">
-
-                                    </div>
-                                    <div class="row m-0 p-0">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-4 p-0">
-                                    <div id="nmdailyc">
-                                        <a><i class="fas fa-head-side-cough"></i></a>
-                                    </div>
-                                    <div class="container-fluid p-0 pt-2">
-                                        <p><span id="totalconfirmed"></span></p>
-                                        <p><span id="ctoday"></span></p>
-                                        <p>Cases</p>
-                                    </div>
-                                </div>
-                                <div class="col-4 p-0">
-                                    <div id="nmdailyr">
-                                        <a>
-                                            <i class="fas fa-smile"></i>
-                                        </a>
-                                    </div>
-                                    <div class="container-fluid p-0 pt-2">
-                                        <p><span id="totalrecovered"></span></p>
-                                        <p><span id="rtoday"></span></p>
-                                        <p>Recovered</p>
-                                    </div>
-                                </div>
-                                <div class="col-4 p-0">
-                                    <div id="nmdailyd">
-                                        <a>
-                                            <i class="fas fa-skull-crossbones"></i>
-                                        </a>
-                                    </div>
-                                    <div class="container-fluid p-0 pt-2">
-                                        <p><span id="totaldeaths"></span></p>
-                                        <p><span id="dtoday"></span></p>
-                                        <p>Deaths</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row p-0 m-0 mb-3">
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 p-3 m-0 d-flex flex-column align-items-center">
-
-                    </div>
-                </div>
-
-
-
+            <!-- global stats -->
+            <div class="row justify-content-around p-2 m-0 d-lg-none">
                 <div class="col-12 mt-3" id="globalstats">
                     <div class="container-fluid m-0 p-0" id=gcontainer>
                         <h1>Global Statistics</h1>
@@ -303,29 +232,22 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            
         </section>
     </main>
     <footer></footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
