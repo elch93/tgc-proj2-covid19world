@@ -486,7 +486,7 @@ function loadLatest() {
                 if (countrymap == "Taiwan") {
                     countrymap = "Taiwan*"
                 }
-            
+
                 if (countrymap == "United States of America") {
                     countrymap = "US"
                 }
@@ -639,7 +639,7 @@ function loadLatest() {
                 // console.log("after", list180)
                 // console.log("map count", count2)
                 // console.log("bug count",count3)
-               
+
 
 
                 let coordinates = undefined
@@ -681,7 +681,7 @@ function loadLatest() {
                 var LeafIcon = L.Icon.extend({
                     options: {
                         // shadowUrl: 'leaf-shadow.png',
-                        iconSize: [38, 35],
+                        iconSize: [38, 38],
                         shadowSize: [0, 0],
                         iconAnchor: [22, 35],
                         shadowAnchor: [4, 62],
@@ -700,9 +700,19 @@ function loadLatest() {
                     accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
                 }).addTo(map);
 
+                let markers = []
+
                 let countrycluster = L.markerClusterGroup()
                 for (let i = 0; i < clist.length; i++) {
-                    let m = L.marker([clist[i][1][0], clist[i][1][1]], { icon: customIcon })
+                    let m = L.marker([clist[i][1][0], clist[i][1][1]], { title: clist[i][0], icon: customIcon })
+
+                    if (clist[i][0] == "Taiwan*") {
+                        clist[i][0] = "Taiwan"
+                    }
+
+                    if (clist[i][0] == "US") {
+                        clist[i][0] = "United States of America"
+                    }
 
                     m.bindPopup(`
                     <div id="popup">
@@ -739,8 +749,8 @@ function loadLatest() {
                         </div>
                     </div>
         `)
-                    
-                    
+
+                    markers.push(m)
 
                     m.on("click", function () {
                         getDataFromMap()
@@ -748,24 +758,39 @@ function loadLatest() {
                     countrycluster.addLayer(m)
                 }
 
-                map.addLayer(countrycluster)
-                //console.log("HELP", clist)
-                // document.getElementById("getData").addEventListener("click", function () {
-                //     for (let i of clist) {
-                //         if ($("#countryselect").val() == i[0]) {
-                //             console.log(i[0])
-                //             map.flyTo(i[1], 6.5)
-                //         }
-                //     }
 
-                // }
-                // )
+                function markerPopup(country) {
+                    for (let i in markers) {
+                        if (markers[i].options.title == country) {
+                            markers[i].openPopup()
+
+                        }
+                    }
+                    console.log(markers)
+                }
+
+                $("#getData").click(function(){
+                    let country = $("#countryselect").val()
+                    console.log("Country", country)
+                    
+                    setTimeout(function(){
+                        markerPopup(country)
+                    },500)
+                })
+
+                map.addLayer(countrycluster)
+                
+
+
+                setTimeout(function(){
+                    loadLatest()
+                    markerPopup("Singapore")},500)
+                
 
             })
         }//map end
         getMap()
         getCountryFlag()
-
     })//axios end 
 
 

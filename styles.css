@@ -229,6 +229,7 @@ header h6{
     right:30px;
     background-color: #303841;
     box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
+    border-radius: 10px;
 }
 
 /* country name date */
@@ -238,13 +239,14 @@ header h6{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    margin: 10px 0px 0px 10px;
+    margin: 15px 0px 0px 15px;
 }
 
 #countrydisplay {
     font-family: 'Catamaran', sans-serif;
     text-transform: uppercase;
     font-size: 18px;
+    margin: 15px 0px 0px 15px;
 }
 
 #datedisplay {
@@ -286,8 +288,8 @@ header h6{
 
 /* carousel */
 #donutcontainer {
-    height: 300px;
-    width: 300px;
+    max-height: 300px;
+    max-width: 300px;
 }
 
 #carouselcontainer {
@@ -395,76 +397,4 @@ header h6{
     stroke: #F3F3F3 !important;
 }
 
-
-
-
-/* global stats */
-/* #globalstats .col-4 {
-    text-align: center;
-}
-
-#globalstats h1 {
-    font-family: 'Catamaran', sans-serif;
-}
-
-#globalstats p {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 600;
-    margin-bottom: -2px;
-}
-
-#globalstats #totalc {
-    font-size: 36px;
-    color:#EC971F;
-    font-family: 'Heebo', sans-serif;
-}
-
-#globalstats #totalr {
-    font-size: 36px;
-    color: #01D1B3;
-    font-family: 'Heebo', sans-serif;
-}
-
-#globalstats #totald {
-    font-size: 36px;
-    color: #EC4E6D;
-    font-family: 'Heebo', sans-serif;
-} 
-
-#wscontainer {
-    min-width: 310px;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-#gcontainer {
-    position: relative;
-    color: #303841;
-}
-
-#gcontainer h1{
-    color:#303841 ;
-    z-index: 99;
-}
-
-
-#info {
-    text-align: justify;
-}
-
-#info h1 {
-    font-family: 'Heebo', sans-serif;
-    text-align: center;
-    font-size: 24px;
-} */
-
-
-
-
-
-
-/* footer */
-#coo {
-    display: none;
-}
 
