@@ -84,10 +84,10 @@ $(function () {
     })
     //carousel code end
 
-
+    getMap()
     let countrylist = []
     loadLatest()
-    
+   
     //adding countries & dates to options
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
 

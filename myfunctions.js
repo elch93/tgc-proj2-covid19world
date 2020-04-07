@@ -346,6 +346,8 @@ function loadLatest() {
                 }
 
 
+
+
                 //console.table(weeklydata)
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
@@ -473,323 +475,7 @@ function loadLatest() {
             }
         }//for loop end
 
-        // let coordinates = [1.35, 103.85] //sg default
 
-        //get map
-        function getMap() {
-            axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
-                let restcountries = r[0].data
-                let pomberdata = r[1].data
-                let clist = []
-
-
-                if (countrymap == "Taiwan") {
-                    countrymap = "Taiwan*"
-                }
-
-                if (countrymap == "United States of America") {
-                    countrymap = "US"
-                }
-
-                for (let i in pomberdata) {
-                    pomberdata[i].reverse()
-                }
-
-                let count = 0
-                for (let i in pomberdata) {
-                    count += 1
-                }
-
-                for (let i in pomberdata) {
-                    convertDates(pomberdata[i])
-                }
-
-                for (let r = 0; r < 60; r++) {
-                    if (loaddate == pomberdata['Singapore'][r].date) {
-                        for (let i in pomberdata) {
-                            for (let j in restcountries) {
-                                if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
-                                    clist.push([i, restcountries[j].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Malaysia") {
-                                    clist.push([i, [4.2105, 101.9758], pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Taiwan*") {
-                                    clist.push([i, restcountries[221].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Vietnam") {
-                                    clist.push([i, restcountries[244].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Korea, South") {
-                                    clist.push([i, restcountries[210].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Czechia") {
-                                    clist.push([i, restcountries[61].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "North Macedonia") {
-                                    clist.push([i, restcountries[132].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Laos") {
-                                    clist.push([i, restcountries[122].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Bolivia") {
-                                    clist.push([i, restcountries[26].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Brunei") {
-                                    clist.push([i, restcountries[36].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Iran") {
-                                    clist.push([i, restcountries[107].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Moldova") {
-                                    clist.push([i, restcountries[146].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Russia") {
-                                    clist.push([i, restcountries[185].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Tanzania") {
-                                    clist.push([i, restcountries[223].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "United Kingdom") {
-                                    clist.push([i, restcountries[238].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Venezuela") {
-                                    clist.push([i, restcountries[243].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-                                else if (i == "Syria") {
-                                    clist.push([i, restcountries[220].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
-                                    break
-                                }
-
-
-
-                            }
-
-                        }
-                    }//load date
-                }//loop end
-
-
-
-
-                let buglist = []
-                let list180 = []
-                let count2 = 0
-                let count3 = 0
-
-                for (let j in pomberdata) {
-                    list180.push(j)
-                }
-
-                // console.log("list180", list180)
-                // console.log("before", clist)
-
-
-                for (let i in list180) {
-                    for (let j of clist) {
-                        if (list180[i] == j[0]) {
-                            count2 += 1
-                            delete list180[i]
-                        }
-                    }
-                }
-
-                for (let i of list180) {
-                    if (i != undefined) {
-                        buglist.push(i)
-                        count3 += 1
-                    }
-                }
-
-
-
-
-                // console.log("after", list180)
-                // console.log("map count", count2)
-                // console.log("bug count",count3)
-
-
-
-                let coordinates = undefined
-                for (let i in clist) {
-                    if (countrymap == clist[i][0]) {
-                        coordinates = clist[i][1]
-                    }
-                }
-
-                console.log("mapped list", clist)
-                console.log("bugged", buglist)
-
-                //removes data without flag/map location
-                for (let i = 0; i < $("#countryselect option").length; i++) {
-                    if (buglist.includes($("#countryselect option").eq(i).text())) {
-                        console.log(i)
-                        $("#countryselect option").eq(i).remove()
-
-                    }
-
-                }
-
-                let setViewCoordinates = undefined
-
-                for (let i of clist) {
-                    if ($("#countryselect").val() == i[0]) {
-                        setViewCoordinates = i[1]
-                    }
-                }
-
-
-                let map = L.map("map1", { zoomControl: true }).setView(setViewCoordinates, 6.5)
-
-                // $('#getData').click(function () {
-                //     //map.remove()
-                //     //loadLatest()
-                // })
-
-                var LeafIcon = L.Icon.extend({
-                    options: {
-                        // shadowUrl: 'leaf-shadow.png',
-                        iconSize: [38, 38],
-                        shadowSize: [0, 0],
-                        iconAnchor: [22, 35],
-                        shadowAnchor: [4, 62],
-                        popupAnchor: [0, -20]
-                    }
-                });
-
-                customIcon = new LeafIcon({ iconUrl: 'https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/4482957981557740362-512.png' })
-
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
-                }).addTo(map);
-
-                let markers = []
-
-                let countrycluster = L.markerClusterGroup()
-                for (let i = 0; i < clist.length; i++) {
-                    let m = L.marker([clist[i][1][0], clist[i][1][1]], { title: clist[i][0], icon: customIcon })
-
-                    if (clist[i][0] == "Taiwan*") {
-                        clist[i][0] = "Taiwan"
-                    }
-
-                    if (clist[i][0] == "US") {
-                        clist[i][0] = "United States of America"
-                    }
-
-                    m.bindPopup(`
-                    <div id="popup">
-                        <div id="flagdisplay2"></div>
-                        <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
-                        <div class="row" id="overview">
-                            <div class="col-12 pt-3">
-                                <p class="pt-2 pb-3">Total Cases</p>
-                                <p>
-                                    <span id="totalconfirmed"></span>
-                                </p>
-                                <p class="pt-2">
-                                    <span id="ctoday"></span>
-                                </p>
-                            </div>
-                            <div class="col-12 pt-3">
-                                <p class="pt-2 pb-3">Total Recovered</p>
-                                <p>
-                                    <span id="totalrecovered"></span>
-                                </p>
-                                <p class="pt-2">
-                                    <span id="rtoday"></span>
-                                </p>
-                            </div>
-                            <div class="col-12 pt-3">
-                                <p class="pt-2 pb-3">Total Deaths</p>
-                                <p>
-                                    <span id="totaldeaths"></span>
-                                </p>
-                                <p class="pt-2">
-                                    <span id="dtoday"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-        `)
-
-                    markers.push(m)
-
-                    m.on("click", function () {
-                        getDataFromMap()
-                    })
-                    countrycluster.addLayer(m)
-                }
-
-
-                function markerPopup(country) {
-                    for (let i in markers) {
-                        if (markers[i].options.title == country) {
-                            markers[i].openPopup()
-
-                        }
-                    }
-                    console.log(markers)
-                }
-
-                $("#getData").click(function(){
-                    let country = $("#countryselect").val()
-                    console.log("Country", country)
-                    
-                    setTimeout(function(){
-                        markerPopup(country)
-                    },500)
-                })
-
-                map.addLayer(countrycluster)
-                
-
-
-                setTimeout(function(){
-                    loadLatest()
-                    markerPopup("Singapore")},500)
-                
-
-            })
-        }//map end
-        getMap()
         getCountryFlag()
     })//axios end 
 
@@ -801,32 +487,7 @@ function loadLatest() {
 
 
 
-//#2 loadonclick
-function getData() {
-    $('#map').empty()
-    //map.remove()
 
-    let countryselected = $("#countryselect").val()
-    let dateselected = $("#dateselect").val()
-    countryname = countryselected
-    loaddate = dateselected
-    countrymap = countryselected
-    $('#map').append(`<div id="map1"></div>`)
-
-    // if ($("#map").is(":visible") == false) {
-    //     $('#map').toggle()
-    //     setTimeout(
-    //         function () {
-    //             $("#map").fadeToggle()
-    //         }, 800
-    //     )
-    // }
-
-    loadLatest()
-    getMap()
-    //getGlobalTotalByDate()
-
-}
 
 //#3 load ranking
 function getTop5() {
@@ -1086,3 +747,332 @@ function getGlobalTotalByDate() {
     })//axios end
 }//get global stats end
 
+//get map
+// let coordinates = [1.35, 103.85] //sg default
+
+//get map
+function getMap() {
+    axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
+        let restcountries = r[0].data
+        let pomberdata = r[1].data
+        let clist = []
+
+
+        if (countrymap == "Taiwan") {
+            countrymap = "Taiwan*"
+        }
+
+        if (countrymap == "United States of America") {
+            countrymap = "US"
+        }
+
+        for (let i in pomberdata) {
+            pomberdata[i].reverse()
+        }
+
+        let count = 0
+        for (let i in pomberdata) {
+            count += 1
+        }
+
+        for (let i in pomberdata) {
+            convertDates(pomberdata[i])
+        }
+
+        for (let r = 0; r < 60; r++) {
+            if (loaddate == pomberdata['Singapore'][r].date) {
+                for (let i in pomberdata) {
+                    for (let j in restcountries) {
+                        if (i == restcountries[j].name || i == restcountries[j].alpha2Code) {
+                            clist.push([i, restcountries[j].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Malaysia") {
+                            clist.push([i, [4.2105, 101.9758], pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Taiwan*") {
+                            clist.push([i, restcountries[221].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Vietnam") {
+                            clist.push([i, restcountries[244].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Korea, South") {
+                            clist.push([i, restcountries[210].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Czechia") {
+                            clist.push([i, restcountries[61].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "North Macedonia") {
+                            clist.push([i, restcountries[132].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Laos") {
+                            clist.push([i, restcountries[122].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Bolivia") {
+                            clist.push([i, restcountries[26].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Brunei") {
+                            clist.push([i, restcountries[36].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Iran") {
+                            clist.push([i, restcountries[107].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Moldova") {
+                            clist.push([i, restcountries[146].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Russia") {
+                            clist.push([i, restcountries[185].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Tanzania") {
+                            clist.push([i, restcountries[223].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "United Kingdom") {
+                            clist.push([i, restcountries[238].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Venezuela") {
+                            clist.push([i, restcountries[243].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+                        else if (i == "Syria") {
+                            clist.push([i, restcountries[220].latlng, pomberdata[i][r].confirmed, pomberdata[i][r].recovered, pomberdata[i][r].deaths])
+                            break
+                        }
+
+
+
+                    }
+
+                }
+            }//load date
+        }//loop end
+
+
+
+
+        let buglist = []
+        let list180 = []
+        let count2 = 0
+        let count3 = 0
+
+        for (let j in pomberdata) {
+            list180.push(j)
+        }
+
+        // console.log("list180", list180)
+        // console.log("before", clist)
+
+
+        for (let i in list180) {
+            for (let j of clist) {
+                if (list180[i] == j[0]) {
+                    count2 += 1
+                    delete list180[i]
+                }
+            }
+        }
+
+        for (let i of list180) {
+            if (i != undefined) {
+                buglist.push(i)
+                count3 += 1
+            }
+        }
+
+
+
+
+        // console.log("after", list180)
+        // console.log("map count", count2)
+        // console.log("bug count",count3)
+
+
+
+        let coordinates = undefined
+        for (let i in clist) {
+            if (countrymap == clist[i][0]) {
+                coordinates = clist[i][1]
+            }
+        }
+
+        console.log("mapped list", clist)
+        console.log("bugged", buglist)
+
+        //removes data without flag/map location
+        for (let i = 0; i < $("#countryselect option").length; i++) {
+            if (buglist.includes($("#countryselect option").eq(i).text())) {
+                console.log(i)
+                $("#countryselect option").eq(i).remove()
+
+            }
+
+        }
+
+        let setViewCoordinates = undefined
+
+        for (let i of clist) {
+            if ($("#countryselect").val() == i[0]) {
+                setViewCoordinates = i[1]
+            }
+        }
+
+
+        let map = L.map("map1", { zoomControl: true }).setView(setViewCoordinates, 5.5)
+
+        // $('#getData').click(function () {
+        //     //map.remove()
+        //     //loadLatest()
+        // })
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+                // shadowUrl: 'leaf-shadow.png',
+                iconSize: [38, 38],
+                shadowSize: [0, 0],
+                iconAnchor: [22, 35],
+                shadowAnchor: [4, 62],
+                popupAnchor: [0, -20]
+            }
+        });
+
+        customIcon = new LeafIcon({ iconUrl: 'https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/4482957981557740362-512.png' })
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
+        }).addTo(map);
+
+        let markers = []
+
+        let countrycluster = L.markerClusterGroup()
+        for (let i = 0; i < clist.length; i++) {
+            let m = L.marker([clist[i][1][0], clist[i][1][1]], { title: clist[i][0], icon: customIcon })
+
+            if (clist[i][0] == "Taiwan*") {
+                clist[i][0] = "Taiwan"
+            }
+
+            if (clist[i][0] == "US") {
+                clist[i][0] = "United States of America"
+            }
+
+            m.bindPopup(`
+                    <div id="popup">
+                        <div id="flagdisplay2"></div>
+                        <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
+                        <div class="row" id="overview">
+                            <div class="col-12 pt-3">
+                                <p class="pt-2 pb-3">Total Cases</p>
+                                <p>
+                                    <span id="totalconfirmed"></span>
+                                </p>
+                                <p class="pt-2">
+                                    <span id="ctoday"></span>
+                                </p>
+                            </div>
+                            <div class="col-12 pt-3">
+                                <p class="pt-2 pb-3">Total Recovered</p>
+                                <p>
+                                    <span id="totalrecovered"></span>
+                                </p>
+                                <p class="pt-2">
+                                    <span id="rtoday"></span>
+                                </p>
+                            </div>
+                            <div class="col-12 pt-3">
+                                <p class="pt-2 pb-3">Total Deaths</p>
+                                <p>
+                                    <span id="totaldeaths"></span>
+                                </p>
+                                <p class="pt-2">
+                                    <span id="dtoday"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        `)
+
+            markers.push(m)
+
+            m.on("click", function () {
+                getDataFromMap()
+            })
+            countrycluster.addLayer(m)
+        }//markers add loop end
+
+
+
+
+
+
+        function markerPopup(country) {
+            for (let i in markers) {
+                if (markers[i].options.title == country) {
+                    markers[i].openPopup()
+
+                }
+            }
+            console.log(markers)
+        }
+
+
+
+        map.addLayer(countrycluster)
+
+
+
+
+
+        markerPopup(countrymap)
+
+    })
+}//map end
+
+
+
+//loadonclick
+function getData() {
+    $('#map').empty()
+    $('#map').append(`<div id="map1"></div>`)
+    getMap()
+    let countryselected = $("#countryselect").val()
+    let dateselected = $("#dateselect").val()
+    countryname = countryselected
+    loaddate = dateselected
+    countrymap = countryselected
+    loadLatest()
+    //getGlobalTotalByDate()
+}
