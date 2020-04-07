@@ -243,7 +243,7 @@ header h6{
 #countrydisplay {
     font-family: 'Catamaran', sans-serif;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 22px;
     margin: 15px 0px 0px 15px;
 }
 
@@ -251,6 +251,7 @@ header h6{
     font-family: 'Noto Sans SC', sans-serif;
     text-align: center;
     margin: 15px 0 -20px 0;
+    font-size: 20px;
 }
 
 /* overview */

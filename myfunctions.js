@@ -157,6 +157,8 @@ let countrymap = "Singapore"
 
 //#1 load latest info
 function loadLatest() {
+
+    getMap()
     if (countryname == "Taiwan") {
         countryname = "Taiwan*"
     }
@@ -318,12 +320,7 @@ function loadLatest() {
                     }
                 });
 
-                //destroy charts
-                function destroyChartJS() {
-                    if (document.getElementById("combined").hidden == true) {
-                        countryline.destroy()
-                    }
-                }
+
 
                 $("#getData").click(function () {
                     $("#cccontainer").empty()
@@ -332,18 +329,7 @@ function loadLatest() {
                 })
 
 
-                //allows map navigation
-                function getDataFromMap() {
-                    $("#cccontainer").empty()
-                    cdr.destroy()
-                    crr.destroy()
-                    countryline.destroy()
-                    setTimeout(function () {
-                        countryname = $("#countryOnMap").text()
-                        $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
-                        loadLatest()
-                    }, 1000)
-                }
+
 
 
 
@@ -476,7 +462,7 @@ function loadLatest() {
         }//for loop end
 
 
-        getCountryFlag()
+        setTimeout(function () { getCountryFlag() }, 800)
     })//axios end 
 
 
@@ -1057,6 +1043,25 @@ function getMap() {
 
 
         markerPopup(countrymap)
+
+        //allows map navigation
+        function getDataFromMap() {
+            setTimeout(function () {
+                let countryselected = $("#countryOnMap").text()
+                console.log("marker", countryselected)
+                countrymap = countryselected
+
+                let dateselected = $("#dateselect").val()
+                countryname = countryselected
+                loaddate = dateselected
+                countrymap = countryselected
+
+                loadLatest()
+            }, 800)
+
+
+
+        }
 
     })
 }//map end

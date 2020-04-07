@@ -44,7 +44,7 @@ $(function () {
         $(".mycarousel").eq(x).show()
         $(".cindicator").eq(x).css("background-color", "#EA7361")
         $(".cindicator").eq(x).mouseover(function () {
-            $(this).css("background-color", "#82124A")
+            $(this).css("background-color", "#EC4E6D")
         })
         $(".cindicator").eq(x).mouseout(function () {
             $(this).css("background-color", "#EA7361")
@@ -70,18 +70,6 @@ $(function () {
             showSlide(i)
         })
     }
-
-    $("#nmdailyc").click(function(){
-        showSlide(1)
-    })
-
-    $("#nmdailyr").click(function(){
-        showSlide(2)
-    })
-
-    $("#nmdailyd").click(function(){
-        showSlide(3)
-    })
     //carousel code end
 
     getMap()
