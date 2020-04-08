@@ -684,7 +684,7 @@ function getGlobalTotalByDate() {
                 labels: [],
                 datasets: [
                     {
-                        backgroundColor: ["#049090", "#303841"],
+                        backgroundColor: ["#01D1B3", "#303841"],
                         data: [worldRR, (100 - worldRR)],
                         borderWidth: 0,
                     }
@@ -707,7 +707,7 @@ function getGlobalTotalByDate() {
                 labels: [],
                 datasets: [
                     {
-                        backgroundColor: ["#82124A", "#303841"],
+                        backgroundColor: ["#EC4E6D", "#303841"],
                         data: [worldDR, (100 - worldDR)],
                         borderWidth: 0,
                     }
@@ -1079,5 +1079,5 @@ function getData() {
     loaddate = dateselected
     countrymap = countryselected
     loadLatest()
-    //getGlobalTotalByDate()
+    getGlobalTotalByDate()
 }

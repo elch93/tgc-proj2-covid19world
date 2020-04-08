@@ -107,15 +107,15 @@
             <!-- menu end -->
             <!-- map -->
 
-            <div class="row justify-content-center p-2 m-0">
-                <div class="col-7">
+            <div class="row justify-content-center p-md-0 p-lg-2 m-0">
+                <div class="col-10 col-md-5 col-lg-7">
                     <div class="row ml-3">
                         <div id="map">
                             <div id="map1"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
+                <div class="col-5 col-md-7 col-lg-5">
                     <div id="panel">
                         <div class="row">
                             <div class="col-12">
@@ -180,22 +180,22 @@
 
 
             <!-- global stats -->
-            <div class="row justify-content-around m-0" id="globalstats">
-                <div class="col-12 mt-3">
+            <div class="row justify-content-center mt-5 m-0 p-lg-0" id="globalstats">
+                <div class="col-12">
                     <div class="container-fluid m-0 p-0" id=gcontainer>
                         <h1>Global Statistics</h1>
                         <div class="row justify-content-around">
-                            <div class="col-md-4 col-12">
+                            <div class="col-md-4 col-12 mb-3">
                                 <p id="worldtxt1">Confirmed Cases</p>
                                 <p id="totalc"></p>
                                 <p id="worldCIncrease"></p>
                             </div>
-                            <div class="col-md-4 col-12">
+                            <div class="col-md-4 col-12 mb-3">
                                 <p id="worldtxt2">Recovered</p>
                                 <p id="totalr"></p>
                                 <p id="worldRIncrease"></p>
                             </div>
-                            <div class="col-md-4 col-12">
+                            <div class="col-md-4 col-12 mb-3">
                                 <p id="worldtxt3">Deaths Worldwide</p>
                                 <p id="totald"></p>
                                 <p id="worldDIncrease"></p>
@@ -208,7 +208,7 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-5 mt-3">
-                                <div class="row justify-content-end">
+                                <div class="row justify-content-md-end justify-content-center">
                                     <div class="col-8">
                                         <canvas id="wrrdonut" width="300" height="250"></canvas>
                                     </div>
@@ -229,8 +229,9 @@
 
 
 
-            <div class="d-lg-none">
-                <div class="col-12 col-md-6 mt-5 p-3" id="info">
+            <div class="d-lg-none mt-4">
+                small laptops(992 - 1200px)
+                <div class="col-12 col-md-6 mt-5 p-3 d-none" id="info">
                     <h1>What is COVID-19?</h1>
                     <p>Coronavirus disease (COVID-19) is an infectious
                         disease caused by a newly discovered coronavirus.
@@ -240,7 +241,15 @@
                     <p>Symptoms: mild to moderate respiratory illness</p>
                 </div>
             </div>
-
+            <div class="d-md-none mt-4">
+                tablets(768 - 992px)
+            </div>
+            <div class="d-sm-none mt-4">
+                phone()
+            </div>
+            <div class="d-xs-none mt-4">
+                small phones
+            </div>
 
 
 

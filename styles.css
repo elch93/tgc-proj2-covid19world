@@ -106,7 +106,6 @@ button:focus {
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
     z-index: 99999;
-    box-shadow: 5px 10px 8px 0 rgba(0,0,0,0.8);
 }
 
 
@@ -140,8 +139,7 @@ button:focus {
     font-size: 16px;
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    z-index: 99999;
-    box-shadow: 5px 10px 8px 0 rgba(0,0,0,0.8);
+    z-index: 100000;
 }
 
 
@@ -181,12 +179,14 @@ button:focus {
     font-size: 22px;
     font-family: 'Oswald', sans-serif;
     font-weight: 900;
+    margin-top: -15px;
 }
 
 #worldCIncrease, #worldRIncrease, #worldDIncrease {
     font-size: 18px;
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
+    margin-top: -15px;
 }
 
 #wscontainer {
@@ -238,6 +238,26 @@ button:focus {
     font-family: 'Noto Sans SC', sans-serif;
 }
 
+@media (max-width:767.5px) {
+    #globalstats {
+        position: absolute;
+        top:0px;
+        left:0px;
+        display:none;
+        width: 350px;
+        height: 100%;
+        background-color: none;
+        border-radius: 10px;
+        transform: translateX(0%);
+        font-size: 16px;
+        font-family: 'Noto Sans SC', sans-serif;
+        font-weight: 500;
+        color: #303841;
+        padding: 10px;
+        z-index: 99999
+    }
+}
+
 /* header */
 header h1{
     font-family:'Heebo', sans-serif;
@@ -278,7 +298,7 @@ header h6{
 
 #map {
     width: 100%;
-    height: 500px;
+    height: 550px;
     box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
 }
 
@@ -288,13 +308,14 @@ header h6{
 }
 
 #panel {
-    
+    overflow: hidden;
     height: 550px;
     width: 380px;
     border: 1px rgba(0,0,0,0.4) solid;
     z-index: 99997;
     background-color: #303841;
     box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
+    border-radius: 10px;
 }
 
 /* country name date */
