@@ -106,6 +106,7 @@ button:focus {
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
     z-index: 99999;
+    box-shadow: 5px 10px 8px 0 rgba(0,0,0,0.8);
 }
 
 
@@ -140,6 +141,7 @@ button:focus {
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
     z-index: 99999;
+    box-shadow: 5px 10px 8px 0 rgba(0,0,0,0.8);
 }
 
 
@@ -155,6 +157,41 @@ button:focus {
     transform: scale(1);
     transition:transform ease-in 0.6s;
     z-index: 99998;
+}
+
+#globalstats {
+    display:none;
+    width: 600px;
+    height: 550px;
+    background-color: none;
+    position: absolute;
+    border-radius: 10px;
+    left: 50%;
+    top:0px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    color: #303841;
+    padding: 10px;
+    z-index: 99999;
+}
+
+#totalc, #totalr, #totald {
+    font-size: 22px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 900;
+}
+
+#worldCIncrease, #worldRIncrease, #worldDIncrease {
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+}
+
+#wscontainer {
+    height: 400px;
+    width: 330px;
 }
 
 /* search bar */

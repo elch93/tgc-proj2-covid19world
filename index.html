@@ -180,25 +180,25 @@
 
 
             <!-- global stats -->
-            <div class="row justify-content-around p-2 m-0 d-lg-none">
-                <div class="col-12 mt-3" id="globalstats">
+            <div class="row justify-content-around m-0" id="globalstats">
+                <div class="col-12 mt-3">
                     <div class="container-fluid m-0 p-0" id=gcontainer>
                         <h1>Global Statistics</h1>
                         <div class="row justify-content-around">
                             <div class="col-md-4 col-12">
+                                <p id="worldtxt1">Confirmed Cases</p>
                                 <p id="totalc"></p>
                                 <p id="worldCIncrease"></p>
-                                <p id="worldtxt1">Confirmed Cases</p>
                             </div>
                             <div class="col-md-4 col-12">
+                                <p id="worldtxt2">Recovered</p>
                                 <p id="totalr"></p>
                                 <p id="worldRIncrease"></p>
-                                <p id="worldtxt2">Recovered</p>
                             </div>
                             <div class="col-md-4 col-12">
+                                <p id="worldtxt3">Deaths Worldwide</p>
                                 <p id="totald"></p>
                                 <p id="worldDIncrease"></p>
-                                <p id="worldtxt3">Deaths Worldwide</p>
                             </div>
                         </div>
                         <div class="row">
@@ -208,11 +208,11 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-5 mt-3">
-                                <div class="row justify-content-center">
-                                    <div class="col-7">
+                                <div class="row justify-content-end">
+                                    <div class="col-8">
                                         <canvas id="wrrdonut" width="300" height="250"></canvas>
                                     </div>
-                                    <div class="col-7">
+                                    <div class="col-8">
                                         <canvas id="wdrdonut" width="300" height="250"></canvas>
                                     </div>
                                 </div>
@@ -222,15 +222,6 @@
                             <div class="col-12 col-md-6">
                                 <canvas id="pie-chart" width="450" height="450"></canvas>
                             </div>
-                            <div class="col-12 col-md-6 mt-5 p-3" id="info">
-                                <h1>What is COVID-19?</h1>
-                                <p>Coronavirus disease (COVID-19) is an infectious
-                                    disease caused by a newly discovered coronavirus.
-                                    Older people, and those with underlying medical problems
-                                    like cardiovascular disease, diabetes, chronic respiratory
-                                    disease, and cancer are more likely to develop serious illness.</p>
-                                <p>Symptoms: mild to moderate respiratory illness</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +229,17 @@
 
 
 
-
+            <div class="d-lg-none">
+                <div class="col-12 col-md-6 mt-5 p-3" id="info">
+                    <h1>What is COVID-19?</h1>
+                    <p>Coronavirus disease (COVID-19) is an infectious
+                        disease caused by a newly discovered coronavirus.
+                        Older people, and those with underlying medical problems
+                        like cardiovascular disease, diabetes, chronic respiratory
+                        disease, and cancer are more likely to develop serious illness.</p>
+                    <p>Symptoms: mild to moderate respiratory illness</p>
+                </div>
+            </div>
 
 
 

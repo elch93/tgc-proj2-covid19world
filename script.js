@@ -6,7 +6,7 @@ $(function () {
     $("#searchbtn").click(function(){
         if (menudisplay == "off") {
             $("#selectbg").css("transform","scale(70)")
-            $("#globalbtn").toggle()
+            $("#globalbtn").hide()
             setTimeout(function(){$("#searchbar").fadeToggle(1000)},200)
             menudisplay = "on"
         }
@@ -22,12 +22,14 @@ $(function () {
     $("#globalbtn").click(function(){
         if (menudisplay == "off") {
             $("#globalbg").css("transform","scale(70)")
-            $("#searchbtn").toggle()
+            $("#searchbtn").hide()
+            setTimeout(function(){$("#globalstats").fadeToggle(1000)},400)
             menudisplay = "on"
         }
 
         else if (menudisplay == "on") {
             $("#globalbg").css("transform","scale(1)")
+            $("#globalstats").fadeToggle()
             $("#searchbtn").fadeToggle(900)
             menudisplay = "off"
         }
@@ -35,6 +37,7 @@ $(function () {
 
     $("#getData").click(function () {
         $("#searchbar").fadeToggle()
+        $("#globalbtn").show()
         $("#selectbg").css("transform","scale(1)")
         menudisplay = "off"
     })
@@ -46,24 +49,24 @@ $(function () {
     function showSlide(x) {
         for (let i = 0; i < $(".mycarousel").length; i++) {
             $(".mycarousel").eq(i).hide()
-            $(".cindicator").eq(i).css("background-color", "#e3e3e3")
+            $(".cindicator").eq(i).css("background-color", "grey")
             $(".cindicator").eq(i).mouseover(function () {
-                $(this).css("background-color", "#82124A")
+                $(this).css("background-color", "gold")
             })
             $(".cindicator").eq(i).mouseout(function () {
-                $(this).css("background-color", "#e3e3e3")
+                $(this).css("background-color", "grey")
             })
         }
 
         
 
         $(".mycarousel").eq(x).show()
-        $(".cindicator").eq(x).css("background-color", "#EA7361")
+        $(".cindicator").eq(x).css("background-color", "white")
         $(".cindicator").eq(x).mouseover(function () {
-            $(this).css("background-color", "#82124A")
+            $(this).css("background-color", "gold")
         })
         $(".cindicator").eq(x).mouseout(function () {
-            $(this).css("background-color", "#EA7361")
+            $(this).css("background-color", "white")
         })
     }
 
@@ -137,7 +140,7 @@ $(function () {
     })//axios for country list
 
     //getTop5()
-    //getGlobalTotalByDate()
+    getGlobalTotalByDate()
 
 
     // setTimeout(
