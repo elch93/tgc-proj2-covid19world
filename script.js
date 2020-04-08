@@ -6,6 +6,7 @@ $(function () {
     $("#searchbtn").click(function(){
         if (menudisplay == "off") {
             $("#selectbg").css("transform","scale(70)")
+            $("#globalbtn").toggle()
             setTimeout(function(){$("#searchbar").fadeToggle(1000)},200)
             menudisplay = "on"
         }
@@ -13,6 +14,21 @@ $(function () {
         else if (menudisplay == "on") {
             $("#selectbg").css("transform","scale(1)")
             $("#searchbar").fadeToggle()
+            $("#globalbtn").fadeToggle(900)
+            menudisplay = "off"
+        }
+    })
+
+    $("#globalbtn").click(function(){
+        if (menudisplay == "off") {
+            $("#globalbg").css("transform","scale(70)")
+            $("#searchbtn").toggle()
+            menudisplay = "on"
+        }
+
+        else if (menudisplay == "on") {
+            $("#globalbg").css("transform","scale(1)")
+            $("#searchbtn").fadeToggle(900)
             menudisplay = "off"
         }
     })
@@ -32,7 +48,7 @@ $(function () {
             $(".mycarousel").eq(i).hide()
             $(".cindicator").eq(i).css("background-color", "#e3e3e3")
             $(".cindicator").eq(i).mouseover(function () {
-                $(this).css("background-color", "#EC4E6D")
+                $(this).css("background-color", "#82124A")
             })
             $(".cindicator").eq(i).mouseout(function () {
                 $(this).css("background-color", "#e3e3e3")
@@ -44,7 +60,7 @@ $(function () {
         $(".mycarousel").eq(x).show()
         $(".cindicator").eq(x).css("background-color", "#EA7361")
         $(".cindicator").eq(x).mouseover(function () {
-            $(this).css("background-color", "#EC4E6D")
+            $(this).css("background-color", "#82124A")
         })
         $(".cindicator").eq(x).mouseout(function () {
             $(this).css("background-color", "#EA7361")
@@ -74,7 +90,7 @@ $(function () {
 
     getMap()
     let countrylist = []
-    loadLatest()
+    setTimeout(function(){loadLatest()},600)
    
     //adding countries & dates to options
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
