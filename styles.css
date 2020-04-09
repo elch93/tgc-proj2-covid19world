@@ -178,7 +178,7 @@ button:focus {
     font-size: 16px;
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    z-index: 3;
+    z-index: 998;
 }
 
 
@@ -318,8 +318,7 @@ header h6{
 
 .leaflet-popup-content-wrapper {
     width: 450px !important;
-    height: 200px;
-    overflow-y: scroll;
+    height: 250px !important;
     overflow-x: hidden;
 }
 
