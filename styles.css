@@ -496,13 +496,14 @@ header h6{
 }
 
 /* tablets */
-@media (max-width:1023.5px) {
+@media (min-width:767.6px) and (max-width:1023.5px) {
     .leaflet-popup-content-wrapper {
         width: 320px !important;
         height: 200px;
         overflow-y: scroll;
         overflow-x: hidden;
     }
+
 }
 
 
@@ -563,7 +564,6 @@ header h6{
 
     #map {
         margin: 50px 0 0 0;
-        width: 90vw;
         max-height: 450px;
         box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
     }
