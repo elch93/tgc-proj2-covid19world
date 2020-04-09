@@ -1113,7 +1113,7 @@ function getGlobalList() {
                     $("#globallist1").append(`
                     <div class="container-fluid mb-3">
                         <img src="${restcountries[j].flag}">
-                        <span>${i['country']}</span>
+                        <p class="listheader">${i['country']}</p>
                         <div class="row">
                             <div class="col-4">
                                 <p>Total Cases: ${i.confirmed}</p>
@@ -1276,7 +1276,7 @@ function getGlobalListByRank() {
                     $("#globallist1").append(`
                     <div class="container-fluid mb-3">
                         <img src="${restcountries[j].flag}">
-                        <span>#${rankno} ${i['country']}</span>
+                        <p class="listheader">#${rankno} ${i['country']}</p>
                         <div class="row">
                             <div class="col-4">
                                 <p>Total Cases: ${thousands_separators(i.confirmed)}</p>
