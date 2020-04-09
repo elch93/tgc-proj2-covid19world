@@ -182,12 +182,13 @@ button:focus {
     font-size: 16px;
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    z-index: 99999;
+    z-index: 3;
 }
 
 #listbtn {
     left:120px;
     display: block;
+    z-index: 99999;
 }
 
 
@@ -211,6 +212,7 @@ button:focus {
 
 #globallist {
     overflow-y: scroll;
+    margin: 100px auto;
 }
 
 #globallist span {
@@ -565,7 +567,7 @@ header h6{
         top:75% !important
     }
         
-    #searchbtn, #selectbg, #globalbtn, #globalbg, #detailsbtn, #listbtn {
+    #searchbtn, #selectbg, #globalbtn, #globalbg, #detailsbtn, #listbtn, #listbg {
         top:80px;
     }
 
