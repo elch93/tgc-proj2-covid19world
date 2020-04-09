@@ -425,8 +425,8 @@ function loadLatest() {
                         events: [],
                         title: {
                             fontColor: '#F3F3F3',
-                            fontSize: 18,
-                            display: true,
+                            fontSize: 16,
+                            display: false,
                             text: 'Recovery Rate:' + " " + recoveryrate + "%"
                         }
                     }
@@ -452,12 +452,16 @@ function loadLatest() {
                         events: [],
                         title: {
                             fontColor: '#F3F3F3',
-                            fontSize: 18,
-                            display: true,
+                            fontSize: 16,
+                            display: false,
                             text: 'Death Rate:' + " " + deathrate + "%"
                         }
                     }
                 });
+
+                $("#crr").append(recoveryrate)
+                $("#cdr").append(deathrate)
+
             }
         }//for loop end
 
@@ -614,7 +618,7 @@ function getGlobalTotalByDate() {
                 title: {
                     fontColor: '#303841',
                     fontSize: 20,
-                    display: true,
+                    display: false,
                     text: 'Recovery Rate:' + " " + worldRR + "%"
                 }
             }
@@ -637,11 +641,14 @@ function getGlobalTotalByDate() {
                 title: {
                     fontColor: '#303841',
                     fontSize: 20,
-                    display: true,
+                    display: false,
                     text: 'Death Rate:' + " " + worldDR + "%"
                 }
             }
         });
+
+        $("#wrr").append(worldRR)
+        $("#wdr").append(worldDR)
 
         $("#getData").click(function () {
             worldline.destroy()
@@ -993,7 +1000,7 @@ function getGlobalList() {
         //sort by data
         let data = []
         $("#globallist1").empty()
-        
+
 
 
         for (let i in pomberdata) {
@@ -1004,7 +1011,7 @@ function getGlobalList() {
 
         data.sort()
 
-        
+
 
         for (let i = 0; i < data.length; i++) {
             for (let j in pomberdata) {
@@ -1022,7 +1029,7 @@ function getGlobalList() {
                 }
             }
         }
-        console.log("BUGGG",data)
+        console.log("BUGGG", data)
 
         //console.log("new data", data, data.length)
         //console.log("flag", restcountries)
@@ -1124,14 +1131,14 @@ function getGlobalList() {
                     // listcount.push(i.country)    
                 }
 
-                
+
             }
-                
-            
+
+
 
         }
 
-        
+
 
         // for (let i in pomberlist) {
         //     for (let j in listcount) {
@@ -1165,7 +1172,7 @@ function getGlobalListByRank() {
 
         data.sort()
 
-        
+
 
         for (let i = 0; i < data.length; i++) {
             for (let j in pomberdata) {
@@ -1184,7 +1191,7 @@ function getGlobalListByRank() {
             }
         }
 
-        data.sort((a,b) => b.confirmed - a.confirmed)
+        data.sort((a, b) => b.confirmed - a.confirmed)
 
         //console.log("new data", data, data.length)
         //console.log("flag", restcountries)
@@ -1263,7 +1270,7 @@ function getGlobalListByRank() {
         let rankno = 1
         for (let i of data) {
             // pomberlist.push(i.country)
-            
+
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
                     $("#globallist1").append(`
@@ -1289,14 +1296,14 @@ function getGlobalListByRank() {
                     // listcount.push(i.country)    
                 }
 
-                
+
             }
-                
-            
+
+
 
         }
 
-        
+
 
         // for (let i in pomberlist) {
         //     for (let j in listcount) {

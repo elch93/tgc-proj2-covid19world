@@ -244,6 +244,11 @@ button:focus {
     width: 330px;
 }
 
+.donutheader {
+    font-size: 18px;
+    font-weight: 700;
+}
+
 /* search bar */
 #searchbar {
     display:none;
@@ -413,9 +418,10 @@ header h6{
 
 /* carousel */
 #donutcontainer {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 280px;
+    max-width: 280px;
 }
+
 
 #carouselcontainer {
     height: 450px;
