@@ -3,19 +3,19 @@ $(function () {
     //menu
     let menudisplay = "off"
     let detailsdisplay = "off"
-    
-    $("#searchbtn").click(function(){
+
+    $("#searchbtn").click(function () {
         if (menudisplay == "off") {
-            $("#selectbg").css("transform","scale(70)")
+            $("#selectbg").css("transform", "scale(70)")
             $("#globalbtn").hide()
             $(".fa-search").eq(0).hide()
             $("#searchx").show()
-            setTimeout(function(){$("#searchbar").fadeToggle(1000)},200)
+            setTimeout(function () { $("#searchbar").fadeToggle(1000) }, 200)
             menudisplay = "on"
         }
 
         else if (menudisplay == "on") {
-            $("#selectbg").css("transform","scale(1)")
+            $("#selectbg").css("transform", "scale(1)")
             $(".fa-search").eq(0).show()
             $("#searchx").hide()
             $("#searchbar").fadeToggle()
@@ -24,21 +24,21 @@ $(function () {
         }
     })
 
-    $("#globalbtn").click(function(){
+    $("#globalbtn").click(function () {
         if (menudisplay == "off") {
-            $("#globalbg").css("transform","scale(70)")
+            $("#globalbg").css("transform", "scale(70)")
             $(".fa-globe-americas").hide()
             $("#globalx").show()
             $("#searchbtn").hide()
-            $("#globalbtn").css("position","absolute")
-            setTimeout(function(){$("#globalstats").fadeToggle(1000)},400)
+            $("#globalbtn").css("position", "absolute")
+            setTimeout(function () { $("#globalstats").fadeToggle(1000) }, 400)
             menudisplay = "on"
         }
 
         else if (menudisplay == "on") {
-            $("#globalbg").css("transform","scale(1)")
+            $("#globalbg").css("transform", "scale(1)")
             $(".fa-globe-americas").show()
-            $("#globalbtn").css("position","fixed")
+            $("#globalbtn").css("position", "fixed")
             $("#globalx").hide()
             $("#globalstats").fadeToggle()
             $("#searchbtn").fadeToggle(900)
@@ -46,8 +46,8 @@ $(function () {
         }
     })
 
-    
-    $("#detailsbtn").click(function(){
+
+    $("#detailsbtn").click(function () {
         if (detailsdisplay == "off") {
             $(".fa-info-circle").hide()
             $("#detailsx").show()
@@ -66,7 +66,9 @@ $(function () {
     $("#getData").click(function () {
         $("#searchbar").fadeToggle()
         $("#globalbtn").show()
-        $("#selectbg").css("transform","scale(1)")
+        $(".fa-search").eq(0).show()
+        $("#searchx").hide()
+        $("#selectbg").css("transform", "scale(1)")
         menudisplay = "off"
     })
 
@@ -86,7 +88,7 @@ $(function () {
             })
         }
 
-        
+
 
         $(".mycarousel").eq(x).show()
         $(".cindicator").eq(x).css("background-color", "white")
@@ -121,8 +123,8 @@ $(function () {
 
     getMap()
     let countrylist = []
-    setTimeout(function(){loadLatest()},600)
-   
+    setTimeout(function () { loadLatest() }, 600)
+
     //adding countries & dates to options
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
 
