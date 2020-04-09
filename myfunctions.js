@@ -989,7 +989,7 @@ function getGlobalList() {
         let pomberdata = r[1].data
         //sort by data
         let data = []
-        $("#globallist").empty()
+        $("#globallist1").empty()
 
 
 
@@ -1111,6 +1111,164 @@ function getGlobalList() {
                                 <p>Deaths: ${i.deaths}</p>
                             </div>
                         </div>
+                    </div>
+
+                    `)
+                    // listcount.push(i.country)    
+                }
+
+                
+            }
+                
+            
+
+        }
+
+        
+
+        // for (let i in pomberlist) {
+        //     for (let j in listcount) {
+        //         if ( pomberlist[i] == listcount[j]) {
+        //             delete pomberlist[i]
+        //         }
+        //     }
+        // }
+
+        // console.log(pomberlist)
+
+    })//axios end
+}//get list end
+
+// load world list by rank
+function getGlobalListByRank() {
+    axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
+        let restcountries = r[0].data
+        let pomberdata = r[1].data
+        //sort by data
+        let data = []
+        $("#globallist1").empty()
+
+
+
+        for (let i in pomberdata) {
+            pomberdata[i].reverse()
+            convertDates(pomberdata[i])
+            data.push(i)
+        }
+
+        data.sort()
+
+        
+
+        for (let i = 0; i < data.length; i++) {
+            for (let j in pomberdata) {
+                if (data[i] == j) {
+                    for (let k = 0; k < 60; k++) {
+                        if (loaddate == pomberdata[j][k].date) {
+                            data[i] = {
+                                "country": data[i],
+                                "confirmed": pomberdata[j][k].confirmed,
+                                "recovered": pomberdata[j][k].recovered,
+                                "deaths": pomberdata[j][k].deaths
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        data.sort((a,b) => b.confirmed - a.confirmed)
+
+        console.log("new data", data, data.length)
+        console.log("flag", restcountries)
+        for (let i of data) {
+            if (i.country == "Taiwan*") {
+                i.country = "Taiwan"
+            }
+
+            else if (i.country == "Vietnam") {
+                i.country = "Viet Nam"
+            }
+
+            else if (i.country == "Korea, South") {
+                i.country = "Korea (Republic of)"
+            }
+
+
+            else if (i.country == "Czechia") {
+                i.country = "Czech Republic"
+            }
+
+            else if (i.country == "North Macedonia") {
+                i.country = "Macedonia (the former Yugoslav Republic of)"
+            }
+
+            else if (i.country == "Laos") {
+                i.country = "Lao People's Democratic Republic"
+            }
+
+            else if (i.country == "Bolivia") {
+                i.country = "Bolivia (Plurinational State of)"
+            }
+
+            else if (i.country == "Brunei") {
+                i.country = "Brunei Darussalam"
+            }
+
+            else if (i.country == "Iran") {
+                i.country = "Iran (Islamic Republic of)"
+            }
+
+            else if (i.country == "Moldova") {
+                i.country = "Moldova (Republic of)"
+            }
+
+            else if (i.country == "Russia") {
+                i.country = "Russian Federation"
+            }
+
+            else if (i.country == "Tanzania") {
+                i.country = "Tanzania, United Republic of"
+            }
+
+            else if (i.country == "United Kingdom") {
+                i.country = "United Kingdom of Great Britain and Northern Ireland"
+            }
+
+            else if (i.country == "Venezuela") {
+                i.country = "Venezuela (Bolivarian Republic of)"
+            }
+
+            else if (i.country == "Syria") {
+                i.country = "Syrian Arab Republic"
+            }
+        }
+
+        // let listcount = []
+
+        // let pomberlist = []
+
+
+
+        for (let i of data) {
+            // pomberlist.push(i.country)
+            for (let j in restcountries) {
+                if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
+                    $("#globallist1").append(`
+                    <div class="container-fluid mb-3">
+                        <img src="${restcountries[j].flag}">
+                        <span>${i['country']}</span>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Total Cases: ${thousands_separators(i.confirmed)}</p>
+                            </div>
+                            <div class="col-4">
+                                <p>Recovered: ${thousands_separators(i.recovered)}</p>
+                            </div>
+                            <div class="col-4">
+                                <p>Deaths: ${thousands_separators(i.deaths)}</p>
+                            </div>
+                        </div>
                         
                     </div>
 
@@ -1153,5 +1311,5 @@ function getData() {
     countrymap = countryselected
     loadLatest()
     getGlobalTotalByDate()
-    getGlobalList()
+    getGlobalListByRank()
 }
