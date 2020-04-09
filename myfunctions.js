@@ -1104,7 +1104,7 @@ function getGlobalList() {
 
         // let pomberlist = []
 
-
+        $("#globallist1").append(`<a href="#top" id="b2top"><i class="fas fa-arrow-circle-up"></i></a>`)
 
         for (let i of data) {
             // pomberlist.push(i.country)
@@ -1266,7 +1266,7 @@ function getGlobalListByRank() {
 
         // let pomberlist = []
 
-
+        $("#globallist1").append(`<a href="#top" id="b2top"><i class="fas fa-arrow-circle-up"></i></a>`)
         let rankno = 1
         for (let i of data) {
             // pomberlist.push(i.country)

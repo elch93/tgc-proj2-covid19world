@@ -211,8 +211,25 @@ button:focus {
 }
 
 #globallist {
-    overflow-y: scroll;
+    overflow-y: auto;
     margin: 100px auto;
+    transform: none;
+    left: 120px;
+    height: 400px;
+    width: 80%;
+}
+
+#globallist1 {
+    overflow-y: scroll;
+}
+
+#b2top {
+    color: #303841;
+    font-size: 28px;
+    position: fixed !important;
+    top:400px;
+    left: 620px;
+    z-index: 99999;
 }
 
 .listheader {
@@ -535,6 +552,7 @@ header h6{
         overflow-x: hidden;
     }
 
+
 }
 
 
@@ -582,11 +600,22 @@ header h6{
     }
 
     #globalstats,#globallist {
-        top:50px;
+        top:75px;
         left:0px;
         width: 350px;
         height: 100%;
-        transform: translateX(0%);
+        transform: none;
+    }
+
+    #globallist {
+        width: 90%;
+        left: 5%;
+    }
+
+    #b2top {
+        top:450px;
+        left: 80%;
+        
     }
 
     #wscontainer {
