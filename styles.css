@@ -511,6 +511,7 @@ header h6{
 @media (max-width:767.5px) {
     #searchbar {
         text-align: center;
+        width: 100vw;
     }
 
     .leaflet-popup-content-wrapper {
