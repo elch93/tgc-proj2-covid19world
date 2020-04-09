@@ -979,7 +979,7 @@ function getMap() {
 
             m.bindPopup(`
                     <div class="container-fluid" id="popup">
-                        <div id="flagdisplay2"></div>
+                        <div class="mb-2" id="flagdisplay2"></div>
                         <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
                         <div class="row justify-content-center" id="overview">
                             <div class="col-12 col-lg-4 pt-3">
