@@ -194,7 +194,7 @@ $(function () {
 
    
     getGlobalTotalByDate()
-    //getGlobalList()
-    getGlobalListByRank()
+    getGlobalList()
+    //getGlobalListByRank()
 
 })//jquery end

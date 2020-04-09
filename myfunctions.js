@@ -990,7 +990,7 @@ function getGlobalList() {
         //sort by data
         let data = []
         $("#globallist1").empty()
-
+        
 
 
         for (let i in pomberdata) {
@@ -1019,13 +1019,17 @@ function getGlobalList() {
                 }
             }
         }
+        console.log("BUGGG",data)
 
-
-        console.log("new data", data, data.length)
-        console.log("flag", restcountries)
+        //console.log("new data", data, data.length)
+        //console.log("flag", restcountries)
         for (let i of data) {
             if (i.country == "Taiwan*") {
                 i.country = "Taiwan"
+            }
+
+            else if (i.country == "US") {
+                i.country = "United States of America"
             }
 
             else if (i.country == "Vietnam") {
@@ -1096,7 +1100,7 @@ function getGlobalList() {
             // pomberlist.push(i.country)
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
-                    $("#globallist").append(`
+                    $("#globallist1").append(`
                     <div class="container-fluid mb-3">
                         <img src="${restcountries[j].flag}">
                         <span>${i['country']}</span>
@@ -1179,11 +1183,15 @@ function getGlobalListByRank() {
 
         data.sort((a,b) => b.confirmed - a.confirmed)
 
-        console.log("new data", data, data.length)
-        console.log("flag", restcountries)
+        //console.log("new data", data, data.length)
+        //console.log("flag", restcountries)
         for (let i of data) {
             if (i.country == "Taiwan*") {
                 i.country = "Taiwan"
+            }
+
+            else if (i.country == "US") {
+                i.country = "United States of America"
             }
 
             else if (i.country == "Vietnam") {
@@ -1312,4 +1320,5 @@ function getData() {
     loadLatest()
     getGlobalTotalByDate()
     getGlobalListByRank()
+    getGlobalList()
 }
