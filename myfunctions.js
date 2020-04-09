@@ -974,6 +974,8 @@ function getMap() {
             if (clist[i][0] == "US") {
                 clist[i][0] = "United States of America"
             }
+            
+            
 
             m.bindPopup(`
                     <div id="popup">

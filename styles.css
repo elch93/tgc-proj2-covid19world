@@ -89,7 +89,11 @@ body{
 button:focus {
     outline:none;
 }
-  
+
+.fa-times-circle {
+    display: none;
+}
+
 #searchbtn {
     position: fixed;
     height: 40px;
@@ -156,6 +160,29 @@ button:focus {
     transition:transform ease-in 0.6s;
     z-index: 99998;
 }
+
+
+#detailsbtn {
+    display:none;
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    left:120px;
+    top:20px;
+    background-color: #F3F3F3;
+    border: none;
+    color: #303841;
+    font-family: 'Heebo', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 3px 5px;
+    transition: background-color ease-in 0.4s, color ease-in 0.4s;
+    z-index: 100000;
+}
+
+
+
 
 #globalstats {
     display:none;
@@ -238,25 +265,7 @@ button:focus {
     font-family: 'Noto Sans SC', sans-serif;
 }
 
-@media (max-width:767.5px) {
-    #globalstats {
-        position: absolute;
-        top:0px;
-        left:0px;
-        display:none;
-        width: 350px;
-        height: 100%;
-        background-color: none;
-        border-radius: 10px;
-        transform: translateX(0%);
-        font-size: 16px;
-        font-family: 'Noto Sans SC', sans-serif;
-        font-weight: 500;
-        color: #303841;
-        padding: 10px;
-        z-index: 99999
-    }
-}
+
 
 /* header */
 header h1{
@@ -305,6 +314,13 @@ header h6{
 #map1 {
     height: 100%;
     border-radius: 10px;
+}
+
+.leaflet-popup-content {
+    width: 250px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #panel {
@@ -482,4 +498,101 @@ header h6{
     stroke: #F3F3F3 !important;
 }
 
+/* phones */
+@media (max-width:767.5px) {
+    .leaflet-top {
+        top:75% !important
+    }
+        
+    #searchbtn, #selectbg, #globalbtn, #globalbg, #detailsbtn {
+        top:80px;
+    }
 
+    #detailsbtn {
+        display: block;
+    }
+
+
+    #globalstats {
+        position: absolute;
+        top:50px;
+        left:0px;
+        display:none;
+        width: 350px;
+        height: 100%;
+        background-color: none;
+        border-radius: 10px;
+        transform: translateX(0%);
+        font-size: 16px;
+        font-family: 'Noto Sans SC', sans-serif;
+        font-weight: 500;
+        color: #303841;
+        padding: 10px;
+        z-index: 99999
+    }
+
+    #map {
+        margin: 50px 0 0 0;
+        width: 90vw;
+        max-height: 470px;
+        box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
+    }
+
+    #map1 {
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    #panel {
+        display: none;
+        position: fixed;
+        top:110px;
+        overflow: hidden;
+        height: 480px;
+        width: 90vw;
+        border: 1px rgba(0,0,0,0.4) solid;
+        z-index: 99997;
+        background-color: #303841;
+        box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
+        border-radius: 10px;
+        margin: 20px 0 0 0;
+    }
+
+        
+    /* country name date */
+    #flagdisplay {
+        height: 48px;
+        width: 80px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 15px 0px 0px 15px;
+    }
+
+    #countrydisplay {
+        font-family: 'Catamaran', sans-serif;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin: 15px 0px 0px 15px;
+    }
+
+    #datedisplay {
+        font-family: 'Noto Sans SC', sans-serif;
+        text-align: center;
+        margin: 15px 0 -20px 0;
+        font-size: 16px;
+    }
+
+    /* carouselmobile */
+
+    #carouselcontainer p {
+        font-family: 'Noto Sans SC', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    #cccontainer {
+        width: 250px;
+        margin: 0 0 0px 0px;
+    }
+}

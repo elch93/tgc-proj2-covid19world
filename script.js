@@ -6,15 +6,19 @@ $(function () {
     $("#searchbtn").click(function(){
         if (menudisplay == "off") {
             $("#selectbg").css("transform","scale(70)")
-            $("#globalbtn").hide()
+            $("#globalbtn").hide(),$("#detailsbtn").hide()
+            $(".fa-search").eq(0).hide()
+            $("#searchx").show()
             setTimeout(function(){$("#searchbar").fadeToggle(1000)},200)
             menudisplay = "on"
         }
 
         else if (menudisplay == "on") {
             $("#selectbg").css("transform","scale(1)")
+            $(".fa-search").eq(0).show()
+            $("#searchx").hide()
             $("#searchbar").fadeToggle()
-            $("#globalbtn").fadeToggle(900)
+            $("#globalbtn").fadeToggle(900),$("#detailsbtn").fadeToggle(900)
             menudisplay = "off"
         }
     })
@@ -22,15 +26,38 @@ $(function () {
     $("#globalbtn").click(function(){
         if (menudisplay == "off") {
             $("#globalbg").css("transform","scale(70)")
-            $("#searchbtn").hide()
+            $(".fa-globe-americas").hide()
+            $("#globalx").show()
+            $("#searchbtn").hide(),$("#detailsbtn").hide()
+            $("#globalbtn").css("position","absolute")
             setTimeout(function(){$("#globalstats").fadeToggle(1000)},400)
             menudisplay = "on"
         }
 
         else if (menudisplay == "on") {
             $("#globalbg").css("transform","scale(1)")
+            $(".fa-globe-americas").show()
+            $("#globalbtn").css("position","fixed")
+            $("#globalx").hide()
             $("#globalstats").fadeToggle()
-            $("#searchbtn").fadeToggle(900)
+            $("#searchbtn").fadeToggle(900),$("#detailsbtn").fadeToggle(900)
+            menudisplay = "off"
+        }
+    })
+
+    
+    $("#detailsbtn").click(function(){
+        if (menudisplay == "off") {
+            $(".fa-info-circle").hide()
+            $("#detailsx").show()
+            $("#panel").fadeToggle()
+            menudisplay = "on"
+        }
+
+        else if (menudisplay == "on") {
+            $(".fa-info-circle").show()
+            $("#detailsx").hide()
+            $("#panel").fadeToggle()
             menudisplay = "off"
         }
     })
