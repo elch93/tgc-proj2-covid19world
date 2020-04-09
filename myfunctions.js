@@ -576,6 +576,9 @@ function getGlobalTotalByDate() {
                     display: true,
                     text: 'World Trend (Past 7 Days)'
                 },
+                legend: {
+                    position: 'bottom',
+                },
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -635,7 +638,7 @@ function getGlobalTotalByDate() {
                     fontColor: '#303841',
                     fontSize: 20,
                     display: true,
-                    text: 'Recovery Rate:' + " " + worldDR + "%"
+                    text: 'Death Rate:' + " " + worldDR + "%"
                 }
             }
         });
@@ -1257,15 +1260,16 @@ function getGlobalListByRank() {
         // let pomberlist = []
 
 
-
+        let rankno = 1
         for (let i of data) {
             // pomberlist.push(i.country)
+            
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
                     $("#globallist1").append(`
                     <div class="container-fluid mb-3">
                         <img src="${restcountries[j].flag}">
-                        <span>${i['country']}</span>
+                        <span>#${rankno} ${i['country']}</span>
                         <div class="row">
                             <div class="col-4">
                                 <p>Total Cases: ${thousands_separators(i.confirmed)}</p>
@@ -1281,6 +1285,7 @@ function getGlobalListByRank() {
                     </div>
 
                     `)
+                    rankno += 1
                     // listcount.push(i.country)    
                 }
 
