@@ -1021,9 +1021,79 @@ function getGlobalList() {
         }
 
 
-        console.log("new data", data)
+        console.log("new data", data, data.length)
+        console.log("flag", restcountries)
+        for (let i of data) {
+            if (i.country == "Taiwan*") {
+                i.country = "Taiwan"
+            }
+
+            else if (i.country == "Vietnam") {
+                i.country = "Viet Nam"
+            }
+
+            else if (i.country == "Korea, South") {
+                i.country = "Korea (Republic of)"
+            }
+
+
+            else if (i.country == "Czechia") {
+                i.country = "Czech Republic"
+            }
+
+            else if (i.country == "North Macedonia") {
+                i.country = "Macedonia (the former Yugoslav Republic of)"
+            }
+
+            else if (i.country == "Laos") {
+                i.country = "Lao People's Democratic Republic"
+            }
+
+            else if (i.country == "Bolivia") {
+                i.country = "Bolivia (Plurinational State of)"
+            }
+
+            else if (i.country == "Brunei") {
+                i.country = "Brunei Darussalam"
+            }
+
+            else if (i.country == "Iran") {
+                i.country = "Iran (Islamic Republic of)"
+            }
+
+            else if (i.country == "Moldova") {
+                i.country = "Moldova (Republic of)"
+            }
+
+            else if (i.country == "Russia") {
+                i.country = "Russian Federation"
+            }
+
+            else if (i.country == "Tanzania") {
+                i.country = "Tanzania, United Republic of"
+            }
+
+            else if (i.country == "United Kingdom") {
+                i.country = "United Kingdom of Great Britain and Northern Ireland"
+            }
+
+            else if (i.country == "Venezuela") {
+                i.country = "Venezuela (Bolivarian Republic of)"
+            }
+
+            else if (i.country == "Syria") {
+                i.country = "Syrian Arab Republic"
+            }
+        }
+
+        // let listcount = []
+
+        // let pomberlist = []
+
+
 
         for (let i of data) {
+            // pomberlist.push(i.country)
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
                     $("#globallist").append(`
@@ -1045,14 +1115,27 @@ function getGlobalList() {
                     </div>
 
                     `)
+                    // listcount.push(i.country)    
                 }
+
+                
             }
                 
             
 
         }
 
+        
 
+        // for (let i in pomberlist) {
+        //     for (let j in listcount) {
+        //         if ( pomberlist[i] == listcount[j]) {
+        //             delete pomberlist[i]
+        //         }
+        //     }
+        // }
+
+        // console.log(pomberlist)
 
     })//axios end
 }//get list end
