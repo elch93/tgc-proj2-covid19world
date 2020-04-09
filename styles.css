@@ -190,7 +190,6 @@ button:focus {
     height: 550px;
     background-color: none;
     position: absolute;
-    border-radius: 10px;
     left: 45%;
     top:0px;
     transform: translateX(-50%);
@@ -320,6 +319,7 @@ header h6{
     width: 450px !important;
     height: 250px !important;
     overflow-x: hidden;
+    background-color: #303841 !important;
 }
 
 #panel {
@@ -362,6 +362,7 @@ header h6{
     padding: 0 0 0 -10px;
     width: 410px;
     border-radius: 10px;
+    color:#F3F3F3;
 }
 
 
@@ -519,12 +520,23 @@ header h6{
         height: 200px;
         overflow-y: scroll;
         overflow-x: hidden;
+        text-align: center !important;
+        background-color: #303841 !important;
     }
 
+    .leaflet-popup-content {
+        text-align: center !important;
+        margin: 0 auto !important;
+        display: flex;
+    }
+
+
     #popup {
-        padding: 0 0 0 -10px;
-        width: 310px;
+        margin: 15px auto !important;
+        padding: 10px;
+        width: 200px;
         border-radius: 10px;
+        text-align: center;
     }
 
     .leaflet-top {
@@ -539,23 +551,12 @@ header h6{
         display: block;
     }
 
-
     #globalstats {
-        position: absolute;
         top:50px;
         left:0px;
-        display:none;
         width: 350px;
         height: 100%;
-        background-color: none;
-        border-radius: 10px;
         transform: translateX(0%);
-        font-size: 16px;
-        font-family: 'Noto Sans SC', sans-serif;
-        font-weight: 500;
-        color: #303841;
-        padding: 10px;
-        z-index: 99999
     }
 
     #wscontainer {
