@@ -978,11 +978,11 @@ function getMap() {
             
 
             m.bindPopup(`
-                    <div id="popup">
+                    <div class="container-fluid" id="popup">
                         <div id="flagdisplay2"></div>
                         <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
-                        <div class="row" id="overview">
-                            <div class="col-12 pt-3">
+                        <div class="row justify-content-center" id="overview">
+                            <div class="col-12 col-lg-4 pt-3">
                                 <p class="pt-2 pb-3">Total Cases</p>
                                 <p>
                                     <span id="totalconfirmed"></span>
@@ -991,8 +991,8 @@ function getMap() {
                                     <span id="ctoday"></span>
                                 </p>
                             </div>
-                            <div class="col-12 pt-3">
-                                <p class="pt-2 pb-3">Total Recovered</p>
+                            <div class="col-12 col-lg-4 pt-3">
+                                <p class="pt-2 pb-3">Recovered</p>
                                 <p>
                                     <span id="totalrecovered"></span>
                                 </p>
@@ -1000,8 +1000,8 @@ function getMap() {
                                     <span id="rtoday"></span>
                                 </p>
                             </div>
-                            <div class="col-12 pt-3">
-                                <p class="pt-2 pb-3">Total Deaths</p>
+                            <div class="col-12 col-lg-4 pt-3">
+                                <p class="pt-2 pb-3">Deaths</p>
                                 <p>
                                     <span id="totaldeaths"></span>
                                 </p>

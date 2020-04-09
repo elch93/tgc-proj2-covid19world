@@ -191,7 +191,7 @@ button:focus {
     background-color: none;
     position: absolute;
     border-radius: 10px;
-    left: 50%;
+    left: 45%;
     top:0px;
     transform: translateX(-50%);
     font-size: 16px;
@@ -229,9 +229,9 @@ button:focus {
     background-color: none;
     position:fixed;
     border-radius: 10px;
-    top:50%;
+    top:200px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translateX(-50%);
     font-size: 16px;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 500;
@@ -316,8 +316,8 @@ header h6{
     border-radius: 10px;
 }
 
-.leaflet-popup-content {
-    width: 250px;
+.leaflet-popup-content-wrapper {
+    width: 450px !important;
     height: 200px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -361,12 +361,10 @@ header h6{
 /* overview */
 #popup {
     padding: 0 0 0 -10px;
+    width: 410px;
+    border-radius: 10px;
 }
 
-#overview .col-4 {
-    text-align: left;
-    position: relative;;
-}
 
 #overview p {
     margin: -10px 0 0 0;
@@ -498,8 +496,32 @@ header h6{
     stroke: #F3F3F3 !important;
 }
 
+/* tablets */
+@media (max-width:1023.5px) {
+    .leaflet-popup-content-wrapper {
+        width: 320px !important;
+        height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+
+
 /* phones */
 @media (max-width:767.5px) {
+    .leaflet-popup-content-wrapper {
+        width: 250px !important;
+        height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    #popup {
+        padding: 0 0 0 -10px;
+        width: 310px;
+        border-radius: 10px;
+    }
+
     .leaflet-top {
         top:75% !important
     }
