@@ -7,7 +7,7 @@ $(function () {
     $("#searchbtn").click(function(){
         if (menudisplay == "off") {
             $("#selectbg").css("transform","scale(70)")
-            $("#globalbtn").hide()
+            $("#globalbtn").hide(),$("#detailsbtn").hide()
             $(".fa-search").eq(0).hide()
             $("#searchx").show()
             setTimeout(function(){$("#searchbar").fadeToggle(1000)},200)
@@ -19,7 +19,7 @@ $(function () {
             $(".fa-search").eq(0).show()
             $("#searchx").hide()
             $("#searchbar").fadeToggle()
-            $("#globalbtn").fadeToggle(900)
+            $("#globalbtn").fadeToggle(900),$("#detailsbtn").fadeToggle(900)
             menudisplay = "off"
         }
     })
@@ -29,7 +29,7 @@ $(function () {
             $("#globalbg").css("transform","scale(70)")
             $(".fa-globe-americas").hide()
             $("#globalx").show()
-            $("#searchbtn").hide()
+            $("#searchbtn").hide(),$("#detailsbtn").hide()
             $("#globalbtn").css("position","absolute")
             setTimeout(function(){$("#globalstats").fadeToggle(1000)},400)
             menudisplay = "on"
@@ -41,27 +41,27 @@ $(function () {
             $("#globalbtn").css("position","fixed")
             $("#globalx").hide()
             $("#globalstats").fadeToggle()
-            $("#searchbtn").fadeToggle(900)
+            $("#searchbtn").fadeToggle(900),$("#detailsbtn").fadeToggle(900)
             menudisplay = "off"
         }
     })
 
     
-    // $("#detailsbtn").click(function(){
-    //     if (detailsdisplay == "off") {
-    //         $(".fa-info-circle").hide()
-    //         $("#detailsx").show()
-    //         $("#panel").fadeToggle()
-    //         detailsdisplay = "on"
-    //     }
+    $("#detailsbtn").click(function(){
+        if (detailsdisplay == "off") {
+            $(".fa-info-circle").hide()
+            $("#detailsx").show()
+            $("#panel").fadeToggle()
+            detailsdisplay = "on"
+        }
 
-    //     else if (detailsdisplay == "on") {
-    //         $(".fa-info-circle").show()
-    //         $("#detailsx").hide()
-    //         $("#panel").fadeToggle()
-    //         detailsdisplay = "off"
-    //     }
-    // })
+        else if (detailsdisplay == "on") {
+            $(".fa-info-circle").show()
+            $("#detailsx").hide()
+            $("#panel").fadeToggle()
+            detailsdisplay = "off"
+        }
+    })
 
     $("#getData").click(function () {
         $("#searchbar").fadeToggle()

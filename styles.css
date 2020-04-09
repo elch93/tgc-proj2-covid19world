@@ -556,7 +556,7 @@ header h6{
     #map {
         margin: 50px 0 0 0;
         width: 90vw;
-        max-height: 470px;
+        max-height: 450px;
         box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
     }
 
