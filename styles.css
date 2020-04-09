@@ -509,6 +509,10 @@ header h6{
 
 /* phones */
 @media (max-width:767.5px) {
+    #searchbar {
+        text-align: center;
+    }
+
     .leaflet-popup-content-wrapper {
         width: 250px !important;
         height: 200px;
