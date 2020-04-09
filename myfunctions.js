@@ -18,12 +18,12 @@ function getCountryFlag() {
         $("#flagdisplay2").empty()
         countrydisplayed = $("#countrydisplay").text()
 
-        console.log("flag", r.data)
+        //console.log("flag", r.data)
 
         for (let i of r.data) {
             if (countrydisplayed == i.name || countrydisplayed == i.alpha2Code) {
                 $("#flagdisplay").css("background-image", "url(" + i.flag + ")")
-                $("#flagdisplay2").append(`<img src="${i.flag}" style="height:50px">`)
+                $("#flagdisplay2").append(`<img src="${i.flag}">`)
                 break
             }
 
@@ -471,91 +471,7 @@ function loadLatest() {
 
 }//function loadlatest end
 
-
-
-
-
-//#3 load ranking
-function getTop5() {
-    axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
-        let alldata = r.data
-        let countriesdata = []
-        let maxindex = alldata["Singapore"].length - 1
-
-        for (let i in alldata) {
-            let j = 0
-            countriesdata.push(
-                j = {
-                    "Country": i,
-                    "Latest Total": alldata[i][maxindex].confirmed,
-                    "Latest Recovered": alldata[i][maxindex].recovered,
-                    "Latest Deaths": alldata[i][maxindex].deaths,
-                })
-            j++
-        }
-
-        countriesdata.sort(function (a, b) {
-            return b["Latest Total"] - a["Latest Total"]
-        })
-
-        let worldtotal = 0
-        for (let i of countriesdata) {
-            worldtotal += i["Latest Total"]
-        }
-
-
-        let top5 = countriesdata.slice(0, 5)
-
-        // piechart top 5
-        let top5countries = []
-        let top5cases = []
-
-        for (let i of top5) {
-            top5countries.push(i.Country)
-            top5cases.push(i["Latest Total"])
-        }
-
-        top5countries.push("Others")
-
-        for (let i of top5cases) {
-            worldtotal -= i
-        }
-
-        top5cases.push(worldtotal)
-
-        new Chart(document.getElementById("pie-chart"), {
-            type: 'pie',
-            data: {
-                labels: top5countries,
-                datasets: [{
-                    label: "Top 5",
-                    backgroundColor: ["#916953", "#cf8e80", "#fcb5b5", "#ffcdbc", "#E8E4B8", "#303841"],
-                    data: top5cases,
-                    borderWidth: 0,
-                    hoverBackgroundColor: "#EC971F"
-                }]
-            },
-            options: {
-                title: {
-                    fontColor: '#303841',
-                    fontSize: 20,
-                    display: true,
-                    text: 'Top 5 Most Infected Countries'
-                },
-                legend: {
-                    labels: {
-                        fontSize: 16,
-                        fontColor: '#303841'
-                    }
-                }
-            }
-        });
-
-    })//axios end
-}//top 5 function end
-
-
-
+// get global stats
 function getGlobalTotalByDate() {
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
         let data = r.data
@@ -734,9 +650,8 @@ function getGlobalTotalByDate() {
 }//get global stats end
 
 //get map
-// let coordinates = [1.35, 103.85] //sg default
+// let coordinates = [1.35, 103.85] sg default
 
-//get map
 function getMap() {
     axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
         let restcountries = r[0].data
@@ -910,13 +825,13 @@ function getMap() {
             }
         }
 
-        console.log("mapped list", clist)
+        //console.log("mapped list", clist)
         console.log("bugged", buglist)
 
         //removes data without flag/map location
         for (let i = 0; i < $("#countryselect option").length; i++) {
             if (buglist.includes($("#countryselect option").eq(i).text())) {
-                console.log(i)
+                //console.log(i)
                 $("#countryselect option").eq(i).remove()
 
             }
@@ -933,11 +848,6 @@ function getMap() {
 
 
         let map = L.map("map1", { zoomControl: true }).setView(setViewCoordinates, 5.5)
-
-        // $('#getData').click(function () {
-        //     //map.remove()
-        //     //loadLatest()
-        // })
 
         var LeafIcon = L.Icon.extend({
             options: {
@@ -974,8 +884,8 @@ function getMap() {
             if (clist[i][0] == "US") {
                 clist[i][0] = "United States of America"
             }
-            
-            
+
+
 
             m.bindPopup(`
                     <div class="container-fluid" id="popup">
@@ -1033,7 +943,7 @@ function getMap() {
 
                 }
             }
-            console.log(markers)
+            //console.log(markers)
         }
 
 
@@ -1070,6 +980,84 @@ function getMap() {
 
 
 
+
+
+// load world list
+function getGlobalList() {
+    axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
+        let restcountries = r[0].data
+        let pomberdata = r[1].data
+        //sort by data
+        let data = []
+        $("#globallist").empty()
+
+
+
+        for (let i in pomberdata) {
+            pomberdata[i].reverse()
+            convertDates(pomberdata[i])
+            data.push(i)
+        }
+
+        data.sort()
+
+        
+
+        for (let i = 0; i < data.length; i++) {
+            for (let j in pomberdata) {
+                if (data[i] == j) {
+                    for (let k = 0; k < 60; k++) {
+                        if (loaddate == pomberdata[j][k].date) {
+                            data[i] = {
+                                "country": data[i],
+                                "confirmed": pomberdata[j][k].confirmed,
+                                "recovered": pomberdata[j][k].recovered,
+                                "deaths": pomberdata[j][k].deaths
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        console.log("new data", data)
+
+        for (let i of data) {
+            for (let j in restcountries) {
+                if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
+                    $("#globallist").append(`
+                    <div class="container-fluid mb-3">
+                        <img src="${restcountries[j].flag}">
+                        <span>${i['country']}</span>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Total Cases: ${i.confirmed}</p>
+                            </div>
+                            <div class="col-4">
+                                <p>Recovered: ${i.recovered}</p>
+                            </div>
+                            <div class="col-4">
+                                <p>Deaths: ${i.deaths}</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    `)
+                }
+            }
+                
+            
+
+        }
+
+
+
+    })//axios end
+}//get list end
+
+
 //loadonclick
 function getData() {
     $('#map').empty()
@@ -1082,4 +1070,5 @@ function getData() {
     countrymap = countryselected
     loadLatest()
     getGlobalTotalByDate()
+    getGlobalList()
 }

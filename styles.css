@@ -147,7 +147,7 @@ button:focus {
 }
 
 
-#globalbg {
+#globalbg, #listbg {
     position: fixed;
     height: 40px;
     width: 40px;
@@ -161,14 +161,18 @@ button:focus {
     z-index: 99998;
 }
 
+#listbg {
+    left: 120px;
+}
 
-#detailsbtn {
+
+#detailsbtn, #listbtn {
     display:none;
     position: fixed;
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    left:120px;
+    left:170px;
     top:20px;
     background-color: #F3F3F3;
     border: none;
@@ -178,13 +182,17 @@ button:focus {
     font-size: 16px;
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    z-index: 998;
+    z-index: 99999;
+}
+
+#listbtn {
+    left:120px;
+    display: block;
 }
 
 
 
-
-#globalstats {
+#globalstats,#globallist {
     display:none;
     width: 600px;
     height: 550px;
@@ -199,6 +207,20 @@ button:focus {
     color: #303841;
     padding: 10px;
     z-index: 99999;
+}
+
+#globallist {
+    overflow-y: scroll;
+}
+
+#globallist span {
+    font-weight: 900;
+    margin: 0 0 0 10px;
+}
+
+#globallist img, #flagdisplay2 img {
+    height: 60px;
+    width: 100px;
 }
 
 #totalc, #totalr, #totald {
@@ -543,7 +565,7 @@ header h6{
         top:75% !important
     }
         
-    #searchbtn, #selectbg, #globalbtn, #globalbg, #detailsbtn {
+    #searchbtn, #selectbg, #globalbtn, #globalbg, #detailsbtn, #listbtn {
         top:80px;
     }
 
@@ -551,7 +573,7 @@ header h6{
         display: block;
     }
 
-    #globalstats {
+    #globalstats,#globallist {
         top:50px;
         left:0px;
         width: 350px;

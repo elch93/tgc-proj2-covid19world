@@ -7,7 +7,7 @@ $(function () {
     $("#searchbtn").click(function () {
         if (menudisplay == "off") {
             $("#selectbg").css("transform", "scale(70)")
-            $("#globalbtn").hide()
+            $("#globalbtn").hide(),$("#listbtn").hide()
             $(".fa-search").eq(0).hide()
             $("#searchx").show()
             setTimeout(function () { $("#searchbar").fadeToggle(1000) }, 200)
@@ -19,7 +19,7 @@ $(function () {
             $(".fa-search").eq(0).show()
             $("#searchx").hide()
             $("#searchbar").fadeToggle()
-            $("#globalbtn").fadeToggle(900)
+            $("#globalbtn").fadeToggle(900), $("#listbtn").fadeToggle()
             menudisplay = "off"
         }
     })
@@ -29,7 +29,7 @@ $(function () {
             $("#globalbg").css("transform", "scale(70)")
             $(".fa-globe-americas").hide()
             $("#globalx").show()
-            $("#searchbtn").hide()
+            $("#searchbtn").hide(),$("#listbtn").hide()
             $("#globalbtn").css("position", "absolute")
             setTimeout(function () { $("#globalstats").fadeToggle(1000) }, 400)
             menudisplay = "on"
@@ -41,7 +41,29 @@ $(function () {
             $("#globalbtn").css("position", "fixed")
             $("#globalx").hide()
             $("#globalstats").fadeToggle()
-            $("#searchbtn").fadeToggle(900)
+            $("#searchbtn").fadeToggle(900), $("#listbtn").fadeToggle()
+            menudisplay = "off"
+        }
+    })
+
+    $("#listbtn").click(function () {
+        if (menudisplay == "off") {
+            $("#listbg").css("transform", "scale(70)")
+            $(".fa-list-ul").hide()
+            $("#listx").show()
+            $("#searchbtn").hide(),$("#globalbtn").hide()
+            $("#listbtn").css("position", "absolute")
+            setTimeout(function () { $("#globallist").fadeToggle(1000) }, 400)
+            menudisplay = "on"
+        }
+
+        else if (menudisplay == "on") {
+            $("#listbg").css("transform", "scale(1)")
+            $(".fa-list-ul").show()
+            $("#listbtn").css("position", "fixed")
+            $("#listx").hide()
+            $("#globallist").fadeToggle()
+            $("#searchbtn").fadeToggle(900),$("#globalbtn").fadeToggle(900)
             menudisplay = "off"
         }
     })
@@ -66,6 +88,7 @@ $(function () {
     $("#getData").click(function () {
         $("#searchbar").fadeToggle()
         $("#globalbtn").show()
+        $("#listbtn").fadeToggle()
         $(".fa-search").eq(0).show()
         $("#searchx").hide()
         $("#selectbg").css("transform", "scale(1)")
@@ -169,14 +192,8 @@ $(function () {
 
     })//axios for country list
 
-    //getTop5()
+   
     getGlobalTotalByDate()
-
-
-    // setTimeout(
-    //     function () {
-    //         $("#map").fadeToggle()
-    //     }, 800
-    // )
+    getGlobalList()
 
 })//jquery end
