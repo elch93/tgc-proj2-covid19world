@@ -2,6 +2,7 @@ $(function () {
 
     //menu
     let menudisplay = "off"
+    let detailsdisplay = "off"
     
     $("#searchbtn").click(function(){
         if (menudisplay == "off") {
@@ -47,18 +48,18 @@ $(function () {
 
     
     $("#detailsbtn").click(function(){
-        if (menudisplay == "off") {
+        if (detailsdisplay == "off") {
             $(".fa-info-circle").hide()
             $("#detailsx").show()
             $("#panel").fadeToggle()
-            menudisplay = "on"
+            detailsdisplay = "on"
         }
 
-        else if (menudisplay == "on") {
+        else if (detailsdisplay == "on") {
             $(".fa-info-circle").show()
             $("#detailsx").hide()
             $("#panel").fadeToggle()
-            menudisplay = "off"
+            detailsdisplay = "off"
         }
     })
 

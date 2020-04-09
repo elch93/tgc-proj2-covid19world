@@ -328,7 +328,7 @@ header h6{
     height: 550px;
     width: 380px;
     border: 1px rgba(0,0,0,0.4) solid;
-    z-index: 99997;
+    z-index: 93;
     background-color: #303841;
     box-shadow: 5px 20px 20px 0 rgba(0,0,0,0.4);
     border-radius: 10px;
