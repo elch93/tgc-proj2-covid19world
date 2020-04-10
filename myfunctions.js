@@ -183,7 +183,7 @@ function loadLatest() {
             numofc += 1
         }
 
-        console.log(numofc)
+        
 
         for (let i = 0; i < 60; i++) {
             if (countrydata[i].date == loaddate) {
@@ -331,31 +331,32 @@ function loadLatest() {
 
 
 
+                for (let i of weeklydata) {
+                    i.date = moment(i.date,"MM/DD").toDate()
+                }
 
 
-
-                //console.table(weeklydata)
                 let maxcweekly = weeklydata[0].confirmed
                 let mincweekly = weeklydata[6].confirmed
 
 
                 let cfconfirmed = crossfilter(weeklydata)
                 let weeklycx = cfconfirmed.dimension(f => f.date)
+                
                 let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
 
                 let cgraph = new dc.LineChart("#linegraphc")
-                cgraph.width(300) //make mobile responsive later!
+                cgraph.width(300)
                     .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklycy)
-                    .x(d3.scaleBand())
+                    .x(d3.scaleTime().domain(weeklydata[6].date, weeklydata[0].date))
                     .xUnits(dc.units.ordinal)
-                    //.xAxisLabel("Date")
                     .y(d3.scaleLinear().domain([mincweekly * 0.95, maxcweekly * 1.05]))
-                    // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
-
+                cgraph.xAxis()
+                    .tickFormat(d3.timeFormat("%d/%m"))
 
 
                 let maxrweekly = weeklydata[0].recovered
@@ -363,18 +364,17 @@ function loadLatest() {
                 let weeklyry = weeklycx.group().reduceSum(f => f.recovered)
 
                 let rgraph = new dc.LineChart("#linegraphr")
-                rgraph.width(300) //make mobile responsive later!
+                rgraph.width(300) 
                     .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklyry)
-                    .x(d3.scaleBand())
+                    .x(d3.scaleTime().domain(weeklydata[6].date, weeklydata[0].date))
                     .xUnits(dc.units.ordinal)
-                    //.xAxisLabel("Date")
                     .y(d3.scaleLinear().domain([minrweekly * 0.95, maxrweekly * 1.05]))
-                    // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
-
+                rgraph.xAxis()
+                    .tickFormat(d3.timeFormat("%d/%m"))
 
 
                 let maxdweekly = weeklydata[0].deaths
@@ -383,17 +383,17 @@ function loadLatest() {
                 let weeklydy = weeklycx.group().reduceSum(f => f.deaths)
 
                 let dgraph = new dc.LineChart("#linegraphd")
-                dgraph.width(300) //make mobile responsive later!
+                dgraph.width(300) 
                     .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
                     .group(weeklydy)
-                    .x(d3.scaleBand())
+                    .x(d3.scaleTime().domain(weeklydata[6].date, weeklydata[0].date))
                     .xUnits(dc.units.ordinal)
-                    //.xAxisLabel("Date")
                     .y(d3.scaleLinear().domain([mindweekly * 0.95, maxdweekly * 1.05]))
-                    // .yAxisLabel("Cases")
                     .yAxis().ticks(4)
+                dgraph.xAxis()
+                    .tickFormat(d3.timeFormat("%d/%m"))
 
                 dc.renderAll()
 
@@ -836,7 +836,7 @@ function getMap() {
         }
 
         //console.log("mapped list", clist)
-        console.log("bugged", buglist)
+        //console.log("bugged", buglist)
 
         //removes data without flag/map location
         for (let i = 0; i < $("#countryselect option").length; i++) {
@@ -1029,7 +1029,6 @@ function getGlobalList() {
                 }
             }
         }
-        console.log("BUGGG", data)
 
         //console.log("new data", data, data.length)
         //console.log("flag", restcountries)
