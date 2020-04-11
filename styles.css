@@ -39,10 +39,7 @@ body {
 body{
     margin: 0;
     background: linear-gradient(90deg, rgba(15,16,18,1) 0%, rgba(37,43,50,1) 49%, rgba(51,51,51,1) 100%);
-    background-image: url(images/earth.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
     
 }
 
@@ -186,7 +183,7 @@ button:focus {
     font-size: 16px;
     padding: 3px 5px;
     transition: background-color ease-in 0.4s, color ease-in 0.4s;
-    z-index: 3;
+    z-index: 9999;
 }
 
 #listbtn {
@@ -566,10 +563,6 @@ header h6{
 
 /* phones */
 @media (max-width:767.5px) {
-    body{
-        padding: 0;
-    }
-
     #searchbar {
         text-align: center;
         width: 100vw;
