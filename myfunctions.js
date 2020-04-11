@@ -170,7 +170,8 @@ function loadLatest() {
 
     $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(),
         $("#datedisplay").empty(), $("#countrydisplay").empty(), $("#totalconfirmed").empty(),
-        $("#totalrecovered").empty(), $("#totaldeaths").empty();
+        $("#totalrecovered").empty(), $("#totaldeaths").empty(),$("#crr").empty(),
+        $("#cdr").empty();
 
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
@@ -857,7 +858,7 @@ function getMap() {
         }
 
 
-        let map = L.map("map1", { zoomControl: true }).setView(setViewCoordinates, 5.5)
+        let map = L.map("map1", { zoomControl: true }).setView(setViewCoordinates, 7.5)
 
         var LeafIcon = L.Icon.extend({
             options: {
@@ -900,7 +901,7 @@ function getMap() {
             m.bindPopup(`
                     <div class="container-fluid" id="popup">
                         <div class="mb-2" id="flagdisplay2"></div>
-                        <h5 id="countryOnMap"><b>${clist[i][0]}</b></h5>
+                        <p id="countryOnMap"><b>${clist[i][0]}</b></p>
                         <div class="row justify-content-center" id="overview">
                             <div class="col-12 col-lg-4 pt-3">
                                 <p class="pt-2 pb-3">Total Cases</p>

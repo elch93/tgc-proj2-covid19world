@@ -6,7 +6,7 @@ $(function () {
 
     $("#searchbtn").click(function () {
         if (menudisplay == "off") {
-            $("#selectbg").css("transform", "scale(70)")
+            $("#selectbg").css("transform", "scale(100)")
             $("#globalbtn").hide(),$("#listbtn").hide()
             $(".fa-search").eq(0).hide()
             $("#searchx").show()
@@ -26,7 +26,7 @@ $(function () {
 
     $("#globalbtn").click(function () {
         if (menudisplay == "off") {
-            $("#globalbg").css("transform", "scale(70)")
+            $("#globalbg").css("transform", "scale(100)")
             $(".fa-globe-americas").hide()
             $("#globalx").show()
             $("#searchbtn").hide(),$("#listbtn").hide()
@@ -48,7 +48,7 @@ $(function () {
 
     $("#listbtn").click(function () {
         if (menudisplay == "off") {
-            $("#listbg").css("transform", "scale(70)")
+            $("#listbg").css("transform", "scale(100)")
             $(".fa-list-ul").hide()
             $("#listx").show()
             $("#searchbtn").hide(),$("#globalbtn").hide()
@@ -196,13 +196,13 @@ $(function () {
     getGlobalTotalByDate()
     getGlobalList()
 
-    // $(window).on('load', function(){
-    //     $("#mymodal").modal("show")
-    // })
+    $(window).on('load', function(){
+        $("#mymodal").modal("show")
+    })
 
-    // $("#modalbtn").on("click", function(){
-    //     $("mymodal").modal("hide")
-    // })
+    $("#modalbtn").on("click", function(){
+        $("mymodal").modal("hide")
+    })
 
 
 
