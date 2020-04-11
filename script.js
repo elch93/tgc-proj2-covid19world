@@ -196,13 +196,13 @@ $(function () {
     getGlobalTotalByDate()
     getGlobalList()
 
-    $(window).on('load', function(){
-        $("#mymodal").modal("show")
-    })
+    // $(window).on('load', function(){
+    //     $("#mymodal").modal("show")
+    // })
 
-    $("#modalbtn").on("click", function(){
-        $("mymodal").modal("hide")
-    })
+    // $("#modalbtn").on("click", function(){
+    //     $("mymodal").modal("hide")
+    // })
 
 
 
