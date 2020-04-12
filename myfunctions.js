@@ -326,12 +326,12 @@ function loadLatest() {
                 function destroyChart() {
                     $("#cccontainer").empty()
                     $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
-                    
+
                 }
 
 
                 $("#getData").click(function () {
-                   destroyChart()
+                    destroyChart()
                 })
 
 
@@ -486,7 +486,8 @@ function getGlobalTotalByDate() {
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
         let data = r.data
         $("#totalc").empty(), $("#totalr").empty(), $("#totald").empty(),
-            $("#worldCIncrease").empty(), $("#worldRIncrease").empty(), $("#worldDIncrease").empty()
+            $("#worldCIncrease").empty(), $("#worldRIncrease").empty(), $("#worldDIncrease").empty(),
+            $("#wrr").empty(), $("#wdr").empty()
 
         //converting dates to ISO format
         for (let i in data) {
@@ -944,7 +945,7 @@ function getMap() {
             m.on("click", function () {
                 $("#cccontainer").empty()
                 $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
-                
+
                 getDataFromMap()
             })
             countrycluster.addLayer(m)
@@ -986,7 +987,7 @@ function getMap() {
                 countryname = countryselected
                 loaddate = dateselected
                 countrymap = countryselected
-                
+
 
                 loadLatest()
             }, 800)
