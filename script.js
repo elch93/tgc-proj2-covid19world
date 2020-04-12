@@ -7,8 +7,7 @@ $(function () {
     $("#searchbtn").click(function () {
         if (menudisplay == "off") {
             $("#selectbg").css("transform", "scale(100)")
-            $("#globalbtn").hide(),$("#listbtn").hide()
-            $(".fa-search").eq(0).hide()
+            $("#globalbtn").hide(),$("#listbtn").hide(),$(".fa-search").eq(0).hide()
             $("#searchx").show()
             setTimeout(function () { $("#searchbar").fadeToggle(1000) }, 200)
             menudisplay = "on"

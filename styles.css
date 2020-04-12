@@ -19,7 +19,6 @@ background: linear-gradient(90deg, rgba(233,154,47,1) 0%, rgba(235,148,30,1) 50%
 
 
 font-family: 'Yantramanav', sans-serif;
-font-family: 'Catamaran', sans-serif;
 font-family: 'Heebo', sans-serif;
 font-family: 'Oswald', sans-serif;
 font-family: 'Noto Sans SC', sans-serif;
@@ -473,7 +472,7 @@ header h6{
 
 #linegraphd .line {
     fill:none;
-    stroke: #82124A;
+    stroke: #EC4E6D;
     stroke-width: 3px;
     }
 
@@ -646,7 +645,7 @@ header h6{
     }
 
     #countrydisplay {
-        font-family: 'Catamaran', sans-serif;
+        font-family: 'Yantramanav', sans-serif;
         text-transform: uppercase;
         font-size: 18px;
         margin: 15px 0px 0px 15px;
