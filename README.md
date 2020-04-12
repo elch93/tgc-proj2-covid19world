@@ -1,4 +1,5 @@
 # COVIDWORLD - COVID-19 Stats Tracker
+The website can be viewed [here](https://elch93.github.io/tgc-proj2-covid19world/)) [https://elch93.github.io/tgc-proj2-covid19world/].
 
 In light of the current situation, I have decided to make a website that tracks the statistics of the COVID-19 in countries around the world for Code Institute's Interactive Frontend Development Milestone Project. The statistics provide a quick insight into the total cases, recovered and deaths of each available country in each day.
  
@@ -85,14 +86,14 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
-- COVID-19 Time Series API by [Pomber]. [https://github.com/pomber/covid19]
-- Countries information (e.g. flag pictures, country coordinates) API by [Apilayer]. [https://github.com/apilayer/restcountries]
+- COVID-19 Time Series API by [Pomber](https://github.com/pomber/covid19).
+- Countries information (e.g. flag pictures, country coordinates) API by [Apilayer](https://github.com/apilayer/restcountries).
 - W3Schools for various tutorials: bootstrap modal, custom carousel.
 - Stackoverflow for various helpful answers in helping me create my dc d3 js charts and modifying the Leaflet map.
 
 
 ### Media
-- Country flags are credited to restcountries api as stated above.
+- Country flags are credited to restcountries API as stated above.
 
 ### Acknowledgements
 
