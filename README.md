@@ -1,5 +1,5 @@
 # COVIDWORLD - COVID-19 Stats Tracker
-The website can be viewed [here](https://elch93.github.io/tgc-proj2-covid19world/)) [https://elch93.github.io/tgc-proj2-covid19world/].
+The website can be viewed [here](https://elch93.github.io/tgc-proj2-covid19world/) https://elch93.github.io/tgc-proj2-covid19world/.
 
 In light of the current situation, I have decided to make a website that tracks the statistics of the COVID-19 in countries around the world for Code Institute's Interactive Frontend Development Milestone Project. The statistics provide a quick insight into the total cases, recovered and deaths of each available country in each day.
  
