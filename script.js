@@ -145,7 +145,7 @@ $(function () {
 
     getMap()
     let countrylist = []
-    setTimeout(function () { loadLatest() }, 600)
+   
 
     //adding countries & dates to options
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
@@ -191,7 +191,7 @@ $(function () {
 
     })//axios for country list
 
-   
+    setTimeout(function () { loadLatest() }, 1000)
     getGlobalTotalByDate()
     getGlobalList()
 
