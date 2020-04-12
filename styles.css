@@ -185,7 +185,7 @@ button:focus {
 }
 
 #globallist {
-    overflow-y: hidden;
+    overflow-y: scroll;
     margin: 100px auto;
     transform: none;
     left: 120px;
