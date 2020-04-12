@@ -170,8 +170,10 @@ function loadLatest() {
 
     $("#ctoday").empty(), $("#rtoday").empty(), $("#dtoday").empty(),
         $("#datedisplay").empty(), $("#countrydisplay").empty(), $("#totalconfirmed").empty(),
-        $("#totalrecovered").empty(), $("#totaldeaths").empty(),$("#crr").empty(),
+        $("#totalrecovered").empty(), $("#totaldeaths").empty(), $("#crr").empty(),
         $("#cdr").empty();
+
+
 
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (response) {
         //get the daily data
@@ -184,7 +186,7 @@ function loadLatest() {
             numofc += 1
         }
 
-        
+
 
         for (let i = 0; i < 60; i++) {
             if (countrydata[i].date == loaddate) {
@@ -321,19 +323,22 @@ function loadLatest() {
                     }
                 });
 
+                function destroyChart() {
+                    $("#cccontainer").empty()
+                    $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
+                    
+                }
 
 
                 $("#getData").click(function () {
-                    $("#cccontainer").empty()
-                    countryline.destroy()
-                    $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
+                   destroyChart()
                 })
 
 
 
 
                 for (let i of weeklydata) {
-                    i.date = moment(i.date,"MM/DD").toDate()
+                    i.date = moment(i.date, "MM/DD").toDate()
                 }
 
 
@@ -343,7 +348,7 @@ function loadLatest() {
 
                 let cfconfirmed = crossfilter(weeklydata)
                 let weeklycx = cfconfirmed.dimension(f => f.date)
-                
+
                 let weeklycy = weeklycx.group().reduceSum(f => f.confirmed)
 
                 let cgraph = new dc.LineChart("#linegraphc")
@@ -365,7 +370,7 @@ function loadLatest() {
                 let weeklyry = weeklycx.group().reduceSum(f => f.recovered)
 
                 let rgraph = new dc.LineChart("#linegraphr")
-                rgraph.width(300) 
+                rgraph.width(300)
                     .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
@@ -384,7 +389,7 @@ function loadLatest() {
                 let weeklydy = weeklycx.group().reduceSum(f => f.deaths)
 
                 let dgraph = new dc.LineChart("#linegraphd")
-                dgraph.width(300) 
+                dgraph.width(300)
                     .height(230)
                     .brushOn(true)
                     .dimension(weeklycx)
@@ -937,6 +942,9 @@ function getMap() {
             markers.push(m)
 
             m.on("click", function () {
+                $("#cccontainer").empty()
+                $("#cccontainer").append(`<canvas id="combined" width="300" height="370"></canvas>`)
+                
                 getDataFromMap()
             })
             countrycluster.addLayer(m)
@@ -978,6 +986,7 @@ function getMap() {
                 countryname = countryselected
                 loaddate = dateselected
                 countrymap = countryselected
+                
 
                 loadLatest()
             }, 800)
