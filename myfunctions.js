@@ -98,9 +98,8 @@ function getCountryFlag() {
 
 } //get country flag end
 
-
+//converting dates to ISO format
 function convertDates(countrydata) {
-    //converting dates to ISO format
     for (let i of countrydata) {
         if (i.date[6] === "-") {
             i.date = i.date.substr(0, 5) + "0" + i.date.substr(5);
@@ -111,7 +110,6 @@ function convertDates(countrydata) {
         i.date = moment(i.date).format("DD/MM/YY");
     }
 }
-
 
 
 let countryname = "Singapore"; //SG by default;
@@ -127,7 +125,7 @@ loaddate = moment(loaddate).format("DD/MM/YY");
 console.log(loaddate);
 let countrymap = "Singapore";
 
-//#1 load latest info
+//load latest info
 function loadLatest() {
 
     getMap();
@@ -191,12 +189,6 @@ function loadLatest() {
                 $("#totalrecovered").append(`${thousands_separators(countrydata[i].recovered)}`);
                 $("#totaldeaths").append(`${thousands_separators(countrydata[i].deaths)}`);
 
-
-
-
-
-
-
                 //get the data for past 7 days
                 let weeklydata = countrydata.slice(i, i + 7);
                 //reduce date length on x axis by removing YY
@@ -204,13 +196,11 @@ function loadLatest() {
                     i.date = moment(i.date, "DD/MM/YY").format("MM/DD");
                 }
 
-
                 // linechart combined
                 let cArr = [];
                 let rArr = [];
                 let dArr = [];
                 let dateArr = [];
-
 
                 for (let i of weeklydata) {
                     cArr.unshift(i.confirmed);
@@ -218,8 +208,6 @@ function loadLatest() {
                     dArr.unshift(i.deaths);
                     dateArr.unshift(i.date);
                 }
-
-
 
                 let countryline = new Chart(document.getElementById("combined"), {
                     type: 'line',
@@ -293,22 +281,16 @@ function loadLatest() {
 
                 }
 
-
                 $("#getData").click(function () {
                     destroyChart();
                 });
-
-
-
 
                 for (let i of weeklydata) {
                     i.date = moment(i.date, "MM/DD").toDate();
                 }
 
-
                 let maxcweekly = weeklydata[0].confirmed;
                 let mincweekly = weeklydata[6].confirmed;
-
 
                 let cfconfirmed = crossfilter(weeklydata);
                 let weeklycx = cfconfirmed.dimension(f => f.date);
@@ -346,7 +328,6 @@ function loadLatest() {
                 rgraph.xAxis()
                     .tickFormat(d3.timeFormat("%d/%m"));
 
-
                 let maxdweekly = weeklydata[0].deaths;
                 let mindweekly = weeklydata[6].deaths;
 
@@ -369,13 +350,7 @@ function loadLatest() {
 
 
 
-
-
-
-
-
-
-                //rr & dr chart
+                //recovery rate & death rate chart
                 let recoveryrate = ((countrydata[i].recovered / countrydata[i].confirmed) * 100).toFixed(2);
                 let remainderr = 100 - recoveryrate;
                 //recovery rates chart
@@ -623,7 +598,7 @@ function getGlobalTotalByDate() {
     }); //axios end
 } //get global stats end
 
-//get map
+// get map
 // let coordinates = [1.35, 103.85] sg default
 
 function getMap() {
@@ -795,7 +770,6 @@ function getMap() {
 
         var LeafIcon = L.Icon.extend({
             options: {
-                // shadowUrl: 'leaf-shadow.png',
                 iconSize: [38, 38],
                 shadowSize: [0, 0],
                 iconAnchor: [22, 35],
@@ -895,7 +869,6 @@ function getMap() {
 
                 }
             }
-            //console.log(markers)
         }
 
 
@@ -973,8 +946,6 @@ function getGlobalList() {
             }
         }
 
-        //console.log("new data", data, data.length)
-        //console.log("flag", restcountries)
         for (let i of data) {
             if (i.country == "Taiwan*") {
                 i.country = "Taiwan";
@@ -1011,14 +982,10 @@ function getGlobalList() {
             }
         }
 
-        // let listcount = []
-
-        // let pomberlist = []
 
         $("#globallist1").append(`<a href="#top" id="b2top"><i class="fas fa-arrow-circle-up"></i></a>`);
 
         for (let i of data) {
-            // pomberlist.push(i.country)
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
                     $("#globallist1").append(`
@@ -1039,7 +1006,7 @@ function getGlobalList() {
                     </div>
 
                     `);
-                    // listcount.push(i.country)    
+                       
                 }
 
 
@@ -1051,15 +1018,6 @@ function getGlobalList() {
 
 
 
-        // for (let i in pomberlist) {
-        //     for (let j in listcount) {
-        //         if ( pomberlist[i] == listcount[j]) {
-        //             delete pomberlist[i]
-        //         }
-        //     }
-        // }
-
-        // console.log(pomberlist)
 
     }); //axios end
 } //get list end
@@ -1104,8 +1062,6 @@ function getGlobalListByRank() {
 
         data.sort((a, b) => b.confirmed - a.confirmed);
 
-        //console.log("new data", data, data.length)
-        //console.log("flag", restcountries)
         for (let i of data) {
             if (i.country == "Taiwan*") {
                 i.country = "Taiwan";
@@ -1142,14 +1098,11 @@ function getGlobalListByRank() {
             }
         }
 
-        // let listcount = []
-
-        // let pomberlist = []
 
         $("#globallist1").append(`<a href="#top" id="b2top"><i class="fas fa-arrow-circle-up"></i></a>`);
         let rankno = 1;
         for (let i of data) {
-            // pomberlist.push(i.country)
+           
 
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {
@@ -1173,7 +1126,6 @@ function getGlobalListByRank() {
 
                     `);
                     rankno += 1;
-                    // listcount.push(i.country)    
                 }
 
 
@@ -1185,21 +1137,11 @@ function getGlobalListByRank() {
 
 
 
-        // for (let i in pomberlist) {
-        //     for (let j in listcount) {
-        //         if ( pomberlist[i] == listcount[j]) {
-        //             delete pomberlist[i]
-        //         }
-        //     }
-        // }
-
-        // console.log(pomberlist)
-
     }); //axios end
 } //get list end
 
 
-//loadonclick
+// load on click
 function getData() {
     $('#map').empty();
     $('#map').append(`<div id="map1"></div>`);
