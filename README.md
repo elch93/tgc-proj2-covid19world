@@ -71,7 +71,7 @@ The colors used are mainly black background and white text, with orange, red and
 
 - The console will have error messages regarding the initialisation of the Leaflet map but this does not affect the functions of the website or obstruct its goal.
 
-- Since the API by Pomber is updated daily according to his Timezone, I have to deduct 1-2 days from the current date in order to retrieve the 'latest' data due to our Timezone differences. That being said., the numbers shown on the website will definitely be slightly behind that of those reported by the news or governments.
+- Since the API by Pomber is updated daily according to his Timezone, I have to deduct 1-2 days from the current date in order to retrieve the 'latest' data due to our Timezone differences. That being said, the numbers shown on the website will definitely be slightly behind that of those reported by the news or governments.
 
 ### Main Challenges
 - Previously, the statistics on the page usually did not display on the first time the website is loaded. This could be due to the clash in load timings of the map and APIs. To combat this issue, I deployed some setTimeout functions to allow the map to load properly first before appending statistics across the page and this seemed to have worked.
