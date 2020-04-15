@@ -73,6 +73,10 @@ The colors used are mainly black background and white text, with orange, red and
 
 - Since the API by Pomber is updated daily according to his Timezone, I have to deduct 1-2 days from the current date in order to retrieve the 'latest' data due to our Timezone differences. That being said, the numbers shown on the website will definitely be slightly behind that of those reported by the news or governments.
 
+- Certain country names between the 2 APIs are named differently and I had to either manually rename each of them or exclude them from the data. Stats from cruise ships such as Diamond Princess were also excluded.
+
+- I am aware that my codes, especially Javascript codes, can be further optimized.
+
 ### Main Challenges
 - Previously, the statistics on the page usually did not display on the first time the website is loaded. This could be due to the clash in load timings of the map and APIs. To combat this issue, I deployed some setTimeout functions to allow the map to load properly first before appending statistics across the page and this seemed to have worked.
 
@@ -98,7 +102,8 @@ The colors used are mainly black background and white text, with orange, red and
 - COVID-19 Time Series API by [Pomber](https://github.com/pomber/covid19).
 - Countries information (e.g. flag pictures, country coordinates) API by [Apilayer](https://github.com/apilayer/restcountries).
 - W3Schools for various tutorials: bootstrap modal, custom carousel.
-- Stackoverflow for helpful answers in helping me create my dc d3 js charts and modifying the Leaflet map.
+- Stackoverflow for helpful answers in helping me create my dc d3 js charts and modifying the Leaflet map, as well as teaching me the code for thousands separator.
+- Leaflet Map tutorial by my [lecturer](https://github.com/kunxin-chor/tgc5-leaflet). 
 
 
 ### Media
