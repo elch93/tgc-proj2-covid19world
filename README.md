@@ -71,7 +71,9 @@ The colors used are mainly black background and white text, with orange, red and
 
 - The console will have error messages regarding the initialisation of the Leaflet map but this does not affect the functions of the website or obstruct its goal.
 
-- Since the API by Pomber is updated daily according to his Timezone, I have to deduct 1-2 days from the current date in order to retrieve the 'latest' data due to our Timezone differences. That being said, the numbers shown on the website will definitely be slightly behind that of those reported by the news or governments.
+- Since the API by Pomber is updated daily* according to his Timezone, I have to deduct 1-2 days from the current date in order to retrieve the 'latest' data due to our Timezone differences. That being said, the numbers shown on the website will definitely be slightly behind that of those reported by the news or governments.
+
+*(Update: 24 April 2020) In response to the inconsistencies of the updates to the API by the owner, I have deployed a fix to remove the loading of data based on the current date. Instead, the data will now load based on the latest available date in the JSON file(which is 22 April 2020 at this point in time).*
 
 - Certain country names between the 2 APIs are named differently and I had to either manually rename each of them or exclude them from the data. Stats from cruise ships such as Diamond Princess were also excluded.
 
