@@ -114,15 +114,23 @@ function convertDates(countrydata) {
 
 let countryname = "Singapore"; //SG by default;
 
-//obtaining latest date, the json is 1,2 days behind
-let todaydate = new Date();
-console.log(todaydate.getDay());
-let loaddate = moment(todaydate).subtract(1, "day");
-if (todaydate.getHours() <= 8) {
-    loaddate = moment(todaydate).subtract(2, "day");
+//obtaining latest date, the json is 1,2 days behind or can cause website to stop working if json file is not updated
+let loaddate = undefined
+
+
+function checkLatestDate() {
+    
+    axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
+        let latestdate = r.data.Singapore.reverse()[0].date;
+        latestdate = moment(latestdate,"YYYY-MM-DD").format("DD/MM/YY");
+        loaddate = latestdate
+        // console.log("TEST", loaddate)
+    })
+    
 }
-loaddate = moment(loaddate).format("DD/MM/YY");
-console.log(loaddate);
+
+checkLatestDate()
+
 let countrymap = "Singapore";
 
 //load latest info
@@ -418,6 +426,8 @@ function loadLatest() {
 
 } //function loadlatest end
 
+
+
 // get global stats
 function getGlobalTotalByDate() {
     axios.get("https://pomber.github.io/covid19/timeseries.json").then(function (r) {
@@ -431,6 +441,7 @@ function getGlobalTotalByDate() {
             convertDates(data[i]);
         }
 
+        
 
         let totalc = 0;
         let totalr = 0;
@@ -475,6 +486,9 @@ function getGlobalTotalByDate() {
             past7dArr.push(totald2);
             dateArr.push(past7global[0][j].date);
         }
+
+
+
 
         let worldCIncrease = past7cArr[6] - past7cArr[5];
         let worldRIncrease = past7rArr[6] - past7rArr[5];
@@ -1006,7 +1020,7 @@ function getGlobalList() {
                     </div>
 
                     `);
-                       
+
                 }
 
 
@@ -1102,7 +1116,7 @@ function getGlobalListByRank() {
         $("#globallist1").append(`<a href="#top" id="b2top"><i class="fas fa-arrow-circle-up"></i></a>`);
         let rankno = 1;
         for (let i of data) {
-           
+
 
             for (let j in restcountries) {
                 if (i.country == restcountries[j].name || i.country == restcountries[j].alpha2Code) {

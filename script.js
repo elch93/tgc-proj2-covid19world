@@ -1,5 +1,5 @@
 $(function () {
-
+    
     //menu
     let menudisplay = "off";
     let detailsdisplay = "off";
