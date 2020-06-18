@@ -615,8 +615,8 @@ function getGlobalTotalByDate() {
 // get map
 // let coordinates = [1.35, 103.85] sg default
 
-function getMap() {
-    axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
+async function getMap() {
+    await axios.all([axios.get("https://restcountries.eu/rest/v2/all"), axios.get("https://pomber.github.io/covid19/timeseries.json")]).then(function (r) {
         let restcountries = r[0].data;
         let pomberdata = r[1].data;
         let clist = [];
